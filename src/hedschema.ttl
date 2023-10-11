@@ -1,0 +1,151 @@
+@prefix hed: <https://purl.org/hed/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
+
+# Potential items to use
+# @prefix dcat: <http://www.w3.org/ns/dcat#> .
+# @prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+# @prefix dcterms: <http://purl.org/dc/terms/> .
+# @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+# @prefix schema: <https://schema.org/> .
+# @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+# @prefix void: <http://rdfs.org/ns/void#> .
+# @prefix ex: <http://example.org/> .
+# @prefix sh: <http://www.w3.org/ns/shacl#> .
+# @prefix property: <http://fr.dbpedia.org/property/> .
+
+
+hed:HedElement rdf:type owl:Class ;
+    rdfs:comment "A class representing any element of a HED schema" .
+    
+hed:HedNode rdf:type owl:Class ; 
+    rdfs:subClassOf hed:HedElement ;
+    rdfs:comment "A class representing a HED term or node" .
+
+hed:UnitClass rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedElement ;
+    rdfs:comment "A class representing a HED a unit class" ;    
+    rdfs:label "Unit classes" .
+
+hed:UnitModifier rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedElement ;
+    rdfs:comment "A class representing an SI unit prefix" ;
+    rdfs:label "Unit modifers" .
+
+hed:ValueClass rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedElement ;
+    rdfs:comment "A class representing a type of value" ;
+    rdfs:label "Value classes" .  
+
+hed:SchemaAttribute rdf:type owl:Class ; 
+    rdfs:subClassOf hed:HedElement ; 
+    rdfs:comment "A class representing a schema attribute" ; 
+    rdfs:label "Schema attributes" .
+
+# Definition of the hasParent property for doing the Hierarchy
+hed:hasHedParent rdf:type owl:ObjectProperty ;
+    rdfs:comment "Represents the relationship of a HED term to its parent in HED hierarchy" ;
+    rdfs:label "hasHedParent" ;
+    rdfs:domain hed:HedNode ;
+    rdfs:range xsd:boolean .    
+            
+# Definition of the properties
+hed:isBoolProperty rdf:type owl:ObjectProperty ;
+    rdfs:comment "Indicates this schema attribute can apply to any type of element(tag term, unit class, etc)." ;
+    rdfs:label "boolProperty" ;
+    rdfs:domain hed:SchemaAttribute ;
+    rdfs:range xsd:boolean .
+
+hed:isElementProperty rdf:type owl:ObjectProperty ;
+    rdfs:comment "Indicates this schema attribute can apply to any type of element(tag term, unit class, etc)." ;
+    rdfs:label "elementProperty" ;
+    rdfs:domain hed:SchemaAttribute ;
+    rdfs:range xsd:boolean .
+
+hed:isInheritedProperty rdf:type owl:ObjectProperty ;
+    rdfs:comment "Indicates that this attribute is inherited by child nodes. This property only applies to schema attributes for nodes." ;
+    rdfs:label "isHeritedProperty" ;
+    rdfs:domain hed:SchemaAttribute ;
+    rdfs:range xsd:boolean .
+
+hed:isNodeProperty rdf:type owl:ObjectProperty ;
+    rdfs:comment "Indicates this schema attribute applies to node (tag-term) elements. This was added to allow for an attribute to apply to multiple elements." ;
+    rdfs:label "nodeProperty" ;
+    rdfs:domain hed:SchemaAttribute ;
+    rdfs:range xsd:boolean .
+
+hed:isUnitClassProperty rdf:type owl:ObjectProperty ;
+    rdfs:comment "Indicates that the schema attribute is meant to be applied to unit classes." ;
+    rdfs:label "unitClassProperty" ;
+    rdfs:domain hed:SchemaAttribute ;
+    rdfs:range xsd:boolean .
+
+hed:isUnitModifierProperty rdf:type owl:ObjectProperty ;
+    rdfs:comment "Indicates that the schema attribute is meant to be applied to unit modifier classes." ;
+    rdfs:label "unitModifierProperty" ;
+    rdfs:domain hed:SchemaAttribute ;
+    rdfs:range xsd:boolean .
+
+hed:isUnitProperty rdf:type owl:ObjectProperty ;
+    rdfs:comment "Indicates that the schema attribute is meant to be applied to units within a unit class." ;
+    rdfs:label "unitProperty" ;
+    rdfs:domain hed:SchemaAttribute ;
+    rdfs:range xsd:boolean .
+
+hed:isValueClassProperty rdf:type owl:ObjectProperty ;
+    rdfs:comment "Indicates that the schema attribute is meant to be applied to value classes." ;
+    rdfs:label "valueClassProperty" ;
+    rdfs:domain hed:SchemaAttribute ;
+    rdfs:range xsd:boolean .
+
+# -----------------------------------------------------
+hed:isTopLevelTag rdf:type owl:ObjectProperty ;
+    rdfs:comment "Indicates that the HedNode is a top-level tag." ;
+    rdfs:label "isTopLevelTag" ;
+    rdfs:domain hed:HedNode ;
+    rdfs:range xsd:boolean .       
+
+hed:hasHedParent rdf:type owl:ObjectProperty ;
+    rdfs:comment "Indicates the parent of a HedNode." ;
+    rdfs:label "hedParent" ;
+    rdfs:domain hed:HedNode ;
+    rdfs:range hed:HedNode .       
+
+
+# --------------------------------------------------
+# Schema attributes: are encoded as instances of the hed:SchemaAttribute class
+
+hed:conversionFactor rdf:type owl:class ;
+    rdfs:subClassOf hed:SchemaAttribute ; 
+    rdfs:comment "The multiplicative factor to multiply these units to convert to default units." ;
+    rdfs:label "conversionFactor" .
+
+
+hed:conversionFactorValue rdf:type owl:DatatypeProperty ;
+    rdfs:comment "Specifies the conversion value associated with conversionFactor" ;
+    rdfs:label "conversionFactorValue" ;    
+    rdfs:domain hed:conversionFactor ;        
+    rdfs:range xsd:double .
+
+hed:conversionFactor_m-per-s2 rdf:type hed:conversionFactor ;
+# An instance of conversionFactor associated with 
+    hed:label: "conversionFactor for m-per-s^" ;    
+    hed:isUnitProperty: true ;
+    hed:isUnitModifierProperty: true ;
+    hed:conversionFactorValue: 1.0 .
+        
+#-------------------------------------------------------
+# HED tags are encoded as instances of the hed:HedNode class
+# hed:Event rdf:type hed:SchemaAttribute ;
+#       rdfs:comment "The multiplicative factor to multiply these units to convert to default units." ;
+#       rdfs:label "conversionFactor" ;
+#       hed:hasUnitProperty: true ;
+#       hed:hasUnitModifierProperty: true;
+
+hed:SensoryEvent rdf:type hed:HedTag ;
+    hed:label: "Sensory-event" ;
+    hed:comment: "blah" ;
+    hed:suggestTag: hed:TaskEventRole .    
