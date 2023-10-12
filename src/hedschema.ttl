@@ -25,11 +25,18 @@ hed:HedNode rdf:type owl:Class ;
     rdfs:subClassOf hed:HedElement ;
     rdfs:comment "A class representing a HED term or node" .
 
+hed:HedPlaceholder rdf:type owl:Class ; 
+    rdfs:subClassOf hed:HedNode ;
+    rdfs:comment "A class representing a node placeholder" .
+
 hed:UnitClass rdf:type owl:Class ;
     rdfs:subClassOf hed:HedElement ;
     rdfs:comment "A class representing a HED a unit class" ;    
     rdfs:label "Unit classes" .
 
+hed:AccelerationUnits rdf:type hed:unitClass .
+        
+        
 hed:UnitModifier rdf:type owl:Class ;
     rdfs:subClassOf hed:HedElement ;
     rdfs:comment "A class representing an SI unit prefix" ;
@@ -118,25 +125,6 @@ hed:hasHedParent rdf:type owl:ObjectProperty ;
 # --------------------------------------------------
 # Schema attributes: are encoded as instances of the hed:SchemaAttribute class
 
-hed:conversionFactor rdf:type owl:class ;
-    rdfs:subClassOf hed:SchemaAttribute ; 
-    rdfs:comment "The multiplicative factor to multiply these units to convert to default units." ;
-    rdfs:label "conversionFactor" .
-
-
-hed:conversionFactorValue rdf:type owl:DatatypeProperty ;
-    rdfs:comment "Specifies the conversion value associated with conversionFactor" ;
-    rdfs:label "conversionFactorValue" ;    
-    rdfs:domain hed:conversionFactor ;        
-    rdfs:range xsd:double .
-
-hed:conversionFactor_m-per-s2 rdf:type hed:conversionFactor ;
-# An instance of conversionFactor associated with 
-    hed:label: "conversionFactor for m-per-s^" ;    
-    hed:isUnitProperty: true ;
-    hed:isUnitModifierProperty: true ;
-    hed:conversionFactorValue: 1.0 .
-        
 #-------------------------------------------------------
 # HED tags are encoded as instances of the hed:HedNode class
 # hed:Event rdf:type hed:SchemaAttribute ;
@@ -148,4 +136,32 @@ hed:conversionFactor_m-per-s2 rdf:type hed:conversionFactor ;
 hed:SensoryEvent rdf:type hed:HedTag ;
     hed:label: "Sensory-event" ;
     hed:comment: "blah" ;
-    hed:suggestTag: hed:TaskEventRole .    
+    hed:hasSuggestedTag: hed:TaskEventRole .   
+
+#'''Item''' <nowiki>{extensionAllowed}[An independently existing thing (living or nonliving).]</nowiki>
+
+hed:Item rdf:type hed:HedTag ;
+    hed:label: "Item" ;
+    hed:comment: "An independently existing thing (living or nonliving)." ;
+    hed:isTopLevelTag: true ;
+    hed:hasExtensionAllowed: true .    
+
+#**** Healthy <nowiki>{relatedTag=Sick}[Having no significant health-related issues.]</nowiki>
+
+hed:Health rdf:type hed:HedTag ;
+    hed:label: "Item" ;
+    hed:comment: "Having no significant health-related issues." ;
+    hed:hasHedParent: hed:AgentPhysiologicalState ;
+    hed:hasRelatedTag: hed:Sick .    
+
+#**** Weight <nowiki>[The relative mass or the quantity of matter contained by something.]</nowiki>
+#***** <nowiki># {takesValue, valueClass=numericClass, unitClass=weightUnits}</nowiki>
+
+hed:WeightHedPlaceholder rdf:type hed:HedPlaceholder ;
+    hed:label: "#_WeightHedPlaceholder" ;
+    hed:comment: "Having no significant health-related issues." ;
+    hed:hasHedParent: hed:Weight ;
+    hed:hasTakesValue: true ;
+    hed:hasValueClass: hed:numericClassType ;
+    hed:hasUnitClass: hed:weightUnitsType ;
+    hed:hasRelatedTag: hed:Sick .    
