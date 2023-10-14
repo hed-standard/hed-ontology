@@ -18,11 +18,6 @@ hed:conversionFactorAttribute rdf:type owl:class ;
     rdfs:comment "The multiplicative factor to multiply these units to convert to default units." ;
     rdfs:label "conversionFactor" .
 
-hed:conversionFactorAttribute rdf:type owl:class ;
-    rdfs:subClassOf hed:SchemaAttribute ;
-    rdfs:comment "The multiplicative factor to multiply these units to convert to default units." ;
-    rdfs:label "conversionFactor" .
-
 hed:conversionFactorValue rdf:type owl:ObjectProperty ;
     rdfs:comment "Specifies the conversion value associated with conversionFactor" ;
     rdfs:label "conversionFactorValue" ;    
