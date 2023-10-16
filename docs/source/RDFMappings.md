@@ -29,6 +29,13 @@ In the HED schema HED tags start with a capital letter and individual words are 
 - The element (whether class, property, or instance) description (that appears in square brackets in the schema) is mapped to **rdfs:comment**.
 - The name the element uses in the HED schema is mapped to **rdfs:label**.
 
+#### Schema attributes
+
+Rules:
+- Schema attributes have either *owl:DatatypeProperty* or *owl:ObjectProperty*.
+-  *owl:DatatypeProperty* are recognized by having *rdfs:subPropertyOf* value of either *hed:schemaAttributeDatatypeProperty* or *hed:schemaAttributeObjectProperty*,
+- Schema attributes are mapped to owl:DatatypeProperty with if 
+
 
 ### Main classes
 
