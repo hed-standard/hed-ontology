@@ -1,0 +1,366 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix hed: <https://purl.org/hed#> .
+
+<https://purl.org/hed> rdf:type owl:Ontology ;
+    owl:versionInfo "1.0" ;
+    rdfs:label "HED Base Schema Ontology" ;
+    rdfs:comment "This is the base ontology." ;
+    dc:title "HED Base Schema Ontology" ;
+    dc:description "This ontology describes the base classes for the ontology." .
+
+
+# The super-class in the HED schema
+hed:HedElement rdf:type owl:Class ;
+    rdfs:comment "A class representing any element of a HED schema." .
+
+# The class for the HED schema header
+hed:HedHeader rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedElement ;
+    rdfs:comment "A class representing the HED schema header." .
+
+# Hed tag class
+hed:HedNode rdf:type owl:Class ; 
+    rdfs:subClassOf hed:HedElement ;
+    rdfs:comment "A class representing a HED term or node." .
+
+# Hed tag placeholder class
+hed:HedPlaceholder rdf:type owl:Class ; 
+    rdfs:subClassOf hed:HedNode ;
+    rdfs:comment "A class representing a node placeholder." ;
+    rdfs:label "#" .    
+
+# Hed unit class category
+# '''Unit classes''' <nowiki>[Unit classes and the units for the nodes.]</nowiki>
+hed:HedUnitClass rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedElement ;
+    rdfs:comment "Organizes unit classes and the units for the nodes." ;    
+    rdfs:label "Unit classes" .
+
+# hed:Unit definition
+# Note: no direct definition in HedSchema
+hed:HedUnit rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedElement ;
+    rdfs:comment "A class representing a unit" ;    
+    rdfs:label "Unit" .  
+
+# hed:HedUnitModifier class definition
+# '''Unit classes''' <nowiki>[Unit classes and the units for the nodes.]</nowiki>
+hed:HedUnitModifier rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedUnitClass ;
+    rdfs:comment "Organizes unit modifiers." ;
+    rdfs:label "Unit modifers" .
+
+# hed:HedValueClass class definition
+# '''Value classes''' <nowiki>[Specification of the rules for the values provided by users.]</nowiki>
+hed:HedValueClass rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedElement ;
+    rdfs:comment "Represents the rules for the values provided by users." ;
+    rdfs:label "Value classes" .
+
+# Annotation properties
+# Definition of HedProperty
+# '''Properties''' <nowiki>[Properties of the schema attributes themselves. These are used for schema handling and verification.]</nowiki>
+hed:HedProperty rdf:type owl:AnnotationProperty ;
+    rdfs:comment "Properties of the schema attributes themselves. These are used for schema handling and verification." ;
+    rdfs:label "Properties" .
+
+#------------------------------------------------------------------------------------
+# * boolProperty <nowiki>[Indicates that the schema attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values.]</nowiki>
+hed:isBoolProperty rdf:type owl:AnnotationProperty ;
+    rdfs:comment "This schema attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values." ;
+    rdfs:comment "Has an xsd:boolean value" ;        
+    rdfs:label "boolProperty" .
+        
+# * elementProperty <nowiki>[Indicates this schema attribute can apply to any type of element(tag term, unit class, etc).]</nowiki>
+hed:isElementProperty rdf:type owl:AnnotationProperty ;
+    rdfs:comment "Indicates this schema attribute can apply to any type of element(tag term, unit class, etc)." ;
+    rdfs:comment "Has an xsd:boolean value" ;    
+    rdfs:label "elementProperty" .
+
+# * isInheritedProperty <nowiki>[Indicates that this attribute is inherited by child nodes. This property only applies to schema attributes for nodes.]</nowiki>
+hed:isInheritedProperty rdf:type owl:AnnotationProperty ;
+    rdfs:comment "Indicates that this attribute is inherited by child nodes. This property only applies to schema attributes for nodes." ;
+    rdfs:comment "Has an xsd:boolean value" ;   
+    rdfs:label "isHeritedProperty" .
+
+# * nodeProperty <nowiki>[Indicates this schema attribute applies to node (tag-term) elements. This was added to allow for an attribute to apply to multiple elements.]</nowiki>
+hed:isNodeProperty rdf:type owl:AnnotationProperty ;
+    rdfs:subPropertyOf: hed:HedProperty ;  
+    rdfs:comment "Indicates this schema attribute applies to node (tag-term) elements. This was added to allow for an attribute to apply to multiple elements." ;
+    rdfs:comment "Has an xsd:boolean value" ;   
+    rdfs:label "nodeProperty" .
+
+# * unitClassProperty <nowiki>[Indicates that the schema attribute is meant to be applied to unit classes.]</nowiki>
+hed:isUnitClassProperty rdf:type owl:AnnotationProperty ;
+    rdfs:subPropertyOf: hed:HedProperty ;  
+    rdfs:comment "Indicates that the schema attribute is meant to be applied to unit classes." ;
+    rdfs:comment "Has an xsd:boolean value" ;       
+    rdfs:label "unitClassProperty" .
+
+# * unitModifierProperty <nowiki>[Indicates that the schema attribute is meant to be applied to unit modifier classes.]</nowiki>
+hed:isUnitModifierProperty rdf:type owl:AnnotationProperty ;
+    rdfs:comment "Indicates that the schema attribute is meant to be applied to unit modifier classes." ;
+    rdfs:comment "Has an xsd:boolean value" ; 
+    rdfs:label "unitModifierProperty" .
+
+# * unitProperty <nowiki>[Indicates that the schema attribute is meant to be applied to units within a unit class.]</nowiki> 
+hed:isUnitProperty rdf:type owl:AnnotationProperty ;
+    rdfs:comment "Indicates that the schema attribute is meant to be applied to units within a unit class." ;
+    rdfs:comment "Has an xsd:boolean value" ; 
+    rdfs:label "unitProperty" .
+
+#------------------------------------------------------------------------------------
+# Property definitions that are internal to the rdf representation of the HED schema
+hed:hasHedParent rdf:type owl:ObjectProperty ;
+    rdfs:comment "Represents the relationship of a HED term to its parent in HED hierarchy" ;
+    rdfs:label "hasHedParent" ;
+    rdfs:domain hed:HedNode ;
+    rdfs:range hed:HedNode .   
+
+# Property indicates that the Hed node is a top-level node in the HED schema
+hed:isTopHedNode rdf:type owl:DatatypeProperty ;
+    rdfs:comment "Indicates that the HedNode is a top-level tag." ;
+    rdfs:label "isTopHedNode" ;
+    rdfs:domain hed:HedNode ;
+    rdfs:range xsd:boolean .    
+
+#------------------------------------------------------------------------------------
+# Schema attribute property definitions
+hed:schemaAttributeDatatypeProperty rdf:type owl:DatatypeProperty .
+hed:schemaAttributeObjectProperty rdf:type owl:ObjectProperty .        
+
+# allowedCharacter
+# * allowedCharacter <nowiki>{valueClassProperty}[A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder. Normally the allowed characters are listed individually. However, the word letters designates the upper and lower case alphabetic characters and the word digits designates the digits 0-9. The word blank designates the blank character.]</nowiki>
+hed:allowedCharacter rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
+    rdfs:comment "A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder. Normally the allowed characters are listed individually. However, the word letters designates the upper and lower case alphabetic characters and the word digits designates the digits 0-9. The word blank designates the blank character." ;
+    rdfs:label "allowedCharacter" ;
+    rdfs:domain hed:HedValueClass ;    
+    rdfs:range xsd:string .
+
+# conversionFactor
+# * conversionFactor <nowiki>{unitProperty, unitModifierProperty}[The multiplicative factor to multiply these units to convert to default units.]</nowiki>
+hed:conversionFactor rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
+    rdfs:comment "The multiplicative factor to multiply these units to convert to default units." ;
+    rdfs:label "conversionFactor" ;
+    rdfs:domain hed:HedUnit ;
+    rdfs:domain hed:HedUnitModifier ;    
+    rdfs:range xsd:decimal .
+
+# deprecatedFrom
+# Note: this may change to an ObjectProperty if HedVersion is made a class
+# * deprecatedFrom <nowiki>{elementProperty}[Indicates that this element is deprecated. The value of the attribute is the latest schema version in which the element appeared in undeprecated form.]</nowiki>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              # * deprecatedFrom <nowiki>{elementProperty}[Indicates that this element is deprecated. The value of the attribute is the latest schema version in which the element appeared in undeprecated form.]</nowiki>
+hed:deprecatedFrom rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
+    rdfs:comment "Indicates that this element is deprecated. The value of the attribute is the latest schema version in which the element appeared in undeprecated form." ;
+    rdfs:label "deprecatedFrom" ;
+    rdfs:domain hed:HedElement ;
+    rdfs:range xsd:string .    
+
+# defaultUnits
+# * defaultUnits <nowiki>{unitClassProperty}[A schema attribute of unit classes specifying the default units to use if the placeholder has a unit class but the substituted value has no units.]</nowiki>
+hed:defaultUnits rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
+    rdfs:comment "a top-level library schema node is identical to a node of the same name in the partnered standard schema. This attribute can only appear in nodes that have the inLibrary schema attribute." ;
+    rdfs:label "defaultUnits" ;
+    rdfs:domain hed:HedUnitClass ;
+    rdfs:range hed:HedUnit .    
+
+# extensionAllowed
+# Note: isInheritedProperty is not implemented.
+# * extensionAllowed <nowiki>{boolProperty, nodeProperty, isInheritedProperty}[A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of the hashtag placeholders.]</nowiki>
+hed:extensionAllowed rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
+    rdfs:comment "A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of the hashtag placeholders." ;
+    rdfs:label "extensionAllowed" ;
+    rdfs:domain hed:HedNode ;
+    rdfs:range xsd:boolean .    
+
+# inLibrary
+# Note: this may change to an owl:ObjectProperty if library becomes a class.
+# * inLibrary <nowiki>{elementProperty} [Indicates this schema element came from the named library schema, not the standard schema. This attribute is added by tools when a library schema is merged into its partnered standard schema.]</nowiki>
+hed:inLibrary rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
+    rdfs:comment "Indicates this schema element came from the named library schema, not the standard schema. This attribute is added by tools when a library schema is merged into its partnered standard schema." ;
+    rdfs:label "inLibrary" ;
+    rdfs:domain hed:HedElement ;
+    rdfs:range xsd:string .    
+
+# recommended
+# * recommended  <nowiki>{boolProperty, nodeProperty}[A schema attribute indicating that the event-level HED string should include this tag.]</nowiki> 
+hed:recommended rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
+    rdfs:comment "Indicates that the event-level HED string should include this tag." ;
+    rdfs:label "recommended" ;
+    rdfs:domain hed:HedNode ;
+    rdfs:range xsd:boolean .    
+
+# relatedTag
+# * relatedTag <nowiki>{nodeProperty, isInheritedProperty}[A schema attribute suggesting HED tags that are closely related to this tag. This attribute is used by tagging tools.]</nowiki>
+hed:relatedTag rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
+    rdfs:comment "Indicates another tag  that is closely related to this tag. This attribute is used by tagging tools to provide tagging suggestions" ;
+    rdfs:label "relatedTag" ;
+    rdfs:domain hed:HedNode ;
+    rdfs:range hed:HedNode .    
+
+
+# requireChild
+# * requireChild  <nowiki>{boolProperty, nodeProperty}[A schema attribute indicating that one of the node elements descendants must be included when using this tag.]</nowiki> 
+hed:requireChild rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
+    rdfs:comment "Indicates that that one of the node's descendants must be included when using this tag." ;
+    rdfs:label "requireChild" ;
+    rdfs:domain hed:HedNode ;
+    rdfs:range xsd:boolean .    
+
+# required
+# * required <nowiki>{boolProperty, nodeProperty}[A schema attribute indicating that every event-level HED string should include this tag.]</nowiki>
+hed:required rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
+    rdfs:comment "A schema attribute indicating that every event-level HED string should include this tag." ;
+    rdfs:label "required" ;
+    rdfs:domain hed:HedNode ;
+    rdfs:range xsd:boolean .    
+
+# reserved
+# * reserved <nowiki>{boolProperty, nodeProperty}[A schema attribute indicating that this tag has special meaning and requires special handling by tools.]</nowiki>
+hed:reserved rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
+    rdfs:comment "Indicates that this tag has special meaning and requires special handling by tools." ;
+    rdfs:label "reserved" ;
+    rdfs:domain hed:HedNode ;
+    rdfs:range xsd:boolean .    
+
+# rooted
+# * rooted <nowiki>{nodeProperty}[Indicates a top-level library schema node is identical to a node of the same name in the partnered standard schema. This attribute can only appear in nodes that have the inLibrary schema attribute.]</nowiki>
+hed:rooted rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
+    rdfs:comment "Indicates that a top-level library schema node is identical to a node of the same name in the partnered standard schema. This attribute can only appear in nodes that have the inLibrary schema attribute." ;
+    rdfs:label "rooted" ;
+    rdfs:domain hed:HedNode ;
+    rdfs:range hed:HedNode .    
+
+# SIUnit
+# * SIUnit  <nowiki>{boolProperty, unitProperty}[A schema attribute indicating that this unit element is an SI unit and can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.]</nowiki>
+hed:SIUnit rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
+    rdfs:comment "Indicates that this unit element is an SI unit and can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard." ;
+    rdfs:label "SIUnit" ;
+    rdfs:domain hed:HedUnit ;
+    rdfs:range xsd:boolean .    
+
+# SIUnitModifier
+# * SIUnitModifier <nowiki>{boolProperty, unitModifierProperty}[A schema attribute indicating that this SI unit modifier represents a multiple or submultiple of a base unit rather than a unit symbol.]</nowiki> 
+hed:SIUnitModifier rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
+    rdfs:comment "Indicates that this SI unit modifier represents a multiple or submultiple of a base unit rather than a unit symbol." ;
+    rdfs:label "SIUnitModifier" ;
+    rdfs:domain hed:HedUnitModifier ;
+    rdfs:range xsd:boolean .    
+
+# SIUnitSymbolModifier
+# * SIUnitSymbolModifier <nowiki>{boolProperty, unitModifierProperty}[A schema attribute indicating that this SI unit modifier represents a multiple or submultiple of a unit symbol rather than a base symbol.]</nowiki>
+hed:SIUnitSymbolModifier rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
+    rdfs:comment "Indicates that this SI unit modifier represents a multiple or submultiple of a unit symbol rather than a base symbol." ;
+    rdfs:label "SIUnitSymbolModifier" ;
+    rdfs:domain hed:HedUnitModifier ;
+    rdfs:range xsd:boolean .    
+
+# suggestedTag
+# * suggestedTag <nowiki>{nodeProperty, isInheritedProperty}[A schema attribute that indicates another tag  that is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions.]</nowiki>
+hed:suggestedTag rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
+    rdfs:comment "Indicates another tag  that is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions" ;
+    rdfs:label "suggestedTag" ;
+    rdfs:domain hed:HedNode ;
+    rdfs:range hed:HedNode .    
+
+# tagGroup
+# * tagGroup <nowiki>{boolProperty, nodeProperty}[A schema attribute indicating the tag can only appear inside a tag group.] </nowiki> 
+hed:tagGroup rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
+    rdfs:comment "Indicates that the tag can only appear inside a tag group." ;
+    rdfs:label "tagGroup" ;
+    rdfs:domain hed:HedNode ;
+    rdfs:range xsd:boolean .    
+
+# takesValue
+# * takesValue <nowiki>{boolProperty, nodeProperty}[A schema attribute indicating the tag is a hashtag placeholder that is expected to be replaced with a user-defined value.] </nowiki> 
+hed:takesValue rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
+    rdfs:comment "Indicates that the tag is a hashtag placeholder that is expected to be replaced with a user-defined value." ;
+    rdfs:label "takesValue" ;
+    rdfs:domain hed:HedNode ;
+    rdfs:range xsd:boolean .    
+
+# topLevelTagGroup
+# * topLevelTagGroup <nowiki>{boolProperty, nodeProperty}[A schema attribute indicating that this tag (or its descendants) can only appear in a top-level tag group. A tag group can have at most one tag with this attribute.] </nowiki>
+hed:topLevelTagGroup rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
+    rdfs:comment "Indicates that this tag (or its descendants) can only appear in a top-level tag group. A tag group can have at most one tag with this attribute." ;
+    rdfs:label "topLevelTagGroup" ;
+    rdfs:domain hed:HedNode ;
+    rdfs:range xsd:boolean .    
+
+# unique
+# * unique <nowiki>{boolProperty, nodeProperty}[A schema attribute indicating that only one of this tag or its descendants can be used  in the event-level HED string.]</nowiki> 
+hed:unique rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
+    rdfs:comment "Indicates that only one of this tag or its descendants can be used in the event-level HED string." ;
+    rdfs:label "unique" ;
+    rdfs:domain hed:HedNode ;
+    rdfs:range xsd:boolean .    
+
+# unitClass
+# * unitClass <nowiki>{nodeProperty}[A schema attribute specifying which unit class this value tag belongs to.]</nowiki> 
+hed:unitClass rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
+    rdfs:comment "Indicates which unit class this value tag belongs to." ;
+    rdfs:label "unitClass" ;
+    rdfs:domain hed:HedNode ;
+    rdfs:range hed:HedUnitClass .    
+
+# unitPrefix
+# * unitPrefix <nowiki>{boolProperty, unitProperty}[A schema attribute applied specifically to unit elements to designate that the unit indicator is a prefix (e.g., dollar sign in the currency units).]</nowiki> 
+hed:unitPrefix rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
+    rdfs:comment "Indicates a prefix (e.g., dollar sign in the currency units)." ;
+    rdfs:label "unitPrefix" ;
+    rdfs:domain hed:HedUnit ;
+    rdfs:range xsd:boolean .    
+
+# unitSymbol
+# * unitSymbol <nowiki>{boolProperty, unitProperty}[A schema attribute indicating this tag is an abbreviation or symbol representing a type of unit. Unit symbols represent both the singular and the plural and thus cannot be pluralized.]</nowiki>
+hed:unitSymbol rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
+    rdfs:comment "Indicates that an abbreviation or symbol representing a type of unit. Unit symbols represent both the singular and the plural and thus cannot be pluralized." ;
+    rdfs:label "unitSymbol" ;
+    rdfs:domain hed:HedUnit ;
+    rdfs:range xsd:boolean .    
+
+# valueClass
+# * valueClass <nowiki>{nodeProperty}[A schema attribute specifying which value class this value tag belongs to.]</nowiki> 
+hed:valueClass rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
+    rdfs:comment "Indicates which value class this value tag belongs to." ;
+    rdfs:label "valueClass" ;
+    rdfs:domain hed:HedNode ;
+    rdfs:range hed:HedValueClass .    
+
+
+hed:LibraryClass rdf:type owl:ObjectClass .
+        
+## -----------------------------------------------------
+# Custom data types
+hed:LetterString rdf:type rdfs:Datatype ;
+    owl:onDatatype xsd:string ;
+    owl:withRestrictions ([ xsd:pattern "[a-zA-Z]+" ]) ;
+    rdfs:comment "Represents values that are in letters" ;
+    rdfs:label "letters" .

@@ -1,0 +1,64 @@
+@prefix hed: <https://purl.org/hed/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
+
+# Example of an instance of HedNode top-level tag where extension is not allowed
+# '''Event''' <nowiki>{suggestedTag=Task-property}[Something that happens at a given time and (typically) place. Elements of this tag subtree designate the general category in which an event falls.]</nowiki>.
+hed:Event rdf:type hed:HedNode ;
+    hed:label: "event" ;
+    hed:comment: "Something that happens at a given time and (typically) place. Elements of this tag subtree designate the general category in which an event falls." ;
+    hed:isTopLevelTag: true ;
+    hed:isExtensionAllowed: false ; 
+    hed:hasSuggestedTag: hed:TaskProperty . 
+
+# Example of an instance of HedNode tag that has a parent node
+# * Sensory-event <nowiki>{suggestedTag=Task-event-role, suggestedTag=Sensory-presentation}[Something perceivable by the participant. An event meant to be an experimental stimulus should include the tag Task-property/Task-event-role/Experimental-stimulus.]</nowiki>
+hed:SensoryEvent rdf:type hed:HedTag ;
+    hed:label: "Sensory-event" ;
+    hed:comment: "Something perceivable by the participant. An event meant to be an experimental stimulus should include the tag Task-property/Task-event-role/Experimental-stimulus." ;
+    hed:hasHedParent: hed:Event ;    
+    hed:hasSuggestedTag: hed:TaskEventRole ;
+    hed:hasSuggestedTag: hed:SensoryPresentation .    
+
+# Example instance of hed:HedNode that is a top-level tag
+# '''Item''' <nowiki>{extensionAllowed}[An independently existing thing (living or nonliving).]</nowiki>
+hed:Item rdf:type hed:HedNode ;
+    hed:label: "Item" ;
+    hed:comment: "An independently existing thing (living or nonliving)." ;
+    hed:isTopLevelTag: true .
+    #hed:isExtensionAllowed: true .   
+
+# Example instance of a hed:HedUnitClass
+# * accelerationUnits <nowiki>{defaultUnits=m-per-s^2}</nowiki> 
+hed:AccelerationUnits rdf:type hed:HedUnitClass ;
+    rdfs:comment "Represents acceleration units." ;    
+    rdfs:label "accelerationUnits" ;
+    hed:hasDefaultUnits hed:MetersPerSecondSquared .
+
+# Example instance of a hed:HedUnit
+# ** m-per-s^2 <nowiki>{SIUnit, unitSymbol, conversionFactor=1.0}</nowiki>
+hed:MetersPerSecondSquared rdf:type hed:HedUnit ;
+    rdfs:comment "Indicates SI units meters per second squared." ;    
+    rdfs:label "m-per-s^2" ;
+    hed:isSIUnit xsd:true ;
+    hed:isHedUnitSymbol xsd:true ;
+    hed:hasHedUnitClass hed:AccelerationUnits ;
+    hed:hasConversionFactor: 1.0 .    
+
+# Example instance of hed:HedUnitModifer
+# * deca <nowiki>{SIUnitModifier, conversionFactor=10.0} [SI unit multiple representing 10^1.]</nowiki>
+hed:DecaModifier rdf:type hed:HedUnitModifier ;
+    rdfs:comment "SI unit modifier signifying multiple by 10.0." ;
+    rdfs:label "deca" ;
+    hed:isSIUnitModifier: true ;
+    hed:hasConversionFactor: 10.0 .    
+
+
+# * dateTimeClass <nowiki>{allowedCharacter=digits,allowedCharacter=T,allowedCharacter=-,allowedCharacter=:}[Date-times should conform to ISO8601 date-time format YYYY-MM-DDThh:mm:ss. Any variation on the full form is allowed.]</nowiki> 
+# * nameClass <nowiki>{allowedCharacter=letters,allowedCharacter=digits,allowedCharacter=_,allowedCharacter=-}[Value class designating values that have the characteristics of node names. The allowed characters are alphanumeric, hyphen, and underbar.]</nowiki>
+# * numericClass <nowiki>{allowedCharacter=digits,allowedCharacter=E,allowedCharacter=e,allowedCharacter=+,allowedCharacter=-,allowedCharacter=.}[Value must be a valid numerical value.]</nowiki>
+# * posixPath <nowiki>{allowedCharacter=digits,allowedCharacter=letters,allowedCharacter=/,allowedCharacter=:}[Posix path specification.]</nowiki> 
+# * textClass <nowiki>{allowedCharacter=letters, allowedCharacter=digits, allowedCharacter=blank, allowedCharacter=+, allowedCharacter=-, allowedCharacter=:, allowedCharacter=;, allowedCharacter=., allowedCharacter=/, allowedCharacter=(, allowedCharacter=), allowedCharacter=?, allowedCharacter=*, allowedCharacter=%, allowedCharacter=$, allowedCharacter=@}[Value class designating values that have the characteristics of text such as in descriptions.]</nowiki>

@@ -1,0 +1,25 @@
+Do we want to have subnamespaces for tags, unit classes, etc.?
+
+schema:description vs dc:description vs rdfs:comment
+
+
+nodeProperty:  domain: HedTag
+
+
+
+hed:PersonShape
+  a sh:NodeShape ;
+  sh:targetClass ex:Person ;
+  sh:property [
+    sh:path ex:name ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] .
+
+
+s owl:deprecated "true"^^xsd:boolean . 
+
+Class and members of the class
+
+UnitClass
