@@ -1,3 +1,4 @@
+@prefix ex: <http://example.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -12,15 +13,56 @@
     dc:title "HED Base Schema Ontology" ;
     dc:description "This ontology describes the base classes for the ontology." .
 
+# Annotation data types
+hed:library rdf:type owl:AnnotationProperty ;
+    rdfs:comment "Indicates the name of the library schema if applicable." ;
+    rdfs:label "library" ;
+    hed:wikiSchemaSection "HED" ;
+    hed:xmlSchemaSection "HED" .       
 
+hed:unmerged
+    rdfs:comment "Indicates whether schema is not merged with partner schema." ;
+    rdfs:label "unmerged" ;
+    hed:wikiSchemaSection "HED" ;
+    hed:xmlSchemaSection "HED" .         
+    
+| *version*           | *xsd:boolean* | **HedHeader**  | Indicates the semantic version of this schema.              |
+hed:version rdf:type owl:AnnotationProperty ;
+    rdfs:comment " Indicates the semantic version of this schema." ;
+    rdfs:label "version" ;
+    hed:wikiSchemaSection "HED" ;
+    hed:xmlSchemaSection "HED" .  
+
+| *wikiSchemaSection* | *xsd:string*  | **HedElement** | The section name in Mediawiki format for this element.      |
+| *withStandard*      | *xsd:boolean* | **HedHeader**  | Indicates whether schema is not merged with partner schema. |
+| *xmlSchemaSection*  | *xsd:string*  | **HedElement** | The section name in XML format for this element.            |
+
+hed:xmlSchemaSection rdf:type owl:AnnotationProperty ;
+    rdfs:comment "The section name in XML format for this element." ;
+    rdfs:label "xmlSchemaSection" .
+
+hed:library rdf:type owl:AnnotationProperty ;
+    rdfs:comment "The section name in XML format for this element." ;
+    rdfs:label "xmlSchemaSection" .
+
+hed:wikiSchemaSection rdf:type owl:AnnotationProperty ;
+    rdfs:comment "The section name in Mediawiki format for this element. " ;
+    rdfs:label "wikiSchemaSection" .
+
+hed:unmerged rdf:type owl:AnnotationProperty ;
+    rdfs:comment "Indicates whether this version is not merged with a partner schema. " ;
+    rdfs:label "unmerged" ;
+    rdfs:range xsd:boolean .
+        
 # The super-class in the HED schema
 hed:HedElement rdf:type owl:Class ;
     rdfs:comment "A class representing any element of a HED schema." .
 
 # The class for the HED schema header
-hed:HedHeader rdf:type owl:Class ;
-    rdfs:subClassOf hed:HedElement ;
-    rdfs:comment "A class representing the HED schema header." .
+hed:HedHeader rdf:type hed:HedElement ;
+    rdfs:comment "An instance of HedElement representing the HED schema Header." ;
+    rdfs:label "HedHeader" .    
+
 
 # Hed tag class
 hed:HedNode rdf:type owl:Class ; 
@@ -64,54 +106,79 @@ hed:HedValueClass rdf:type owl:Class ;
 # Annotation properties
 # Definition of HedProperty
 # '''Properties''' <nowiki>[Properties of the schema attributes themselves. These are used for schema handling and verification.]</nowiki>
-hed:HedProperty rdf:type owl:AnnotationProperty ;
-    rdfs:comment "Properties of the schema attributes themselves. These are used for schema handling and verification." ;
-    rdfs:label "Properties" .
+#hed:HedSchemaSection rdf:type owl:AnnotationProperty ;
+#    rdfs:comment "This property indicates which section of the HedSchema the element (property or instance) appears in." ;
+#    rdfs:label "HedSchemaSection" .
+
+#hed:HedProperty rdf:type owl:AnnotationProperty ;
+#    rdfs:comment "Properties of the schema attributes themselves. These are used for schema handling and verification." ;
+#    rdfs:label "HedProperty" .
+#    hed:HedSchemaSection "Properties" .
 
 #------------------------------------------------------------------------------------
 # * boolProperty <nowiki>[Indicates that the schema attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values.]</nowiki>
-hed:isBoolProperty rdf:type owl:AnnotationProperty ;
+hed:boolProperty rdf:type owl:AnnotationProperty ;
     rdfs:comment "This schema attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values." ;
     rdfs:comment "Has an xsd:boolean value" ;        
-    rdfs:label "boolProperty" .
-        
-# * elementProperty <nowiki>[Indicates this schema attribute can apply to any type of element(tag term, unit class, etc).]</nowiki>
-hed:isElementProperty rdf:type owl:AnnotationProperty ;
-    rdfs:comment "Indicates this schema attribute can apply to any type of element(tag term, unit class, etc)." ;
-    rdfs:comment "Has an xsd:boolean value" ;    
-    rdfs:label "elementProperty" .
+    rdfs:label "boolProperty" ;
+    hed:wikiSchemaSection "Properties" ;
+    hed:xmlSchemaSection "propertyDefinitions" .  
 
-# * isInheritedProperty <nowiki>[Indicates that this attribute is inherited by child nodes. This property only applies to schema attributes for nodes.]</nowiki>
-hed:isInheritedProperty rdf:type owl:AnnotationProperty ;
-    rdfs:comment "Indicates that this attribute is inherited by child nodes. This property only applies to schema attributes for nodes." ;
-    rdfs:comment "Has an xsd:boolean value" ;   
-    rdfs:label "isHeritedProperty" .
+# * elementProperty <nowiki>[Indicates a schema attribute can apply to any type of element (tag term, unit class, etc).]</nowiki>
+hed:elementProperty rdf:type owl:AnnotationProperty ;
+    rdfs:comment "Indicates a schema attribute can apply to any type of element (tag term, unit class, etc)." ;
+    rdfs:range xsd:boolean ;    
+    rdfs:label "elementProperty" ;
+    hed:wikiSchemaSection "Properties" ;
+    hed:xmlSchemaSection "propertyDefinitions" .  
 
-# * nodeProperty <nowiki>[Indicates this schema attribute applies to node (tag-term) elements. This was added to allow for an attribute to apply to multiple elements.]</nowiki>
-hed:isNodeProperty rdf:type owl:AnnotationProperty ;
-    rdfs:subPropertyOf: hed:HedProperty ;  
-    rdfs:comment "Indicates this schema attribute applies to node (tag-term) elements. This was added to allow for an attribute to apply to multiple elements." ;
-    rdfs:comment "Has an xsd:boolean value" ;   
-    rdfs:label "nodeProperty" .
+# * isInheritedProperty <nowiki>[Indicates a schema attribute is inherited by child nodes. This property only applies to schema attributes for nodes.]</nowiki>
+hed:isheritedProperty rdf:type owl:AnnotationProperty ;
+    rdfs:comment "Indicates a schema attribute is inherited by child nodes. This property only applies to schema attributes for nodes." ;
+    rdfs:range xsd:boolean ;   
+    rdfs:label "isHeritedProperty" ;
+    hed:wikiSchemaSection "Properties" ;
+    hed:xmlSchemaSection "propertyDefinitions" .  
 
-# * unitClassProperty <nowiki>[Indicates that the schema attribute is meant to be applied to unit classes.]</nowiki>
-hed:isUnitClassProperty rdf:type owl:AnnotationProperty ;
-    rdfs:subPropertyOf: hed:HedProperty ;  
-    rdfs:comment "Indicates that the schema attribute is meant to be applied to unit classes." ;
-    rdfs:comment "Has an xsd:boolean value" ;       
-    rdfs:label "unitClassProperty" .
+# * nodeProperty <nowiki>[Indicates a attribute applies to node (tag-term) elements. This was added to allow for an attribute to apply to multiple elements.]</nowiki>
+hed:nodeProperty rdf:type owl:AnnotationProperty ;
+    rdfs:comment "Indicates a attribute applies to node (tag-term) elements. This was added to allow for an attribute to apply to multiple elements." ;
+    rdfs:range xsd:boolean ;   
+    rdfs:label "nodeProperty" ;
+    hed:wikiSchemaSection "Properties" ;
+    hed:xmlSchemaSection "propertyDefinitions" .  
 
-# * unitModifierProperty <nowiki>[Indicates that the schema attribute is meant to be applied to unit modifier classes.]</nowiki>
-hed:isUnitModifierProperty rdf:type owl:AnnotationProperty ;
-    rdfs:comment "Indicates that the schema attribute is meant to be applied to unit modifier classes." ;
-    rdfs:comment "Has an xsd:boolean value" ; 
-    rdfs:label "unitModifierProperty" .
+# * unitClassProperty <nowiki>[Indicates a schema attribute applies to unit classes.]</nowiki>
+hed:unitClassProperty rdf:type owl:AnnotationProperty ;
+    rdfs:comment "Indicates a schema attribute applies to unit classes." ;
+    rdfs:range xsd:boolean ;      
+    rdfs:label "unitClassProperty" ;
+    hed:wikiSchemaSection "Properties" ;
+    hed:xmlSchemaSection "propertyDefinitions" .  
+
+# * unitModifierProperty <nowiki>[Indicates a schema attribute applies to unit modifier classes.]</nowiki>
+hed:unitModifierProperty rdf:type owl:AnnotationProperty ;
+    rdfs:comment "Indicates a schema attribute applies to unit modifier classes." ;
+    rdfs:range xsd:boolean ; 
+    rdfs:label "unitModifierProperty" ;
+    hed:wikiSchemaSection "Properties" ;
+    hed:xmlSchemaSection "propertyDefinitions" .  
 
 # * unitProperty <nowiki>[Indicates that the schema attribute is meant to be applied to units within a unit class.]</nowiki> 
-hed:isUnitProperty rdf:type owl:AnnotationProperty ;
-    rdfs:comment "Indicates that the schema attribute is meant to be applied to units within a unit class." ;
-    rdfs:comment "Has an xsd:boolean value" ; 
-    rdfs:label "unitProperty" .
+hed:unitProperty rdf:type owl:AnnotationProperty ;
+    rdfs:comment "Indicates a schema attribute applies to units within a unit class." ;
+    rdfs:range xsd:boolean ; 
+    rdfs:label "unitProperty" ;
+    hed:wikiSchemaSection "Properties" ;
+    hed:xmlSchemaSection "propertyDefinitions" .  
+
+# * unitProperty <nowiki>[Indicates a schema attribute applies to value classes.]</nowiki> 
+hed:valueClassProperty rdf:type owl:AnnotationProperty ;
+    rdfs:comment "Indicates a schema attribute applies to value classes." ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "unitProperty" ;
+    hed:wikiSchemaSection "Properties" ;
+    hed:xmlSchemaSection "propertyDefinitions" .  
 
 #------------------------------------------------------------------------------------
 # Property definitions that are internal to the rdf representation of the HED schema
@@ -355,6 +422,7 @@ hed:valueClass rdf:type owl:ObjectProperty ;
     rdfs:range hed:HedValueClass .    
 
 
+
 hed:LibraryClass rdf:type owl:ObjectClass .
         
 ## -----------------------------------------------------
@@ -364,3 +432,7 @@ hed:LetterString rdf:type rdfs:Datatype ;
     owl:withRestrictions ([ xsd:pattern "[a-zA-Z]+" ]) ;
     rdfs:comment "Represents values that are in letters" ;
     rdfs:label "letters" .
+
+ex:CustomEmail rdf:type rdfs:Datatype ;
+    owl:onDataType xsd:string ;
+    owl:withRestrictions ([ xsd:pattern "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}" ]) .    

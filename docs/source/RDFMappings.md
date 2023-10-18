@@ -12,15 +12,26 @@
 
 #### HED properties
 
-- HED properties use lower camel case (all words except first start with a capital letter). 
-- Names of HED properties that have a boolean value should start with "is" . 
-- Names of HED properties that do not have a boolean value should start with the word "has".
+HED properties use lower camel case (all words except first start with a capital letter). 
+
 
 #### HED instances of classes
 
 In the HED schema HED tags start with a capital letter and individual words are hyphenated. These are converted upper camel case with underscores and hyphens removed:  
 
 **Example:** The HED tag *Sensory-event* is converted to *SensoryEvent*. 
+
+
+## Annotation properties
+
+| Property            | Range         | Target         | Description                                                |
+|---------------------|---------------|----------------|------------------------------------------------------------|
+| *library*           | *xsd:string*  | **HedHeader**  | Indicates the name of the library schema if applicable.    |
+| *unmerged*          | *xsd:boolean* | **HedHeader**  | Indicates whether schema is not merged with partner schema. |
+| *version*           | *xsd:boolean* | **HedHeader**  | Indicates the semantic version of this schema.             |
+| *wikiSchemaSection* | *xsd:string*  | **HedElement** | The section name in Mediawiki format for this element.     |
+| *withStandard*      | *xsd:boolean* | **HedHeader**  | Indicates whether schema is not merged with partner schema. |
+| *xmlSchemaSection*  | *xsd:string*  | **HedElement** | The section name in XML format for this element.           |
 
 
 ### Mapping rules
