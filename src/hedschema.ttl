@@ -13,107 +13,200 @@
     dc:title "HED Base Schema Ontology" ;
     dc:description "This ontology describes the base classes for the ontology." .
 
-# Annotation data types
-hed:library rdf:type owl:AnnotationProperty ;
-    rdfs:comment "Indicates the name of the library schema if applicable." ;
-    rdfs:label "library" ;
-    hed:wikiSchemaSection "HED" ;
-    hed:xmlSchemaSection "HED" .       
-
-hed:unmerged
-    rdfs:comment "Indicates whether schema is not merged with partner schema." ;
-    rdfs:label "unmerged" ;
-    hed:wikiSchemaSection "HED" ;
-    hed:xmlSchemaSection "HED" .         
-    
-| *version*           | *xsd:boolean* | **HedHeader**  | Indicates the semantic version of this schema.              |
-hed:version rdf:type owl:AnnotationProperty ;
-    rdfs:comment " Indicates the semantic version of this schema." ;
-    rdfs:label "version" ;
-    hed:wikiSchemaSection "HED" ;
-    hed:xmlSchemaSection "HED" .  
-
-| *wikiSchemaSection* | *xsd:string*  | **HedElement** | The section name in Mediawiki format for this element.      |
-| *withStandard*      | *xsd:boolean* | **HedHeader**  | Indicates whether schema is not merged with partner schema. |
-| *xmlSchemaSection*  | *xsd:string*  | **HedElement** | The section name in XML format for this element.            |
-
-hed:xmlSchemaSection rdf:type owl:AnnotationProperty ;
-    rdfs:comment "The section name in XML format for this element." ;
-    rdfs:label "xmlSchemaSection" .
-
-hed:library rdf:type owl:AnnotationProperty ;
-    rdfs:comment "The section name in XML format for this element." ;
-    rdfs:label "xmlSchemaSection" .
-
-hed:wikiSchemaSection rdf:type owl:AnnotationProperty ;
-    rdfs:comment "The section name in Mediawiki format for this element. " ;
-    rdfs:label "wikiSchemaSection" .
-
-hed:unmerged rdf:type owl:AnnotationProperty ;
-    rdfs:comment "Indicates whether this version is not merged with a partner schema. " ;
-    rdfs:label "unmerged" ;
-    rdfs:range xsd:boolean .
-        
-# The super-class in the HED schema
+# Classes specifying the schema structure
 hed:HedElement rdf:type owl:Class ;
-    rdfs:comment "A class representing any element of a HED schema." .
+    rdfs:comment "A class representing any object in a HED schema." .
 
-# The class for the HED schema header
-hed:HedHeader rdf:type hed:HedElement ;
-    rdfs:comment "An instance of HedElement representing the HED schema Header." ;
-    rdfs:label "HedHeader" .    
+#--------------------------------------------------------
+# Specification of the schema sections
 
+hed:HedSection rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedElement ;
+    rdfs:comment "Represents the sections of the schema." ;
+    rdfs:label "HedSection" .    
+
+hed:HedHeaderSection rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedSection ;
+    rdfs:comment "This section contains the schema header." ;
+    rdfs:label "HedHeaderSection" ;   
+    hed:wikiElementName: "HED" ;
+    hed:xmlElementName: "HED" .
+
+hed:HedPrologueSection rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedSection ;
+    rdfs:comment "An overview of the schema and its purpose." ;
+    rdfs:label "HedPrologueSection" ;   
+    hed:wikiElementName: "'''Prologue'''" ;
+    hed:xmlElementName: "prologue" .
+
+hed:HedStartSchemaSection rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedSection ;
+    rdfs:comment "The main body of the schema." ;
+    rdfs:label "HedStartSchemaSection" ;   
+    hed:wikiElementName: "!# start schema " ;
+    hed:xmlElementName: "schema" .
+
+hed:HedEndSchemaSection rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedSection ;
+    rdfs:comment "Required end marker for schema section" ;
+    rdfs:label "HedEndSchemaSection" ;   
+    hed:wikiElementName: "!# end schema " ;
+    hed:xmlElementName: "/schema" .
+
+hed:HedUnitClassesSection rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedSection ;
+    rdfs:comment "Unit classes and the units for the nodes." ;
+    rdfs:label "HedUnitClassesSection" ;   
+    hed:wikiElementName: "'''Unit classes'''" ;
+    hed:xmlElementName: "UnitClassDefinitions" .
+
+hed:UnitModifiersSection rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedSection ;
+    rdfs:comment "[Unit multiples and submultiples." ;
+    rdfs:label "UnitModifiersSection" ;   
+    hed:wikiElementName: "'''Unit modifiers'''" ;
+    hed:xmlElementName: "UnitModifierDefinitions" .
+
+hed:HedValueClassesSection rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedSection ;
+    rdfs:comment "Rules for the values provided for placeholders." ;
+    rdfs:label "HedValueClassesSection" ;   
+    hed:wikiElementName: "'''Value classes'''" ;
+    hed:xmlElementName: "ValueClassDefinitions" .
+
+hed:HedSchemaAttributesSection rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedSection ;
+    rdfs:comment "Allowed attribute modifiers of other sections of the schema." ;
+    rdfs:label "HedSchemaAttributesSection" ;   
+    hed:wikiElementName: "'''Schema attributes'''" ;
+    hed:xmlElementName: "SchemaAttributeDefinitions" .
+
+hed:HedPropertiesSection rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedSection ;
+    rdfs:comment "Properties of the schema attributes themselves. These are used for schema handling and verification." ;
+    rdfs:label "HedPropertiesSection" ;   
+    hed:wikiElementName: "'''Properties'''" ;
+    hed:xmlElementName: "PropertyDefinitions" .
+
+hed:HedEpilogueSection rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedSection ;
+    rdfs:comment "This section citation, licensing, and other information." ;
+    rdfs:label "HedEpilogueSection" ;   
+    hed:wikiElementName: "'''Epilogue'''" ;
+    hed:xmlElementName: "epilogue" .
+
+hed:HedEndSection rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedSection ;
+    rdfs:comment "The required end marker for the HED schema." ;
+    rdfs:label "HedEndSection" ;   
+    hed:wikiElementName: "!# end hed" ;
+    hed:xmlElementName: "/HED" .
+
+# Properties pertaining to the structure of the schema.
+hed:inSchemaSection rdf:type owl:ObjectProperty ;
+    rdfs:comment "Indicates what section the element appears in." ;
+    rdfs:label "inSchemaSection" ;
+    rdfs:domain hed:HedElement ;
+    rdfs:range hed:HedSection .    
+
+hed:wikiElementName rdf:type owl:DatatypeProperty ;
+    rdfs:comment "The name of the element in MEDIAWIKI format." ;
+    rdfs:label "wikiElementName" ;
+    rdfs:domain hed:HedElement ;
+    rdfs:range xsd:string .    
+
+hed:xmlElementName rdf:type owl:DatatypeProperty ;
+    rdfs:comment "The name of the element in XML format." ;
+    rdfs:label "xmlElementName" ;
+    rdfs:domain hed:HedElement ;
+    rdfs:range xsd:string .  
+
+hed:elementValue rdf:type owl:DatatypeProperty ;
+    rdfs:comment "The value of an instance of the element." ;
+    rdfs:label "elementValue" ;
+    rdfs:domain hed:HedElement ;
+    rdfs:range xsd:string .          
+#--------------------------------------------------------
+# Defining the Schema Header element
+
+hed:library rdf:type owl:DatatypeProperty ;
+    rdfs:comment "The name of the library schema if applicable." ;
+    rdfs:label "library" ;
+    hed:wikiElementName "library" ;
+    hed:xmlElementName "library" ;            
+    rdfs:domain hed:HedHeaderSection ;
+    rdfs:range xsd:string .       
+
+hed:unmerged rdf:type owl:DatatypeProperty ;
+    rdfs:comment "If true, the schema is not merged with a partner schema." ;
+    rdfs:label "unmerged" ;
+    hed:wikiElementName "unmerged" ;
+    hed:xmlElementName "unmerged" ;
+    rdfs:domain hed:HedHeaderSection ;    
+    rdfs:range xsd:boolean .     
+
+hed:version rdf:type owl:DatatypeProperty ;
+    rdfs:comment "The semantic version of this schema." ;
+    rdfs:label "version" ;
+    hed:wikiElementName "version" ;
+    hed:xmlElementName "version" ;       
+    rdfs:domain hed:HedHeaderSection ;    
+    rdfs:range xsd:string .     
+
+hed:withStandard rdf:type owl:DatatypeProperty ;
+    rdfs:comment "The version of the schema's standard schema partner." ;
+    rdfs:label "withStandard" ;
+    hed:wikiElementName "withStandard" ;
+    hed:xmlElementName "withStandard" ;               
+    rdfs:domain hed:HedHeaderSection ;    
+    rdfs:range xsd:string .
 
 # Hed tag class
 hed:HedNode rdf:type owl:Class ; 
     rdfs:subClassOf hed:HedElement ;
-    rdfs:comment "A class representing a HED term or node." .
+    rdfs:comment "Represents a HED term or node." ;
+    rdfs:label "HedNode" ;
+    hed:xmlElementName "node" .   
 
 # Hed tag placeholder class
 hed:HedPlaceholder rdf:type owl:Class ; 
     rdfs:subClassOf hed:HedNode ;
-    rdfs:comment "A class representing a node placeholder." ;
-    rdfs:label "#" .    
+    rdfs:comment "Represents a node placeholder." ;
+    rdfs:label "HedPlaceholder" .    
 
 # Hed unit class category
 # '''Unit classes''' <nowiki>[Unit classes and the units for the nodes.]</nowiki>
 hed:HedUnitClass rdf:type owl:Class ;
     rdfs:subClassOf hed:HedElement ;
     rdfs:comment "Organizes unit classes and the units for the nodes." ;    
-    rdfs:label "Unit classes" .
+    rdfs:label "HedUnitClass" ;
+    hed:wikiElementName "Unit classes" ;
+    hed:xmlElementName "unitClassDefinitions" .   
 
-# hed:Unit definition
 # Note: no direct definition in HedSchema
 hed:HedUnit rdf:type owl:Class ;
     rdfs:subClassOf hed:HedElement ;
-    rdfs:comment "A class representing a unit" ;    
-    rdfs:label "Unit" .  
+    rdfs:comment "Represents a unit element." ;    
+    rdfs:label "Unit" ;
+    hed:xmlElementName "unit" .   
 
 # hed:HedUnitModifier class definition
 # '''Unit classes''' <nowiki>[Unit classes and the units for the nodes.]</nowiki>
 hed:HedUnitModifier rdf:type owl:Class ;
-    rdfs:subClassOf hed:HedUnitClass ;
+    rdfs:subClassOf hed:HedElement ;
     rdfs:comment "Organizes unit modifiers." ;
-    rdfs:label "Unit modifers" .
+    rdfs:label "HedUnitModifier" ;
+    hed:wikiElementName "Unit modifiers" ;
+    hed:xmlElementName "unitModifierDefinitions" .   
 
-# hed:HedValueClass class definition
+
 # '''Value classes''' <nowiki>[Specification of the rules for the values provided by users.]</nowiki>
 hed:HedValueClass rdf:type owl:Class ;
     rdfs:subClassOf hed:HedElement ;
-    rdfs:comment "Represents the rules for the values provided by users." ;
-    rdfs:label "Value classes" .
-
-# Annotation properties
-# Definition of HedProperty
-# '''Properties''' <nowiki>[Properties of the schema attributes themselves. These are used for schema handling and verification.]</nowiki>
-#hed:HedSchemaSection rdf:type owl:AnnotationProperty ;
-#    rdfs:comment "This property indicates which section of the HedSchema the element (property or instance) appears in." ;
-#    rdfs:label "HedSchemaSection" .
-
-#hed:HedProperty rdf:type owl:AnnotationProperty ;
-#    rdfs:comment "Properties of the schema attributes themselves. These are used for schema handling and verification." ;
-#    rdfs:label "HedProperty" .
-#    hed:HedSchemaSection "Properties" .
+    rdfs:comment "The rules for the values provided by users." ;
+    rdfs:label "HedValueClass" ;
+    hed:wikiElementName "Value classes" ;
+    hed:xmlElementName "valueClassDefinitions" .  
 
 #------------------------------------------------------------------------------------
 # * boolProperty <nowiki>[Indicates that the schema attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values.]</nowiki>
@@ -213,7 +306,7 @@ hed:allowedCharacter rdf:type owl:DatatypeProperty ;
 # * conversionFactor <nowiki>{unitProperty, unitModifierProperty}[The multiplicative factor to multiply these units to convert to default units.]</nowiki>
 hed:conversionFactor rdf:type owl:DatatypeProperty ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
-    rdfs:comment "The multiplicative factor to multiply these units to convert to default units." ;
+    rdfs:comment "The factor to multiply these units by to convert to default units." ;
     rdfs:label "conversionFactor" ;
     rdfs:domain hed:HedUnit ;
     rdfs:domain hed:HedUnitModifier ;    
@@ -414,17 +507,14 @@ hed:unitSymbol rdf:type owl:DatatypeProperty ;
 
 # valueClass
 # * valueClass <nowiki>{nodeProperty}[A schema attribute specifying which value class this value tag belongs to.]</nowiki> 
-hed:valueClass rdf:type owl:ObjectProperty ;
-    rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
-    rdfs:comment "Indicates which value class this value tag belongs to." ;
-    rdfs:label "valueClass" ;
-    rdfs:domain hed:HedNode ;
-    rdfs:range hed:HedValueClass .    
-
-
-
-hed:LibraryClass rdf:type owl:ObjectClass .
-        
+#hed:hasValueClass rdf:type owl:ObjectProperty ;
+#    rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
+#    rdfs:comment "Indicates which value class this value tag belongs to." ;
+#    rdfs:label "hasValueClass" ;
+#    rdfs:domain hed:HedNode ;
+#    rdfs:range hed:HedValueClass .    
+#
+#        
 ## -----------------------------------------------------
 # Custom data types
 hed:LetterString rdf:type rdfs:Datatype ;
@@ -435,4 +525,12 @@ hed:LetterString rdf:type rdfs:Datatype ;
 
 ex:CustomEmail rdf:type rdfs:Datatype ;
     owl:onDataType xsd:string ;
-    owl:withRestrictions ([ xsd:pattern "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}" ]) .    
+    owl:withRestrictions ([ xsd:pattern "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}" ]) .  
+
+# --------------------------------------------------------------------------------------
+
+hed:HeaderSection rdf:type hed:HedHeaderSection ;
+    hed:version "8.3.0" .
+
+hed:PrologueSection rdf:type hed:HedPrologueSection ;
+        
