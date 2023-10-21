@@ -60,10 +60,10 @@ hed:HedUnitClassesSection rdf:type owl:Class ;
     hed:wikiElementName: "'''Unit classes'''" ;
     hed:xmlElementName: "UnitClassDefinitions" .
 
-hed:UnitModifiersSection rdf:type owl:Class ;
+hed:HedUnitModifiersSection rdf:type owl:Class ;
     rdfs:subClassOf hed:HedSection ;
     rdfs:comment "[Unit multiples and submultiples." ;
-    rdfs:label "UnitModifiersSection" ;   
+    rdfs:label "HedUnitModifiersSection" ;   
     hed:wikiElementName: "'''Unit modifiers'''" ;
     hed:xmlElementName: "UnitModifierDefinitions" .
 
@@ -125,7 +125,14 @@ hed:elementValue rdf:type owl:DatatypeProperty ;
     rdfs:comment "The value of an instance of the element." ;
     rdfs:label "elementValue" ;
     rdfs:domain hed:HedElement ;
-    rdfs:range xsd:string .          
+    rdfs:range xsd:string .   
+
+hed:hasHedUnitClass rdf:type owl:ObjectProperty ;
+    rdfs:comment "Property specify the type of unit class a unit belongs to." ;
+    rdfs:label "hasHedUnitClass" ;
+    rdfs:domain hed:HedUnit ;
+    rdfs:range hed:HedUnitClass .          
+
 #--------------------------------------------------------
 # Defining the Schema Header element
 
@@ -162,20 +169,18 @@ hed:withStandard rdf:type owl:DatatypeProperty ;
     rdfs:range xsd:string .
 
 # Hed tag class
-hed:HedNode rdf:type owl:Class ; 
+hed:HedTag rdf:type owl:Class ; 
     rdfs:subClassOf hed:HedElement ;
     rdfs:comment "Represents a HED term or node." ;
-    rdfs:label "HedNode" ;
+    rdfs:label "HedTag" ;
     hed:xmlElementName "node" .   
 
 # Hed tag placeholder class
 hed:HedPlaceholder rdf:type owl:Class ; 
-    rdfs:subClassOf hed:HedNode ;
+    rdfs:subClassOf hed:HedTag ;
     rdfs:comment "Represents a node placeholder." ;
     rdfs:label "HedPlaceholder" .    
 
-# Hed unit class category
-# '''Unit classes''' <nowiki>[Unit classes and the units for the nodes.]</nowiki>
 hed:HedUnitClass rdf:type owl:Class ;
     rdfs:subClassOf hed:HedElement ;
     rdfs:comment "Organizes unit classes and the units for the nodes." ;    
@@ -183,15 +188,12 @@ hed:HedUnitClass rdf:type owl:Class ;
     hed:wikiElementName "Unit classes" ;
     hed:xmlElementName "unitClassDefinitions" .   
 
-# Note: no direct definition in HedSchema
 hed:HedUnit rdf:type owl:Class ;
     rdfs:subClassOf hed:HedElement ;
     rdfs:comment "Represents a unit element." ;    
-    rdfs:label "Unit" ;
+    rdfs:label "HedUnit" ;
     hed:xmlElementName "unit" .   
 
-# hed:HedUnitModifier class definition
-# '''Unit classes''' <nowiki>[Unit classes and the units for the nodes.]</nowiki>
 hed:HedUnitModifier rdf:type owl:Class ;
     rdfs:subClassOf hed:HedElement ;
     rdfs:comment "Organizes unit modifiers." ;
@@ -278,14 +280,14 @@ hed:valueClassProperty rdf:type owl:AnnotationProperty ;
 hed:hasHedParent rdf:type owl:ObjectProperty ;
     rdfs:comment "Represents the relationship of a HED term to its parent in HED hierarchy" ;
     rdfs:label "hasHedParent" ;
-    rdfs:domain hed:HedNode ;
-    rdfs:range hed:HedNode .   
+    rdfs:domain hed:HedTag ;
+    rdfs:range hed:HedTag .   
 
 # Property indicates that the Hed node is a top-level node in the HED schema
-hed:isTopHedNode rdf:type owl:DatatypeProperty ;
-    rdfs:comment "Indicates that the HedNode is a top-level tag." ;
-    rdfs:label "isTopHedNode" ;
-    rdfs:domain hed:HedNode ;
+hed:isTopHedTag rdf:type owl:DatatypeProperty ;
+    rdfs:comment "Indicates that the HedTag is a top-level tag." ;
+    rdfs:label "isTopHedTag" ;
+    rdfs:domain hed:HedTag ;
     rdfs:range xsd:boolean .    
 
 #------------------------------------------------------------------------------------
@@ -322,8 +324,6 @@ hed:deprecatedFrom rdf:type owl:DatatypeProperty ;
     rdfs:domain hed:HedElement ;
     rdfs:range xsd:string .    
 
-# defaultUnits
-# * defaultUnits <nowiki>{unitClassProperty}[A schema attribute of unit classes specifying the default units to use if the placeholder has a unit class but the substituted value has no units.]</nowiki>
 hed:defaultUnits rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
     rdfs:comment "a top-level library schema node is identical to a node of the same name in the partnered standard schema. This attribute can only appear in nodes that have the inLibrary schema attribute." ;
@@ -331,14 +331,11 @@ hed:defaultUnits rdf:type owl:ObjectProperty ;
     rdfs:domain hed:HedUnitClass ;
     rdfs:range hed:HedUnit .    
 
-# extensionAllowed
-# Note: isInheritedProperty is not implemented.
-# * extensionAllowed <nowiki>{boolProperty, nodeProperty, isInheritedProperty}[A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of the hashtag placeholders.]</nowiki>
 hed:extensionAllowed rdf:type owl:DatatypeProperty ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
     rdfs:comment "A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of the hashtag placeholders." ;
     rdfs:label "extensionAllowed" ;
-    rdfs:domain hed:HedNode ;
+    rdfs:domain hed:HedTag ;
     rdfs:range xsd:boolean .    
 
 # inLibrary
@@ -357,7 +354,7 @@ hed:recommended rdf:type owl:DatatypeProperty ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
     rdfs:comment "Indicates that the event-level HED string should include this tag." ;
     rdfs:label "recommended" ;
-    rdfs:domain hed:HedNode ;
+    rdfs:domain hed:HedTag ;
     rdfs:range xsd:boolean .    
 
 # relatedTag
@@ -366,8 +363,8 @@ hed:relatedTag rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
     rdfs:comment "Indicates another tag  that is closely related to this tag. This attribute is used by tagging tools to provide tagging suggestions" ;
     rdfs:label "relatedTag" ;
-    rdfs:domain hed:HedNode ;
-    rdfs:range hed:HedNode .    
+    rdfs:domain hed:HedTag ;
+    rdfs:range hed:HedTag .    
 
 
 # requireChild
@@ -376,7 +373,7 @@ hed:requireChild rdf:type owl:DatatypeProperty ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
     rdfs:comment "Indicates that that one of the node's descendants must be included when using this tag." ;
     rdfs:label "requireChild" ;
-    rdfs:domain hed:HedNode ;
+    rdfs:domain hed:HedTag ;
     rdfs:range xsd:boolean .    
 
 # required
@@ -385,7 +382,7 @@ hed:required rdf:type owl:DatatypeProperty ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
     rdfs:comment "A schema attribute indicating that every event-level HED string should include this tag." ;
     rdfs:label "required" ;
-    rdfs:domain hed:HedNode ;
+    rdfs:domain hed:HedTag ;
     rdfs:range xsd:boolean .    
 
 # reserved
@@ -394,7 +391,7 @@ hed:reserved rdf:type owl:DatatypeProperty ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
     rdfs:comment "Indicates that this tag has special meaning and requires special handling by tools." ;
     rdfs:label "reserved" ;
-    rdfs:domain hed:HedNode ;
+    rdfs:domain hed:HedTag ;
     rdfs:range xsd:boolean .    
 
 # rooted
@@ -403,8 +400,8 @@ hed:rooted rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
     rdfs:comment "Indicates that a top-level library schema node is identical to a node of the same name in the partnered standard schema. This attribute can only appear in nodes that have the inLibrary schema attribute." ;
     rdfs:label "rooted" ;
-    rdfs:domain hed:HedNode ;
-    rdfs:range hed:HedNode .    
+    rdfs:domain hed:HedTag ;
+    rdfs:range hed:HedTag .    
 
 # SIUnit
 # * SIUnit  <nowiki>{boolProperty, unitProperty}[A schema attribute indicating that this unit element is an SI unit and can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.]</nowiki>
@@ -439,8 +436,8 @@ hed:suggestedTag rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
     rdfs:comment "Indicates another tag  that is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions" ;
     rdfs:label "suggestedTag" ;
-    rdfs:domain hed:HedNode ;
-    rdfs:range hed:HedNode .    
+    rdfs:domain hed:HedTag ;
+    rdfs:range hed:HedTag .    
 
 # tagGroup
 # * tagGroup <nowiki>{boolProperty, nodeProperty}[A schema attribute indicating the tag can only appear inside a tag group.] </nowiki> 
@@ -448,7 +445,7 @@ hed:tagGroup rdf:type owl:DatatypeProperty ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
     rdfs:comment "Indicates that the tag can only appear inside a tag group." ;
     rdfs:label "tagGroup" ;
-    rdfs:domain hed:HedNode ;
+    rdfs:domain hed:HedTag ;
     rdfs:range xsd:boolean .    
 
 # takesValue
@@ -457,7 +454,7 @@ hed:takesValue rdf:type owl:DatatypeProperty ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
     rdfs:comment "Indicates that the tag is a hashtag placeholder that is expected to be replaced with a user-defined value." ;
     rdfs:label "takesValue" ;
-    rdfs:domain hed:HedNode ;
+    rdfs:domain hed:HedTag ;
     rdfs:range xsd:boolean .    
 
 # topLevelTagGroup
@@ -466,7 +463,7 @@ hed:topLevelTagGroup rdf:type owl:DatatypeProperty ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
     rdfs:comment "Indicates that this tag (or its descendants) can only appear in a top-level tag group. A tag group can have at most one tag with this attribute." ;
     rdfs:label "topLevelTagGroup" ;
-    rdfs:domain hed:HedNode ;
+    rdfs:domain hed:HedTag ;
     rdfs:range xsd:boolean .    
 
 # unique
@@ -475,7 +472,7 @@ hed:unique rdf:type owl:DatatypeProperty ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
     rdfs:comment "Indicates that only one of this tag or its descendants can be used in the event-level HED string." ;
     rdfs:label "unique" ;
-    rdfs:domain hed:HedNode ;
+    rdfs:domain hed:HedTag ;
     rdfs:range xsd:boolean .    
 
 # unitClass
@@ -484,7 +481,7 @@ hed:unitClass rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
     rdfs:comment "Indicates which unit class this value tag belongs to." ;
     rdfs:label "unitClass" ;
-    rdfs:domain hed:HedNode ;
+    rdfs:domain hed:HedTag ;
     rdfs:range hed:HedUnitClass .    
 
 # unitPrefix
@@ -511,7 +508,7 @@ hed:unitSymbol rdf:type owl:DatatypeProperty ;
 #    rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
 #    rdfs:comment "Indicates which value class this value tag belongs to." ;
 #    rdfs:label "hasValueClass" ;
-#    rdfs:domain hed:HedNode ;
+#    rdfs:domain hed:HedTag ;
 #    rdfs:range hed:HedValueClass .    
 #
 #        
@@ -533,4 +530,72 @@ hed:HeaderSection rdf:type hed:HedHeaderSection ;
     hed:version "8.3.0" .
 
 hed:PrologueSection rdf:type hed:HedPrologueSection ;
-        
+    hed:elementValue "The HED standard schema is a hierarchically-organized vocabulary for annotating events and experimental structure. HED annotations consist of comma-separated tags drawn from this vocabulary. This vocabulary can be augmented by terms drawn from specialized library schema. 
+
+Each term in this vocabulary has a human-readable description and may include additional attributes that give additional properties or that specify how tools should treat the tag during analysis. The meaning of these attributes is described in the Additional schema properties section." .   
+
+hed:StartSchemaSection rdf:type hed:HedStartSchemaSection .
+
+hed:Event rdf:type hed:HedTag ;
+    hed:label: "Event" ;
+    hed:comment: "Something that happens at a given time and (typically) place. Elements of this tag subtree designate the general category in which an event falls." ;
+    hed:inSchemaSection hed:StartSchemaSection ;
+    hed:isTopLevelTag: true ;
+    hed:isExtensionAllowed: false ; 
+    hed:hasSuggestedTag: hed:TaskProperty ;
+    hed:wikiElementName: "Event" ;
+    hed:xmlElementName: "Event" .    
+
+hed:Sensory-event rdf:type hed:HedTag ;
+    hed:label: "Sensory-event" ;
+    hed:comment: "Something perceivable by the participant. An event meant to be an experimental stimulus should include the tag Task-property/Task-event-role/Experimental-stimulus." ;
+    hed:inSchemaSection hed:StartSchemaSection ;
+    hed:hasHedParent: hed:Event ;    
+    hed:hasSuggestedTag: hed:TaskEventRole ;
+    hed:hasSuggestedTag: hed:SensoryPresentation ;   
+    hed:wikiElementName: "Sensory-event" ;
+    hed:xmlElementName: "Sensory-event" .   
+
+hed:EndSchemaSection rdf:type hed:HedEndSchemaSection ;
+    hed:wikiElementName: "!# end schema " ;
+    hed:xmlElementName: "/schema" .
+
+hed:UnitClassSection rdf:type hed:HedUnitClassesSection ;
+    hed:wikiElementName: "'''Unit classes'''" ;
+    hed:xmlElementName: "UnitClassDefinitions" .
+
+hed:accelerationUnits rdf:type hed:HedUnitClass ;
+    hed:inSchemaSection hed:UnitClassSection ;
+    hed:wikiElementName: "accelerationUnits" ;
+    hed:xmlElementName: "accelerationUnits" .
+
+hed:accelerationUnits rdf:type hed:HedUnitClass ;
+    hed:inSchemaSection hed:UnitClassSection ;    
+    hed:wikiElementName: "accelerationUnits" ;
+    hed:xmlElementName: "accelerationUnits" .
+
+hed:MetersPerSecondSquared rdf:type hed:HedUnit ;
+    rdfs:comment "Indicates SI units meters per second squared." ;    
+    rdfs:label "m-per-s^2" ;
+    hed:inSchemaSection hed:UnitClassSection ;    
+    hed:isSIUnit xsd:true ;
+    hed:isHedUnitSymbol xsd:true ;
+    hed:hasHedUnitClass hed:accelerationUnits ;
+    hed:hasConversionFactor: 1.0 ;    
+    hed:wikiElementName: "m-per-s^2" ;
+    hed:xmlElementName: "m-per-s^2" .
+
+hed:UnitModifiersSection rdf:type hed:HedUnitModifiersSection ;
+    hed:wikiElementName: "Unit modifiers" ;
+    hed:xmlElementName: "UnitModifiersDefinition" .
+
+hed:deca rdf:type hed:HedUnitModifier ;
+    rdfs:comment "SI unit multiple representing 10^1." ;
+    rdfs:label "deca" ;    
+    hed:inSchemaSection hed:UnitModifierSection ; 
+    hed:isSIUnit xsd:true ;
+    hed:isHedUnitSymbol xsd:true ;
+    hed:hasHedUnitClass hed:accelerationUnits ;
+    hed:hasConversionFactor: 10.0 ;    
+    hed:wikiElementName: "m-per-s^2" ;
+    hed:xmlElementName: "m-per-s^2" .        
