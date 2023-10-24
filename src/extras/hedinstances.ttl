@@ -5,6 +5,15 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
 
+# The HED schema header
+hed:HedHeader rdf:type hed:HedElement ;
+    rdfs:comment "The HED schema Header." ;
+    rdfs:label "HedHeader" ;    
+    hed:version "8.3.0" .
+
+hed:Prologue rdf:type hed:HedElement ;
+    rdfs:comment "The prologue for this schema." ;        
+
 # Example of an instance of HedNode top-level tag where extension is not allowed
 # '''Event''' <nowiki>{suggestedTag=Task-property}[Something that happens at a given time and (typically) place. Elements of this tag subtree designate the general category in which an event falls.]</nowiki>.
 hed:Event rdf:type hed:HedNode ;

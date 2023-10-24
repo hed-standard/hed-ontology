@@ -12,15 +12,26 @@
 
 #### HED properties
 
-- HED properties use lower camel case (all words except first start with a capital letter). 
-- Names of HED properties that have a boolean value should start with "is" . 
-- Names of HED properties that do not have a boolean value should start with the word "has".
+HED properties use lower camel case (all words except first start with a capital letter). 
+
 
 #### HED instances of classes
 
 In the HED schema HED tags start with a capital letter and individual words are hyphenated. These are converted upper camel case with underscores and hyphens removed:  
 
 **Example:** The HED tag *Sensory-event* is converted to *SensoryEvent*. 
+
+
+## Annotation properties
+
+| Property            | Range         | Target         | Description                                                                 |
+|---------------------|---------------|----------------|-----------------------------------------------------------------------------|
+| *library*           | *xsd:string*  | **HedHeader**  | The name of the library schema if applicable.                               |
+| *unmerged*          | *xsd:boolean* | **HedHeader**  | If true, schema is not merged with partner schema.                          |
+| *version*           | *xsd:boolean* | **HedHeader**  | The semantic version of this schema.                                        |
+| *wikiSchemaSection* | *xsd:string*  | **HedElement** | The name in Mediawiki format of the schema section this element belongs to. |
+| *withStandard*      | *xsd:boolean* | **HedHeader**  | The version of the schema's standard schema partner.                        |
+| *xmlSchemaSection*  | *xsd:string*  | **HedElement** | The name in XML format of the schema section this element belongs to.       |
 
 
 ### Mapping rules
@@ -36,20 +47,22 @@ Rules:
 -  *owl:DatatypeProperty* are recognized by having *rdfs:subPropertyOf* value of either *hed:schemaAttributeDatatypeProperty* or *hed:schemaAttributeObjectProperty*,
 - Schema attributes are mapped to owl:DatatypeProperty with if 
 
+### Schema sections
+hed:HedSection The sections of the schema are specified by instances of the hed:HedSchemaSection class.
 
 ### Main classes
 
-| Name                                          | subclass                       | Description                                                  |
-|-----------------------------------------------|--------------------------------|--------------------------------------------------------------|
-| [**HedElement**](#hedelement)                 | owl:Class                      | Superclass for specifying the structure of a HED schema.     |
-| [**HedHeader**](#hedheader)                   | owl:Class<br/>**HedElement**   | Specifies the schema header.                                 |
-| [**HedNode**](#hednode)                       | owl:Class<br/>**HedElement**   | Specifies HED term or node elements.                         |
-| [**HedPlaceholder**](#hedplaceholder)         | owl:Class<br/>**HedNode**      | Specifies HED node placeholders.                             |
-| [**HedSchemaAttribute**](#hedschemaattribute) | owl:Class<br/>**HedElement**   | Defines attribute modifiers of other sections of the schema. |
-| [**HedUnit**](#hedunit)                       | owl:Class<br/>**HedElement**   | Specifies a HED unit .                                       |
-| [**HedUnitClass**](#hedunitclass)             | owl:Class<br/>**HedElement**   | Specifies HED units and unit modifiers.                      |
-| [**HedUnitModifier**](#hedunitmodifier)       | owl:Class<br/>**HedUnitClass** | Subclass of **HedUnitClass** defining unit modifiers.        |
-| [**HedValueClass**](#hedvalueclass)           | owl:Class<br/>**HedElement**   | Defines the types of value classes.                          |
+| Name                                            | subclass                       | Description                                                  |
+|-------------------------------------------------|--------------------------------|--------------------------------------------------------------|
+| [**HedElement**](#hedelement)  | owl:Class                      | Superclass for specifying the structure of a HED schema.     |
+| [**HedHeader**](#hedheader)                     | owl:Class<br/>**HedElement**   | Specifies the schema header.                                 |
+| [**HedNode**](#hednode)                         | owl:Class<br/>**HedElement**   | Specifies HED term or node elements.                         |
+| [**HedPlaceholder**](#hedplaceholder)           | owl:Class<br/>**HedNode**      | Specifies HED node placeholders.                             |
+| [**HedSchemaAttribute**](#hedschemaattribute)   | owl:Class<br/>**HedElement**   | Defines attribute modifiers of other sections of the schema. |
+| [**HedUnit**](#hedunit)                         | owl:Class<br/>**HedElement**   | Specifies a HED unit .                                       |
+| [**HedUnitClass**](#hedunitclass)               | owl:Class<br/>**HedElement**   | Specifies HED units and unit modifiers.                      |
+| [**HedUnitModifier**](#hedunitmodifier)         | owl:Class<br/>**HedUnitClass** | Subclass of **HedUnitClass** defining unit modifiers.        |
+| [**HedValueClass**](#hedvalueclass)             | owl:Class<br/>**HedElement**   | Defines the types of value classes.                          |
 
 ## HedElement
 **HedElement** is the superclass for all structure of the HED schema.
