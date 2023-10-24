@@ -267,11 +267,10 @@ hed:unitProperty rdf:type owl:AnnotationProperty ;
     hed:wikiSchemaSection "Properties" ;
     hed:xmlSchemaSection "propertyDefinitions" .  
 
-# * unitProperty <nowiki>[Indicates a schema attribute applies to value classes.]</nowiki> 
 hed:valueClassProperty rdf:type owl:AnnotationProperty ;
     rdfs:comment "Indicates a schema attribute applies to value classes." ;
     rdfs:range xsd:boolean ;
-    rdfs:label "unitProperty" ;
+    rdfs:label "valueClassProperty" ;
     hed:wikiSchemaSection "Properties" ;
     hed:xmlSchemaSection "propertyDefinitions" .  
 
@@ -530,11 +529,13 @@ hed:HeaderSection rdf:type hed:HedHeaderSection ;
     hed:version "8.3.0" .
 
 hed:PrologueSection rdf:type hed:HedPrologueSection ;
-    hed:elementValue "The HED standard schema is a hierarchically-organized vocabulary for annotating events and experimental structure. HED annotations consist of comma-separated tags drawn from this vocabulary. This vocabulary can be augmented by terms drawn from specialized library schema. 
+    hed:elementValue "The HED standard schema is a hierarchically-organized vocabulary for annotating events and experimental structure. HED annotations consist of comma-separated tags drawn from this vocabulary. This vocabulary can be augmented by terms drawn from specialized library schema." . 
+# The following should be in the Prologue but the newlines are causing problems".
+# Each term in this vocabulary has a human-readable description and may include additional attributes that give additional properties or that specify how tools should treat the tag during analysis. The meaning of these attributes is described in the Additional schema properties section." .   
 
-Each term in this vocabulary has a human-readable description and may include additional attributes that give additional properties or that specify how tools should treat the tag during analysis. The meaning of these attributes is described in the Additional schema properties section." .   
-
-hed:StartSchemaSection rdf:type hed:HedStartSchemaSection .
+hed:StartSchemaSection rdf:type hed:HedStartSchemaSection ;
+    hed:wikiElementName: "!# start schema " ;
+    hed:xmlElementName: "schema" .
 
 hed:Event rdf:type hed:HedTag ;
     hed:label: "Event" ;
@@ -542,19 +543,17 @@ hed:Event rdf:type hed:HedTag ;
     hed:inSchemaSection hed:StartSchemaSection ;
     hed:isTopLevelTag: true ;
     hed:isExtensionAllowed: false ; 
-    hed:hasSuggestedTag: hed:TaskProperty ;
-    hed:wikiElementName: "Event" ;
-    hed:xmlElementName: "Event" .    
+    hed:hasSuggestedTag: hed:TaskProperty .
+ 
 
 hed:Sensory-event rdf:type hed:HedTag ;
     hed:label: "Sensory-event" ;
     hed:comment: "Something perceivable by the participant. An event meant to be an experimental stimulus should include the tag Task-property/Task-event-role/Experimental-stimulus." ;
     hed:inSchemaSection hed:StartSchemaSection ;
     hed:hasHedParent: hed:Event ;    
-    hed:hasSuggestedTag: hed:TaskEventRole ;
-    hed:hasSuggestedTag: hed:SensoryPresentation ;   
-    hed:wikiElementName: "Sensory-event" ;
-    hed:xmlElementName: "Sensory-event" .   
+    hed:hasSuggestedTag: hed:Task-event-role ;
+    hed:hasSuggestedTag: hed:Sensory-presentation .   
+
 
 hed:EndSchemaSection rdf:type hed:HedEndSchemaSection ;
     hed:wikiElementName: "!# end schema " ;
@@ -565,14 +564,7 @@ hed:UnitClassSection rdf:type hed:HedUnitClassesSection ;
     hed:xmlElementName: "UnitClassDefinitions" .
 
 hed:accelerationUnits rdf:type hed:HedUnitClass ;
-    hed:inSchemaSection hed:UnitClassSection ;
-    hed:wikiElementName: "accelerationUnits" ;
-    hed:xmlElementName: "accelerationUnits" .
-
-hed:accelerationUnits rdf:type hed:HedUnitClass ;
-    hed:inSchemaSection hed:UnitClassSection ;    
-    hed:wikiElementName: "accelerationUnits" ;
-    hed:xmlElementName: "accelerationUnits" .
+    hed:inSchemaSection hed:UnitClassSection .
 
 hed:MetersPerSecondSquared rdf:type hed:HedUnit ;
     rdfs:comment "Indicates SI units meters per second squared." ;    
@@ -581,9 +573,7 @@ hed:MetersPerSecondSquared rdf:type hed:HedUnit ;
     hed:isSIUnit xsd:true ;
     hed:isHedUnitSymbol xsd:true ;
     hed:hasHedUnitClass hed:accelerationUnits ;
-    hed:hasConversionFactor: 1.0 ;    
-    hed:wikiElementName: "m-per-s^2" ;
-    hed:xmlElementName: "m-per-s^2" .
+    hed:hasConversionFactor: 1.0 .
 
 hed:UnitModifiersSection rdf:type hed:HedUnitModifiersSection ;
     hed:wikiElementName: "Unit modifiers" ;
@@ -596,6 +586,5 @@ hed:deca rdf:type hed:HedUnitModifier ;
     hed:isSIUnit xsd:true ;
     hed:isHedUnitSymbol xsd:true ;
     hed:hasHedUnitClass hed:accelerationUnits ;
-    hed:hasConversionFactor: 10.0 ;    
-    hed:wikiElementName: "m-per-s^2" ;
-    hed:xmlElementName: "m-per-s^2" .        
+    hed:hasConversionFactor: 10.0 .    
+   
