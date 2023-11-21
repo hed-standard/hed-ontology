@@ -29,78 +29,78 @@ hed:HedHeaderSection rdf:type owl:Class ;
     rdfs:subClassOf hed:HedSection ;
     rdfs:comment "This section contains the schema header." ;
     rdfs:label "HedHeaderSection" ;   
-    hed:wikiElementName: "HED" ;
-    hed:xmlElementName: "HED" .
+    hed:wikiElementName "HED" ;
+    hed:xmlElementName "HED" .
 
 hed:HedPrologueSection rdf:type owl:Class ;
     rdfs:subClassOf hed:HedSection ;
     rdfs:comment "An overview of the schema and its purpose." ;
     rdfs:label "HedPrologueSection" ;   
-    hed:wikiElementName: "'''Prologue'''" ;
-    hed:xmlElementName: "prologue" .
+    hed:wikiElementName "'''Prologue'''" ;
+    hed:xmlElementName "prologue" .
 
 hed:HedStartSchemaSection rdf:type owl:Class ;
     rdfs:subClassOf hed:HedSection ;
     rdfs:comment "The main body of the schema." ;
     rdfs:label "HedStartSchemaSection" ;   
-    hed:wikiElementName: "!# start schema " ;
-    hed:xmlElementName: "schema" .
+    hed:wikiElementName "!# start schema " ;
+    hed:xmlElementName "schema" .
 
 hed:HedEndSchemaSection rdf:type owl:Class ;
     rdfs:subClassOf hed:HedSection ;
     rdfs:comment "Required end marker for schema section" ;
     rdfs:label "HedEndSchemaSection" ;   
-    hed:wikiElementName: "!# end schema " ;
-    hed:xmlElementName: "/schema" .
+    hed:wikiElementName "!# end schema " ;
+    hed:xmlElementName "/schema" .
 
 hed:HedUnitClassesSection rdf:type owl:Class ;
     rdfs:subClassOf hed:HedSection ;
     rdfs:comment "Unit classes and the units for the nodes." ;
     rdfs:label "HedUnitClassesSection" ;   
-    hed:wikiElementName: "'''Unit classes'''" ;
-    hed:xmlElementName: "UnitClassDefinitions" .
+    hed:wikiElementName "'''Unit classes'''" ;
+    hed:xmlElementName "UnitClassDefinitions" .
 
 hed:HedUnitModifiersSection rdf:type owl:Class ;
     rdfs:subClassOf hed:HedSection ;
     rdfs:comment "[Unit multiples and submultiples." ;
     rdfs:label "HedUnitModifiersSection" ;   
-    hed:wikiElementName: "'''Unit modifiers'''" ;
-    hed:xmlElementName: "UnitModifierDefinitions" .
+    hed:wikiElementName "'''Unit modifiers'''" ;
+    hed:xmlElementName "UnitModifierDefinitions" .
 
 hed:HedValueClassesSection rdf:type owl:Class ;
     rdfs:subClassOf hed:HedSection ;
     rdfs:comment "Rules for the values provided for placeholders." ;
     rdfs:label "HedValueClassesSection" ;   
-    hed:wikiElementName: "'''Value classes'''" ;
-    hed:xmlElementName: "ValueClassDefinitions" .
+    hed:wikiElementName "'''Value classes'''" ;
+    hed:xmlElementName "ValueClassDefinitions" .
 
 hed:HedSchemaAttributesSection rdf:type owl:Class ;
     rdfs:subClassOf hed:HedSection ;
     rdfs:comment "Allowed attribute modifiers of other sections of the schema." ;
     rdfs:label "HedSchemaAttributesSection" ;   
-    hed:wikiElementName: "'''Schema attributes'''" ;
-    hed:xmlElementName: "SchemaAttributeDefinitions" .
+    hed:wikiElementName "'''Schema attributes'''" ;
+    hed:xmlElementName "SchemaAttributeDefinitions" .
 
 hed:HedPropertiesSection rdf:type owl:Class ;
     rdfs:subClassOf hed:HedSection ;
     rdfs:comment "Properties of the schema attributes themselves. These are used for schema handling and verification." ;
     rdfs:label "HedPropertiesSection" ;   
-    hed:wikiElementName: "'''Properties'''" ;
-    hed:xmlElementName: "PropertyDefinitions" .
+    hed:wikiElementName "'''Properties'''" ;
+    hed:xmlElementName "PropertyDefinitions" .
 
 hed:HedEpilogueSection rdf:type owl:Class ;
     rdfs:subClassOf hed:HedSection ;
     rdfs:comment "This section citation, licensing, and other information." ;
     rdfs:label "HedEpilogueSection" ;   
-    hed:wikiElementName: "'''Epilogue'''" ;
-    hed:xmlElementName: "epilogue" .
+    hed:wikiElementName "'''Epilogue'''" ;
+    hed:xmlElementName "epilogue" .
 
 hed:HedEndSection rdf:type owl:Class ;
     rdfs:subClassOf hed:HedSection ;
     rdfs:comment "The required end marker for the HED schema." ;
     rdfs:label "HedEndSection" ;   
-    hed:wikiElementName: "!# end hed" ;
-    hed:xmlElementName: "/HED" .
+    hed:wikiElementName "!# end hed" ;
+    hed:xmlElementName "/HED" .
 
 # Properties pertaining to the structure of the schema.
 hed:inSchemaSection rdf:type owl:ObjectProperty ;
@@ -216,63 +216,63 @@ hed:boolProperty rdf:type owl:AnnotationProperty ;
     rdfs:comment "This schema attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values." ;
     rdfs:comment "Has an xsd:boolean value" ;        
     rdfs:label "boolProperty" ;
-    hed:wikiSchemaSection "Properties" ;
-    hed:xmlSchemaSection "propertyDefinitions" .  
+    hed:wikiElementName "Properties" ;
+    hed:xmlElementName "propertyDefinitions" .
 
 # * elementProperty <nowiki>[Indicates a schema attribute can apply to any type of element (tag term, unit class, etc).]</nowiki>
 hed:elementProperty rdf:type owl:AnnotationProperty ;
     rdfs:comment "Indicates a schema attribute can apply to any type of element (tag term, unit class, etc)." ;
     rdfs:range xsd:boolean ;    
     rdfs:label "elementProperty" ;
-    hed:wikiSchemaSection "Properties" ;
-    hed:xmlSchemaSection "propertyDefinitions" .  
+    hed:wikiElementName "Properties" ;
+    hed:xmlElementName "propertyDefinitions" .
 
 # * isInheritedProperty <nowiki>[Indicates a schema attribute is inherited by child nodes. This property only applies to schema attributes for nodes.]</nowiki>
 hed:isheritedProperty rdf:type owl:AnnotationProperty ;
     rdfs:comment "Indicates a schema attribute is inherited by child nodes. This property only applies to schema attributes for nodes." ;
     rdfs:range xsd:boolean ;   
     rdfs:label "isHeritedProperty" ;
-    hed:wikiSchemaSection "Properties" ;
-    hed:xmlSchemaSection "propertyDefinitions" .  
+    hed:wikiElementName "Properties" ;
+    hed:xmlElementName "propertyDefinitions" .
 
 # * nodeProperty <nowiki>[Indicates a attribute applies to node (tag-term) elements. This was added to allow for an attribute to apply to multiple elements.]</nowiki>
 hed:nodeProperty rdf:type owl:AnnotationProperty ;
     rdfs:comment "Indicates a attribute applies to node (tag-term) elements. This was added to allow for an attribute to apply to multiple elements." ;
     rdfs:range xsd:boolean ;   
     rdfs:label "nodeProperty" ;
-    hed:wikiSchemaSection "Properties" ;
-    hed:xmlSchemaSection "propertyDefinitions" .  
+    hed:wikiElementName "Properties" ;
+    hed:xmlElementName "propertyDefinitions" .
 
 # * unitClassProperty <nowiki>[Indicates a schema attribute applies to unit classes.]</nowiki>
 hed:unitClassProperty rdf:type owl:AnnotationProperty ;
     rdfs:comment "Indicates a schema attribute applies to unit classes." ;
     rdfs:range xsd:boolean ;      
     rdfs:label "unitClassProperty" ;
-    hed:wikiSchemaSection "Properties" ;
-    hed:xmlSchemaSection "propertyDefinitions" .  
+    hed:wikiElementName "Properties" ;
+    hed:xmlElementName "propertyDefinitions" .
 
 # * unitModifierProperty <nowiki>[Indicates a schema attribute applies to unit modifier classes.]</nowiki>
 hed:unitModifierProperty rdf:type owl:AnnotationProperty ;
     rdfs:comment "Indicates a schema attribute applies to unit modifier classes." ;
     rdfs:range xsd:boolean ; 
     rdfs:label "unitModifierProperty" ;
-    hed:wikiSchemaSection "Properties" ;
-    hed:xmlSchemaSection "propertyDefinitions" .  
+    hed:wikiElementName "Properties" ;
+    hed:xmlElementName "propertyDefinitions" .
 
 # * unitProperty <nowiki>[Indicates that the schema attribute is meant to be applied to units within a unit class.]</nowiki> 
 hed:unitProperty rdf:type owl:AnnotationProperty ;
     rdfs:comment "Indicates a schema attribute applies to units within a unit class." ;
     rdfs:range xsd:boolean ; 
     rdfs:label "unitProperty" ;
-    hed:wikiSchemaSection "Properties" ;
-    hed:xmlSchemaSection "propertyDefinitions" .  
+    hed:wikiElementName "Properties" ;
+    hed:xmlElementName "propertyDefinitions" .
 
 hed:valueClassProperty rdf:type owl:AnnotationProperty ;
     rdfs:comment "Indicates a schema attribute applies to value classes." ;
     rdfs:range xsd:boolean ;
     rdfs:label "valueClassProperty" ;
-    hed:wikiSchemaSection "Properties" ;
-    hed:xmlSchemaSection "propertyDefinitions" .  
+    hed:wikiElementName "Properties" ;
+    hed:xmlElementName "propertyDefinitions" .
 
 #------------------------------------------------------------------------------------
 # Property definitions that are internal to the rdf representation of the HED schema
@@ -503,14 +503,14 @@ hed:unitSymbol rdf:type owl:DatatypeProperty ;
 
 # valueClass
 # * valueClass <nowiki>{nodeProperty}[A schema attribute specifying which value class this value tag belongs to.]</nowiki> 
-#hed:hasValueClass rdf:type owl:ObjectProperty ;
-#    rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
-#    rdfs:comment "Indicates which value class this value tag belongs to." ;
-#    rdfs:label "hasValueClass" ;
-#    rdfs:domain hed:HedTag ;
-#    rdfs:range hed:HedValueClass .    
-#
-#        
+hed:hasValueClass rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
+    rdfs:comment "Indicates which value class this value tag belongs to." ;
+    rdfs:label "hasValueClass" ;
+    rdfs:domain hed:HedTag ;
+    rdfs:range hed:HedValueClass .
+
+
 ## -----------------------------------------------------
 # Custom data types
 hed:LetterString rdf:type rdfs:Datatype ;
@@ -534,34 +534,34 @@ hed:PrologueSection rdf:type hed:HedPrologueSection ;
 # Each term in this vocabulary has a human-readable description and may include additional attributes that give additional properties or that specify how tools should treat the tag during analysis. The meaning of these attributes is described in the Additional schema properties section." .   
 
 hed:StartSchemaSection rdf:type hed:HedStartSchemaSection ;
-    hed:wikiElementName: "!# start schema " ;
-    hed:xmlElementName: "schema" .
+    hed:wikiElementName "!# start schema " ;
+    hed:xmlElementName "schema" .
 
 hed:Event rdf:type hed:HedTag ;
-    hed:label: "Event" ;
-    hed:comment: "Something that happens at a given time and (typically) place. Elements of this tag subtree designate the general category in which an event falls." ;
+    rdfs:label "Event" ;
+    rdfs:comment "Something that happens at a given time and (typically) place. Elements of this tag subtree designate the general category in which an event falls." ;
     hed:inSchemaSection hed:StartSchemaSection ;
-    hed:isTopLevelTag: true ;
-    hed:isExtensionAllowed: false ; 
-    hed:hasSuggestedTag: hed:TaskProperty .
- 
+    hed:isTopLevelTag true ;
+    hed:extensionAllowed false ;
+    hed:suggestedTag hed:TaskProperty .
+
 
 hed:Sensory-event rdf:type hed:HedTag ;
-    hed:label: "Sensory-event" ;
-    hed:comment: "Something perceivable by the participant. An event meant to be an experimental stimulus should include the tag Task-property/Task-event-role/Experimental-stimulus." ;
+    rdfs:label "Sensory-event" ;
+    rdfs:comment "Something perceivable by the participant. An event meant to be an experimental stimulus should include the tag Task-property/Task-event-role/Experimental-stimulus." ;
     hed:inSchemaSection hed:StartSchemaSection ;
-    hed:hasHedParent: hed:Event ;    
-    hed:hasSuggestedTag: hed:Task-event-role ;
-    hed:hasSuggestedTag: hed:Sensory-presentation .   
+    hed:hasHedParent hed:Event ;
+    hed:hasSuggestedTag hed:Task-event-role ;
+    hed:hasSuggestedTag hed:Sensory-presentation .
 
 
 hed:EndSchemaSection rdf:type hed:HedEndSchemaSection ;
-    hed:wikiElementName: "!# end schema " ;
-    hed:xmlElementName: "/schema" .
+    hed:wikiElementName "!# end schema " ;
+    hed:xmlElementName "/schema" .
 
 hed:UnitClassSection rdf:type hed:HedUnitClassesSection ;
-    hed:wikiElementName: "'''Unit classes'''" ;
-    hed:xmlElementName: "UnitClassDefinitions" .
+    hed:wikiElementName "'''Unit classes'''" ;
+    hed:xmlElementName "UnitClassDefinitions" .
 
 hed:accelerationUnits rdf:type hed:HedUnitClass ;
     hed:inSchemaSection hed:UnitClassSection .
@@ -573,11 +573,11 @@ hed:MetersPerSecondSquared rdf:type hed:HedUnit ;
     hed:isSIUnit xsd:true ;
     hed:isHedUnitSymbol xsd:true ;
     hed:hasHedUnitClass hed:accelerationUnits ;
-    hed:hasConversionFactor: 1.0 .
+    hed:conversionFactor 1.0 .
 
 hed:UnitModifiersSection rdf:type hed:HedUnitModifiersSection ;
-    hed:wikiElementName: "Unit modifiers" ;
-    hed:xmlElementName: "UnitModifiersDefinition" .
+    hed:wikiElementName "Unit modifiers" ;
+    hed:xmlElementName "UnitModifiersDefinition" .
 
 hed:deca rdf:type hed:HedUnitModifier ;
     rdfs:comment "SI unit multiple representing 10^1." ;
@@ -586,5 +586,5 @@ hed:deca rdf:type hed:HedUnitModifier ;
     hed:isSIUnit xsd:true ;
     hed:isHedUnitSymbol xsd:true ;
     hed:hasHedUnitClass hed:accelerationUnits ;
-    hed:hasConversionFactor: 10.0 .    
+    hed:conversionFactor 10.0 .
    
