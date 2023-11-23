@@ -1,0 +1,79 @@
+@prefix ex: <http://example.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix hed: <https://purl.org/hed#> .
+
+# Ontology Declaration with import
+hed: rdf:type owl:Ontology ;
+    owl:imports <https://purl.org/hed> ;  # Importing the HED ontology
+    owl:versionInfo "1.0" ;
+    rdfs:label "My Extended Ontology" ;
+    rdfs:comment "This ontology extends the HED Base Schema Ontology." ;
+    dc:title "My Extended Ontology" ;
+    dc:description "This ontology describes extensions to the base HED classes." .
+
+hed:HeaderSection rdf:type hed:HedHeaderSection ;
+    hed:version "8.3.0" .
+
+hed:PrologueSection rdf:type hed:HedPrologueSection ;
+    hed:elementValue "The HED standard schema is a hierarchically-organized vocabulary for annotating events and experimental structure. HED annotations consist of comma-separated tags drawn from this vocabulary. This vocabulary can be augmented by terms drawn from specialized library schema." .
+# The following should be in the Prologue but the newlines are causing problems".
+# Each term in this vocabulary has a human-readable description and may include additional attributes that give additional properties or that specify how tools should treat the tag during analysis. The meaning of these attributes is described in the Additional schema properties section." .
+
+
+hed:Event rdf:type hed:HedTag ;
+    hed:label "Event" ;
+    hed:comment "Something that happens at a given time and (typically) place. Elements of this tag subtree designate the general category in which an event falls." ;
+    hed:inSchemaSection hed:StartSchemaSection ;
+    hed:isTopLevelTag true ;
+    hed:isExtensionAllowed false ;
+    hed:suggestedTag hed:TaskProperty .
+
+
+hed:Sensory-event rdf:type hed:HedTag ;
+    hed:label "Sensory-event" ;
+    hed:comment "Something perceivable by the participant. An event meant to be an experimental stimulus should include the tag Task-property/Task-event-role/Experimental-stimulus." ;
+    hed:inSchemaSection hed:StartSchemaSection ;
+    hed:hasHedParent hed:Event ;
+    hed:suggestedTag hed:Task-event-role ;
+    hed:suggestedTag hed:Sensory-presentation .
+
+
+hed:accelerationUnits rdf:type hed:HedUnitClass ;
+    hed:inSchemaSection hed:UnitClassSection .
+
+hed:MetersPerSecondSquared rdf:type hed:HedUnit ;
+    rdfs:comment "Indicates SI units meters per second squared." ;
+    rdfs:label "m-per-s^2" ;
+    hed:inSchemaSection hed:UnitClassSection ;
+    hed:SIUnit xsd:true ;
+    hed:unitSymbol xsd:true ;
+    hed:unitClass hed:accelerationUnits ;
+    hed:conversionFactor 1.0 .
+
+hed:deca rdf:type hed:HedUnitModifier ;
+    rdfs:comment "SI unit multiple representing 10^1." ;
+    rdfs:label "deca" ;
+    hed:inSchemaSection hed:UnitModifierSection ;
+    hed:conversionFactor "10.0" .
+
+
+hed:StartSchemaSection rdf:type hed:HedStartSchemaSection ;
+    hed:wikiElementName "!# start schema " ;
+    hed:xmlElementName "schema" .
+
+hed:EndSchemaSection rdf:type hed:HedEndSchemaSection ;
+    hed:wikiElementName "!# end schema " ;
+    hed:xmlElementName "/schema" .
+
+hed:UnitClassSection rdf:type hed:HedUnitClassesSection ;
+    hed:wikiElementName "'''Unit classes'''" ;
+    hed:xmlElementName "UnitClassDefinitions" .
+
+hed:UnitModifiersSection rdf:type hed:HedUnitModifiersSection ;
+    hed:wikiElementName "Unit modifiers" ;
+    hed:xmlElementName "UnitModifiersDefinition" .
+

@@ -127,9 +127,9 @@ hed:elementValue rdf:type owl:DatatypeProperty ;
     rdfs:domain hed:HedElement ;
     rdfs:range xsd:string .   
 
-hed:hasHedUnitClass rdf:type owl:ObjectProperty ;
+hed:unitClass rdf:type owl:ObjectProperty ;
     rdfs:comment "Property specify the type of unit class a unit belongs to." ;
-    rdfs:label "hasHedUnitClass" ;
+    rdfs:label "unitClass" ;
     rdfs:domain hed:HedUnit ;
     rdfs:range hed:HedUnitClass .          
 
@@ -192,7 +192,8 @@ hed:HedUnit rdf:type owl:Class ;
     rdfs:subClassOf hed:HedElement ;
     rdfs:comment "Represents a unit element." ;    
     rdfs:label "HedUnit" ;
-    hed:xmlElementName "unit" .   
+    hed:xmlElementName "unit" ;
+    hed:unitClass hed:HedUnitClass .
 
 hed:HedUnitModifier rdf:type owl:Class ;
     rdfs:subClassOf hed:HedElement ;
@@ -503,10 +504,10 @@ hed:unitSymbol rdf:type owl:DatatypeProperty ;
 
 # valueClass
 # * valueClass <nowiki>{nodeProperty}[A schema attribute specifying which value class this value tag belongs to.]</nowiki> 
-hed:hasValueClass rdf:type owl:ObjectProperty ;
+hed:valueClass rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
     rdfs:comment "Indicates which value class this value tag belongs to." ;
-    rdfs:label "hasValueClass" ;
+    rdfs:label "valueClass" ;
     rdfs:domain hed:HedTag ;
     rdfs:range hed:HedValueClass .
 
@@ -525,66 +526,3 @@ ex:CustomEmail rdf:type rdfs:Datatype ;
 
 # --------------------------------------------------------------------------------------
 
-hed:HeaderSection rdf:type hed:HedHeaderSection ;
-    hed:version "8.3.0" .
-
-hed:PrologueSection rdf:type hed:HedPrologueSection ;
-    hed:elementValue "The HED standard schema is a hierarchically-organized vocabulary for annotating events and experimental structure. HED annotations consist of comma-separated tags drawn from this vocabulary. This vocabulary can be augmented by terms drawn from specialized library schema." . 
-# The following should be in the Prologue but the newlines are causing problems".
-# Each term in this vocabulary has a human-readable description and may include additional attributes that give additional properties or that specify how tools should treat the tag during analysis. The meaning of these attributes is described in the Additional schema properties section." .   
-
-hed:StartSchemaSection rdf:type hed:HedStartSchemaSection ;
-    hed:wikiElementName "!# start schema " ;
-    hed:xmlElementName "schema" .
-
-hed:Event rdf:type hed:HedTag ;
-    rdfs:label "Event" ;
-    rdfs:comment "Something that happens at a given time and (typically) place. Elements of this tag subtree designate the general category in which an event falls." ;
-    hed:inSchemaSection hed:StartSchemaSection ;
-    hed:isTopLevelTag true ;
-    hed:extensionAllowed false ;
-    hed:suggestedTag hed:TaskProperty .
-
-
-hed:Sensory-event rdf:type hed:HedTag ;
-    rdfs:label "Sensory-event" ;
-    rdfs:comment "Something perceivable by the participant. An event meant to be an experimental stimulus should include the tag Task-property/Task-event-role/Experimental-stimulus." ;
-    hed:inSchemaSection hed:StartSchemaSection ;
-    hed:hasHedParent hed:Event ;
-    hed:hasSuggestedTag hed:Task-event-role ;
-    hed:hasSuggestedTag hed:Sensory-presentation .
-
-
-hed:EndSchemaSection rdf:type hed:HedEndSchemaSection ;
-    hed:wikiElementName "!# end schema " ;
-    hed:xmlElementName "/schema" .
-
-hed:UnitClassSection rdf:type hed:HedUnitClassesSection ;
-    hed:wikiElementName "'''Unit classes'''" ;
-    hed:xmlElementName "UnitClassDefinitions" .
-
-hed:accelerationUnits rdf:type hed:HedUnitClass ;
-    hed:inSchemaSection hed:UnitClassSection .
-
-hed:MetersPerSecondSquared rdf:type hed:HedUnit ;
-    rdfs:comment "Indicates SI units meters per second squared." ;    
-    rdfs:label "m-per-s^2" ;
-    hed:inSchemaSection hed:UnitClassSection ;    
-    hed:isSIUnit xsd:true ;
-    hed:isHedUnitSymbol xsd:true ;
-    hed:hasHedUnitClass hed:accelerationUnits ;
-    hed:conversionFactor 1.0 .
-
-hed:UnitModifiersSection rdf:type hed:HedUnitModifiersSection ;
-    hed:wikiElementName "Unit modifiers" ;
-    hed:xmlElementName "UnitModifiersDefinition" .
-
-hed:deca rdf:type hed:HedUnitModifier ;
-    rdfs:comment "SI unit multiple representing 10^1." ;
-    rdfs:label "deca" ;    
-    hed:inSchemaSection hed:UnitModifierSection ; 
-    hed:isSIUnit xsd:true ;
-    hed:isHedUnitSymbol xsd:true ;
-    hed:hasHedUnitClass hed:accelerationUnits ;
-    hed:conversionFactor 10.0 .
-   
