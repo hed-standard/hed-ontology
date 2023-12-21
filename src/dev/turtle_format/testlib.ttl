@@ -1,5 +1,4 @@
-@prefix hed: <https://purl.org/hed/core#> .
-@prefix heda: <https://purl.org/hed/attributes/#> .
+@prefix hed: <https://purl.org/hed#> .
 @prefix hedt: <https://purl.org/hed/tag#> .
 @prefix hedu: <https://purl.org/hed/aux#> .
 @prefix hedum: <https://purl.org/hed/aux/unit_modifier#> .
@@ -7,260 +6,279 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-heda:SIUnit a owl:DatatypeProperty ;
+hed:Epilogue a hed:HedElement ;
+    rdfs:label "epilogue" .
+
+hed:Library a hed:HeaderMember ;
+    rdfs:label "library" ;
+    hed:HeaderAttribute "testlib" .
+
+hed:Prologue a hed:HedElement ;
+    rdfs:label "epilogue" ;
+    hed:elementValue "This schema tests the ordering effects of various combinations of rooted and extension allowed for rooted schemas." .
+
+hed:SIUnit a owl:DatatypeProperty ;
     rdfs:label "SIUnit" ;
     rdfs:comment "A schema attribute indicating that this unit element is an SI unit and can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard." ;
     rdfs:domain hed:HedUnit ;
     rdfs:range xsd:boolean ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
-    heda:boolProperty true ;
-    heda:unitProperty true .
+    hed:boolProperty true ;
+    hed:unitProperty true .
 
-heda:SIUnitModifier a owl:DatatypeProperty ;
+hed:SIUnitModifier a owl:DatatypeProperty ;
     rdfs:label "SIUnitModifier" ;
     rdfs:comment "A schema attribute indicating that this SI unit modifier represents a multiple or submultiple of a base unit rather than a unit symbol." ;
     rdfs:domain hed:HedUnitModifier ;
     rdfs:range xsd:boolean ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
-    heda:boolProperty true ;
-    heda:unitModifierProperty true .
+    hed:boolProperty true ;
+    hed:unitModifierProperty true .
 
-heda:SIUnitSymbolModifier a owl:DatatypeProperty ;
+hed:SIUnitSymbolModifier a owl:DatatypeProperty ;
     rdfs:label "SIUnitSymbolModifier" ;
     rdfs:comment "A schema attribute indicating that this SI unit modifier represents a multiple or submultiple of a unit symbol rather than a base symbol." ;
     rdfs:domain hed:HedUnitModifier ;
     rdfs:range xsd:boolean ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
-    heda:boolProperty true ;
-    heda:unitModifierProperty true .
+    hed:boolProperty true ;
+    hed:unitModifierProperty true .
 
-heda:allowedCharacter a owl:DatatypeProperty ;
+hed:Version a hed:HeaderMember ;
+    rdfs:label "version" ;
+    hed:HeaderAttribute "2.0.0" .
+
+hed:WithStandard a hed:HeaderMember ;
+    rdfs:label "withStandard" ;
+    hed:HeaderAttribute "8.2.0" .
+
+hed:allowedCharacter a owl:DatatypeProperty ;
     rdfs:label "allowedCharacter" ;
     rdfs:comment "A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder. Normally the allowed characters are listed individually. However, the word letters designates the upper and lower case alphabetic characters and the word digits designates the digits 0-9. The word blank designates the blank character." ;
     rdfs:domain hed:HedValueClass ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
-    heda:valueClassProperty true .
+    hed:valueClassProperty true .
 
-heda:boolProperty a owl:AnnotationProperty ;
+hed:boolProperty a owl:AnnotationProperty ;
     rdfs:label "boolProperty" ;
     rdfs:comment "Indicates that the schema attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values." ;
     rdfs:range xsd:boolean ;
     rdfs:subPropertyOf hed:schemaProperty .
 
-heda:conversionFactor a owl:DatatypeProperty ;
+hed:conversionFactor a owl:DatatypeProperty ;
     rdfs:label "conversionFactor" ;
     rdfs:comment "The multiplicative factor to multiply these units to convert to default units." ;
     rdfs:domain hed:HedUnit,
         hed:HedUnitModifier ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
-    heda:unitModifierProperty true ;
-    heda:unitProperty true .
+    hed:unitModifierProperty true ;
+    hed:unitProperty true .
 
-heda:defaultUnits a owl:ObjectProperty ;
+hed:defaultUnits a owl:ObjectProperty ;
     rdfs:label "defaultUnits" ;
     rdfs:comment "A schema attribute of unit classes specifying the default units to use if the placeholder has a unit class but the substituted value has no units." ;
     rdfs:domain hed:HedUnitClass ;
     rdfs:range hed:HedUnit ;
     rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
-    heda:unitClassProperty true .
+    hed:unitClassProperty true .
 
-heda:deprecatedFrom a owl:DatatypeProperty ;
+hed:deprecatedFrom a owl:DatatypeProperty ;
     rdfs:label "deprecatedFrom" ;
     rdfs:comment "Indicates that this element is deprecated. The value of the attribute is the latest schema version in which the element appeared in undeprecated form." ;
     rdfs:domain hed:HedElement ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
-    heda:elementProperty true .
+    hed:elementProperty true .
 
-heda:elementProperty a owl:AnnotationProperty ;
+hed:elementProperty a owl:AnnotationProperty ;
     rdfs:label "elementProperty" ;
     rdfs:comment "Indicates this schema attribute can apply to any type of element(tag term, unit class, etc)." ;
     rdfs:range xsd:boolean ;
     rdfs:subPropertyOf hed:schemaProperty .
 
-heda:extensionAllowed a owl:DatatypeProperty ;
+hed:extensionAllowed a owl:DatatypeProperty ;
     rdfs:label "extensionAllowed" ;
     rdfs:comment "A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of the hashtag placeholders." ;
     rdfs:domain hed:HedTag ;
     rdfs:range xsd:boolean ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
-    heda:boolProperty true ;
-    heda:isInheritedProperty true ;
-    heda:nodeProperty true .
+    hed:boolProperty true ;
+    hed:isInheritedProperty true ;
+    hed:nodeProperty true .
 
-heda:inLibrary a owl:DatatypeProperty ;
+hed:inLibrary a owl:DatatypeProperty ;
     rdfs:label "inLibrary" ;
     rdfs:comment "Indicates this schema element came from the named library schema, not the standard schema. This attribute is added by tools when a library schema is merged into its partnered standard schema." ;
     rdfs:domain hed:HedElement ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
-    heda:elementProperty true .
+    hed:elementProperty true .
 
-heda:isInheritedProperty a owl:AnnotationProperty ;
+hed:isInheritedProperty a owl:AnnotationProperty ;
     rdfs:label "isInheritedProperty" ;
     rdfs:comment "Indicates that this attribute is inherited by child nodes. This property only applies to schema attributes for nodes." ;
     rdfs:range xsd:boolean ;
     rdfs:subPropertyOf hed:schemaProperty .
 
-heda:nodeProperty a owl:AnnotationProperty ;
+hed:nodeProperty a owl:AnnotationProperty ;
     rdfs:label "nodeProperty" ;
     rdfs:comment "Indicates this schema attribute applies to node (tag-term) elements. This was added to allow for an attribute to apply to multiple elements." ;
     rdfs:range xsd:boolean ;
     rdfs:subPropertyOf hed:schemaProperty .
 
-heda:recommended a owl:DatatypeProperty ;
+hed:recommended a owl:DatatypeProperty ;
     rdfs:label "recommended" ;
     rdfs:comment "A schema attribute indicating that the event-level HED string should include this tag." ;
     rdfs:domain hed:HedTag ;
     rdfs:range xsd:boolean ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
-    heda:boolProperty true ;
-    heda:nodeProperty true .
+    hed:boolProperty true ;
+    hed:nodeProperty true .
 
-heda:relatedTag a owl:ObjectProperty ;
+hed:relatedTag a owl:ObjectProperty ;
     rdfs:label "relatedTag" ;
     rdfs:comment "A schema attribute suggesting HED tags that are closely related to this tag. This attribute is used by tagging tools." ;
     rdfs:domain hed:HedTag ;
     rdfs:range hed:HedTag ;
     rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
-    heda:isInheritedProperty true ;
-    heda:nodeProperty true .
+    hed:isInheritedProperty true ;
+    hed:nodeProperty true .
 
-heda:requireChild a owl:DatatypeProperty ;
+hed:requireChild a owl:DatatypeProperty ;
     rdfs:label "requireChild" ;
     rdfs:comment "A schema attribute indicating that one of the node elements descendants must be included when using this tag." ;
     rdfs:domain hed:HedTag ;
     rdfs:range xsd:boolean ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
-    heda:boolProperty true ;
-    heda:nodeProperty true .
+    hed:boolProperty true ;
+    hed:nodeProperty true .
 
-heda:required a owl:DatatypeProperty ;
+hed:required a owl:DatatypeProperty ;
     rdfs:label "required" ;
     rdfs:comment "A schema attribute indicating that every event-level HED string should include this tag." ;
     rdfs:domain hed:HedTag ;
     rdfs:range xsd:boolean ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
-    heda:boolProperty true ;
-    heda:nodeProperty true .
+    hed:boolProperty true ;
+    hed:nodeProperty true .
 
-heda:reserved a owl:DatatypeProperty ;
+hed:reserved a owl:DatatypeProperty ;
     rdfs:label "reserved" ;
     rdfs:comment "A schema attribute indicating that this tag has special meaning and requires special handling by tools." ;
     rdfs:domain hed:HedTag ;
     rdfs:range xsd:boolean ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
-    heda:boolProperty true ;
-    heda:nodeProperty true .
+    hed:boolProperty true ;
+    hed:nodeProperty true .
 
-heda:rooted a owl:ObjectProperty ;
+hed:rooted a owl:ObjectProperty ;
     rdfs:label "rooted" ;
     rdfs:comment "Indicates a top-level library schema node is identical to a node of the same name in the partnered standard schema. This attribute can only appear in nodes that have the inLibrary schema attribute." ;
     rdfs:domain hed:HedTag ;
     rdfs:range hed:HedTag ;
     rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
-    heda:nodeProperty true .
+    hed:nodeProperty true .
 
-heda:suggestedTag a owl:ObjectProperty ;
+hed:suggestedTag a owl:ObjectProperty ;
     rdfs:label "suggestedTag" ;
     rdfs:comment "A schema attribute that indicates another tag  that is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions." ;
     rdfs:domain hed:HedTag ;
     rdfs:range hed:HedTag ;
     rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
-    heda:isInheritedProperty true ;
-    heda:nodeProperty true .
+    hed:isInheritedProperty true ;
+    hed:nodeProperty true .
 
-heda:tagGroup a owl:DatatypeProperty ;
+hed:tagGroup a owl:DatatypeProperty ;
     rdfs:label "tagGroup" ;
     rdfs:comment "A schema attribute indicating the tag can only appear inside a tag group." ;
     rdfs:domain hed:HedTag ;
     rdfs:range xsd:boolean ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
-    heda:boolProperty true ;
-    heda:nodeProperty true .
+    hed:boolProperty true ;
+    hed:nodeProperty true .
 
-heda:takesValue a owl:DatatypeProperty ;
+hed:takesValue a owl:DatatypeProperty ;
     rdfs:label "takesValue" ;
     rdfs:comment "A schema attribute indicating the tag is a hashtag placeholder that is expected to be replaced with a user-defined value." ;
     rdfs:domain hed:HedTag ;
     rdfs:range xsd:boolean ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
-    heda:boolProperty true ;
-    heda:nodeProperty true .
+    hed:boolProperty true ;
+    hed:nodeProperty true .
 
-heda:topLevelTagGroup a owl:DatatypeProperty ;
+hed:topLevelTagGroup a owl:DatatypeProperty ;
     rdfs:label "topLevelTagGroup" ;
     rdfs:comment "A schema attribute indicating that this tag (or its descendants) can only appear in a top-level tag group. A tag group can have at most one tag with this attribute." ;
     rdfs:domain hed:HedTag ;
     rdfs:range xsd:boolean ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
-    heda:boolProperty true ;
-    heda:nodeProperty true .
+    hed:boolProperty true ;
+    hed:nodeProperty true .
 
-heda:unique a owl:DatatypeProperty ;
+hed:unique a owl:DatatypeProperty ;
     rdfs:label "unique" ;
     rdfs:comment "A schema attribute indicating that only one of this tag or its descendants can be used  in the event-level HED string." ;
     rdfs:domain hed:HedTag ;
     rdfs:range xsd:boolean ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
-    heda:boolProperty true ;
-    heda:nodeProperty true .
+    hed:boolProperty true ;
+    hed:nodeProperty true .
 
-heda:unitClass a owl:ObjectProperty ;
+hed:unitClass a owl:ObjectProperty ;
     rdfs:label "unitClass" ;
     rdfs:comment "A schema attribute specifying which unit class this value tag belongs to." ;
     rdfs:domain hed:HedTag ;
     rdfs:range hed:HedUnitClass ;
     rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
-    heda:nodeProperty true .
+    hed:nodeProperty true .
 
-heda:unitClassProperty a owl:AnnotationProperty ;
+hed:unitClassProperty a owl:AnnotationProperty ;
     rdfs:label "unitClassProperty" ;
     rdfs:comment "Indicates that the schema attribute is meant to be applied to unit classes." ;
     rdfs:range xsd:boolean ;
     rdfs:subPropertyOf hed:schemaProperty .
 
-heda:unitModifierProperty a owl:AnnotationProperty ;
+hed:unitModifierProperty a owl:AnnotationProperty ;
     rdfs:label "unitModifierProperty" ;
     rdfs:comment "Indicates that the schema attribute is meant to be applied to unit modifier classes." ;
     rdfs:range xsd:boolean ;
     rdfs:subPropertyOf hed:schemaProperty .
 
-heda:unitPrefix a owl:DatatypeProperty ;
+hed:unitPrefix a owl:DatatypeProperty ;
     rdfs:label "unitPrefix" ;
     rdfs:comment "A schema attribute applied specifically to unit elements to designate that the unit indicator is a prefix (e.g., dollar sign in the currency units)." ;
     rdfs:domain hed:HedUnit ;
     rdfs:range xsd:boolean ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
-    heda:boolProperty true ;
-    heda:unitProperty true .
+    hed:boolProperty true ;
+    hed:unitProperty true .
 
-heda:unitProperty a owl:AnnotationProperty ;
+hed:unitProperty a owl:AnnotationProperty ;
     rdfs:label "unitProperty" ;
     rdfs:comment "Indicates that the schema attribute is meant to be applied to units within a unit class." ;
     rdfs:range xsd:boolean ;
     rdfs:subPropertyOf hed:schemaProperty .
 
-heda:unitSymbol a owl:DatatypeProperty ;
+hed:unitSymbol a owl:DatatypeProperty ;
     rdfs:label "unitSymbol" ;
     rdfs:comment "A schema attribute indicating this tag is an abbreviation or symbol representing a type of unit. Unit symbols represent both the singular and the plural and thus cannot be pluralized." ;
     rdfs:domain hed:HedUnit ;
     rdfs:range xsd:boolean ;
     rdfs:subPropertyOf hed:schemaAttributeDatatypeProperty ;
-    heda:boolProperty true ;
-    heda:unitProperty true .
+    hed:boolProperty true ;
+    hed:unitProperty true .
 
-heda:valueClass a owl:ObjectProperty ;
+hed:valueClass a owl:ObjectProperty ;
     rdfs:label "valueClass" ;
     rdfs:comment "A schema attribute specifying which value class this value tag belongs to." ;
     rdfs:domain hed:HedTag ;
     rdfs:range hed:HedValueClass ;
     rdfs:subPropertyOf hed:schemaAttributeObjectProperty ;
-    heda:nodeProperty true .
+    hed:nodeProperty true .
 
-heda:valueClassProperty a owl:AnnotationProperty ;
+hed:valueClassProperty a owl:AnnotationProperty ;
     rdfs:label "valueClassProperty" ;
     rdfs:comment "Indicates that the schema attribute is meant to be applied to value classes." ;
     rdfs:range xsd:boolean ;
@@ -268,531 +286,506 @@ heda:valueClassProperty a owl:AnnotationProperty ;
 
 <https://purl.org/hed/aux#$> a hed:HedUnit ;
     rdfs:label "$" ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:currencyUnits ;
-    heda:unitPrefix true ;
-    heda:unitSymbol true .
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:currencyUnits ;
+    hed:unitPrefix true ;
+    hed:unitSymbol true .
 
 hedu:B a hed:HedUnit ;
     rdfs:label "B" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:memorySizeUnits ;
-    heda:unitSymbol true .
+    hed:SIUnit true ;
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:memorySizeUnits ;
+    hed:unitSymbol true .
 
 hedu:Hz a hed:HedUnit ;
     rdfs:label "Hz" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:frequencyUnits ;
-    heda:unitSymbol true .
+    hed:SIUnit true ;
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:frequencyUnits ;
+    hed:unitSymbol true .
 
 hedu:T a hed:HedUnit ;
     rdfs:label "T" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "10^-15" ;
-    heda:unitClass hedu:magneticFieldUnits ;
-    heda:unitSymbol true .
+    hed:SIUnit true ;
+    hed:conversionFactor "10^-15" ;
+    hed:unitClass hedu:magneticFieldUnits ;
+    hed:unitSymbol true .
 
 hedu:Volt a hed:HedUnit ;
     rdfs:label "Volt" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "0.000001" ;
-    heda:unitClass hedu:electricPotentialUnits .
+    hed:SIUnit true ;
+    hed:conversionFactor "0.000001" ;
+    hed:unitClass hedu:electricPotentialUnits .
 
 hedu:byte a hed:HedUnit ;
     rdfs:label "byte" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:memorySizeUnits .
+    hed:SIUnit true ;
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:memorySizeUnits .
 
 hedu:candela a hed:HedUnit ;
     rdfs:label "candela" ;
     rdfs:comment "Units used to express light intensity." ;
-    heda:SIUnit true ;
-    heda:unitClass hedu:intensityUnits .
+    hed:SIUnit true ;
+    hed:unitClass hedu:intensityUnits .
 
 hedu:cd a hed:HedUnit ;
     rdfs:label "cd" ;
     rdfs:comment "Units used to express light intensity." ;
-    heda:SIUnit true ;
-    heda:unitClass hedu:intensityUnits ;
-    heda:unitSymbol true .
+    hed:SIUnit true ;
+    hed:unitClass hedu:intensityUnits ;
+    hed:unitSymbol true .
 
 hedu:dB a hed:HedUnit ;
     rdfs:label "dB" ;
     rdfs:comment "Intensity expressed as ratio to a threshold. May be used for sound intensity." ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:intensityUnits ;
-    heda:unitSymbol true .
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:intensityUnits ;
+    hed:unitSymbol true .
 
 hedu:day a hed:HedUnit ;
     rdfs:label "day" ;
-    heda:conversionFactor "86400" ;
-    heda:unitClass hedu:timeUnits .
+    hed:conversionFactor "86400" ;
+    hed:unitClass hedu:timeUnits .
 
 hedu:degree a hed:HedUnit ;
     rdfs:label "degree" ;
-    heda:conversionFactor "0.0174533" ;
-    heda:unitClass hedu:angleUnits .
+    hed:conversionFactor "0.0174533" ;
+    hed:unitClass hedu:angleUnits .
 
 hedu:degree_Celsius a hed:HedUnit ;
     rdfs:label "degree Celsius" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:temperatureUnits .
+    hed:SIUnit true ;
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:temperatureUnits .
 
 hedu:dollar a hed:HedUnit ;
     rdfs:label "dollar" ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:currencyUnits .
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:currencyUnits .
 
 hedu:euro a hed:HedUnit ;
     rdfs:label "euro" ;
-    heda:unitClass hedu:currencyUnits .
+    hed:unitClass hedu:currencyUnits .
 
 hedu:foot a hed:HedUnit ;
     rdfs:label "foot" ;
-    heda:conversionFactor "0.3048" ;
-    heda:unitClass hedu:physicalLengthUnits .
+    hed:conversionFactor "0.3048" ;
+    hed:unitClass hedu:physicalLengthUnits .
 
 hedu:g a hed:HedUnit ;
     rdfs:label "g" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:weightUnits ;
-    heda:unitSymbol true .
+    hed:SIUnit true ;
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:weightUnits ;
+    hed:unitSymbol true .
 
 hedu:gram a hed:HedUnit ;
     rdfs:label "gram" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:weightUnits .
+    hed:SIUnit true ;
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:weightUnits .
 
 hedu:hertz a hed:HedUnit ;
     rdfs:label "hertz" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:frequencyUnits .
+    hed:SIUnit true ;
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:frequencyUnits .
 
 hedu:hour a hed:HedUnit ;
     rdfs:label "hour" ;
     rdfs:comment "Should be in 24-hour format." ;
-    heda:conversionFactor "3600" ;
-    heda:unitClass hedu:timeUnits .
+    hed:conversionFactor "3600" ;
+    hed:unitClass hedu:timeUnits .
 
 hedu:inch a hed:HedUnit ;
     rdfs:label "inch" ;
-    heda:conversionFactor "0.0254" ;
-    heda:unitClass hedu:physicalLengthUnits .
+    hed:conversionFactor "0.0254" ;
+    hed:unitClass hedu:physicalLengthUnits .
 
 hedu:kph a hed:HedUnit ;
     rdfs:label "kph" ;
-    heda:conversionFactor "0.277778" ;
-    heda:unitClass hedu:speedUnits ;
-    heda:unitSymbol true .
+    hed:conversionFactor "0.277778" ;
+    hed:unitClass hedu:speedUnits ;
+    hed:unitSymbol true .
 
 hedu:lb a hed:HedUnit ;
     rdfs:label "lb" ;
-    heda:conversionFactor "453.592" ;
-    heda:unitClass hedu:weightUnits .
+    hed:conversionFactor "453.592" ;
+    hed:unitClass hedu:weightUnits .
 
 hedu:m a hed:HedUnit ;
     rdfs:label "m" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:physicalLengthUnits ;
-    heda:unitSymbol true .
+    hed:SIUnit true ;
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:physicalLengthUnits ;
+    hed:unitSymbol true .
 
 hedu:m-per-s a hed:HedUnit ;
     rdfs:label "m-per-s" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:speedUnits ;
-    heda:unitSymbol true .
+    hed:SIUnit true ;
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:speedUnits ;
+    hed:unitSymbol true .
 
 hedu:m-per-s_2 a hed:HedUnit ;
     rdfs:label "m-per-s^2" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:accelerationUnits ;
-    heda:unitSymbol true .
+    hed:SIUnit true ;
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:accelerationUnits ;
+    hed:unitSymbol true .
 
 hedu:m-per-s_3 a hed:HedUnit ;
     rdfs:label "m-per-s^3" ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:jerkUnits ;
-    heda:unitSymbol true .
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:jerkUnits ;
+    hed:unitSymbol true .
 
 hedu:m_2 a hed:HedUnit ;
     rdfs:label "m^2" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:areaUnits ;
-    heda:unitSymbol true .
+    hed:SIUnit true ;
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:areaUnits ;
+    hed:unitSymbol true .
 
 hedu:m_3 a hed:HedUnit ;
     rdfs:label "m^3" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:volumeUnits ;
-    heda:unitSymbol true .
+    hed:SIUnit true ;
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:volumeUnits ;
+    hed:unitSymbol true .
 
 hedu:meter a hed:HedUnit ;
     rdfs:label "meter" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:physicalLengthUnits .
+    hed:SIUnit true ;
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:physicalLengthUnits .
 
 hedu:metre a hed:HedUnit ;
     rdfs:label "metre" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:physicalLengthUnits .
+    hed:SIUnit true ;
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:physicalLengthUnits .
 
 hedu:mile a hed:HedUnit ;
     rdfs:label "mile" ;
-    heda:conversionFactor "1609.34" ;
-    heda:unitClass hedu:physicalLengthUnits .
+    hed:conversionFactor "1609.34" ;
+    hed:unitClass hedu:physicalLengthUnits .
 
 hedu:minute a hed:HedUnit ;
     rdfs:label "minute" ;
-    heda:conversionFactor "60" ;
-    heda:unitClass hedu:timeUnits .
+    hed:conversionFactor "60" ;
+    hed:unitClass hedu:timeUnits .
 
 hedu:mph a hed:HedUnit ;
     rdfs:label "mph" ;
-    heda:conversionFactor "0.44704" ;
-    heda:unitClass hedu:speedUnits ;
-    heda:unitSymbol true .
+    hed:conversionFactor "0.44704" ;
+    hed:unitClass hedu:speedUnits ;
+    hed:unitSymbol true .
 
 hedu:oC a hed:HedUnit ;
     rdfs:label "oC" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:temperatureUnits ;
-    heda:unitSymbol true .
+    hed:SIUnit true ;
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:temperatureUnits ;
+    hed:unitSymbol true .
 
 hedu:point a hed:HedUnit ;
     rdfs:label "point" ;
-    heda:unitClass hedu:currencyUnits .
+    hed:unitClass hedu:currencyUnits .
 
 hedu:posixPath a hed:HedValueClass ;
     rdfs:label "posixPath" ;
     rdfs:comment "Posix path specification." ;
-    heda:allowedCharacter "/",
+    hed:allowedCharacter "/",
         ":",
         "digits",
         "letters" .
 
 hedu:pound a hed:HedUnit ;
     rdfs:label "pound" ;
-    heda:conversionFactor "453.592" ;
-    heda:unitClass hedu:weightUnits .
+    hed:conversionFactor "453.592" ;
+    hed:unitClass hedu:weightUnits .
 
 hedu:rad a hed:HedUnit ;
     rdfs:label "rad" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:angleUnits ;
-    heda:unitSymbol true .
+    hed:SIUnit true ;
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:angleUnits ;
+    hed:unitSymbol true .
 
 hedu:radian a hed:HedUnit ;
     rdfs:label "radian" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:angleUnits .
+    hed:SIUnit true ;
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:angleUnits .
 
 hedu:s a hed:HedUnit ;
     rdfs:label "s" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:timeUnits ;
-    heda:unitSymbol true .
+    hed:SIUnit true ;
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:timeUnits ;
+    hed:unitSymbol true .
 
 hedu:second a hed:HedUnit ;
     rdfs:label "second" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "1.0" ;
-    heda:unitClass hedu:timeUnits .
+    hed:SIUnit true ;
+    hed:conversionFactor "1.0" ;
+    hed:unitClass hedu:timeUnits .
 
 hedu:tesla a hed:HedUnit ;
     rdfs:label "tesla" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "10^-15" ;
-    heda:unitClass hedu:magneticFieldUnits .
+    hed:SIUnit true ;
+    hed:conversionFactor "10^-15" ;
+    hed:unitClass hedu:magneticFieldUnits .
 
 hedu:v a hed:HedUnit ;
     rdfs:label "v" ;
-    heda:SIUnit true ;
-    heda:conversionFactor "0.000001" ;
-    heda:unitClass hedu:electricPotentialUnits ;
-    heda:unitSymbol true .
+    hed:SIUnit true ;
+    hed:conversionFactor "0.000001" ;
+    hed:unitClass hedu:electricPotentialUnits ;
+    hed:unitSymbol true .
 
 hedum:E a hed:HedUnitModifier ;
     rdfs:label "E" ;
     rdfs:comment "SI unit multiple representing 10^18." ;
-    heda:SIUnitSymbolModifier true ;
-    heda:conversionFactor "10^18" .
+    hed:SIUnitSymbolModifier true ;
+    hed:conversionFactor "10^18" .
 
 hedum:G a hed:HedUnitModifier ;
     rdfs:label "G" ;
     rdfs:comment "SI unit multiple representing 10^9." ;
-    heda:SIUnitSymbolModifier true ;
-    heda:conversionFactor "10^9" .
+    hed:SIUnitSymbolModifier true ;
+    hed:conversionFactor "10^9" .
 
 hedum:M a hed:HedUnitModifier ;
     rdfs:label "M" ;
     rdfs:comment "SI unit multiple representing 10^6." ;
-    heda:SIUnitSymbolModifier true ;
-    heda:conversionFactor "10^6" .
+    hed:SIUnitSymbolModifier true ;
+    hed:conversionFactor "10^6" .
 
 hedum:P a hed:HedUnitModifier ;
     rdfs:label "P" ;
     rdfs:comment "SI unit multiple representing 10^15." ;
-    heda:SIUnitSymbolModifier true ;
-    heda:conversionFactor "10^15" .
+    hed:SIUnitSymbolModifier true ;
+    hed:conversionFactor "10^15" .
 
 hedum:T a hed:HedUnitModifier ;
     rdfs:label "T" ;
     rdfs:comment "SI unit multiple representing 10^12." ;
-    heda:SIUnitSymbolModifier true ;
-    heda:conversionFactor "10^12" .
+    hed:SIUnitSymbolModifier true ;
+    hed:conversionFactor "10^12" .
 
 hedum:Y a hed:HedUnitModifier ;
     rdfs:label "Y" ;
     rdfs:comment "SI unit multiple representing 10^24." ;
-    heda:SIUnitSymbolModifier true ;
-    heda:conversionFactor "10^24" .
+    hed:SIUnitSymbolModifier true ;
+    hed:conversionFactor "10^24" .
 
 hedum:Z a hed:HedUnitModifier ;
     rdfs:label "Z" ;
     rdfs:comment "SI unit multiple representing 10^21." ;
-    heda:SIUnitSymbolModifier true ;
-    heda:conversionFactor "10^21" .
+    hed:SIUnitSymbolModifier true ;
+    hed:conversionFactor "10^21" .
 
 hedum:a a hed:HedUnitModifier ;
     rdfs:label "a" ;
     rdfs:comment "SI unit submultiple representing 10^-18." ;
-    heda:SIUnitSymbolModifier true ;
-    heda:conversionFactor "10^-18" .
+    hed:SIUnitSymbolModifier true ;
+    hed:conversionFactor "10^-18" .
 
 hedum:atto a hed:HedUnitModifier ;
     rdfs:label "atto" ;
     rdfs:comment "SI unit submultiple representing 10^-18." ;
-    heda:SIUnitModifier true ;
-    heda:conversionFactor "10^-18" .
+    hed:SIUnitModifier true ;
+    hed:conversionFactor "10^-18" .
 
 hedum:c a hed:HedUnitModifier ;
     rdfs:label "c" ;
     rdfs:comment "SI unit submultiple representing 10^-2." ;
-    heda:SIUnitSymbolModifier true ;
-    heda:conversionFactor "0.01" .
+    hed:SIUnitSymbolModifier true ;
+    hed:conversionFactor "0.01" .
 
 hedum:centi a hed:HedUnitModifier ;
     rdfs:label "centi" ;
     rdfs:comment "SI unit submultiple representing 10^-2." ;
-    heda:SIUnitModifier true ;
-    heda:conversionFactor "0.01" .
+    hed:SIUnitModifier true ;
+    hed:conversionFactor "0.01" .
 
 hedum:d a hed:HedUnitModifier ;
     rdfs:label "d" ;
     rdfs:comment "SI unit submultiple representing 10^-1." ;
-    heda:SIUnitSymbolModifier true ;
-    heda:conversionFactor "0.1" .
+    hed:SIUnitSymbolModifier true ;
+    hed:conversionFactor "0.1" .
 
 hedum:da a hed:HedUnitModifier ;
     rdfs:label "da" ;
     rdfs:comment "SI unit multiple representing 10^1." ;
-    heda:SIUnitSymbolModifier true ;
-    heda:conversionFactor "10.0" .
+    hed:SIUnitSymbolModifier true ;
+    hed:conversionFactor "10.0" .
 
 hedum:deca a hed:HedUnitModifier ;
     rdfs:label "deca" ;
     rdfs:comment "SI unit multiple representing 10^1." ;
-    heda:SIUnitModifier true ;
-    heda:conversionFactor "10.0" .
+    hed:SIUnitModifier true ;
+    hed:conversionFactor "10.0" .
 
 hedum:deci a hed:HedUnitModifier ;
     rdfs:label "deci" ;
     rdfs:comment "SI unit submultiple representing 10^-1." ;
-    heda:SIUnitModifier true ;
-    heda:conversionFactor "0.1" .
+    hed:SIUnitModifier true ;
+    hed:conversionFactor "0.1" .
 
 hedum:exa a hed:HedUnitModifier ;
     rdfs:label "exa" ;
     rdfs:comment "SI unit multiple representing 10^18." ;
-    heda:SIUnitModifier true ;
-    heda:conversionFactor "10^18" .
+    hed:SIUnitModifier true ;
+    hed:conversionFactor "10^18" .
 
 hedum:f a hed:HedUnitModifier ;
     rdfs:label "f" ;
     rdfs:comment "SI unit submultiple representing 10^-15." ;
-    heda:SIUnitSymbolModifier true ;
-    heda:conversionFactor "10^-15" .
+    hed:SIUnitSymbolModifier true ;
+    hed:conversionFactor "10^-15" .
 
 hedum:femto a hed:HedUnitModifier ;
     rdfs:label "femto" ;
     rdfs:comment "SI unit submultiple representing 10^-15." ;
-    heda:SIUnitModifier true ;
-    heda:conversionFactor "10^-15" .
+    hed:SIUnitModifier true ;
+    hed:conversionFactor "10^-15" .
 
 hedum:giga a hed:HedUnitModifier ;
     rdfs:label "giga" ;
     rdfs:comment "SI unit multiple representing 10^9." ;
-    heda:SIUnitModifier true ;
-    heda:conversionFactor "10^9" .
+    hed:SIUnitModifier true ;
+    hed:conversionFactor "10^9" .
 
 hedum:h a hed:HedUnitModifier ;
     rdfs:label "h" ;
     rdfs:comment "SI unit multiple representing 10^2." ;
-    heda:SIUnitSymbolModifier true ;
-    heda:conversionFactor "100.0" .
+    hed:SIUnitSymbolModifier true ;
+    hed:conversionFactor "100.0" .
 
 hedum:hecto a hed:HedUnitModifier ;
     rdfs:label "hecto" ;
     rdfs:comment "SI unit multiple representing 10^2." ;
-    heda:SIUnitModifier true ;
-    heda:conversionFactor "100.0" .
+    hed:SIUnitModifier true ;
+    hed:conversionFactor "100.0" .
 
 hedum:k a hed:HedUnitModifier ;
     rdfs:label "k" ;
     rdfs:comment "SI unit multiple representing 10^3." ;
-    heda:SIUnitSymbolModifier true ;
-    heda:conversionFactor "1000.0" .
+    hed:SIUnitSymbolModifier true ;
+    hed:conversionFactor "1000.0" .
 
 hedum:kilo a hed:HedUnitModifier ;
     rdfs:label "kilo" ;
     rdfs:comment "SI unit multiple representing 10^3." ;
-    heda:SIUnitModifier true ;
-    heda:conversionFactor "1000.0" .
+    hed:SIUnitModifier true ;
+    hed:conversionFactor "1000.0" .
 
 hedum:m a hed:HedUnitModifier ;
     rdfs:label "m" ;
     rdfs:comment "SI unit submultiple representing 10^-3." ;
-    heda:SIUnitSymbolModifier true ;
-    heda:conversionFactor "0.001" .
+    hed:SIUnitSymbolModifier true ;
+    hed:conversionFactor "0.001" .
 
 hedum:mega a hed:HedUnitModifier ;
     rdfs:label "mega" ;
     rdfs:comment "SI unit multiple representing 10^6." ;
-    heda:SIUnitModifier true ;
-    heda:conversionFactor "10^6" .
+    hed:SIUnitModifier true ;
+    hed:conversionFactor "10^6" .
 
 hedum:micro a hed:HedUnitModifier ;
     rdfs:label "micro" ;
     rdfs:comment "SI unit submultiple representing 10^-6." ;
-    heda:SIUnitModifier true ;
-    heda:conversionFactor "10^-6" .
+    hed:SIUnitModifier true ;
+    hed:conversionFactor "10^-6" .
 
 hedum:milli a hed:HedUnitModifier ;
     rdfs:label "milli" ;
     rdfs:comment "SI unit submultiple representing 10^-3." ;
-    heda:SIUnitModifier true ;
-    heda:conversionFactor "0.001" .
+    hed:SIUnitModifier true ;
+    hed:conversionFactor "0.001" .
 
 hedum:n a hed:HedUnitModifier ;
     rdfs:label "n" ;
     rdfs:comment "SI unit submultiple representing 10^-9." ;
-    heda:SIUnitSymbolModifier true ;
-    heda:conversionFactor "10^-9" .
+    hed:SIUnitSymbolModifier true ;
+    hed:conversionFactor "10^-9" .
 
 hedum:nano a hed:HedUnitModifier ;
     rdfs:label "nano" ;
     rdfs:comment "SI unit submultiple representing 10^-9." ;
-    heda:SIUnitModifier true ;
-    heda:conversionFactor "10^-9" .
+    hed:SIUnitModifier true ;
+    hed:conversionFactor "10^-9" .
 
 hedum:p a hed:HedUnitModifier ;
     rdfs:label "p" ;
     rdfs:comment "SI unit submultiple representing 10^-12." ;
-    heda:SIUnitSymbolModifier true ;
-    heda:conversionFactor "10^-12" .
+    hed:SIUnitSymbolModifier true ;
+    hed:conversionFactor "10^-12" .
 
 hedum:peta a hed:HedUnitModifier ;
     rdfs:label "peta" ;
     rdfs:comment "SI unit multiple representing 10^15." ;
-    heda:SIUnitModifier true ;
-    heda:conversionFactor "10^15" .
+    hed:SIUnitModifier true ;
+    hed:conversionFactor "10^15" .
 
 hedum:pico a hed:HedUnitModifier ;
     rdfs:label "pico" ;
     rdfs:comment "SI unit submultiple representing 10^-12." ;
-    heda:SIUnitModifier true ;
-    heda:conversionFactor "10^-12" .
+    hed:SIUnitModifier true ;
+    hed:conversionFactor "10^-12" .
 
 hedum:tera a hed:HedUnitModifier ;
     rdfs:label "tera" ;
     rdfs:comment "SI unit multiple representing 10^12." ;
-    heda:SIUnitModifier true ;
-    heda:conversionFactor "10^12" .
+    hed:SIUnitModifier true ;
+    hed:conversionFactor "10^12" .
 
 hedum:u a hed:HedUnitModifier ;
     rdfs:label "u" ;
     rdfs:comment "SI unit submultiple representing 10^-6." ;
-    heda:SIUnitSymbolModifier true ;
-    heda:conversionFactor "10^-6" .
+    hed:SIUnitSymbolModifier true ;
+    hed:conversionFactor "10^-6" .
 
 hedum:y a hed:HedUnitModifier ;
     rdfs:label "y" ;
     rdfs:comment "SI unit submultiple representing 10^-24." ;
-    heda:SIUnitSymbolModifier true ;
-    heda:conversionFactor "10^-24" .
+    hed:SIUnitSymbolModifier true ;
+    hed:conversionFactor "10^-24" .
 
 hedum:yocto a hed:HedUnitModifier ;
     rdfs:label "yocto" ;
     rdfs:comment "SI unit submultiple representing 10^-24." ;
-    heda:SIUnitModifier true ;
-    heda:conversionFactor "10^-24" .
+    hed:SIUnitModifier true ;
+    hed:conversionFactor "10^-24" .
 
 hedum:yotta a hed:HedUnitModifier ;
     rdfs:label "yotta" ;
     rdfs:comment "SI unit multiple representing 10^24." ;
-    heda:SIUnitModifier true ;
-    heda:conversionFactor "10^24" .
+    hed:SIUnitModifier true ;
+    hed:conversionFactor "10^24" .
 
 hedum:z a hed:HedUnitModifier ;
     rdfs:label "z" ;
     rdfs:comment "SI unit submultiple representing 10^-21." ;
-    heda:SIUnitSymbolModifier true ;
-    heda:conversionFactor "10^-21" .
+    hed:SIUnitSymbolModifier true ;
+    hed:conversionFactor "10^-21" .
 
 hedum:zepto a hed:HedUnitModifier ;
     rdfs:label "zepto" ;
     rdfs:comment "SI unit submultiple representing 10^-21." ;
-    heda:SIUnitModifier true ;
-    heda:conversionFactor "10^-21" .
+    hed:SIUnitModifier true ;
+    hed:conversionFactor "10^-21" .
 
 hedum:zetta a hed:HedUnitModifier ;
     rdfs:label "zetta" ;
     rdfs:comment "SI unit multiple representing 10^21." ;
-    heda:SIUnitModifier true ;
-    heda:conversionFactor "10^21" .
-
-hed:Epilogue a hed:HedElement ;
-    rdfs:label "epilogue" ;
-    hed:elementValue """This schema is released under the Creative Commons Attribution 4.0 International and is a product of the HED Working Group. The DOI for the latest version of the HED standard schema is 10.5281/zenodo.7876037.
-""" .
-
-hed:Prologue a hed:HedElement ;
-    rdfs:label "epilogue" ;
-    hed:elementValue """The HED standard schema is a hierarchically-organized vocabulary for annotating events and experimental structure. HED annotations consist of comma-separated tags drawn from this vocabulary. This vocabulary can be augmented by terms drawn from specialized library schema. 
-
-Each term in this vocabulary has a human-readable description and may include additional attributes that give additional properties or that specify how tools should treat the tag during analysis. The meaning of these attributes is described in the Additional schema properties section.
-
-""" .
-
-hed:Version a hed:HeaderMember ;
-    rdfs:label "version" ;
-    hed:HeaderAttribute "8.2.0" .
-
-hed:XSI a hed:HeaderMember ;
-    rdfs:label "xmlns:xsi" ;
-    hed:HeaderAttribute "http://www.w3.org/2001/XMLSchema-instance" .
-
-hed:XSINoNamespaceSchemaLocation a hed:HeaderMember ;
-    rdfs:label "xsi:noNamespaceSchemaLocation" ;
-    hed:HeaderAttribute "https://github.com/hed-standard/hed-specification/raw/master/hedxml/HED8.0.0.xsd" .
+    hed:SIUnitModifier true ;
+    hed:conversionFactor "10^21" .
 
 hedt:2D-view a hed:HedTag ;
     rdfs:label "2D-view" ;
@@ -816,10 +809,10 @@ hedt:Abrupt a hed:HedTag ;
 
 hedt:Acceleration-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:accelerationUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Acceleration .
+    hed:hasHedParent hedt:Acceleration ;
+    hed:takesValue true ;
+    hed:unitClass hedu:accelerationUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Across-from a hed:HedTag ;
     rdfs:label "Across-from" ;
@@ -843,16 +836,16 @@ hedt:After a hed:HedTag ;
 
 hedt:Age-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Age .
+    hed:hasHedParent hedt:Age ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Agent-action a hed:HedTag ;
     rdfs:label "Agent-action" ;
     rdfs:comment "Any action engaged in by an agent (see the Agent subtree for agent categories). A participant response to an experiment stimulus should include the tag Agent-property/Agent-task-role/Experiment-participant." ;
-    heda:suggestedTag hedt:Agent,
-        hedt:Task-event-role ;
-    hed:hasHedParent hedt:Event .
+    hed:hasHedParent hedt:Event ;
+    hed:suggestedTag hedt:Agent,
+        hedt:Task-event-role .
 
 hedt:Ahead-of a hed:HedTag ;
     rdfs:label "Ahead-of" ;
@@ -901,10 +894,10 @@ hedt:Anesthetized a hed:HedTag ;
 
 hedt:Angle-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:angleUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Angle .
+    hed:hasHedParent hedt:Angle ;
+    hed:takesValue true ;
+    hed:unitClass hedu:angleUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Angry a hed:HedTag ;
     rdfs:label "Angry" ;
@@ -953,10 +946,10 @@ hedt:Aquamarine a hed:HedTag ;
 
 hedt:Area-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:areaUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Area .
+    hed:hasHedParent hedt:Area ;
+    hed:takesValue true ;
+    hed:unitClass hedu:areaUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Around a hed:HedTag ;
     rdfs:label "Around" ;
@@ -1321,9 +1314,9 @@ hedt:Clause a hed:HedTag ;
 hedt:Clear-throat a hed:HedTag ;
     rdfs:label "Clear-throat" ;
     rdfs:comment "Cough slightly so as to speak more clearly, attract attention, or to express hesitancy before saying something awkward." ;
-    heda:relatedTag hedt:Move-face,
-        hedt:Move-head ;
-    hed:hasHedParent hedt:Communicate-gesturally .
+    hed:hasHedParent hedt:Communicate-gesturally ;
+    hed:relatedTag hedt:Move-face,
+        hedt:Move-head .
 
 hedt:Click a hed:HedTag ;
     rdfs:label "Click" ;
@@ -1362,20 +1355,20 @@ hedt:Clothing a hed:HedTag ;
 
 hedt:CogAtlas-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    hed:hasHedParent hedt:CogAtlas .
+    hed:hasHedParent hedt:CogAtlas ;
+    hed:takesValue true .
 
 hedt:CogPo-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    hed:hasHedParent hedt:CogPo .
+    hed:hasHedParent hedt:CogPo ;
+    hed:takesValue true .
 
 hedt:Collection-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
     rdfs:comment "Name of the collection." ;
-    heda:takesValue true ;
-    heda:valueClass hedu:nameClass ;
-    hed:hasHedParent hedt:Collection .
+    hed:hasHedParent hedt:Collection ;
+    hed:takesValue true ;
+    hed:valueClass hedu:nameClass .
 
 hedt:Collide-with a hed:HedTag ;
     rdfs:label "Collide-with" ;
@@ -1415,9 +1408,9 @@ hedt:Computed-prediction a hed:HedTag ;
 hedt:Condition-variable-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
     rdfs:comment "Name of the condition variable." ;
-    heda:takesValue true ;
-    heda:valueClass hedu:nameClass ;
-    hed:hasHedParent hedt:Condition-variable .
+    hed:hasHedParent hedt:Condition-variable ;
+    hed:takesValue true ;
+    hed:valueClass hedu:nameClass .
 
 hedt:Cone a hed:HedTag ;
     rdfs:label "Cone" ;
@@ -1447,9 +1440,9 @@ hedt:Content a hed:HedTag ;
 hedt:Control-variable-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
     rdfs:comment "Name of the control variable." ;
-    heda:takesValue true ;
-    heda:valueClass hedu:nameClass ;
-    hed:hasHedParent hedt:Control-variable .
+    hed:hasHedParent hedt:Control-variable ;
+    hed:takesValue true ;
+    hed:valueClass hedu:nameClass .
 
 hedt:Controller-agent a hed:HedTag ;
     rdfs:label "Controller-agent" ;
@@ -1488,9 +1481,9 @@ hedt:Count a hed:HedTag ;
 
 hedt:Creation-date-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:dateTimeClass ;
-    hed:hasHedParent hedt:Creation-date .
+    hed:hasHedParent hedt:Creation-date ;
+    hed:takesValue true ;
+    hed:valueClass hedu:dateTimeClass .
 
 hedt:Crimson a hed:HedTag ;
     rdfs:label "Crimson" ;
@@ -1655,32 +1648,32 @@ hedt:Data-break-marker a hed:HedTag ;
 hedt:Data-feature a hed:HedTag ;
     rdfs:label "Data-feature" ;
     rdfs:comment "An event marking the occurrence of a data feature such as an interictal spike or alpha burst that is often added post hoc to the data record." ;
-    heda:suggestedTag hedt:Data-property ;
-    hed:hasHedParent hedt:Event .
+    hed:hasHedParent hedt:Event ;
+    hed:suggestedTag hedt:Data-property .
 
 hedt:Data-maximum-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Data-maximum .
+    hed:hasHedParent hedt:Data-maximum ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Data-mean-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Data-mean .
+    hed:hasHedParent hedt:Data-mean ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Data-median-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Data-median .
+    hed:hasHedParent hedt:Data-median ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Data-minimum-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Data-minimum .
+    hed:hasHedParent hedt:Data-minimum ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:DeepPink a hed:HedTag ;
     rdfs:label "DeepPink" ;
@@ -1695,29 +1688,29 @@ hedt:DeepSkyBlue a hed:HedTag ;
 hedt:Def-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
     rdfs:comment "Name of the definition." ;
-    heda:takesValue true ;
-    heda:valueClass hedu:nameClass ;
-    hed:hasHedParent hedt:Def .
+    hed:hasHedParent hedt:Def ;
+    hed:takesValue true ;
+    hed:valueClass hedu:nameClass .
 
 hedt:Def-expand-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:nameClass ;
-    hed:hasHedParent hedt:Def-expand .
+    hed:hasHedParent hedt:Def-expand ;
+    hed:takesValue true ;
+    hed:valueClass hedu:nameClass .
 
 hedt:Definition-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
     rdfs:comment "Name of the definition." ;
-    heda:takesValue true ;
-    heda:valueClass hedu:nameClass ;
-    hed:hasHedParent hedt:Definition .
+    hed:hasHedParent hedt:Definition ;
+    hed:takesValue true ;
+    hed:valueClass hedu:nameClass .
 
 hedt:Delay-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:timeUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Delay .
+    hed:hasHedParent hedt:Delay ;
+    hed:takesValue true ;
+    hed:unitClass hedu:timeUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Deny a hed:HedTag ;
     rdfs:label "Deny" ;
@@ -1726,10 +1719,10 @@ hedt:Deny a hed:HedTag ;
 
 hedt:Depth-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:physicalLengthUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Depth .
+    hed:hasHedParent hedt:Depth ;
+    hed:takesValue true ;
+    hed:unitClass hedu:physicalLengthUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Described-by a hed:HedTag ;
     rdfs:label "Described-by" ;
@@ -1738,9 +1731,9 @@ hedt:Described-by a hed:HedTag ;
 
 hedt:Description-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:textClass ;
-    hed:hasHedParent hedt:Description .
+    hed:hasHedParent hedt:Description ;
+    hed:takesValue true ;
+    hed:valueClass hedu:textClass .
 
 hedt:Desktop-computer a hed:HedTag ;
     rdfs:label "Desktop-computer" ;
@@ -1779,10 +1772,10 @@ hedt:Disgusted a hed:HedTag ;
 
 hedt:Distance-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:physicalLengthUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Distance .
+    hed:hasHedParent hedt:Distance ;
+    hed:takesValue true ;
+    hed:unitClass hedu:physicalLengthUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Distracted a hed:HedTag ;
     rdfs:label "Distracted" ;
@@ -1821,10 +1814,10 @@ hedt:Drowsy a hed:HedTag ;
 
 hedt:Duration-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:timeUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Duration .
+    hed:hasHedParent hedt:Duration ;
+    hed:takesValue true ;
+    hed:unitClass hedu:timeUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:During a hed:HedTag ;
     rdfs:label "During" ;
@@ -1894,17 +1887,17 @@ hedt:Evade a hed:HedTag ;
 hedt:Event-context a hed:HedTag ;
     rdfs:label "Event-context" ;
     rdfs:comment "A special HED tag inserted as part of a top-level tag group to contain information about the interrelated conditions under which the event occurs. The event context includes information about other events that are ongoing when this event happens." ;
-    heda:reserved true ;
-    heda:topLevelTagGroup true ;
-    heda:unique true ;
-    hed:hasHedParent hedt:Organizational-property .
+    hed:hasHedParent hedt:Organizational-property ;
+    hed:reserved true ;
+    hed:topLevelTagGroup true ;
+    hed:unique true .
 
 hedt:Event-stream-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
     rdfs:comment "Name of the event stream." ;
-    heda:takesValue true ;
-    heda:valueClass hedu:nameClass ;
-    hed:hasHedParent hedt:Event-stream .
+    hed:hasHedParent hedt:Event-stream ;
+    hed:takesValue true ;
+    hed:valueClass hedu:nameClass .
 
 hedt:Exact-value a hed:HedTag ;
     rdfs:label "Exact-value" ;
@@ -1954,15 +1947,15 @@ hedt:Experiment-structure a hed:HedTag ;
 hedt:Experimental-intertrial-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
     rdfs:comment "Optional label for the intertrial block." ;
-    heda:takesValue true ;
-    heda:valueClass hedu:nameClass ;
-    hed:hasHedParent hedt:Experimental-intertrial .
+    hed:hasHedParent hedt:Experimental-intertrial ;
+    hed:takesValue true ;
+    hed:valueClass hedu:nameClass .
 
 hedt:Experimental-note-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:textClass ;
-    hed:hasHedParent hedt:Experimental-note .
+    hed:hasHedParent hedt:Experimental-note ;
+    hed:takesValue true ;
+    hed:valueClass hedu:textClass .
 
 hedt:Experimental-stimulus a hed:HedTag ;
     rdfs:label "Experimental-stimulus" ;
@@ -1972,9 +1965,9 @@ hedt:Experimental-stimulus a hed:HedTag ;
 hedt:Experimental-trial-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
     rdfs:comment "Optional label for the trial (often a numerical string)." ;
-    heda:takesValue true ;
-    heda:valueClass hedu:nameClass ;
-    hed:hasHedParent hedt:Experimental-trial .
+    hed:hasHedParent hedt:Experimental-trial ;
+    hed:takesValue true ;
+    hed:valueClass hedu:nameClass .
 
 hedt:Experimenter a hed:HedTag ;
     rdfs:label "Experimenter" ;
@@ -2076,6 +2069,16 @@ hedt:FloralWhite a hed:HedTag ;
     rdfs:comment "CSS-color 0xFFFAF0." ;
     hed:hasHedParent hedt:White-color .
 
+hedt:Flute-subsound1 a hed:HedTag ;
+    rdfs:label "Flute-subsound1" ;
+    hed:hasHedParent hedt:Flute-sound ;
+    hed:inLibrary "testlib" .
+
+hedt:Flute-subsound2 a hed:HedTag ;
+    rdfs:label "Flute-subsound2" ;
+    hed:hasHedParent hedt:Flute-sound ;
+    hed:inLibrary "testlib" .
+
 hedt:Forearm a hed:HedTag ;
     rdfs:label "Forearm" ;
     rdfs:comment "Lower part of the arm between the elbow and wrist." ;
@@ -2108,16 +2111,16 @@ hedt:Fractal a hed:HedTag ;
 
 hedt:Fraction-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Fraction .
+    hed:hasHedParent hedt:Fraction ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Frequency-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:frequencyUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Frequency .
+    hed:hasHedParent hedt:Frequency ;
+    hed:takesValue true ;
+    hed:unitClass hedu:frequencyUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:From-to a hed:HedTag ;
     rdfs:label "From-to" ;
@@ -2127,8 +2130,8 @@ hedt:From-to a hed:HedTag ;
 hedt:Frown a hed:HedTag ;
     rdfs:label "Frown" ;
     rdfs:comment "Express disapproval, displeasure, or concentration, typically by turning down the corners of the mouth." ;
-    heda:relatedTag hedt:Move-face ;
-    hed:hasHedParent hedt:Communicate-gesturally .
+    hed:hasHedParent hedt:Communicate-gesturally ;
+    hed:relatedTag hedt:Move-face .
 
 hedt:Frustrated a hed:HedTag ;
     rdfs:label "Frustrated" ;
@@ -2163,7 +2166,7 @@ hedt:Generate a hed:HedTag ;
 hedt:Gentalia a hed:HedTag ;
     rdfs:label "Gentalia" ;
     rdfs:comment "The external organs of reproduction." ;
-    heda:deprecatedFrom "8.1.0" ;
+    hed:deprecatedFrom "8.1.0" ;
     hed:hasHedParent hedt:Torso .
 
 hedt:GhostWhite a hed:HedTag ;
@@ -2224,9 +2227,9 @@ hedt:Gray a hed:HedTag ;
 hedt:Grayscale-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
     rdfs:comment "White intensity between 0 and 1." ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Grayscale .
+    hed:hasHedParent hedt:Grayscale ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Greater-than a hed:HedTag ;
     rdfs:label "Greater-than" ;
@@ -2256,8 +2259,8 @@ hedt:Grieving a hed:HedTag ;
 hedt:Grimace a hed:HedTag ;
     rdfs:label "Grimace" ;
     rdfs:comment "Make a twisted expression, typically expressing disgust, pain, or wry amusement." ;
-    heda:relatedTag hedt:Move-face ;
-    hed:hasHedParent hedt:Communicate-gesturally .
+    hed:hasHedParent hedt:Communicate-gesturally ;
+    hed:relatedTag hedt:Move-face .
 
 hedt:Groan a hed:HedTag ;
     rdfs:label "Groan" ;
@@ -2291,9 +2294,9 @@ hedt:Gustatory-presentation a hed:HedTag ;
 
 hedt:HSV-value-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:HSV-value .
+    hed:hasHedParent hedt:HSV-value ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Hair a hed:HedTag ;
     rdfs:label "Hair" ;
@@ -2337,10 +2340,10 @@ hedt:Heel-strike a hed:HedTag ;
 
 hedt:Height-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:physicalLengthUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Height .
+    hed:hasHedParent hedt:Height ;
+    hed:takesValue true ;
+    hed:unitClass hedu:physicalLengthUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Hiccup a hed:HedTag ;
     rdfs:label "Hiccup" ;
@@ -2390,9 +2393,9 @@ hedt:HotPink a hed:HedTag ;
 hedt:Hue-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
     rdfs:comment "Angular value between 0 and 360." ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Hue .
+    hed:hasHedParent hedt:Hue ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Hum a hed:HedTag ;
     rdfs:label "Hum" ;
@@ -2411,9 +2414,9 @@ hedt:Human-agent a hed:HedTag ;
 
 hedt:ID-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:textClass ;
-    hed:hasHedParent hedt:ID .
+    hed:hasHedParent hedt:ID ;
+    hed:takesValue true ;
+    hed:valueClass hedu:textClass .
 
 hedt:Icon a hed:HedTag ;
     rdfs:label "Icon" ;
@@ -2468,9 +2471,9 @@ hedt:IndianRed a hed:HedTag ;
 hedt:Indicator-variable-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
     rdfs:comment "Name of the indicator variable." ;
-    heda:takesValue true ;
-    heda:valueClass hedu:nameClass ;
-    hed:hasHedParent hedt:Indicator-variable .
+    hed:hasHedParent hedt:Indicator-variable ;
+    hed:takesValue true ;
+    hed:valueClass hedu:nameClass .
 
 hedt:Indigo a hed:HedTag ;
     rdfs:label "Indigo" ;
@@ -2512,11 +2515,6 @@ hedt:Instrument-measurement a hed:HedTag ;
     rdfs:comment "Information obtained from a device that is used to measure material properties or make other observations." ;
     hed:hasHedParent hedt:Data-source-type .
 
-hedt:Instrument-sound a hed:HedTag ;
-    rdfs:label "Instrument-sound" ;
-    rdfs:comment "Sound produced by a musical instrument." ;
-    hed:hasHedParent hedt:Musical-sound .
-
 hedt:Intended-effect a hed:HedTag ;
     rdfs:label "Intended-effect" ;
     rdfs:comment "A phenomenon that is intended to follow and be caused by some previous phenomenon." ;
@@ -2539,21 +2537,21 @@ hedt:Intoxicated a hed:HedTag ;
 
 hedt:Item-count-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Item-count .
+    hed:hasHedParent hedt:Item-count ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Item-index-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Item-index .
+    hed:hasHedParent hedt:Item-index ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Item-interval-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Item-interval .
+    hed:hasHedParent hedt:Item-interval ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Ivory a hed:HedTag ;
     rdfs:label "Ivory" ;
@@ -2572,10 +2570,10 @@ hedt:Jerk a hed:HedTag ;
 
 hedt:Jerk-rate-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:jerkUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Jerk-rate .
+    hed:hasHedParent hedt:Jerk-rate ;
+    hed:takesValue true ;
+    hed:unitClass hedu:jerkUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Jog a hed:HedTag ;
     rdfs:label "Jog" ;
@@ -2610,14 +2608,14 @@ hedt:Ka-ching a hed:HedTag ;
 hedt:Keyboard-key-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
     rdfs:comment "Value of a keyboard key." ;
-    heda:takesValue true ;
-    hed:hasHedParent hedt:Keyboard-key .
+    hed:hasHedParent hedt:Keyboard-key ;
+    hed:takesValue true .
 
 hedt:Keypad-key-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
     rdfs:comment "Value of keypad key." ;
-    heda:takesValue true ;
-    hed:hasHedParent hedt:Keypad-key .
+    hed:hasHedParent hedt:Keypad-key ;
+    hed:takesValue true .
 
 hedt:Khaki a hed:HedTag ;
     rdfs:label "Khaki" ;
@@ -2656,9 +2654,9 @@ hedt:LED-pattern a hed:HedTag ;
 
 hedt:Label-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:nameClass ;
-    hed:hasHedParent hedt:Label .
+    hed:hasHedParent hedt:Label ;
+    hed:takesValue true ;
+    hed:valueClass hedu:nameClass .
 
 hedt:Lane a hed:HedTag ;
     rdfs:label "Lane" ;
@@ -2712,10 +2710,10 @@ hedt:LemonChiffon a hed:HedTag ;
 
 hedt:Length-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:physicalLengthUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Length .
+    hed:hasHedParent hedt:Length ;
+    hed:takesValue true ;
+    hed:unitClass hedu:physicalLengthUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Less-than a hed:HedTag ;
     rdfs:label "Less-than" ;
@@ -2734,9 +2732,9 @@ hedt:Letter a hed:HedTag ;
 
 hedt:Library-name-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:nameClass ;
-    hed:hasHedParent hedt:Library-name .
+    hed:hasHedParent hedt:Library-name ;
+    hed:takesValue true ;
+    hed:valueClass hedu:nameClass .
 
 hedt:Lie-down a hed:HedTag ;
     rdfs:label "Lie-down" ;
@@ -2860,10 +2858,10 @@ hedt:Locked-in a hed:HedTag ;
 
 hedt:Loudness-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:nameClass,
-        hedu:numericClass ;
-    hed:hasHedParent hedt:Loudness .
+    hed:hasHedParent hedt:Loudness ;
+    hed:takesValue true ;
+    hed:valueClass hedu:nameClass,
+        hedu:numericClass .
 
 hedt:Loudspeaker a hed:HedTag ;
     rdfs:label "Loudspeaker" ;
@@ -2873,8 +2871,8 @@ hedt:Loudspeaker a hed:HedTag ;
 hedt:Loudspeaker-separation a hed:HedTag ;
     rdfs:label "Loudspeaker-separation" ;
     rdfs:comment "The distance between two loudspeakers. Grouped with the Distance tag." ;
-    heda:suggestedTag hedt:Distance ;
-    hed:hasHedParent hedt:Auditory-presentation .
+    hed:hasHedParent hedt:Auditory-presentation ;
+    hed:suggestedTag hedt:Distance .
 
 hedt:Loving a hed:HedTag ;
     rdfs:label "Loving" ;
@@ -2929,8 +2927,8 @@ hedt:Meaningful a hed:HedTag ;
 hedt:Measurement-event a hed:HedTag ;
     rdfs:label "Measurement-event" ;
     rdfs:comment "A discrete measure returned by an instrument." ;
-    heda:suggestedTag hedt:Data-property ;
-    hed:hasHedParent hedt:Event .
+    hed:hasHedParent hedt:Event ;
+    hed:suggestedTag hedt:Data-property .
 
 hedt:MediumAquaMarine a hed:HedTag ;
     rdfs:label "MediumAquaMarine" ;
@@ -3100,8 +3098,8 @@ hedt:Newly-learned a hed:HedTag ;
 hedt:Nod-head a hed:HedTag ;
     rdfs:label "Nod-head" ;
     rdfs:comment "Tilt head in alternating up and down arcs along the sagittal plane. It is most commonly, but not universally, used to indicate agreement, acceptance, or acknowledgement." ;
-    heda:relatedTag hedt:Move-head ;
-    hed:hasHedParent hedt:Communicate-gesturally .
+    hed:hasHedParent hedt:Communicate-gesturally ;
+    hed:relatedTag hedt:Move-head .
 
 hedt:Non-informative a hed:HedTag ;
     rdfs:label "Non-informative" ;
@@ -3111,8 +3109,8 @@ hedt:Non-informative a hed:HedTag ;
 hedt:Non-target a hed:HedTag ;
     rdfs:label "Non-target" ;
     rdfs:comment "Something other than that done or looked for. Also tag Expected if the Non-target is frequent." ;
-    heda:relatedTag hedt:Target ;
-    hed:hasHedParent hedt:Task-stimulus-role .
+    hed:hasHedParent hedt:Task-stimulus-role ;
+    hed:relatedTag hedt:Target .
 
 hedt:Nonword a hed:HedTag ;
     rdfs:label "Nonword" ;
@@ -3151,15 +3149,25 @@ hedt:Novel a hed:HedTag ;
 
 hedt:OBO-identifier-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:nameClass ;
-    hed:hasHedParent hedt:OBO-identifier .
+    hed:hasHedParent hedt:OBO-identifier ;
+    hed:takesValue true ;
+    hed:valueClass hedu:nameClass .
 
 hedt:Oblique a hed:HedTag ;
     rdfs:label "Oblique" ;
     rdfs:comment "Slanting or inclined in direction, course, or position that is neither parallel nor perpendicular nor right-angular." ;
-    heda:relatedTag hedt:Rotated ;
-    hed:hasHedParent hedt:Categorical-orientation-value .
+    hed:hasHedParent hedt:Categorical-orientation-value ;
+    hed:relatedTag hedt:Rotated .
+
+hedt:Oboe-subsound1 a hed:HedTag ;
+    rdfs:label "Oboe-subsound1" ;
+    hed:hasHedParent hedt:Oboe-sound ;
+    hed:inLibrary "testlib" .
+
+hedt:Oboe-subsound2 a hed:HedTag ;
+    rdfs:label "Oboe-subsound2" ;
+    hed:hasHedParent hedt:Oboe-sound ;
+    hed:inLibrary "testlib" .
 
 hedt:Observation a hed:HedTag ;
     rdfs:label "Observation" ;
@@ -3169,9 +3177,9 @@ hedt:Observation a hed:HedTag ;
 hedt:Oddball a hed:HedTag ;
     rdfs:label "Oddball" ;
     rdfs:comment "Something unusual, or infrequent." ;
-    heda:relatedTag hedt:Unexpected ;
-    heda:suggestedTag hedt:Target ;
-    hed:hasHedParent hedt:Task-stimulus-role .
+    hed:hasHedParent hedt:Task-stimulus-role ;
+    hed:relatedTag hedt:Unexpected ;
+    hed:suggestedTag hedt:Target .
 
 hedt:OldLace a hed:HedTag ;
     rdfs:label "OldLace" ;
@@ -3325,15 +3333,15 @@ hedt:Paragraph a hed:HedTag ;
 
 hedt:Parameter-label-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:nameClass ;
-    hed:hasHedParent hedt:Parameter-label .
+    hed:hasHedParent hedt:Parameter-label ;
+    hed:takesValue true ;
+    hed:valueClass hedu:nameClass .
 
 hedt:Parameter-value-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:textClass ;
-    hed:hasHedParent hedt:Parameter-value .
+    hed:hasHedParent hedt:Parameter-value ;
+    hed:takesValue true ;
+    hed:valueClass hedu:textClass .
 
 hedt:Part-of a hed:HedTag ;
     rdfs:label "Part-of" ;
@@ -3357,8 +3365,8 @@ hedt:Path a hed:HedTag ;
 
 hedt:Pathname-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    hed:hasHedParent hedt:Pathname .
+    hed:hasHedParent hedt:Pathname ;
+    hed:takesValue true .
 
 hedt:Pause a hed:HedTag ;
     rdfs:label "Pause" ;
@@ -3397,9 +3405,9 @@ hedt:Pencil a hed:HedTag ;
 
 hedt:Percentage-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Percentage .
+    hed:hasHedParent hedt:Percentage ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Performed-by a hed:HedTag ;
     rdfs:label "Performed-by" ;
@@ -3443,10 +3451,10 @@ hedt:Pink a hed:HedTag ;
 
 hedt:Pitch-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:frequencyUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Pitch .
+    hed:hasHedParent hedt:Pitch ;
+    hed:takesValue true ;
+    hed:unitClass hedu:frequencyUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Plan a hed:HedTag ;
     rdfs:label "Plan" ;
@@ -3515,15 +3523,15 @@ hedt:Priming a hed:HedTag ;
 
 hedt:Printer-resolution-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Printer-resolution .
+    hed:hasHedParent hedt:Printer-resolution ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Probability-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Probability .
+    hed:hasHedParent hedt:Probability ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Prone a hed:HedTag ;
     rdfs:label "Prone" ;
@@ -3533,8 +3541,8 @@ hedt:Prone a hed:HedTag ;
 hedt:Pump-fist a hed:HedTag ;
     rdfs:label "Pump-fist" ;
     rdfs:comment "Raise with fist clenched in triumph or affirmation." ;
-    heda:relatedTag hedt:Move-upper-extremity ;
-    hed:hasHedParent hedt:Communicate-gesturally .
+    hed:hasHedParent hedt:Communicate-gesturally ;
+    hed:relatedTag hedt:Move-upper-extremity .
 
 hedt:Purple a hed:HedTag ;
     rdfs:label "Purple" ;
@@ -3569,23 +3577,23 @@ hedt:Questionnaire a hed:HedTag ;
 hedt:RGB-blue-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
     rdfs:comment "B value of RGB between 0 and 1." ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:RGB-blue .
+    hed:hasHedParent hedt:RGB-blue ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:RGB-green-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
     rdfs:comment "G value of RGB between 0 and 1." ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:RGB-green .
+    hed:hasHedParent hedt:RGB-green ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:RGB-red-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
     rdfs:comment "R value of RGB between 0 and 1." ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:RGB-red .
+    hed:hasHedParent hedt:RGB-red ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Race a hed:HedTag ;
     rdfs:label "Race" ;
@@ -3595,15 +3603,15 @@ hedt:Race a hed:HedTag ;
 hedt:Raise-eyebrows a hed:HedTag ;
     rdfs:label "Raise-eyebrows" ;
     rdfs:comment "Move eyebrows upward." ;
-    heda:relatedTag hedt:Move-eyes,
-        hedt:Move-face ;
-    hed:hasHedParent hedt:Communicate-gesturally .
+    hed:hasHedParent hedt:Communicate-gesturally ;
+    hed:relatedTag hedt:Move-eyes,
+        hedt:Move-face .
 
 hedt:Ratio-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Ratio .
+    hed:hasHedParent hedt:Ratio ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Reach a hed:HedTag ;
     rdfs:label "Reach" ;
@@ -3638,9 +3646,9 @@ hedt:Recognize a hed:HedTag ;
 hedt:Recording-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
     rdfs:comment "Optional label for the recording." ;
-    heda:takesValue true ;
-    heda:valueClass hedu:nameClass ;
-    hed:hasHedParent hedt:Recording .
+    hed:hasHedParent hedt:Recording ;
+    hed:takesValue true ;
+    hed:valueClass hedu:nameClass .
 
 hedt:Recover-balance a hed:HedTag ;
     rdfs:label "Recover-balance" ;
@@ -3654,9 +3662,9 @@ hedt:Red a hed:HedTag ;
 
 hedt:Refresh-rate-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Refresh-rate .
+    hed:hasHedParent hedt:Refresh-rate ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Related-to a hed:HedTag ;
     rdfs:label "Related-to" ;
@@ -3805,9 +3813,9 @@ hedt:Salty a hed:HedTag ;
 
 hedt:Sampling-rate-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:frequencyUnits ;
-    hed:hasHedParent hedt:Sampling-rate .
+    hed:hasHedParent hedt:Sampling-rate ;
+    hed:takesValue true ;
+    hed:unitClass hedu:frequencyUnits .
 
 hedt:SandyBrown a hed:HedTag ;
     rdfs:label "SandyBrown" ;
@@ -3822,9 +3830,9 @@ hedt:Satellite-view a hed:HedTag ;
 hedt:Saturation-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
     rdfs:comment "B value of RGB between 0 and 1." ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Saturation .
+    hed:hasHedParent hedt:Saturation ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Savory a hed:HedTag ;
     rdfs:label "Savory" ;
@@ -3843,9 +3851,9 @@ hedt:Scream a hed:HedTag ;
 
 hedt:Screen-resolution-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Screen-resolution .
+    hed:hasHedParent hedt:Screen-resolution ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Screen-window a hed:HedTag ;
     rdfs:label "Screen-window" ;
@@ -3895,15 +3903,15 @@ hedt:Sense-by-touch a hed:HedTag ;
 hedt:Sensory-event a hed:HedTag ;
     rdfs:label "Sensory-event" ;
     rdfs:comment "Something perceivable by the participant. An event meant to be an experimental stimulus should include the tag Task-property/Task-event-role/Experimental-stimulus." ;
-    heda:suggestedTag hedt:Sensory-presentation,
-        hedt:Task-event-role ;
-    hed:hasHedParent hedt:Event .
+    hed:hasHedParent hedt:Event ;
+    hed:suggestedTag hedt:Sensory-presentation,
+        hedt:Task-event-role .
 
 hedt:Sensory-resolution-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Sensory-resolution .
+    hed:hasHedParent hedt:Sensory-resolution ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Sentence a hed:HedTag ;
     rdfs:label "Sentence" ;
@@ -3913,20 +3921,20 @@ hedt:Sentence a hed:HedTag ;
 hedt:Shake-fist a hed:HedTag ;
     rdfs:label "Shake-fist" ;
     rdfs:comment "Clench hand into a fist and shake to demonstrate anger." ;
-    heda:relatedTag hedt:Move-upper-extremity ;
-    hed:hasHedParent hedt:Communicate-gesturally .
+    hed:hasHedParent hedt:Communicate-gesturally ;
+    hed:relatedTag hedt:Move-upper-extremity .
 
 hedt:Shake-head a hed:HedTag ;
     rdfs:label "Shake-head" ;
     rdfs:comment "Turn head from side to side as a way of showing disagreement or refusal." ;
-    heda:relatedTag hedt:Move-head ;
-    hed:hasHedParent hedt:Communicate-gesturally .
+    hed:hasHedParent hedt:Communicate-gesturally ;
+    hed:relatedTag hedt:Move-head .
 
 hedt:Shhh a hed:HedTag ;
     rdfs:label "Shhh" ;
     rdfs:comment "Place finger over lips and possibly uttering the syllable shhh to indicate the need to be quiet." ;
-    heda:relatedTag hedt:Move-upper-extremity ;
-    hed:hasHedParent hedt:Communicate-gesturally .
+    hed:hasHedParent hedt:Communicate-gesturally ;
+    hed:relatedTag hedt:Move-upper-extremity .
 
 hedt:Shin a hed:HedTag ;
     rdfs:label "Shin" ;
@@ -3946,9 +3954,9 @@ hedt:Shout a hed:HedTag ;
 hedt:Shrug a hed:HedTag ;
     rdfs:label "Shrug" ;
     rdfs:comment "Lift shoulders up towards head to indicate a lack of knowledge about a particular topic." ;
-    heda:relatedTag hedt:Move-torso,
-        hedt:Move-upper-extremity ;
-    hed:hasHedParent hedt:Communicate-gesturally .
+    hed:hasHedParent hedt:Communicate-gesturally ;
+    hed:relatedTag hedt:Move-torso,
+        hedt:Move-upper-extremity .
 
 hedt:Shudder a hed:HedTag ;
     rdfs:label "Shudder" ;
@@ -4038,8 +4046,8 @@ hedt:Smell a hed:HedTag ;
 hedt:Smile a hed:HedTag ;
     rdfs:label "Smile" ;
     rdfs:comment "Form facial features into a pleased, kind, or amused expression, typically with the corners of the mouth turned up and the front teeth exposed." ;
-    heda:relatedTag hedt:Move-face ;
-    hed:hasHedParent hedt:Communicate-gesturally .
+    hed:hasHedParent hedt:Communicate-gesturally ;
+    hed:relatedTag hedt:Move-face .
 
 hedt:Snap-fingers a hed:HedTag ;
     rdfs:label "Snap-fingers" ;
@@ -4073,38 +4081,38 @@ hedt:Somatic-presentation a hed:HedTag ;
 
 hedt:Sound-envelope-attack-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:timeUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Sound-envelope-attack .
+    hed:hasHedParent hedt:Sound-envelope-attack ;
+    hed:takesValue true ;
+    hed:unitClass hedu:timeUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Sound-envelope-decay-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:timeUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Sound-envelope-decay .
+    hed:hasHedParent hedt:Sound-envelope-decay ;
+    hed:takesValue true ;
+    hed:unitClass hedu:timeUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Sound-envelope-release-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:timeUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Sound-envelope-release .
+    hed:hasHedParent hedt:Sound-envelope-release ;
+    hed:takesValue true ;
+    hed:unitClass hedu:timeUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Sound-envelope-sustain-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:timeUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Sound-envelope-sustain .
+    hed:hasHedParent hedt:Sound-envelope-sustain ;
+    hed:takesValue true ;
+    hed:unitClass hedu:timeUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Sound-volume-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:intensityUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Sound-volume .
+    hed:hasHedParent hedt:Sound-volume ;
+    hed:takesValue true ;
+    hed:unitClass hedu:intensityUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Sour a hed:HedTag ;
     rdfs:label "Sour" ;
@@ -4113,9 +4121,9 @@ hedt:Sour a hed:HedTag ;
 
 hedt:Spatial-resolution-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Spatial-resolution .
+    hed:hasHedParent hedt:Spatial-resolution ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Speak a hed:HedTag ;
     rdfs:label "Speak" ;
@@ -4124,16 +4132,16 @@ hedt:Speak a hed:HedTag ;
 
 hedt:Spectral-resolution-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Spectral-resolution .
+    hed:hasHedParent hedt:Spectral-resolution ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Speed-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:speedUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Speed .
+    hed:hasHedParent hedt:Speed ;
+    hed:takesValue true ;
+    hed:unitClass hedu:speedUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Sphere a hed:HedTag ;
     rdfs:label "Sphere" ;
@@ -4143,8 +4151,8 @@ hedt:Sphere a hed:HedTag ;
 hedt:Spread-hands a hed:HedTag ;
     rdfs:label "Spread-hands" ;
     rdfs:comment "Spread hands apart to indicate ignorance." ;
-    heda:relatedTag hedt:Move-upper-extremity ;
-    hed:hasHedParent hedt:Communicate-gesturally .
+    hed:hasHedParent hedt:Communicate-gesturally ;
+    hed:relatedTag hedt:Move-upper-extremity .
 
 hedt:SpringGreen a hed:HedTag ;
     rdfs:label "SpringGreen" ;
@@ -4173,9 +4181,9 @@ hedt:Stand-up a hed:HedTag ;
 
 hedt:Standard-deviation-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Standard-deviation .
+    hed:hasHedParent hedt:Standard-deviation ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Standing a hed:HedTag ;
     rdfs:label "Standing" ;
@@ -4194,27 +4202,27 @@ hedt:Stare a hed:HedTag ;
 
 hedt:Statistical-accuracy-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Statistical-accuracy .
+    hed:hasHedParent hedt:Statistical-accuracy ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Statistical-precision-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Statistical-precision .
+    hed:hasHedParent hedt:Statistical-precision ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Statistical-recall-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Statistical-recall .
+    hed:hasHedParent hedt:Statistical-recall ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Statistical-uncertainty-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Statistical-uncertainty .
+    hed:hasHedParent hedt:Statistical-uncertainty ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Steel a hed:HedTag ;
     rdfs:label "Steel" ;
@@ -4263,8 +4271,78 @@ hedt:Stumble a hed:HedTag ;
 
 hedt:Subject-identifier-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    hed:hasHedParent hedt:Subject-identifier .
+    hed:hasHedParent hedt:Subject-identifier ;
+    hed:takesValue true .
+
+hedt:SubnodeA1 a hed:HedTag ;
+    rdfs:label "SubnodeA1" ;
+    hed:hasHedParent hedt:A-nonextension ;
+    hed:inLibrary "testlib" .
+
+hedt:SubnodeA2 a hed:HedTag ;
+    rdfs:label "SubnodeA2" ;
+    hed:hasHedParent hedt:A-nonextension ;
+    hed:inLibrary "testlib" .
+
+hedt:SubnodeA3 a hed:HedTag ;
+    rdfs:label "SubnodeA3" ;
+    hed:hasHedParent hedt:A-nonextension ;
+    hed:inLibrary "testlib" .
+
+hedt:SubnodeB1 a hed:HedTag ;
+    rdfs:label "SubnodeB1" ;
+    hed:hasHedParent hedt:B-nonextension ;
+    hed:inLibrary "testlib" .
+
+hedt:SubnodeB2 a hed:HedTag ;
+    rdfs:label "SubnodeB2" ;
+    hed:hasHedParent hedt:B-nonextension ;
+    hed:inLibrary "testlib" .
+
+hedt:SubnodeC1 a hed:HedTag ;
+    rdfs:label "SubnodeC1" ;
+    hed:hasHedParent hedt:C-nonextension ;
+    hed:inLibrary "testlib" .
+
+hedt:SubnodeC2 a hed:HedTag ;
+    rdfs:label "SubnodeC2" ;
+    hed:hasHedParent hedt:C-nonextension ;
+    hed:inLibrary "testlib" .
+
+hedt:SubnodeC3 a hed:HedTag ;
+    rdfs:label "SubnodeC3" ;
+    hed:hasHedParent hedt:C-nonextension ;
+    hed:inLibrary "testlib" .
+
+hedt:SubnodeD1 a hed:HedTag ;
+    rdfs:label "SubnodeD1" ;
+    hed:hasHedParent hedt:A-extensionallowed ;
+    hed:inLibrary "testlib" .
+
+hedt:SubnodeD2 a hed:HedTag ;
+    rdfs:label "SubnodeD2" ;
+    hed:hasHedParent hedt:A-extensionallowed ;
+    hed:inLibrary "testlib" .
+
+hedt:SubnodeD3 a hed:HedTag ;
+    rdfs:label "SubnodeD3" ;
+    hed:hasHedParent hedt:A-extensionallowed ;
+    hed:inLibrary "testlib" .
+
+hedt:SubnodeE1 a hed:HedTag ;
+    rdfs:label "SubnodeE1" ;
+    hed:hasHedParent hedt:B-extensionallowed ;
+    hed:inLibrary "testlib" .
+
+hedt:SubnodeE2 a hed:HedTag ;
+    rdfs:label "SubnodeE2" ;
+    hed:hasHedParent hedt:B-extensionallowed ;
+    hed:inLibrary "testlib" .
+
+hedt:SubnodeE3 a hed:HedTag ;
+    rdfs:label "SubnodeE3" ;
+    hed:hasHedParent hedt:B-extensionallowed ;
+    hed:inLibrary "testlib" .
 
 hedt:Sustained-attention a hed:HedTag ;
     rdfs:label "Sustained-attention" ;
@@ -4339,9 +4417,9 @@ hedt:Tape-recorder a hed:HedTag ;
 hedt:Task-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
     rdfs:comment "Optional label for the task block." ;
-    heda:takesValue true ;
-    heda:valueClass hedu:nameClass ;
-    hed:hasHedParent hedt:Task .
+    hed:hasHedParent hedt:Task ;
+    hed:takesValue true ;
+    hed:valueClass hedu:nameClass .
 
 hedt:Task-activity a hed:HedTag ;
     rdfs:label "Task-activity" ;
@@ -4365,23 +4443,23 @@ hedt:Teeth a hed:HedTag ;
 
 hedt:Temperature-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:temperatureUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Temperature .
+    hed:hasHedParent hedt:Temperature ;
+    hed:takesValue true ;
+    hed:unitClass hedu:temperatureUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Temporal-rate-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:frequencyUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Temporal-rate .
+    hed:hasHedParent hedt:Temporal-rate ;
+    hed:takesValue true ;
+    hed:unitClass hedu:frequencyUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Temporal-resolution-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Temporal-resolution .
+    hed:hasHedParent hedt:Temporal-resolution ;
+    hed:takesValue true ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Textblock a hed:HedTag ;
     rdfs:label "Textblock" ;
@@ -4411,34 +4489,34 @@ hedt:Thumb a hed:HedTag ;
 hedt:Thumb-up a hed:HedTag ;
     rdfs:label "Thumb-up" ;
     rdfs:comment "Extend the thumb upward to indicate approval." ;
-    heda:relatedTag hedt:Move-upper-extremity ;
-    hed:hasHedParent hedt:Communicate-gesturally .
+    hed:hasHedParent hedt:Communicate-gesturally ;
+    hed:relatedTag hedt:Move-upper-extremity .
 
 hedt:Thumbs-down a hed:HedTag ;
     rdfs:label "Thumbs-down" ;
     rdfs:comment "Extend the thumb downward to indicate disapproval." ;
-    heda:relatedTag hedt:Move-upper-extremity ;
-    hed:hasHedParent hedt:Communicate-gesturally .
+    hed:hasHedParent hedt:Communicate-gesturally ;
+    hed:relatedTag hedt:Move-upper-extremity .
 
 hedt:Timbre-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:valueClass hedu:nameClass ;
-    hed:hasHedParent hedt:Timbre .
+    hed:hasHedParent hedt:Timbre ;
+    hed:takesValue true ;
+    hed:valueClass hedu:nameClass .
 
 hedt:Time-block-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
     rdfs:comment "Optional label for the task block." ;
-    heda:takesValue true ;
-    heda:valueClass hedu:nameClass ;
-    hed:hasHedParent hedt:Time-block .
+    hed:hasHedParent hedt:Time-block ;
+    hed:takesValue true ;
+    hed:valueClass hedu:nameClass .
 
 hedt:Time-interval-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:timeUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Time-interval .
+    hed:hasHedParent hedt:Time-interval ;
+    hed:takesValue true ;
+    hed:unitClass hedu:timeUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Time-out a hed:HedTag ;
     rdfs:label "Time-out" ;
@@ -4452,10 +4530,10 @@ hedt:Time-sync a hed:HedTag ;
 
 hedt:Time-value-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:timeUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Time-value .
+    hed:hasHedParent hedt:Time-value ;
+    hed:takesValue true ;
+    hed:unitClass hedu:timeUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Timed a hed:HedTag ;
     rdfs:label "Timed" ;
@@ -4610,8 +4688,8 @@ hedt:Vegetative a hed:HedTag ;
 hedt:Version-identifier-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
     rdfs:comment "Usually is a semantic version." ;
-    heda:takesValue true ;
-    hed:hasHedParent hedt:Version-identifier .
+    hed:hasHedParent hedt:Version-identifier ;
+    hed:takesValue true .
 
 hedt:Vestibular-attribute a hed:HedTag ;
     rdfs:label "Vestibular-attribute" ;
@@ -4633,6 +4711,21 @@ hedt:Violet a hed:HedTag ;
     rdfs:comment "CSS-color 0xEE82EE." ;
     hed:hasHedParent hedt:Purple-color .
 
+hedt:Violin-subsound1 a hed:HedTag ;
+    rdfs:label "Violin-subsound1" ;
+    hed:hasHedParent hedt:Violin-sound ;
+    hed:inLibrary "testlib" .
+
+hedt:Violin-subsound2 a hed:HedTag ;
+    rdfs:label "Violin-subsound2" ;
+    hed:hasHedParent hedt:Violin-sound ;
+    hed:inLibrary "testlib" .
+
+hedt:Violin-subsound3 a hed:HedTag ;
+    rdfs:label "Violin-subsound3" ;
+    hed:hasHedParent hedt:Violin-sound ;
+    hed:inLibrary "testlib" .
+
 hedt:Virtual-world a hed:HedTag ;
     rdfs:label "Virtual-world" ;
     rdfs:comment "Using technology that creates immersive, computer-generated experiences that a person can interact with and navigate through. The digital content is generally delivered to the user through some type of headset and responds to changes in head position or through interaction with other types of sensors. Existing in a virtual setting such as a simulation or game environment." ;
@@ -4650,10 +4743,10 @@ hedt:Vocalized-sound a hed:HedTag ;
 
 hedt:Volume-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:volumeUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Volume .
+    hed:hasHedParent hedt:Volume ;
+    hed:takesValue true ;
+    hed:unitClass hedu:volumeUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Waist a hed:HedTag ;
     rdfs:label "Waist" ;
@@ -4683,15 +4776,15 @@ hedt:Waterfall a hed:HedTag ;
 hedt:Wave a hed:HedTag ;
     rdfs:label "Wave" ;
     rdfs:comment "Raise hand and move left and right, as a greeting or sign of departure." ;
-    heda:relatedTag hedt:Move-upper-extremity ;
-    hed:hasHedParent hedt:Communicate-gesturally .
+    hed:hasHedParent hedt:Communicate-gesturally ;
+    hed:relatedTag hedt:Move-upper-extremity .
 
 hedt:Weight-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:weightUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Weight .
+    hed:hasHedParent hedt:Weight ;
+    hed:takesValue true ;
+    hed:unitClass hedu:weightUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Wheat a hed:HedTag ;
     rdfs:label "Wheat" ;
@@ -4721,23 +4814,23 @@ hedt:WhiteSmoke a hed:HedTag ;
 hedt:Widen-eyes a hed:HedTag ;
     rdfs:label "Widen-eyes" ;
     rdfs:comment "Open eyes and possibly with eyebrows lifted especially to express surprise or fear." ;
-    heda:relatedTag hedt:Move-eyes,
-        hedt:Move-face ;
-    hed:hasHedParent hedt:Communicate-gesturally .
+    hed:hasHedParent hedt:Communicate-gesturally ;
+    hed:relatedTag hedt:Move-eyes,
+        hedt:Move-face .
 
 hedt:Width-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:physicalLengthUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Width .
+    hed:hasHedParent hedt:Width ;
+    hed:takesValue true ;
+    hed:unitClass hedu:physicalLengthUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Wink a hed:HedTag ;
     rdfs:label "Wink" ;
     rdfs:comment "Close and open one eye quickly, typically to indicate that something is a joke or a secret or as a signal of affection or greeting." ;
-    heda:relatedTag hedt:Move-eyes,
-        hedt:Move-face ;
-    hed:hasHedParent hedt:Communicate-gesturally .
+    hed:hasHedParent hedt:Communicate-gesturally ;
+    hed:relatedTag hedt:Move-eyes,
+        hedt:Move-face .
 
 hedt:Within a hed:HedTag ;
     rdfs:label "Within" ;
@@ -4761,17 +4854,17 @@ hedt:Write a hed:HedTag ;
 
 hedt:X-position-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:physicalLengthUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:X-position .
+    hed:hasHedParent hedt:X-position ;
+    hed:takesValue true ;
+    hed:unitClass hedu:physicalLengthUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Y-position-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:physicalLengthUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Y-position .
+    hed:hasHedParent hedt:Y-position ;
+    hed:takesValue true ;
+    hed:unitClass hedu:physicalLengthUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedt:Yawn a hed:HedTag ;
     rdfs:label "Yawn" ;
@@ -4790,15 +4883,15 @@ hedt:YellowGreen a hed:HedTag ;
 
 hedt:Z-position-Placeholder a hed:HedPlaceholder ;
     rdfs:label "#" ;
-    heda:takesValue true ;
-    heda:unitClass hedu:physicalLengthUnits ;
-    heda:valueClass hedu:numericClass ;
-    hed:hasHedParent hedt:Z-position .
+    hed:hasHedParent hedt:Z-position ;
+    hed:takesValue true ;
+    hed:unitClass hedu:physicalLengthUnits ;
+    hed:valueClass hedu:numericClass .
 
 hedu:dateTimeClass a hed:HedValueClass ;
     rdfs:label "dateTimeClass" ;
     rdfs:comment "Date-times should conform to ISO8601 date-time format YYYY-MM-DDThh:mm:ss. Any variation on the full form is allowed." ;
-    heda:allowedCharacter "-",
+    hed:allowedCharacter "-",
         ":",
         "T",
         "digits" .
@@ -4806,8 +4899,8 @@ hedu:dateTimeClass a hed:HedValueClass ;
 hedt:Abnormal a hed:HedTag ;
     rdfs:label "Abnormal" ;
     rdfs:comment "Deviating in any way from the state, position, structure, condition, behavior, or rule which is considered a norm." ;
-    heda:relatedTag hedt:Normal ;
-    hed:hasHedParent hedt:Categorical-judgment-value .
+    hed:hasHedParent hedt:Categorical-judgment-value ;
+    hed:relatedTag hedt:Normal .
 
 hedt:Acceleration a hed:HedTag ;
     rdfs:label "Acceleration" ;
@@ -4827,8 +4920,8 @@ hedt:Angle a hed:HedTag ;
 hedt:Appropriate-action a hed:HedTag ;
     rdfs:label "Appropriate-action" ;
     rdfs:comment "An action suitable or proper in the circumstances." ;
-    heda:relatedTag hedt:Inappropriate-action ;
-    hed:hasHedParent hedt:Task-action-type .
+    hed:hasHedParent hedt:Task-action-type ;
+    hed:relatedTag hedt:Inappropriate-action .
 
 hedt:Area a hed:HedTag ;
     rdfs:label "Area" ;
@@ -4838,26 +4931,26 @@ hedt:Area a hed:HedTag ;
 hedt:Asymmetrical a hed:HedTag ;
     rdfs:label "Asymmetrical" ;
     rdfs:comment "Lacking symmetry or having parts that fail to correspond to one another in shape, size, or arrangement." ;
-    heda:relatedTag hedt:Symmetrical ;
-    hed:hasHedParent hedt:Categorical-judgment-value .
+    hed:hasHedParent hedt:Categorical-judgment-value ;
+    hed:relatedTag hedt:Symmetrical .
 
 hedt:Audible a hed:HedTag ;
     rdfs:label "Audible" ;
     rdfs:comment "A sound that can be perceived by the participant." ;
-    heda:relatedTag hedt:Inaudible ;
-    hed:hasHedParent hedt:Categorical-judgment-value .
+    hed:hasHedParent hedt:Categorical-judgment-value ;
+    hed:relatedTag hedt:Inaudible .
 
 hedt:Backward a hed:HedTag ;
     rdfs:label "Backward" ;
     rdfs:comment "Directed behind or to the rear." ;
-    heda:relatedTag hedt:Forward ;
-    hed:hasHedParent hedt:Categorical-orientation-value .
+    hed:hasHedParent hedt:Categorical-orientation-value ;
+    hed:relatedTag hedt:Forward .
 
 hedt:Bottom-up-attention a hed:HedTag ;
     rdfs:label "Bottom-up-attention" ;
     rdfs:comment "Attentional guidance purely by externally driven factors to stimuli that are salient because of their inherent properties relative to the background. Sometimes this is referred to as stimulus driven." ;
-    heda:relatedTag hedt:Top-down-attention ;
-    hed:hasHedParent hedt:Task-attentional-demand .
+    hed:hasHedParent hedt:Task-attentional-demand ;
+    hed:relatedTag hedt:Top-down-attention .
 
 hedt:Box a hed:HedTag ;
     rdfs:label "Box" ;
@@ -4882,8 +4975,8 @@ hedt:CogPo a hed:HedTag ;
 hedt:Cold a hed:HedTag ;
     rdfs:label "Cold" ;
     rdfs:comment "Having an absence of heat." ;
-    heda:relatedTag hedt:Hot ;
-    hed:hasHedParent hedt:Categorical-level-value .
+    hed:hasHedParent hedt:Categorical-level-value ;
+    hed:relatedTag hedt:Hot .
 
 hedt:Collection a hed:HedTag ;
     rdfs:label "Collection" ;
@@ -4893,8 +4986,8 @@ hedt:Collection a hed:HedTag ;
 hedt:Complex a hed:HedTag ;
     rdfs:label "Complex" ;
     rdfs:comment "Hard, involved or complicated, elaborate, having many parts." ;
-    heda:relatedTag hedt:Simple ;
-    hed:hasHedParent hedt:Categorical-judgment-value .
+    hed:hasHedParent hedt:Categorical-judgment-value ;
+    hed:relatedTag hedt:Simple .
 
 hedt:Computer-screen a hed:HedTag ;
     rdfs:label "Computer-screen" ;
@@ -4909,14 +5002,14 @@ hedt:Condition-variable a hed:HedTag ;
 hedt:Congruent a hed:HedTag ;
     rdfs:label "Congruent" ;
     rdfs:comment "Concordance of multiple evidence lines. In agreement or harmony." ;
-    heda:relatedTag hedt:Incongruent ;
-    hed:hasHedParent hedt:Categorical-judgment-value .
+    hed:hasHedParent hedt:Categorical-judgment-value ;
+    hed:relatedTag hedt:Incongruent .
 
 hedt:Constrained a hed:HedTag ;
     rdfs:label "Constrained" ;
     rdfs:comment "Keeping something within particular limits or bounds." ;
-    heda:relatedTag hedt:Unconstrained ;
-    hed:hasHedParent hedt:Categorical-judgment-value .
+    hed:hasHedParent hedt:Categorical-judgment-value ;
+    hed:relatedTag hedt:Unconstrained .
 
 hedt:Control-variable a hed:HedTag ;
     rdfs:label "Control-variable" ;
@@ -4926,20 +5019,20 @@ hedt:Control-variable a hed:HedTag ;
 hedt:Correct a hed:HedTag ;
     rdfs:label "Correct" ;
     rdfs:comment "Free from error. Especially conforming to fact or truth." ;
-    heda:relatedTag hedt:Wrong ;
-    hed:hasHedParent hedt:Categorical-class-value .
+    hed:hasHedParent hedt:Categorical-class-value ;
+    hed:relatedTag hedt:Wrong .
 
 hedt:Covert-attention a hed:HedTag ;
     rdfs:label "Covert-attention" ;
     rdfs:comment "Paying attention without moving the eyes." ;
-    heda:relatedTag hedt:Overt-attention ;
-    hed:hasHedParent hedt:Task-attentional-demand .
+    hed:hasHedParent hedt:Task-attentional-demand ;
+    hed:relatedTag hedt:Overt-attention .
 
 hedt:Creation-date a hed:HedTag ;
     rdfs:label "Creation-date" ;
     rdfs:comment "The date on which data creation of this element began." ;
-    heda:requireChild true ;
-    hed:hasHedParent hedt:Metadata .
+    hed:hasHedParent hedt:Metadata ;
+    hed:requireChild true .
 
 hedt:Data-maximum a hed:HedTag ;
     rdfs:label "Data-maximum" ;
@@ -4964,37 +5057,37 @@ hedt:Data-minimum a hed:HedTag ;
 hedt:Decreasing a hed:HedTag ;
     rdfs:label "Decreasing" ;
     rdfs:comment "Becoming smaller or fewer in size, amount, intensity, or degree." ;
-    heda:relatedTag hedt:Increasing ;
-    hed:hasHedParent hedt:Data-variability-attribute .
+    hed:hasHedParent hedt:Data-variability-attribute ;
+    hed:relatedTag hedt:Increasing .
 
 hedt:Deep a hed:HedTag ;
     rdfs:label "Deep" ;
     rdfs:comment "Extending relatively far inward or downward." ;
-    heda:relatedTag hedt:Shallow ;
-    hed:hasHedParent hedt:Categorical-level-value .
+    hed:hasHedParent hedt:Categorical-level-value ;
+    hed:relatedTag hedt:Shallow .
 
 hedt:Def a hed:HedTag ;
     rdfs:label "Def" ;
     rdfs:comment "A HED-specific utility tag used with a defined name to represent the tags associated with that definition." ;
-    heda:requireChild true ;
-    heda:reserved true ;
-    hed:hasHedParent hedt:Organizational-property .
+    hed:hasHedParent hedt:Organizational-property ;
+    hed:requireChild true ;
+    hed:reserved true .
 
 hedt:Def-expand a hed:HedTag ;
     rdfs:label "Def-expand" ;
     rdfs:comment "A HED specific utility tag that is grouped with an expanded definition. The child value of the Def-expand is the name of the expanded definition." ;
-    heda:requireChild true ;
-    heda:reserved true ;
-    heda:tagGroup true ;
-    hed:hasHedParent hedt:Organizational-property .
+    hed:hasHedParent hedt:Organizational-property ;
+    hed:requireChild true ;
+    hed:reserved true ;
+    hed:tagGroup true .
 
 hedt:Definition a hed:HedTag ;
     rdfs:label "Definition" ;
     rdfs:comment "A HED-specific utility tag whose child value is the name of the concept and the tag group associated with the tag is an English language explanation of a concept." ;
-    heda:requireChild true ;
-    heda:reserved true ;
-    heda:topLevelTagGroup true ;
-    hed:hasHedParent hedt:Organizational-property .
+    hed:hasHedParent hedt:Organizational-property ;
+    hed:requireChild true ;
+    hed:reserved true ;
+    hed:topLevelTagGroup true .
 
 hedt:Depth a hed:HedTag ;
     rdfs:label "Depth" ;
@@ -5004,33 +5097,33 @@ hedt:Depth a hed:HedTag ;
 hedt:Description a hed:HedTag ;
     rdfs:label "Description" ;
     rdfs:comment "An explanation of what the tag group it is in means. If the description is at the top-level of an event string, the description applies to the event." ;
-    heda:requireChild true ;
-    hed:hasHedParent hedt:Informational-property .
+    hed:hasHedParent hedt:Informational-property ;
+    hed:requireChild true .
 
 hedt:Discrete a hed:HedTag ;
     rdfs:label "Discrete" ;
     rdfs:comment "Constituting a separate entities or parts." ;
-    heda:relatedTag hedt:Continuous,
-        hedt:Discontinuous ;
-    hed:hasHedParent hedt:Data-variability-attribute .
+    hed:hasHedParent hedt:Data-variability-attribute ;
+    hed:relatedTag hedt:Continuous,
+        hedt:Discontinuous .
 
 hedt:Disordered a hed:HedTag ;
     rdfs:label "Disordered" ;
     rdfs:comment "Not neatly arranged. Confused and untidy. A structural quality in which the parts of an object are non-rigid." ;
-    heda:relatedTag hedt:Ordered ;
-    hed:hasHedParent hedt:Categorical-judgment-value .
+    hed:hasHedParent hedt:Categorical-judgment-value ;
+    hed:relatedTag hedt:Ordered .
 
 hedt:Divided-attention a hed:HedTag ;
     rdfs:label "Divided-attention" ;
     rdfs:comment "Integrating parallel multiple stimuli. Behavior involving responding simultaneously to multiple tasks or multiple task demands." ;
-    heda:relatedTag hedt:Focused-attention ;
-    hed:hasHedParent hedt:Task-attentional-demand .
+    hed:hasHedParent hedt:Task-attentional-demand ;
+    hed:relatedTag hedt:Focused-attention .
 
 hedt:Done-indication a hed:HedTag ;
     rdfs:label "Done-indication" ;
     rdfs:comment "An action that indicates that the participant has completed this step in the task." ;
-    heda:relatedTag hedt:Ready-indication ;
-    hed:hasHedParent hedt:Task-action-type .
+    hed:hasHedParent hedt:Task-action-type ;
+    hed:relatedTag hedt:Ready-indication .
 
 hedt:Ellipse a hed:HedTag ;
     rdfs:label "Ellipse" ;
@@ -5050,9 +5143,9 @@ hedt:Event-stream a hed:HedTag ;
 hedt:Expected a hed:HedTag ;
     rdfs:label "Expected" ;
     rdfs:comment "Considered likely, probable or anticipated. Something of low information value as in frequent non-targets in an RSVP paradigm." ;
-    heda:relatedTag hedt:Unexpected ;
-    heda:suggestedTag hedt:Target ;
-    hed:hasHedParent hedt:Task-stimulus-role .
+    hed:hasHedParent hedt:Task-stimulus-role ;
+    hed:relatedTag hedt:Unexpected ;
+    hed:suggestedTag hedt:Target .
 
 hedt:Experimental-intertrial a hed:HedTag ;
     rdfs:label "Experimental-intertrial" ;
@@ -5072,26 +5165,26 @@ hedt:Experimental-trial a hed:HedTag ;
 hedt:Explicit a hed:HedTag ;
     rdfs:label "Explicit" ;
     rdfs:comment "Stated clearly and in detail, leaving no room for confusion or doubt." ;
-    heda:relatedTag hedt:Implicit ;
-    hed:hasHedParent hedt:Categorical-class-value .
+    hed:hasHedParent hedt:Categorical-class-value ;
+    hed:relatedTag hedt:Implicit .
 
 hedt:False a hed:HedTag ;
     rdfs:label "False" ;
     rdfs:comment "Not in accordance with facts, reality or definitive criteria." ;
-    heda:relatedTag hedt:True ;
-    hed:hasHedParent hedt:Categorical-class-value .
+    hed:hasHedParent hedt:Categorical-class-value ;
+    hed:relatedTag hedt:True .
 
 hedt:Focused-attention a hed:HedTag ;
     rdfs:label "Focused-attention" ;
     rdfs:comment "Responding discretely to specific visual, auditory, or tactile stimuli." ;
-    heda:relatedTag hedt:Divided-attention ;
-    hed:hasHedParent hedt:Task-attentional-demand .
+    hed:hasHedParent hedt:Task-attentional-demand ;
+    hed:relatedTag hedt:Divided-attention .
 
 hedt:Forward a hed:HedTag ;
     rdfs:label "Forward" ;
     rdfs:comment "At or near or directed toward the front." ;
-    heda:relatedTag hedt:Backward ;
-    hed:hasHedParent hedt:Categorical-orientation-value .
+    hed:hasHedParent hedt:Categorical-orientation-value ;
+    hed:relatedTag hedt:Backward .
 
 hedt:Fraction a hed:HedTag ;
     rdfs:label "Fraction" ;
@@ -5106,8 +5199,8 @@ hedt:Frequency a hed:HedTag ;
 hedt:Go-signal a hed:HedTag ;
     rdfs:label "Go-signal" ;
     rdfs:comment "An indicator to proceed with a planned action." ;
-    heda:relatedTag hedt:Stop-signal ;
-    hed:hasHedParent hedt:Task-stimulus-role .
+    hed:hasHedParent hedt:Task-stimulus-role ;
+    hed:relatedTag hedt:Stop-signal .
 
 hedt:Grayscale a hed:HedTag ;
     rdfs:label "Grayscale" ;
@@ -5122,8 +5215,8 @@ hedt:HSV-value a hed:HedTag ;
 hedt:Healthy a hed:HedTag ;
     rdfs:label "Healthy" ;
     rdfs:comment "Having no significant health-related issues." ;
-    heda:relatedTag hedt:Sick ;
-    hed:hasHedParent hedt:Agent-physiological-state .
+    hed:hasHedParent hedt:Agent-physiological-state ;
+    hed:relatedTag hedt:Sick .
 
 hedt:Height a hed:HedTag ;
     rdfs:label "Height" ;
@@ -5133,14 +5226,14 @@ hedt:Height a hed:HedTag ;
 hedt:Horizontally-oriented a hed:HedTag ;
     rdfs:label "Horizontally-oriented" ;
     rdfs:comment "Oriented parallel to or in the plane of the horizon." ;
-    heda:relatedTag hedt:Vertically-oriented ;
-    hed:hasHedParent hedt:Categorical-orientation-value .
+    hed:hasHedParent hedt:Categorical-orientation-value ;
+    hed:relatedTag hedt:Vertically-oriented .
 
 hedt:Hot a hed:HedTag ;
     rdfs:label "Hot" ;
     rdfs:comment "Having an excess of heat." ;
-    heda:relatedTag hedt:Cold ;
-    hed:hasHedParent hedt:Categorical-level-value .
+    hed:hasHedParent hedt:Categorical-level-value ;
+    hed:relatedTag hedt:Cold .
 
 hedt:Hue a hed:HedTag ;
     rdfs:label "Hue" ;
@@ -5150,38 +5243,38 @@ hedt:Hue a hed:HedTag ;
 hedt:ID a hed:HedTag ;
     rdfs:label "ID" ;
     rdfs:comment "An alphanumeric name that identifies either a unique object or a unique class of objects. Here the object or class may be an idea, physical countable object (or class), or physical uncountable substance (or class)." ;
-    heda:requireChild true ;
-    hed:hasHedParent hedt:Informational-property .
+    hed:hasHedParent hedt:Informational-property ;
+    hed:requireChild true .
 
 hedt:Implicit a hed:HedTag ;
     rdfs:label "Implicit" ;
     rdfs:comment "Implied though not plainly expressed." ;
-    heda:relatedTag hedt:Explicit ;
-    hed:hasHedParent hedt:Categorical-class-value .
+    hed:hasHedParent hedt:Categorical-class-value ;
+    hed:relatedTag hedt:Explicit .
 
 hedt:Inappropriate-action a hed:HedTag ;
     rdfs:label "Inappropriate-action" ;
     rdfs:comment "An action not in keeping with what is correct or proper for the task." ;
-    heda:relatedTag hedt:Appropriate-action ;
-    hed:hasHedParent hedt:Task-action-type .
+    hed:hasHedParent hedt:Task-action-type ;
+    hed:relatedTag hedt:Appropriate-action .
 
 hedt:Inaudible a hed:HedTag ;
     rdfs:label "Inaudible" ;
     rdfs:comment "A sound below the threshold of perception of the participant." ;
-    heda:relatedTag hedt:Audible ;
-    hed:hasHedParent hedt:Categorical-judgment-value .
+    hed:hasHedParent hedt:Categorical-judgment-value ;
+    hed:relatedTag hedt:Audible .
 
 hedt:Incongruent a hed:HedTag ;
     rdfs:label "Incongruent" ;
     rdfs:comment "Not in agreement or harmony." ;
-    heda:relatedTag hedt:Congruent ;
-    hed:hasHedParent hedt:Categorical-judgment-value .
+    hed:hasHedParent hedt:Categorical-judgment-value ;
+    hed:relatedTag hedt:Congruent .
 
 hedt:Increasing a hed:HedTag ;
     rdfs:label "Increasing" ;
     rdfs:comment "Becoming greater in size, amount, or degree." ;
-    heda:relatedTag hedt:Decreasing ;
-    hed:hasHedParent hedt:Data-variability-attribute .
+    hed:hasHedParent hedt:Data-variability-attribute ;
+    hed:relatedTag hedt:Decreasing .
 
 hedt:Indicator-variable a hed:HedTag ;
     rdfs:label "Indicator-variable" ;
@@ -5191,14 +5284,14 @@ hedt:Indicator-variable a hed:HedTag ;
 hedt:Invalid a hed:HedTag ;
     rdfs:label "Invalid" ;
     rdfs:comment "Not allowed or not conforming to the correct format or specifications." ;
-    heda:relatedTag hedt:Valid ;
-    hed:hasHedParent hedt:Categorical-class-value .
+    hed:hasHedParent hedt:Categorical-class-value ;
+    hed:relatedTag hedt:Valid .
 
 hedt:Involuntary a hed:HedTag ;
     rdfs:label "Involuntary" ;
     rdfs:comment "An action that is not made by choice. In the body, involuntary actions (such as blushing) occur automatically, and cannot be controlled by choice." ;
-    heda:relatedTag hedt:Voluntary ;
-    hed:hasHedParent hedt:Categorical-judgment-value .
+    hed:hasHedParent hedt:Categorical-judgment-value ;
+    hed:relatedTag hedt:Voluntary .
 
 hedt:Item-count a hed:HedTag ;
     rdfs:label "Item-count" ;
@@ -5243,20 +5336,20 @@ hedt:Keypad-key a hed:HedTag ;
 hedt:Label a hed:HedTag ;
     rdfs:label "Label" ;
     rdfs:comment "A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances. A term that is associated with some entity. A brief description given for purposes of identification. An identifying or descriptive marker that is attached to an object." ;
-    heda:requireChild true ;
-    hed:hasHedParent hedt:Informational-property .
+    hed:hasHedParent hedt:Informational-property ;
+    hed:requireChild true .
 
 hedt:Large a hed:HedTag ;
     rdfs:label "Large" ;
     rdfs:comment "Having a great extent such as in physical dimensions, period of time, amplitude or frequency." ;
-    heda:relatedTag hedt:Small ;
-    hed:hasHedParent hedt:Categorical-level-value .
+    hed:hasHedParent hedt:Categorical-level-value ;
+    hed:relatedTag hedt:Small .
 
 hedt:Left-side-of a hed:HedTag ;
     rdfs:label "Left-side-of" ;
     rdfs:comment "(A, (Left-side-of, B)) means A is located on the left side of B usually as part of B." ;
-    heda:relatedTag hedt:Right-side-of ;
-    hed:hasHedParent hedt:Spatial-relation .
+    hed:hasHedParent hedt:Spatial-relation ;
+    hed:relatedTag hedt:Right-side-of .
 
 hedt:Length a hed:HedTag ;
     rdfs:label "Length" ;
@@ -5271,8 +5364,8 @@ hedt:Library-name a hed:HedTag ;
 hedt:Loud a hed:HedTag ;
     rdfs:label "Loud" ;
     rdfs:comment "Having a perceived high intensity of sound." ;
-    heda:relatedTag hedt:Quiet ;
-    hed:hasHedParent hedt:Categorical-level-value .
+    hed:hasHedParent hedt:Categorical-level-value ;
+    hed:relatedTag hedt:Quiet .
 
 hedt:Loudness a hed:HedTag ;
     rdfs:label "Loudness" ;
@@ -5282,8 +5375,8 @@ hedt:Loudness a hed:HedTag ;
 hedt:Masked a hed:HedTag ;
     rdfs:label "Masked" ;
     rdfs:comment "Information exists but is not provided or is partially obscured due to security,  privacy, or other concerns." ;
-    heda:relatedTag hedt:Unmasked ;
-    hed:hasHedParent hedt:Categorical-judgment-value .
+    hed:hasHedParent hedt:Categorical-judgment-value ;
+    hed:relatedTag hedt:Unmasked .
 
 hedt:Measurement-device a hed:HedTag ;
     rdfs:label "Measurement-device" ;
@@ -5293,9 +5386,9 @@ hedt:Measurement-device a hed:HedTag ;
 hedt:Medium a hed:HedTag ;
     rdfs:label "Medium" ;
     rdfs:comment "Mid-way between small and large in number, quantity, magnitude or extent." ;
-    heda:relatedTag hedt:High,
-        hedt:Low ;
-    hed:hasHedParent hedt:Categorical-level-value .
+    hed:hasHedParent hedt:Categorical-level-value ;
+    hed:relatedTag hedt:High,
+        hedt:Low .
 
 hedt:Move-torso a hed:HedTag ;
     rdfs:label "Move-torso" ;
@@ -5305,14 +5398,14 @@ hedt:Move-torso a hed:HedTag ;
 hedt:Negative a hed:HedTag ;
     rdfs:label "Negative" ;
     rdfs:comment "Involving disadvantage or harm." ;
-    heda:relatedTag hedt:Positive ;
-    hed:hasHedParent hedt:Categorical-level-value .
+    hed:hasHedParent hedt:Categorical-level-value ;
+    hed:relatedTag hedt:Positive .
 
 hedt:Normal a hed:HedTag ;
     rdfs:label "Normal" ;
     rdfs:comment "Being approximately average or within certain limits. Conforming with or constituting a norm or standard or level or type or social norm." ;
-    heda:relatedTag hedt:Abnormal ;
-    hed:hasHedParent hedt:Categorical-judgment-value .
+    hed:hasHedParent hedt:Categorical-judgment-value ;
+    hed:relatedTag hedt:Abnormal .
 
 hedt:OBO-identifier a hed:HedTag ;
     rdfs:label "OBO-identifier" ;
@@ -5322,14 +5415,14 @@ hedt:OBO-identifier a hed:HedTag ;
 hedt:Ordered a hed:HedTag ;
     rdfs:label "Ordered" ;
     rdfs:comment "Conforming to a logical or comprehensible arrangement of separate elements." ;
-    heda:relatedTag hedt:Disordered ;
-    hed:hasHedParent hedt:Categorical-judgment-value .
+    hed:hasHedParent hedt:Categorical-judgment-value ;
+    hed:relatedTag hedt:Disordered .
 
 hedt:Overt-attention a hed:HedTag ;
     rdfs:label "Overt-attention" ;
     rdfs:comment "Selectively processing one location over others by moving the eyes to point at that location." ;
-    heda:relatedTag hedt:Covert-attention ;
-    hed:hasHedParent hedt:Task-attentional-demand .
+    hed:hasHedParent hedt:Task-attentional-demand ;
+    hed:relatedTag hedt:Covert-attention .
 
 hedt:Parameter-label a hed:HedTag ;
     rdfs:label "Parameter-label" ;
@@ -5359,20 +5452,20 @@ hedt:Pitch a hed:HedTag ;
 hedt:Planned a hed:HedTag ;
     rdfs:label "Planned" ;
     rdfs:comment "Something that was decided on or arranged in advance." ;
-    heda:relatedTag hedt:Unplanned ;
-    hed:hasHedParent hedt:Task-stimulus-role .
+    hed:hasHedParent hedt:Task-stimulus-role ;
+    hed:relatedTag hedt:Unplanned .
 
 hedt:Positive a hed:HedTag ;
     rdfs:label "Positive" ;
     rdfs:comment "Involving advantage or good." ;
-    heda:relatedTag hedt:Negative ;
-    hed:hasHedParent hedt:Categorical-level-value .
+    hed:hasHedParent hedt:Categorical-level-value ;
+    hed:relatedTag hedt:Negative .
 
 hedt:Press a hed:HedTag ;
     rdfs:label "Press" ;
     rdfs:comment "Apply pressure to something to flatten, shape, smooth or depress it. This action tag should be used to indicate key presses and mouse clicks." ;
-    heda:relatedTag hedt:Push ;
-    hed:hasHedParent hedt:Move-upper-extremity .
+    hed:hasHedParent hedt:Move-upper-extremity ;
+    hed:relatedTag hedt:Push .
 
 hedt:Printer-resolution a hed:HedTag ;
     rdfs:label "Printer-resolution" ;
@@ -5387,14 +5480,14 @@ hedt:Probability a hed:HedTag ;
 hedt:Push a hed:HedTag ;
     rdfs:label "Push" ;
     rdfs:comment "Apply force in order to move something away. Use Press to indicate a key press or mouse click." ;
-    heda:relatedTag hedt:Press ;
-    hed:hasHedParent hedt:Move-upper-extremity .
+    hed:hasHedParent hedt:Move-upper-extremity ;
+    hed:relatedTag hedt:Press .
 
 hedt:Quiet a hed:HedTag ;
     rdfs:label "Quiet" ;
     rdfs:comment "Characterizing a perceived low intensity of sound." ;
-    heda:relatedTag hedt:Loud ;
-    hed:hasHedParent hedt:Categorical-level-value .
+    hed:hasHedParent hedt:Categorical-level-value ;
+    hed:relatedTag hedt:Loud .
 
 hedt:RGB-blue a hed:HedTag ;
     rdfs:label "RGB-blue" ;
@@ -5419,8 +5512,8 @@ hedt:Ratio a hed:HedTag ;
 hedt:Ready-indication a hed:HedTag ;
     rdfs:label "Ready-indication" ;
     rdfs:comment "An action that indicates that the participant is ready to perform the next step in the task." ;
-    heda:relatedTag hedt:Done-indication ;
-    hed:hasHedParent hedt:Task-action-type .
+    hed:hasHedParent hedt:Task-action-type ;
+    hed:relatedTag hedt:Done-indication .
 
 hedt:Recording a hed:HedTag ;
     rdfs:label "Recording" ;
@@ -5440,14 +5533,14 @@ hedt:Refresh-rate a hed:HedTag ;
 hedt:Rested a hed:HedTag ;
     rdfs:label "Rested" ;
     rdfs:comment "Feeling refreshed and relaxed." ;
-    heda:relatedTag hedt:Tired ;
-    hed:hasHedParent hedt:Agent-physiological-state .
+    hed:hasHedParent hedt:Agent-physiological-state ;
+    hed:relatedTag hedt:Tired .
 
 hedt:Right-side-of a hed:HedTag ;
     rdfs:label "Right-side-of" ;
     rdfs:comment "(A, (Right-side-of, B)) means A is located on the right side of B usually as part of B." ;
-    heda:relatedTag hedt:Left-side-of ;
-    hed:hasHedParent hedt:Spatial-relation .
+    hed:hasHedParent hedt:Spatial-relation ;
+    hed:relatedTag hedt:Left-side-of .
 
 hedt:Road a hed:HedTag ;
     rdfs:label "Road" ;
@@ -5462,8 +5555,8 @@ hedt:Rotated a hed:HedTag ;
 hedt:Rough a hed:HedTag ;
     rdfs:label "Rough" ;
     rdfs:comment "Having a surface with perceptible bumps, ridges, or irregularities." ;
-    heda:relatedTag hedt:Smooth ;
-    hed:hasHedParent hedt:Categorical-level-value .
+    hed:hasHedParent hedt:Categorical-level-value ;
+    hed:relatedTag hedt:Smooth .
 
 hedt:Sampling-rate a hed:HedTag ;
     rdfs:label "Sampling-rate" ;
@@ -5473,8 +5566,8 @@ hedt:Sampling-rate a hed:HedTag ;
 hedt:Sated a hed:HedTag ;
     rdfs:label "Sated" ;
     rdfs:comment "Feeling full." ;
-    heda:relatedTag hedt:Hungry ;
-    hed:hasHedParent hedt:Agent-physiological-state .
+    hed:hasHedParent hedt:Agent-physiological-state ;
+    hed:relatedTag hedt:Hungry .
 
 hedt:Saturation a hed:HedTag ;
     rdfs:label "Saturation" ;
@@ -5494,32 +5587,32 @@ hedt:Sensory-resolution a hed:HedTag ;
 hedt:Shallow a hed:HedTag ;
     rdfs:label "Shallow" ;
     rdfs:comment "Having a depth which is relatively low." ;
-    heda:relatedTag hedt:Deep ;
-    hed:hasHedParent hedt:Categorical-level-value .
+    hed:hasHedParent hedt:Categorical-level-value ;
+    hed:relatedTag hedt:Deep .
 
 hedt:Sick a hed:HedTag ;
     rdfs:label "Sick" ;
     rdfs:comment "Being in a state of ill health, bodily malfunction, or discomfort." ;
-    heda:relatedTag hedt:Healthy ;
-    hed:hasHedParent hedt:Agent-physiological-state .
+    hed:hasHedParent hedt:Agent-physiological-state ;
+    hed:relatedTag hedt:Healthy .
 
 hedt:Simple a hed:HedTag ;
     rdfs:label "Simple" ;
     rdfs:comment "Easily understood or presenting no difficulties." ;
-    heda:relatedTag hedt:Complex ;
-    hed:hasHedParent hedt:Categorical-judgment-value .
+    hed:hasHedParent hedt:Categorical-judgment-value ;
+    hed:relatedTag hedt:Complex .
 
 hedt:Small a hed:HedTag ;
     rdfs:label "Small" ;
     rdfs:comment "Having a small extent such as in physical dimensions, period of time, amplitude or frequency." ;
-    heda:relatedTag hedt:Large ;
-    hed:hasHedParent hedt:Categorical-level-value .
+    hed:hasHedParent hedt:Categorical-level-value ;
+    hed:relatedTag hedt:Large .
 
 hedt:Smooth a hed:HedTag ;
     rdfs:label "Smooth" ;
     rdfs:comment "Having a surface free from bumps, ridges, or irregularities." ;
-    heda:relatedTag hedt:Rough ;
-    hed:hasHedParent hedt:Categorical-level-value .
+    hed:hasHedParent hedt:Categorical-level-value ;
+    hed:relatedTag hedt:Rough .
 
 hedt:Sound-envelope-attack a hed:HedTag ;
     rdfs:label "Sound-envelope-attack" ;
@@ -5589,8 +5682,8 @@ hedt:Statistical-uncertainty a hed:HedTag ;
 hedt:Stop-signal a hed:HedTag ;
     rdfs:label "Stop-signal" ;
     rdfs:comment "An indicator that the agent should stop the current activity." ;
-    heda:relatedTag hedt:Go-signal ;
-    hed:hasHedParent hedt:Task-stimulus-role .
+    hed:hasHedParent hedt:Task-stimulus-role ;
+    hed:relatedTag hedt:Go-signal .
 
 hedt:Subject-identifier a hed:HedTag ;
     rdfs:label "Subject-identifier" ;
@@ -5605,8 +5698,8 @@ hedt:Swallow a hed:HedTag ;
 hedt:Symmetrical a hed:HedTag ;
     rdfs:label "Symmetrical" ;
     rdfs:comment "Made up of exactly similar parts facing each other or around an axis. Showing aspects of symmetry." ;
-    heda:relatedTag hedt:Asymmetrical ;
-    hed:hasHedParent hedt:Categorical-judgment-value .
+    hed:hasHedParent hedt:Categorical-judgment-value ;
+    hed:relatedTag hedt:Asymmetrical .
 
 hedt:Task a hed:HedTag ;
     rdfs:label "Task" ;
@@ -5631,20 +5724,20 @@ hedt:Temporal-resolution a hed:HedTag ;
 hedt:Thick a hed:HedTag ;
     rdfs:label "Thick" ;
     rdfs:comment "Wide in width, extent or cross-section." ;
-    heda:relatedTag hedt:Thin ;
-    hed:hasHedParent hedt:Categorical-level-value .
+    hed:hasHedParent hedt:Categorical-level-value ;
+    hed:relatedTag hedt:Thin .
 
 hedt:Thin a hed:HedTag ;
     rdfs:label "Thin" ;
     rdfs:comment "Narrow in width, extent or cross-section." ;
-    heda:relatedTag hedt:Thick ;
-    hed:hasHedParent hedt:Categorical-level-value .
+    hed:hasHedParent hedt:Categorical-level-value ;
+    hed:relatedTag hedt:Thick .
 
 hedt:Thirsty a hed:HedTag ;
     rdfs:label "Thirsty" ;
     rdfs:comment "Feeling a need to drink." ;
-    heda:relatedTag hedt:Hungry ;
-    hed:hasHedParent hedt:Agent-physiological-state .
+    hed:hasHedParent hedt:Agent-physiological-state ;
+    hed:relatedTag hedt:Hungry .
 
 hedt:Timbre a hed:HedTag ;
     rdfs:label "Timbre" ;
@@ -5669,44 +5762,44 @@ hedt:Time-value a hed:HedTag ;
 hedt:Tired a hed:HedTag ;
     rdfs:label "Tired" ;
     rdfs:comment "Feeling in need of sleep or rest." ;
-    heda:relatedTag hedt:Rested ;
-    hed:hasHedParent hedt:Agent-physiological-state .
+    hed:hasHedParent hedt:Agent-physiological-state ;
+    hed:relatedTag hedt:Rested .
 
 hedt:Top-down-attention a hed:HedTag ;
     rdfs:label "Top-down-attention" ;
     rdfs:comment "Voluntary allocation of attention to certain features. Sometimes this is referred to goal-oriented attention." ;
-    heda:relatedTag hedt:Bottom-up-attention ;
-    hed:hasHedParent hedt:Task-attentional-demand .
+    hed:hasHedParent hedt:Task-attentional-demand ;
+    hed:relatedTag hedt:Bottom-up-attention .
 
 hedt:True a hed:HedTag ;
     rdfs:label "True" ;
     rdfs:comment "Conforming to facts, reality or definitive criteria." ;
-    heda:relatedTag hedt:False ;
-    hed:hasHedParent hedt:Categorical-class-value .
+    hed:hasHedParent hedt:Categorical-class-value ;
+    hed:relatedTag hedt:False .
 
 hedt:Unconstrained a hed:HedTag ;
     rdfs:label "Unconstrained" ;
     rdfs:comment "Moving without restriction." ;
-    heda:relatedTag hedt:Constrained ;
-    hed:hasHedParent hedt:Categorical-judgment-value .
+    hed:hasHedParent hedt:Categorical-judgment-value ;
+    hed:relatedTag hedt:Constrained .
 
 hedt:Unmasked a hed:HedTag ;
     rdfs:label "Unmasked" ;
     rdfs:comment "Information is revealed." ;
-    heda:relatedTag hedt:Masked ;
-    hed:hasHedParent hedt:Categorical-judgment-value .
+    hed:hasHedParent hedt:Categorical-judgment-value ;
+    hed:relatedTag hedt:Masked .
 
 hedt:Unplanned a hed:HedTag ;
     rdfs:label "Unplanned" ;
     rdfs:comment "Something that has not been planned as part of the task." ;
-    heda:relatedTag hedt:Planned ;
-    hed:hasHedParent hedt:Task-stimulus-role .
+    hed:hasHedParent hedt:Task-stimulus-role ;
+    hed:relatedTag hedt:Planned .
 
 hedt:Valid a hed:HedTag ;
     rdfs:label "Valid" ;
     rdfs:comment "Allowable, usable, or acceptable." ;
-    heda:relatedTag hedt:Invalid ;
-    hed:hasHedParent hedt:Categorical-class-value .
+    hed:hasHedParent hedt:Categorical-class-value ;
+    hed:relatedTag hedt:Invalid .
 
 hedt:Version-identifier a hed:HedTag ;
     rdfs:label "Version-identifier" ;
@@ -5716,8 +5809,8 @@ hedt:Version-identifier a hed:HedTag ;
 hedt:Vertically-oriented a hed:HedTag ;
     rdfs:label "Vertically-oriented" ;
     rdfs:comment "Oriented perpendicular to the plane of the horizon." ;
-    heda:relatedTag hedt:Horizontally-oriented ;
-    hed:hasHedParent hedt:Categorical-orientation-value .
+    hed:hasHedParent hedt:Categorical-orientation-value ;
+    hed:relatedTag hedt:Horizontally-oriented .
 
 hedt:Volume a hed:HedTag ;
     rdfs:label "Volume" ;
@@ -5727,8 +5820,8 @@ hedt:Volume a hed:HedTag ;
 hedt:Voluntary a hed:HedTag ;
     rdfs:label "Voluntary" ;
     rdfs:comment "Using free will or design; not forced or compelled; controlled by individual volition." ;
-    heda:relatedTag hedt:Involuntary ;
-    hed:hasHedParent hedt:Categorical-judgment-value .
+    hed:hasHedParent hedt:Categorical-judgment-value ;
+    hed:relatedTag hedt:Involuntary .
 
 hedt:Weight a hed:HedTag ;
     rdfs:label "Weight" ;
@@ -5743,8 +5836,8 @@ hedt:Width a hed:HedTag ;
 hedt:Wrong a hed:HedTag ;
     rdfs:label "Wrong" ;
     rdfs:comment "Inaccurate or not correct." ;
-    heda:relatedTag hedt:Correct ;
-    hed:hasHedParent hedt:Categorical-class-value .
+    hed:hasHedParent hedt:Categorical-class-value ;
+    hed:relatedTag hedt:Correct .
 
 hedt:X-position a hed:HedTag ;
     rdfs:label "X-position" ;
@@ -5763,39 +5856,39 @@ hedt:Z-position a hed:HedTag ;
 
 hedu:accelerationUnits a hed:HedUnitClass ;
     rdfs:label "accelerationUnits" ;
-    heda:defaultUnits "m-per-s^2" .
+    hed:defaultUnits "m-per-s^2" .
 
 hedu:areaUnits a hed:HedUnitClass ;
     rdfs:label "areaUnits" ;
-    heda:defaultUnits "m^2" .
+    hed:defaultUnits "m^2" .
 
 hedu:electricPotentialUnits a hed:HedUnitClass ;
     rdfs:label "electricPotentialUnits" ;
-    heda:defaultUnits "uv" .
+    hed:defaultUnits "uv" .
 
 hedu:jerkUnits a hed:HedUnitClass ;
     rdfs:label "jerkUnits" ;
-    heda:defaultUnits "m-per-s^3" .
+    hed:defaultUnits "m-per-s^3" .
 
 hedu:magneticFieldUnits a hed:HedUnitClass ;
     rdfs:label "magneticFieldUnits" ;
     rdfs:comment "Units used to magnetic field intensity." ;
-    heda:defaultUnits "fT" .
+    hed:defaultUnits "fT" .
 
 hedu:memorySizeUnits a hed:HedUnitClass ;
     rdfs:label "memorySizeUnits" ;
-    heda:defaultUnits "B" .
+    hed:defaultUnits "B" .
 
 hedu:volumeUnits a hed:HedUnitClass ;
     rdfs:label "volumeUnits" ;
-    heda:defaultUnits "m^3" .
+    hed:defaultUnits "m^3" .
 
 hedt:All a hed:HedTag ;
     rdfs:label "All" ;
     rdfs:comment "To a complete degree or to the full or entire extent." ;
-    heda:relatedTag hedt:None,
-        hedt:Some ;
-    hed:hasHedParent hedt:Categorical-class-value .
+    hed:hasHedParent hedt:Categorical-class-value ;
+    hed:relatedTag hedt:None,
+        hedt:Some .
 
 hedt:Anatomical-item a hed:HedTag ;
     rdfs:label "Anatomical-item" ;
@@ -5811,6 +5904,11 @@ hedt:Auditory-device a hed:HedTag ;
     rdfs:label "Auditory-device" ;
     rdfs:comment "A device designed to produce sound." ;
     hed:hasHedParent hedt:Output-device .
+
+hedt:B-nonextension a hed:HedTag ;
+    rdfs:label "B-nonextension" ;
+    rdfs:comment "These should not be sorted.  B should be first" ;
+    hed:inLibrary "testlib" .
 
 hedt:Biological-item a hed:HedTag ;
     rdfs:label "Biological-item" ;
@@ -5830,16 +5928,16 @@ hedt:Computer-mouse a hed:HedTag ;
 hedt:Continuous a hed:HedTag ;
     rdfs:label "Continuous" ;
     rdfs:comment "Uninterrupted in time, sequence, substance, or extent." ;
-    heda:relatedTag hedt:Discontinuous,
-        hedt:Discrete ;
-    hed:hasHedParent hedt:Data-variability-attribute .
+    hed:hasHedParent hedt:Data-variability-attribute ;
+    hed:relatedTag hedt:Discontinuous,
+        hedt:Discrete .
 
 hedt:Correct-action a hed:HedTag ;
     rdfs:label "Correct-action" ;
     rdfs:comment "An action that was a correct response in the context of the task." ;
-    heda:relatedTag hedt:Incorrect-action,
-        hedt:Indeterminate-action ;
-    hed:hasHedParent hedt:Task-action-type .
+    hed:hasHedParent hedt:Task-action-type ;
+    hed:relatedTag hedt:Incorrect-action,
+        hedt:Indeterminate-action .
 
 hedt:Data-marker a hed:HedTag ;
     rdfs:label "Data-marker" ;
@@ -5849,17 +5947,17 @@ hedt:Data-marker a hed:HedTag ;
 hedt:Delay a hed:HedTag ;
     rdfs:label "Delay" ;
     rdfs:comment "The time at which an event start time is delayed from the current onset time. This tag defines the start time of an event of temporal extent and may be used with the Duration tag." ;
-    heda:relatedTag hedt:Duration ;
-    heda:reserved true ;
-    heda:topLevelTagGroup true ;
-    hed:hasHedParent hedt:Temporal-value .
+    hed:hasHedParent hedt:Temporal-value ;
+    hed:relatedTag hedt:Duration ;
+    hed:reserved true ;
+    hed:topLevelTagGroup true .
 
 hedt:Deterministic a hed:HedTag ;
     rdfs:label "Deterministic" ;
     rdfs:comment "No randomness is involved in the development of the future states of the element." ;
-    heda:relatedTag hedt:Random,
-        hedt:Stochastic ;
-    hed:hasHedParent hedt:Data-variability-attribute .
+    hed:hasHedParent hedt:Data-variability-attribute ;
+    hed:relatedTag hedt:Random,
+        hedt:Stochastic .
 
 hedt:Directional-relation a hed:HedTag ;
     rdfs:label "Directional-relation" ;
@@ -5869,8 +5967,8 @@ hedt:Directional-relation a hed:HedTag ;
 hedt:Discontinuous a hed:HedTag ;
     rdfs:label "Discontinuous" ;
     rdfs:comment "Having a gap in time, sequence, substance, or extent." ;
-    heda:relatedTag hedt:Continuous ;
-    hed:hasHedParent hedt:Data-variability-attribute .
+    hed:hasHedParent hedt:Data-variability-attribute ;
+    hed:relatedTag hedt:Continuous .
 
 hedt:Distance a hed:HedTag ;
     rdfs:label "Distance" ;
@@ -5880,10 +5978,10 @@ hedt:Distance a hed:HedTag ;
 hedt:Duration a hed:HedTag ;
     rdfs:label "Duration" ;
     rdfs:comment "The period of time during which an event occurs. This tag defines the end time of an event of temporal extent and may be used with the Delay tag." ;
-    heda:relatedTag hedt:Delay ;
-    heda:reserved true ;
-    heda:topLevelTagGroup true ;
-    hed:hasHedParent hedt:Temporal-value .
+    hed:hasHedParent hedt:Temporal-value ;
+    hed:relatedTag hedt:Delay ;
+    hed:reserved true ;
+    hed:topLevelTagGroup true .
 
 hedt:Environmental-sound a hed:HedTag ;
     rdfs:label "Environmental-sound" ;
@@ -5893,76 +5991,82 @@ hedt:Environmental-sound a hed:HedTag ;
 hedt:Expert-level a hed:HedTag ;
     rdfs:label "Expert-level" ;
     rdfs:comment "Having comprehensive and authoritative knowledge of or skill in a particular area related to the task." ;
-    heda:relatedTag hedt:Intermediate-experience-level,
-        hedt:Novice-level ;
-    hed:hasHedParent hedt:Agent-experience-level .
+    hed:hasHedParent hedt:Agent-experience-level ;
+    hed:relatedTag hedt:Intermediate-experience-level,
+        hedt:Novice-level .
 
 hedt:Familiar a hed:HedTag ;
     rdfs:label "Familiar" ;
     rdfs:comment "Recognized, familiar, or within the scope of knowledge." ;
-    heda:relatedTag hedt:Famous,
-        hedt:Unfamiliar ;
-    hed:hasHedParent hedt:Categorical-judgment-value .
+    hed:hasHedParent hedt:Categorical-judgment-value ;
+    hed:relatedTag hedt:Famous,
+        hedt:Unfamiliar .
 
 hedt:Famous a hed:HedTag ;
     rdfs:label "Famous" ;
     rdfs:comment "A person who has a high degree of recognition by the general population for his or her success or accomplishments. A famous person." ;
-    heda:relatedTag hedt:Familiar,
-        hedt:Unfamiliar ;
-    hed:hasHedParent hedt:Categorical-judgment-value .
+    hed:hasHedParent hedt:Categorical-judgment-value ;
+    hed:relatedTag hedt:Familiar,
+        hedt:Unfamiliar .
+
+hedt:Flute-sound a hed:HedTag ;
+    rdfs:label "Flute-sound" ;
+    rdfs:comment "These should be sorted.  Flute should be first" ;
+    hed:inLibrary "testlib" ;
+    hed:rooted hedt:Instrument-sound .
 
 hedt:High a hed:HedTag ;
     rdfs:label "High" ;
     rdfs:comment "Having a greater than normal degree, intensity, or amount." ;
-    heda:relatedTag hedt:Low,
-        hedt:Medium ;
-    hed:hasHedParent hedt:Categorical-level-value .
+    hed:hasHedParent hedt:Categorical-level-value ;
+    hed:relatedTag hedt:Low,
+        hedt:Medium .
 
 hedt:Hungry a hed:HedTag ;
     rdfs:label "Hungry" ;
     rdfs:comment "Being in a state of craving or desiring food." ;
-    heda:relatedTag hedt:Sated,
-        hedt:Thirsty ;
-    hed:hasHedParent hedt:Agent-physiological-state .
+    hed:hasHedParent hedt:Agent-physiological-state ;
+    hed:relatedTag hedt:Sated,
+        hedt:Thirsty .
 
 hedt:Incorrect-action a hed:HedTag ;
     rdfs:label "Incorrect-action" ;
     rdfs:comment "An action considered wrong or incorrect in the context of the task." ;
-    heda:relatedTag hedt:Correct-action,
-        hedt:Indeterminate-action ;
-    hed:hasHedParent hedt:Task-action-type .
+    hed:hasHedParent hedt:Task-action-type ;
+    hed:relatedTag hedt:Correct-action,
+        hedt:Indeterminate-action .
 
 hedt:Indeterminate-action a hed:HedTag ;
     rdfs:label "Indeterminate-action" ;
     rdfs:comment "An action that cannot be distinguished between two or more possibibities in the current context. This tag might be applied when an outside evaluator or a classification algorithm cannot determine a definitive result." ;
-    heda:relatedTag hedt:Correct-action,
+    hed:hasHedParent hedt:Task-action-type ;
+    hed:relatedTag hedt:Correct-action,
         hedt:Incorrect-action,
         hedt:Miss,
-        hedt:Near-miss ;
-    hed:hasHedParent hedt:Task-action-type .
+        hedt:Near-miss .
 
 hedt:Inset a hed:HedTag ;
     rdfs:label "Inset" ;
     rdfs:comment "Marks an intermediate point in an ongoing event of temporal extent." ;
-    heda:relatedTag hedt:Offset,
+    hed:hasHedParent hedt:Temporal-marker ;
+    hed:relatedTag hedt:Offset,
         hedt:Onset ;
-    heda:reserved true ;
-    heda:topLevelTagGroup true ;
-    hed:hasHedParent hedt:Temporal-marker .
+    hed:reserved true ;
+    hed:topLevelTagGroup true .
 
 hedt:Intermediate-experience-level a hed:HedTag ;
     rdfs:label "Intermediate-experience-level" ;
     rdfs:comment "Having a moderate amount of knowledge or skill related to the task." ;
-    heda:relatedTag hedt:Expert-level,
-        hedt:Novice-level ;
-    hed:hasHedParent hedt:Agent-experience-level .
+    hed:hasHedParent hedt:Agent-experience-level ;
+    hed:relatedTag hedt:Expert-level,
+        hedt:Novice-level .
 
 hedt:Liminal a hed:HedTag ;
     rdfs:label "Liminal" ;
     rdfs:comment "Situated at a sensory threshold that is barely perceptible or capable of eliciting a response." ;
-    heda:relatedTag hedt:Subliminal,
-        hedt:Supraliminal ;
-    hed:hasHedParent hedt:Categorical-level-value .
+    hed:hasHedParent hedt:Categorical-level-value ;
+    hed:relatedTag hedt:Subliminal,
+        hedt:Supraliminal .
 
 hedt:Logical-relation a hed:HedTag ;
     rdfs:label "Logical-relation" ;
@@ -5972,8 +6076,8 @@ hedt:Logical-relation a hed:HedTag ;
 hedt:Low a hed:HedTag ;
     rdfs:label "Low" ;
     rdfs:comment "Less than normal in degree, intensity or amount." ;
-    heda:relatedTag hedt:High ;
-    hed:hasHedParent hedt:Categorical-level-value .
+    hed:hasHedParent hedt:Categorical-level-value ;
+    hed:relatedTag hedt:High .
 
 hedt:Media a hed:HedTag ;
     rdfs:label "Media" ;
@@ -5983,8 +6087,8 @@ hedt:Media a hed:HedTag ;
 hedt:Miss a hed:HedTag ;
     rdfs:label "Miss" ;
     rdfs:comment "An action considered to be a failure in the context of the task. For example, if the agent is supposed to try to hit a target and misses." ;
-    heda:relatedTag hedt:Near-miss ;
-    hed:hasHedParent hedt:Task-action-type .
+    hed:hasHedParent hedt:Task-action-type ;
+    hed:relatedTag hedt:Near-miss .
 
 hedt:Natural-object a hed:HedTag ;
     rdfs:label "Natural-object" ;
@@ -5994,40 +6098,46 @@ hedt:Natural-object a hed:HedTag ;
 hedt:Near-miss a hed:HedTag ;
     rdfs:label "Near-miss" ;
     rdfs:comment "An action barely satisfied the requirements of the task. In a driving experiment for example this could pertain to a narrowly avoided collision or other accident." ;
-    heda:relatedTag hedt:Miss ;
-    hed:hasHedParent hedt:Task-action-type .
+    hed:hasHedParent hedt:Task-action-type ;
+    hed:relatedTag hedt:Miss .
 
 hedt:None a hed:HedTag ;
     rdfs:label "None" ;
     rdfs:comment "No person or thing, nobody, not any." ;
-    heda:relatedTag hedt:All,
-        hedt:Some ;
-    hed:hasHedParent hedt:Categorical-class-value .
+    hed:hasHedParent hedt:Categorical-class-value ;
+    hed:relatedTag hedt:All,
+        hedt:Some .
 
 hedt:Novice-level a hed:HedTag ;
     rdfs:label "Novice-level" ;
     rdfs:comment "Being inexperienced in a field or situation related to the task." ;
-    heda:relatedTag hedt:Expert-level,
-        hedt:Intermediate-experience-level ;
-    hed:hasHedParent hedt:Agent-experience-level .
+    hed:hasHedParent hedt:Agent-experience-level ;
+    hed:relatedTag hedt:Expert-level,
+        hedt:Intermediate-experience-level .
+
+hedt:Oboe-sound a hed:HedTag ;
+    rdfs:label "Oboe-sound" ;
+    rdfs:comment "These should be sorted.  Oboe should be second" ;
+    hed:inLibrary "testlib" ;
+    hed:rooted hedt:Instrument-sound .
 
 hedt:Offset a hed:HedTag ;
     rdfs:label "Offset" ;
     rdfs:comment "Marks the end of an event of temporal extent." ;
-    heda:relatedTag hedt:Inset,
+    hed:hasHedParent hedt:Temporal-marker ;
+    hed:relatedTag hedt:Inset,
         hedt:Onset ;
-    heda:reserved true ;
-    heda:topLevelTagGroup true ;
-    hed:hasHedParent hedt:Temporal-marker .
+    hed:reserved true ;
+    hed:topLevelTagGroup true .
 
 hedt:Onset a hed:HedTag ;
     rdfs:label "Onset" ;
     rdfs:comment "Marks the start of an ongoing event of temporal extent." ;
-    heda:relatedTag hedt:Inset,
+    hed:hasHedParent hedt:Temporal-marker ;
+    hed:relatedTag hedt:Inset,
         hedt:Offset ;
-    heda:reserved true ;
-    heda:topLevelTagGroup true ;
-    hed:hasHedParent hedt:Temporal-marker .
+    hed:reserved true ;
+    hed:topLevelTagGroup true .
 
 hedt:Output-device a hed:HedTag ;
     rdfs:label "Output-device" ;
@@ -6052,9 +6162,9 @@ hedt:Physical-value a hed:HedTag ;
 hedt:Random a hed:HedTag ;
     rdfs:label "Random" ;
     rdfs:comment "Governed by or depending on chance. Lacking any definite plan or order or purpose." ;
-    heda:relatedTag hedt:Deterministic,
-        hedt:Stochastic ;
-    hed:hasHedParent hedt:Data-variability-attribute .
+    hed:hasHedParent hedt:Data-variability-attribute ;
+    hed:relatedTag hedt:Deterministic,
+        hedt:Stochastic .
 
 hedt:Sensory-property a hed:HedTag ;
     rdfs:label "Sensory-property" ;
@@ -6069,9 +6179,9 @@ hedt:Somatic-attribute a hed:HedTag ;
 hedt:Some a hed:HedTag ;
     rdfs:label "Some" ;
     rdfs:comment "At least a small amount or number of, but not a large amount of, or often." ;
-    heda:relatedTag hedt:All,
-        hedt:None ;
-    hed:hasHedParent hedt:Categorical-class-value .
+    hed:hasHedParent hedt:Categorical-class-value ;
+    hed:relatedTag hedt:All,
+        hedt:None .
 
 hedt:Step a hed:HedTag ;
     rdfs:label "Step" ;
@@ -6081,23 +6191,23 @@ hedt:Step a hed:HedTag ;
 hedt:Stochastic a hed:HedTag ;
     rdfs:label "Stochastic" ;
     rdfs:comment "Uses  a random probability distribution or pattern that may be analysed statistically but may not be predicted precisely to determine future states." ;
-    heda:relatedTag hedt:Deterministic,
-        hedt:Random ;
-    hed:hasHedParent hedt:Data-variability-attribute .
+    hed:hasHedParent hedt:Data-variability-attribute ;
+    hed:relatedTag hedt:Deterministic,
+        hedt:Random .
 
 hedt:Subliminal a hed:HedTag ;
     rdfs:label "Subliminal" ;
     rdfs:comment "Situated below a sensory threshold that is imperceptible or not capable of eliciting a response." ;
-    heda:relatedTag hedt:Liminal,
-        hedt:Supraliminal ;
-    hed:hasHedParent hedt:Categorical-level-value .
+    hed:hasHedParent hedt:Categorical-level-value ;
+    hed:relatedTag hedt:Liminal,
+        hedt:Supraliminal .
 
 hedt:Supraliminal a hed:HedTag ;
     rdfs:label "Supraliminal" ;
     rdfs:comment "Situated above a sensory threshold that is perceptible or capable of eliciting a response." ;
-    heda:relatedTag hedt:Liminal,
-        hedt:Subliminal ;
-    hed:hasHedParent hedt:Categorical-level-value .
+    hed:hasHedParent hedt:Categorical-level-value ;
+    hed:relatedTag hedt:Liminal,
+        hedt:Subliminal .
 
 hedt:Task-relationship a hed:HedTag ;
     rdfs:label "Task-relationship" ;
@@ -6107,15 +6217,15 @@ hedt:Task-relationship a hed:HedTag ;
 hedt:Unexpected a hed:HedTag ;
     rdfs:label "Unexpected" ;
     rdfs:comment "Something that is not anticipated." ;
-    heda:relatedTag hedt:Expected ;
-    hed:hasHedParent hedt:Task-stimulus-role .
+    hed:hasHedParent hedt:Task-stimulus-role ;
+    hed:relatedTag hedt:Expected .
 
 hedt:Unfamiliar a hed:HedTag ;
     rdfs:label "Unfamiliar" ;
     rdfs:comment "Not having knowledge or experience of." ;
-    heda:relatedTag hedt:Familiar,
-        hedt:Famous ;
-    hed:hasHedParent hedt:Categorical-judgment-value .
+    hed:hasHedParent hedt:Categorical-judgment-value ;
+    hed:relatedTag hedt:Familiar,
+        hedt:Famous .
 
 hedt:Writing-device a hed:HedTag ;
     rdfs:label "Writing-device" ;
@@ -6125,18 +6235,40 @@ hedt:Writing-device a hed:HedTag ;
 hedu:temperatureUnits a hed:HedUnitClass ;
     rdfs:label "temperatureUnits" .
 
+hedt:A-extensionallowed a hed:HedTag ;
+    rdfs:label "A-extensionallowed" ;
+    rdfs:comment "These should be sorted.  This section should be first." ;
+    hed:extensionAllowed true ;
+    hed:inLibrary "testlib" .
+
+hedt:A-nonextension a hed:HedTag ;
+    rdfs:label "A-nonextension" ;
+    rdfs:comment "These should not be sorted.  A should be second" ;
+    hed:inLibrary "testlib" .
+
 hedt:Agent-experience-level a hed:HedTag ;
     rdfs:label "Agent-experience-level" ;
     rdfs:comment "Amount of skill or knowledge that the agent has as pertains to the task." ;
     hed:hasHedParent hedt:Agent-trait .
 
+hedt:B-extensionallowed a hed:HedTag ;
+    rdfs:label "B-extensionallowed" ;
+    rdfs:comment "These should be sorted.  This section should be second." ;
+    hed:extensionAllowed true ;
+    hed:inLibrary "testlib" .
+
 hedt:Bottom-edge-of a hed:HedTag ;
     rdfs:label "Bottom-edge-of" ;
     rdfs:comment "(A, (Bottom-edge-of, B)) means A is on the bottom most part or or near the boundary of B." ;
-    heda:relatedTag hedt:Left-edge-of,
+    hed:hasHedParent hedt:Spatial-relation ;
+    hed:relatedTag hedt:Left-edge-of,
         hedt:Right-edge-of,
-        hedt:Top-edge-of ;
-    hed:hasHedParent hedt:Spatial-relation .
+        hedt:Top-edge-of .
+
+hedt:C-nonextension a hed:HedTag ;
+    rdfs:label "C-nonextension" ;
+    rdfs:comment "These should not be sorted.  C should be last" ;
+    hed:inLibrary "testlib" .
 
 hedt:Communicate a hed:HedTag ;
     rdfs:label "Communicate" ;
@@ -6151,10 +6283,10 @@ hedt:Display-device a hed:HedTag ;
 hedt:Downward a hed:HedTag ;
     rdfs:label "Downward" ;
     rdfs:comment "Moving or leading toward a lower place or level." ;
-    heda:relatedTag hedt:Leftward,
+    hed:hasHedParent hedt:Categorical-orientation-value ;
+    hed:relatedTag hedt:Leftward,
         hedt:Rightward,
-        hedt:Upward ;
-    hed:hasHedParent hedt:Categorical-orientation-value .
+        hedt:Upward .
 
 hedt:Geometric-object a hed:HedTag ;
     rdfs:label "Geometric-object" ;
@@ -6181,21 +6313,26 @@ hedt:Head a hed:HedTag ;
     rdfs:comment "The upper part of the human body, or the front or upper part of the body of an animal, typically separated from the rest of the body by a neck, and containing the brain, mouth, and sense organs." ;
     hed:hasHedParent hedt:Body-part .
 
+hedt:Instrument-sound a hed:HedTag ;
+    rdfs:label "Instrument-sound" ;
+    rdfs:comment "Sound produced by a musical instrument." ;
+    hed:hasHedParent hedt:Musical-sound .
+
 hedt:Left-edge-of a hed:HedTag ;
     rdfs:label "Left-edge-of" ;
     rdfs:comment "(A, (Left-edge-of, B)) means A is located on the left side of B on or near the boundary of B." ;
-    heda:relatedTag hedt:Bottom-edge-of,
+    hed:hasHedParent hedt:Spatial-relation ;
+    hed:relatedTag hedt:Bottom-edge-of,
         hedt:Right-edge-of,
-        hedt:Top-edge-of ;
-    hed:hasHedParent hedt:Spatial-relation .
+        hedt:Top-edge-of .
 
 hedt:Leftward a hed:HedTag ;
     rdfs:label "Leftward" ;
     rdfs:comment "Going toward or facing the left." ;
-    heda:relatedTag hedt:Downward,
+    hed:hasHedParent hedt:Categorical-orientation-value ;
+    hed:relatedTag hedt:Downward,
         hedt:Rightward,
-        hedt:Upward ;
-    hed:hasHedParent hedt:Categorical-orientation-value .
+        hedt:Upward .
 
 hedt:Map-view a hed:HedTag ;
     rdfs:label "Map-view" ;
@@ -6240,18 +6377,18 @@ hedt:RGB-color a hed:HedTag ;
 hedt:Right-edge-of a hed:HedTag ;
     rdfs:label "Right-edge-of" ;
     rdfs:comment "(A, (Right-edge-of, B)) means A is located on the right side of B on or near the boundary of B." ;
-    heda:relatedTag hedt:Bottom-edge-of,
+    hed:hasHedParent hedt:Spatial-relation ;
+    hed:relatedTag hedt:Bottom-edge-of,
         hedt:Left-edge-of,
-        hedt:Top-edge-of ;
-    hed:hasHedParent hedt:Spatial-relation .
+        hedt:Top-edge-of .
 
 hedt:Rightward a hed:HedTag ;
     rdfs:label "Rightward" ;
     rdfs:comment "Going toward or situated on the right." ;
-    heda:relatedTag hedt:Downward,
+    hed:hasHedParent hedt:Categorical-orientation-value ;
+    hed:relatedTag hedt:Downward,
         hedt:Leftward,
-        hedt:Upward ;
-    hed:hasHedParent hedt:Categorical-orientation-value .
+        hedt:Upward .
 
 hedt:Sex a hed:HedTag ;
     rdfs:label "Sex" ;
@@ -6271,29 +6408,35 @@ hedt:Target a hed:HedTag ;
 hedt:Top-edge-of a hed:HedTag ;
     rdfs:label "Top-edge-of" ;
     rdfs:comment "(A, (Top-edge-of, B)) means A is on the uppermost part or or near the boundary of B." ;
-    heda:relatedTag hedt:Bottom-edge-of,
+    hed:hasHedParent hedt:Spatial-relation ;
+    hed:relatedTag hedt:Bottom-edge-of,
         hedt:Left-edge-of,
-        hedt:Right-edge-of ;
-    hed:hasHedParent hedt:Spatial-relation .
+        hedt:Right-edge-of .
 
 hedt:Upper-left-of a hed:HedTag ;
     rdfs:label "Upper-left-of" ;
     rdfs:comment "(A, (Upper-left-of, B)) means A is situated on the upper left part of B. This relation is often used to specify qualitative information about screen position." ;
-    heda:relatedTag hedt:Center-of,
+    hed:hasHedParent hedt:Spatial-relation ;
+    hed:relatedTag hedt:Center-of,
         hedt:Lower-center-of,
         hedt:Lower-left-of,
         hedt:Lower-right-of,
         hedt:Upper-center-of,
-        hedt:Upper-right-of ;
-    hed:hasHedParent hedt:Spatial-relation .
+        hedt:Upper-right-of .
 
 hedt:Upward a hed:HedTag ;
     rdfs:label "Upward" ;
     rdfs:comment "Moving, pointing, or leading to a higher place, point, or level." ;
-    heda:relatedTag hedt:Downward,
+    hed:hasHedParent hedt:Categorical-orientation-value ;
+    hed:relatedTag hedt:Downward,
         hedt:Leftward,
-        hedt:Rightward ;
-    hed:hasHedParent hedt:Categorical-orientation-value .
+        hedt:Rightward .
+
+hedt:Violin-sound a hed:HedTag ;
+    rdfs:label "Violin-sound" ;
+    rdfs:comment "These should be sorted.  Violin should be last" ;
+    hed:inLibrary "testlib" ;
+    hed:rooted hedt:Instrument-sound .
 
 hedt:Visual-attribute a hed:HedTag ;
     rdfs:label "Visual-attribute" ;
@@ -6302,25 +6445,25 @@ hedt:Visual-attribute a hed:HedTag ;
 
 hedu:angleUnits a hed:HedUnitClass ;
     rdfs:label "angleUnits" ;
-    heda:defaultUnits "radian" .
+    hed:defaultUnits "radian" .
 
 hedu:currencyUnits a hed:HedUnitClass ;
     rdfs:label "currencyUnits" ;
     rdfs:comment "Units indicating the worth of something." ;
-    heda:defaultUnits "$" .
+    hed:defaultUnits "$" .
 
 hedu:intensityUnits a hed:HedUnitClass ;
     rdfs:label "intensityUnits" ;
-    heda:defaultUnits "dB" .
+    hed:defaultUnits "dB" .
 
 hedu:speedUnits a hed:HedUnitClass ;
     rdfs:label "speedUnits" ;
-    heda:defaultUnits "m-per-s" .
+    hed:defaultUnits "m-per-s" .
 
 hedu:textClass a hed:HedValueClass ;
     rdfs:label "textClass" ;
     rdfs:comment "Value class designating values that have the characteristics of text such as in descriptions." ;
-    heda:allowedCharacter "$",
+    hed:allowedCharacter "$",
         "%",
         "(",
         ")",
@@ -6340,7 +6483,7 @@ hedu:textClass a hed:HedValueClass ;
 hedt:Agent-property a hed:HedTag ;
     rdfs:label "Agent-property" ;
     rdfs:comment "Something that pertains to an agent." ;
-    heda:extensionAllowed true ;
+    hed:extensionAllowed true ;
     hed:hasHedParent hedt:Property .
 
 hedt:Agent-state a hed:HedTag ;
@@ -6381,13 +6524,13 @@ hedt:IO-device a hed:HedTag ;
 hedt:Item a hed:HedTag ;
     rdfs:label "Item" ;
     rdfs:comment "An independently existing thing (living or nonliving)." ;
-    heda:extensionAllowed true .
+    hed:extensionAllowed true .
 
 hedt:Object a hed:HedTag ;
     rdfs:label "Object" ;
     rdfs:comment "Something perceptible by one or more of the senses, especially by vision or touch. A material thing." ;
-    heda:suggestedTag hedt:Sensory-presentation ;
-    hed:hasHedParent hedt:Item .
+    hed:hasHedParent hedt:Item ;
+    hed:suggestedTag hedt:Sensory-presentation .
 
 hedt:Sound a hed:HedTag ;
     rdfs:label "Sound" ;
@@ -6422,17 +6565,17 @@ hedt:Temporal-value a hed:HedTag ;
 hedt:Upper-right-of a hed:HedTag ;
     rdfs:label "Upper-right-of" ;
     rdfs:comment "(A, (Upper-right-of, B)) means A is situated on the upper right part of B. This relation is often used to specify qualitative information about screen position." ;
-    heda:relatedTag hedt:Center-of,
+    hed:hasHedParent hedt:Spatial-relation ;
+    hed:relatedTag hedt:Center-of,
         hedt:Lower-center-of,
         hedt:Lower-left-of,
         hedt:Lower-right-of,
         hedt:Upper-center-of,
-        hedt:Upper-left-of ;
-    hed:hasHedParent hedt:Spatial-relation .
+        hedt:Upper-left-of .
 
 hedu:weightUnits a hed:HedUnitClass ;
     rdfs:label "weightUnits" ;
-    heda:defaultUnits "g" .
+    hed:defaultUnits "g" .
 
 hedt:3D-shape a hed:HedTag ;
     rdfs:label "3D-shape" ;
@@ -6442,7 +6585,7 @@ hedt:3D-shape a hed:HedTag ;
 hedt:Action a hed:HedTag ;
     rdfs:label "Action" ;
     rdfs:comment "Do something." ;
-    heda:extensionAllowed true .
+    hed:extensionAllowed true .
 
 hedt:Auditory-attribute a hed:HedTag ;
     rdfs:label "Auditory-attribute" ;
@@ -6502,29 +6645,29 @@ hedt:Image a hed:HedTag ;
 hedt:Informational-property a hed:HedTag ;
     rdfs:label "Informational-property" ;
     rdfs:comment "Something that pertains to a task." ;
-    heda:extensionAllowed true ;
+    hed:extensionAllowed true ;
     hed:hasHedParent hedt:Property .
 
 hedt:Lower-center-of a hed:HedTag ;
     rdfs:label "Lower-center-of" ;
     rdfs:comment "(A, (Lower-center-of, B)) means A is situated on the lower center part of B (due south). This relation is often used to specify qualitative information about screen position." ;
-    heda:relatedTag hedt:Center-of,
+    hed:hasHedParent hedt:Spatial-relation ;
+    hed:relatedTag hedt:Center-of,
         hedt:Lower-left-of,
         hedt:Lower-right-of,
         hedt:Upper-center-of,
-        hedt:Upper-right-of ;
-    hed:hasHedParent hedt:Spatial-relation .
+        hedt:Upper-right-of .
 
 hedt:Lower-left-of a hed:HedTag ;
     rdfs:label "Lower-left-of" ;
     rdfs:comment "(A, (Lower-left-of, B)) means A is situated on the lower left part of B. This relation is often used to specify qualitative information about screen position." ;
-    heda:relatedTag hedt:Center-of,
+    hed:hasHedParent hedt:Spatial-relation ;
+    hed:relatedTag hedt:Center-of,
         hedt:Lower-center-of,
         hedt:Lower-right-of,
         hedt:Upper-center-of,
         hedt:Upper-left-of,
-        hedt:Upper-right-of ;
-    hed:hasHedParent hedt:Spatial-relation .
+        hedt:Upper-right-of .
 
 hedt:Manufactured-material a hed:HedTag ;
     rdfs:label "Manufactured-material" ;
@@ -6553,7 +6696,7 @@ hedt:Recording-device a hed:HedTag ;
 
 hedu:frequencyUnits a hed:HedUnitClass ;
     rdfs:label "frequencyUnits" ;
-    heda:defaultUnits "Hz" .
+    hed:defaultUnits "Hz" .
 
 hedt:Center-of a hed:HedTag ;
     rdfs:label "Center-of" ;
@@ -6578,13 +6721,13 @@ hedt:Lower-extremity a hed:HedTag ;
 hedt:Lower-right-of a hed:HedTag ;
     rdfs:label "Lower-right-of" ;
     rdfs:comment "(A, (Lower-right-of, B)) means A is situated on the lower right part of B. This relation is often used to specify qualitative information about screen position." ;
-    heda:relatedTag hedt:Center-of,
+    hed:hasHedParent hedt:Spatial-relation ;
+    hed:relatedTag hedt:Center-of,
         hedt:Lower-center-of,
         hedt:Lower-left-of,
         hedt:Lower-right-of,
         hedt:Upper-center-of,
-        hedt:Upper-left-of ;
-    hed:hasHedParent hedt:Spatial-relation .
+        hedt:Upper-left-of .
 
 hedt:Move-body-part a hed:HedTag ;
     rdfs:label "Move-body-part" ;
@@ -6609,7 +6752,7 @@ hedt:Quantitative-value a hed:HedTag ;
 hedt:Relation a hed:HedTag ;
     rdfs:label "Relation" ;
     rdfs:comment "Concerns the way in which two or more people or things are connected." ;
-    heda:extensionAllowed true .
+    hed:extensionAllowed true .
 
 hedt:Size a hed:HedTag ;
     rdfs:label "Size" ;
@@ -6634,13 +6777,13 @@ hedt:Torso a hed:HedTag ;
 hedt:Upper-center-of a hed:HedTag ;
     rdfs:label "Upper-center-of" ;
     rdfs:comment "(A, (Upper-center-of, B)) means A is situated on the upper center part of B (due north). This relation is often used to specify qualitative information about screen position." ;
-    heda:relatedTag hedt:Center-of,
+    hed:hasHedParent hedt:Spatial-relation ;
+    hed:relatedTag hedt:Center-of,
         hedt:Lower-center-of,
         hedt:Lower-left-of,
         hedt:Lower-right-of,
         hedt:Upper-center-of,
-        hedt:Upper-right-of ;
-    hed:hasHedParent hedt:Spatial-relation .
+        hedt:Upper-right-of .
 
 hedt:Upper-extremity a hed:HedTag ;
     rdfs:label "Upper-extremity" ;
@@ -6650,7 +6793,7 @@ hedt:Upper-extremity a hed:HedTag ;
 hedt:Agent a hed:HedTag ;
     rdfs:label "Agent" ;
     rdfs:comment "Someone or something that takes an active role or produces a specified effect.The role or effect may be implicit. Being alive or performing an activity such as a computation may qualify something to be an agent. An agent may also be something that simulates something else." ;
-    heda:suggestedTag hedt:Agent-property .
+    hed:suggestedTag hedt:Agent-property .
 
 hedt:Agent-physiological-state a hed:HedTag ;
     rdfs:label "Agent-physiological-state" ;
@@ -6670,18 +6813,18 @@ hedt:Comparative-relation a hed:HedTag ;
 hedt:Data-property a hed:HedTag ;
     rdfs:label "Data-property" ;
     rdfs:comment "Something that pertains to data or information." ;
-    heda:extensionAllowed true ;
+    hed:extensionAllowed true ;
     hed:hasHedParent hedt:Property .
 
 hedt:Event a hed:HedTag ;
     rdfs:label "Event" ;
     rdfs:comment "Something that happens at a given time and (typically) place. Elements of this tag subtree designate the general category in which an event falls." ;
-    heda:suggestedTag hedt:Task-property .
+    hed:suggestedTag hedt:Task-property .
 
 hedt:Property a hed:HedTag ;
     rdfs:label "Property" ;
     rdfs:comment "Something that pertains to a thing. A characteristic of some entity. A quality or feature regarded as a characteristic or inherent part of someone or something. HED attributes are adjectives or adverbs." ;
-    heda:extensionAllowed true .
+    hed:extensionAllowed true .
 
 hedt:Rate-of-change a hed:HedTag ;
     rdfs:label "Rate-of-change" ;
@@ -6696,7 +6839,7 @@ hedt:Sensory-attribute a hed:HedTag ;
 hedt:Task-property a hed:HedTag ;
     rdfs:label "Task-property" ;
     rdfs:comment "Something that pertains to a task." ;
-    heda:extensionAllowed true ;
+    hed:extensionAllowed true ;
     hed:hasHedParent hedt:Property .
 
 hedt:Breathe a hed:HedTag ;
@@ -6802,7 +6945,7 @@ hedt:Sensory-presentation a hed:HedTag ;
 hedt:Statistical-value a hed:HedTag ;
     rdfs:label "Statistical-value" ;
     rdfs:comment "A value based on or employing the principles of statistics." ;
-    heda:extensionAllowed true ;
+    hed:extensionAllowed true ;
     hed:hasHedParent hedt:Data-value .
 
 hedt:Task-attentional-demand a hed:HedTag ;
@@ -6828,8 +6971,8 @@ hedt:Categorical-class-value a hed:HedTag ;
 hedt:Language-item a hed:HedTag ;
     rdfs:label "Language-item" ;
     rdfs:comment "An entity related to a systematic means of communicating by the use of sounds, symbols, or gestures." ;
-    heda:suggestedTag hedt:Sensory-presentation ;
-    hed:hasHedParent hedt:Item .
+    hed:hasHedParent hedt:Item ;
+    hed:suggestedTag hedt:Sensory-presentation .
 
 hedt:Move-eyes a hed:HedTag ;
     rdfs:label "Move-eyes" ;
@@ -6858,11 +7001,11 @@ hedt:Task-action-type a hed:HedTag ;
 
 hedu:timeUnits a hed:HedUnitClass ;
     rdfs:label "timeUnits" ;
-    heda:defaultUnits "s" .
+    hed:defaultUnits "s" .
 
 hedu:physicalLengthUnits a hed:HedUnitClass ;
     rdfs:label "physicalLengthUnits" ;
-    heda:defaultUnits "m" .
+    hed:defaultUnits "m" .
 
 hedt:Agent-cognitive-state a hed:HedTag ;
     rdfs:label "Agent-cognitive-state" ;
@@ -6912,14 +7055,14 @@ hedt:Brown-color a hed:HedTag ;
 hedt:Communicate-gesturally a hed:HedTag ;
     rdfs:label "Communicate-gesturally" ;
     rdfs:comment "Communicate nonverbally using visible bodily actions, either in place of speech or together and in parallel with spoken words. Gestures include movement of the hands, face, or other parts of the body." ;
-    heda:relatedTag hedt:Move-face,
-        hedt:Move-upper-extremity ;
-    hed:hasHedParent hedt:Communicate .
+    hed:hasHedParent hedt:Communicate ;
+    hed:relatedTag hedt:Move-face,
+        hedt:Move-upper-extremity .
 
 hedu:nameClass a hed:HedValueClass ;
     rdfs:label "nameClass" ;
     rdfs:comment "Value class designating values that have the characteristics of node names. The allowed characters are alphanumeric, hyphen, and underbar." ;
-    heda:allowedCharacter "-",
+    hed:allowedCharacter "-",
         "_",
         "digits",
         "letters" .
@@ -6972,7 +7115,7 @@ hedt:Spatial-relation a hed:HedTag ;
 hedu:numericClass a hed:HedValueClass ;
     rdfs:label "numericClass" ;
     rdfs:comment "Value must be a valid numerical value." ;
-    heda:allowedCharacter "+",
+    hed:allowedCharacter "+",
         "-",
         ".",
         "E",

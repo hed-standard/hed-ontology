@@ -1,5 +1,4 @@
-@prefix hed: <https://purl.org/hed/core#> .
-@prefix heda: <https://purl.org/hed/attributes/#> .
+@prefix hed: <https://purl.org/hed#> .
 @prefix hedt: <https://purl.org/hed/tag#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -118,17 +117,17 @@ hedt:B-nonextension a hed:HedTag ;
 hedt:Flute-sound a hed:HedTag ;
     rdfs:label "Flute-sound" ;
     rdfs:comment "These should be sorted.  Flute should be first" ;
-    heda:rooted hedt:Instrument-sound .
+    hed:rooted hedt:Instrument-sound .
 
 hedt:Oboe-sound a hed:HedTag ;
     rdfs:label "Oboe-sound" ;
     rdfs:comment "These should be sorted.  Oboe should be second" ;
-    heda:rooted hedt:Instrument-sound .
+    hed:rooted hedt:Instrument-sound .
 
 hedt:A-extensionallowed a hed:HedTag ;
     rdfs:label "A-extensionallowed" ;
     rdfs:comment "These should be sorted.  This section should be first." ;
-    heda:extensionAllowed true .
+    hed:extensionAllowed true .
 
 hedt:A-nonextension a hed:HedTag ;
     rdfs:label "A-nonextension" ;
@@ -137,7 +136,7 @@ hedt:A-nonextension a hed:HedTag ;
 hedt:B-extensionallowed a hed:HedTag ;
     rdfs:label "B-extensionallowed" ;
     rdfs:comment "These should be sorted.  This section should be second." ;
-    heda:extensionAllowed true .
+    hed:extensionAllowed true .
 
 hedt:C-nonextension a hed:HedTag ;
     rdfs:label "C-nonextension" ;
@@ -146,5 +145,5 @@ hedt:C-nonextension a hed:HedTag ;
 hedt:Violin-sound a hed:HedTag ;
     rdfs:label "Violin-sound" ;
     rdfs:comment "These should be sorted.  Violin should be last" ;
-    heda:rooted hedt:Instrument-sound .
+    hed:rooted hedt:Instrument-sound .
 
