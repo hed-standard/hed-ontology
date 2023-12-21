@@ -1,0 +1,582 @@
+[
+  {
+    "@id": "https://purl.org/hed/tag#SubnodeA1",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "SubnodeA1"
+      }
+    ],
+    "https://purl.org/hed#hasHedParent": [
+      {
+        "@id": "https://purl.org/hed/tag#A-nonextension"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed#WithStandard",
+    "@type": [
+      "https://purl.org/hed#HeaderMember"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "withStandard"
+      }
+    ],
+    "https://purl.org/hed#HeaderAttribute": [
+      {
+        "@value": "8.2.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#SubnodeD2",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "SubnodeD2"
+      }
+    ],
+    "https://purl.org/hed#hasHedParent": [
+      {
+        "@id": "https://purl.org/hed/tag#A-extensionallowed"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#SubnodeB2",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "SubnodeB2"
+      }
+    ],
+    "https://purl.org/hed#hasHedParent": [
+      {
+        "@id": "https://purl.org/hed/tag#B-nonextension"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#C-nonextension",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "These should not be sorted.  C should be last"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "C-nonextension"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#SubnodeC2",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "SubnodeC2"
+      }
+    ],
+    "https://purl.org/hed#hasHedParent": [
+      {
+        "@id": "https://purl.org/hed/tag#C-nonextension"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#Violin-subsound1",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Violin-subsound1"
+      }
+    ],
+    "https://purl.org/hed#hasHedParent": [
+      {
+        "@id": "https://purl.org/hed/tag#Violin-sound"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#A-nonextension",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "These should not be sorted.  A should be second"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "A-nonextension"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#Flute-subsound1",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Flute-subsound1"
+      }
+    ],
+    "https://purl.org/hed#hasHedParent": [
+      {
+        "@id": "https://purl.org/hed/tag#Flute-sound"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#B-extensionallowed",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "These should be sorted.  This section should be second."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "B-extensionallowed"
+      }
+    ],
+    "https://purl.org/hed/attributes/#extensionAllowed": [
+      {
+        "@value": true
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed#Prologue",
+    "@type": [
+      "https://purl.org/hed#HedElement"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "epilogue"
+      }
+    ],
+    "https://purl.org/hed#elementValue": [
+      {
+        "@value": "This schema tests the ordering effects of various combinations of rooted and extension allowed for rooted schemas."
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#SubnodeE2",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "SubnodeE2"
+      }
+    ],
+    "https://purl.org/hed#hasHedParent": [
+      {
+        "@id": "https://purl.org/hed/tag#B-extensionallowed"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#Violin-sound",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "These should be sorted.  Violin should be last"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Violin-sound"
+      }
+    ],
+    "https://purl.org/hed/attributes/#rooted": [
+      {
+        "@id": "https://purl.org/hed/tag#Instrument-sound"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#SubnodeC1",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "SubnodeC1"
+      }
+    ],
+    "https://purl.org/hed#hasHedParent": [
+      {
+        "@id": "https://purl.org/hed/tag#C-nonextension"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#Flute-subsound2",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Flute-subsound2"
+      }
+    ],
+    "https://purl.org/hed#hasHedParent": [
+      {
+        "@id": "https://purl.org/hed/tag#Flute-sound"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed#Version",
+    "@type": [
+      "https://purl.org/hed#HeaderMember"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "version"
+      }
+    ],
+    "https://purl.org/hed#HeaderAttribute": [
+      {
+        "@value": "2.0.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#Violin-subsound3",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Violin-subsound3"
+      }
+    ],
+    "https://purl.org/hed#hasHedParent": [
+      {
+        "@id": "https://purl.org/hed/tag#Violin-sound"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed#Library",
+    "@type": [
+      "https://purl.org/hed#HeaderMember"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "library"
+      }
+    ],
+    "https://purl.org/hed#HeaderAttribute": [
+      {
+        "@value": "testlib"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed#Epilogue",
+    "@type": [
+      "https://purl.org/hed#HedElement"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "epilogue"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#SubnodeA3",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "SubnodeA3"
+      }
+    ],
+    "https://purl.org/hed#hasHedParent": [
+      {
+        "@id": "https://purl.org/hed/tag#A-nonextension"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#Flute-sound",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "These should be sorted.  Flute should be first"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Flute-sound"
+      }
+    ],
+    "https://purl.org/hed/attributes/#rooted": [
+      {
+        "@id": "https://purl.org/hed/tag#Instrument-sound"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#SubnodeE3",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "SubnodeE3"
+      }
+    ],
+    "https://purl.org/hed#hasHedParent": [
+      {
+        "@id": "https://purl.org/hed/tag#B-extensionallowed"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#SubnodeD1",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "SubnodeD1"
+      }
+    ],
+    "https://purl.org/hed#hasHedParent": [
+      {
+        "@id": "https://purl.org/hed/tag#A-extensionallowed"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#Oboe-subsound1",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Oboe-subsound1"
+      }
+    ],
+    "https://purl.org/hed#hasHedParent": [
+      {
+        "@id": "https://purl.org/hed/tag#Oboe-sound"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#Oboe-subsound2",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Oboe-subsound2"
+      }
+    ],
+    "https://purl.org/hed#hasHedParent": [
+      {
+        "@id": "https://purl.org/hed/tag#Oboe-sound"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#SubnodeC3",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "SubnodeC3"
+      }
+    ],
+    "https://purl.org/hed#hasHedParent": [
+      {
+        "@id": "https://purl.org/hed/tag#C-nonextension"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#SubnodeB1",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "SubnodeB1"
+      }
+    ],
+    "https://purl.org/hed#hasHedParent": [
+      {
+        "@id": "https://purl.org/hed/tag#B-nonextension"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#SubnodeD3",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "SubnodeD3"
+      }
+    ],
+    "https://purl.org/hed#hasHedParent": [
+      {
+        "@id": "https://purl.org/hed/tag#A-extensionallowed"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#Oboe-sound",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "These should be sorted.  Oboe should be second"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Oboe-sound"
+      }
+    ],
+    "https://purl.org/hed/attributes/#rooted": [
+      {
+        "@id": "https://purl.org/hed/tag#Instrument-sound"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#SubnodeA2",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "SubnodeA2"
+      }
+    ],
+    "https://purl.org/hed#hasHedParent": [
+      {
+        "@id": "https://purl.org/hed/tag#A-nonextension"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#A-extensionallowed",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "These should be sorted.  This section should be first."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "A-extensionallowed"
+      }
+    ],
+    "https://purl.org/hed/attributes/#extensionAllowed": [
+      {
+        "@value": true
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed#Unmerged",
+    "@type": [
+      "https://purl.org/hed#HeaderMember"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "unmerged"
+      }
+    ],
+    "https://purl.org/hed#HeaderAttribute": [
+      {
+        "@value": "True"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#B-nonextension",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "These should not be sorted.  B should be first"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "B-nonextension"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#SubnodeE1",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "SubnodeE1"
+      }
+    ],
+    "https://purl.org/hed#hasHedParent": [
+      {
+        "@id": "https://purl.org/hed/tag#B-extensionallowed"
+      }
+    ]
+  },
+  {
+    "@id": "https://purl.org/hed/tag#Violin-subsound2",
+    "@type": [
+      "https://purl.org/hed#HedTag"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Violin-subsound2"
+      }
+    ],
+    "https://purl.org/hed#hasHedParent": [
+      {
+        "@id": "https://purl.org/hed/tag#Violin-sound"
+      }
+    ]
+  }
+]
