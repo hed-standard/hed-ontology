@@ -1,0 +1,149 @@
+@prefix hed: <https://purl.org/hed#> .
+@prefix hedt: <https://purl.org/hed/tag#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+hed:Epilogue a hed:HedElement ;
+    rdfs:label "epilogue" .
+
+hed:Library a hed:HeaderMember ;
+    rdfs:label "library" ;
+    hed:HeaderAttribute "testlib" .
+
+hed:Prologue a hed:HedElement ;
+    rdfs:label "epilogue" ;
+    hed:elementValue "This schema tests the ordering effects of various combinations of rooted and extension allowed for rooted schemas." .
+
+hed:Unmerged a hed:HeaderMember ;
+    rdfs:label "unmerged" ;
+    hed:HeaderAttribute "True" .
+
+hed:Version a hed:HeaderMember ;
+    rdfs:label "version" ;
+    hed:HeaderAttribute "2.0.0" .
+
+hed:WithStandard a hed:HeaderMember ;
+    rdfs:label "withStandard" ;
+    hed:HeaderAttribute "8.2.0" .
+
+hedt:Flute-subsound1 a hed:HedTag ;
+    rdfs:label "Flute-subsound1" ;
+    hed:hasHedParent hedt:Flute-sound .
+
+hedt:Flute-subsound2 a hed:HedTag ;
+    rdfs:label "Flute-subsound2" ;
+    hed:hasHedParent hedt:Flute-sound .
+
+hedt:Oboe-subsound1 a hed:HedTag ;
+    rdfs:label "Oboe-subsound1" ;
+    hed:hasHedParent hedt:Oboe-sound .
+
+hedt:Oboe-subsound2 a hed:HedTag ;
+    rdfs:label "Oboe-subsound2" ;
+    hed:hasHedParent hedt:Oboe-sound .
+
+hedt:SubnodeA1 a hed:HedTag ;
+    rdfs:label "SubnodeA1" ;
+    hed:hasHedParent hedt:A-nonextension .
+
+hedt:SubnodeA2 a hed:HedTag ;
+    rdfs:label "SubnodeA2" ;
+    hed:hasHedParent hedt:A-nonextension .
+
+hedt:SubnodeA3 a hed:HedTag ;
+    rdfs:label "SubnodeA3" ;
+    hed:hasHedParent hedt:A-nonextension .
+
+hedt:SubnodeB1 a hed:HedTag ;
+    rdfs:label "SubnodeB1" ;
+    hed:hasHedParent hedt:B-nonextension .
+
+hedt:SubnodeB2 a hed:HedTag ;
+    rdfs:label "SubnodeB2" ;
+    hed:hasHedParent hedt:B-nonextension .
+
+hedt:SubnodeC1 a hed:HedTag ;
+    rdfs:label "SubnodeC1" ;
+    hed:hasHedParent hedt:C-nonextension .
+
+hedt:SubnodeC2 a hed:HedTag ;
+    rdfs:label "SubnodeC2" ;
+    hed:hasHedParent hedt:C-nonextension .
+
+hedt:SubnodeC3 a hed:HedTag ;
+    rdfs:label "SubnodeC3" ;
+    hed:hasHedParent hedt:C-nonextension .
+
+hedt:SubnodeD1 a hed:HedTag ;
+    rdfs:label "SubnodeD1" ;
+    hed:hasHedParent hedt:A-extensionallowed .
+
+hedt:SubnodeD2 a hed:HedTag ;
+    rdfs:label "SubnodeD2" ;
+    hed:hasHedParent hedt:A-extensionallowed .
+
+hedt:SubnodeD3 a hed:HedTag ;
+    rdfs:label "SubnodeD3" ;
+    hed:hasHedParent hedt:A-extensionallowed .
+
+hedt:SubnodeE1 a hed:HedTag ;
+    rdfs:label "SubnodeE1" ;
+    hed:hasHedParent hedt:B-extensionallowed .
+
+hedt:SubnodeE2 a hed:HedTag ;
+    rdfs:label "SubnodeE2" ;
+    hed:hasHedParent hedt:B-extensionallowed .
+
+hedt:SubnodeE3 a hed:HedTag ;
+    rdfs:label "SubnodeE3" ;
+    hed:hasHedParent hedt:B-extensionallowed .
+
+hedt:Violin-subsound1 a hed:HedTag ;
+    rdfs:label "Violin-subsound1" ;
+    hed:hasHedParent hedt:Violin-sound .
+
+hedt:Violin-subsound2 a hed:HedTag ;
+    rdfs:label "Violin-subsound2" ;
+    hed:hasHedParent hedt:Violin-sound .
+
+hedt:Violin-subsound3 a hed:HedTag ;
+    rdfs:label "Violin-subsound3" ;
+    hed:hasHedParent hedt:Violin-sound .
+
+hedt:B-nonextension a hed:HedTag ;
+    rdfs:label "B-nonextension" ;
+    rdfs:comment "These should not be sorted.  B should be first" .
+
+hedt:Flute-sound a hed:HedTag ;
+    rdfs:label "Flute-sound" ;
+    rdfs:comment "These should be sorted.  Flute should be first" ;
+    hed:rooted hedt:Instrument-sound .
+
+hedt:Oboe-sound a hed:HedTag ;
+    rdfs:label "Oboe-sound" ;
+    rdfs:comment "These should be sorted.  Oboe should be second" ;
+    hed:rooted hedt:Instrument-sound .
+
+hedt:A-extensionallowed a hed:HedTag ;
+    rdfs:label "A-extensionallowed" ;
+    rdfs:comment "These should be sorted.  This section should be first." ;
+    hed:extensionAllowed true .
+
+hedt:A-nonextension a hed:HedTag ;
+    rdfs:label "A-nonextension" ;
+    rdfs:comment "These should not be sorted.  A should be second" .
+
+hedt:B-extensionallowed a hed:HedTag ;
+    rdfs:label "B-extensionallowed" ;
+    rdfs:comment "These should be sorted.  This section should be second." ;
+    hed:extensionAllowed true .
+
+hedt:C-nonextension a hed:HedTag ;
+    rdfs:label "C-nonextension" ;
+    rdfs:comment "These should not be sorted.  C should be last" .
+
+hedt:Violin-sound a hed:HedTag ;
+    rdfs:label "Violin-sound" ;
+    rdfs:comment "These should be sorted.  Violin should be last" ;
+    hed:rooted hedt:Instrument-sound .
+

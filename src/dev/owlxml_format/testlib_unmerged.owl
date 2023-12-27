@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:hed="https://purl.org/hed#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <hed:HedTag rdf:about="https://purl.org/hed/tag#SubnodeE3">
+    <rdfs:label>SubnodeE3</rdfs:label>
+    <hed:hasHedParent>
+      <hed:HedTag rdf:about="https://purl.org/hed/tag#B-extensionallowed">
+        <rdfs:label>B-extensionallowed</rdfs:label>
+        <rdfs:comment>These should be sorted.  This section should be second.</rdfs:comment>
+        <hed:extensionAllowed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</hed:extensionAllowed>
+      </hed:HedTag>
+    </hed:hasHedParent>
+  </hed:HedTag>
+  <hed:HedTag rdf:about="https://purl.org/hed/tag#Oboe-subsound2">
+    <rdfs:label>Oboe-subsound2</rdfs:label>
+    <hed:hasHedParent>
+      <hed:HedTag rdf:about="https://purl.org/hed/tag#Oboe-sound">
+        <rdfs:label>Oboe-sound</rdfs:label>
+        <rdfs:comment>These should be sorted.  Oboe should be second</rdfs:comment>
+        <hed:rooted rdf:resource="https://purl.org/hed/tag#Instrument-sound"/>
+      </hed:HedTag>
+    </hed:hasHedParent>
+  </hed:HedTag>
+  <hed:HedTag rdf:about="https://purl.org/hed/tag#Flute-subsound2">
+    <rdfs:label>Flute-subsound2</rdfs:label>
+    <hed:hasHedParent>
+      <hed:HedTag rdf:about="https://purl.org/hed/tag#Flute-sound">
+        <rdfs:label>Flute-sound</rdfs:label>
+        <rdfs:comment>These should be sorted.  Flute should be first</rdfs:comment>
+        <hed:rooted rdf:resource="https://purl.org/hed/tag#Instrument-sound"/>
+      </hed:HedTag>
+    </hed:hasHedParent>
+  </hed:HedTag>
+  <hed:HedTag rdf:about="https://purl.org/hed/tag#SubnodeC1">
+    <rdfs:label>SubnodeC1</rdfs:label>
+    <hed:hasHedParent>
+      <hed:HedTag rdf:about="https://purl.org/hed/tag#C-nonextension">
+        <rdfs:label>C-nonextension</rdfs:label>
+        <rdfs:comment>These should not be sorted.  C should be last</rdfs:comment>
+      </hed:HedTag>
+    </hed:hasHedParent>
+  </hed:HedTag>
+  <hed:HedTag rdf:about="https://purl.org/hed/tag#SubnodeE1">
+    <rdfs:label>SubnodeE1</rdfs:label>
+    <hed:hasHedParent rdf:resource="https://purl.org/hed/tag#B-extensionallowed"/>
+  </hed:HedTag>
+  <hed:HedTag rdf:about="https://purl.org/hed/tag#Oboe-subsound1">
+    <rdfs:label>Oboe-subsound1</rdfs:label>
+    <hed:hasHedParent rdf:resource="https://purl.org/hed/tag#Oboe-sound"/>
+  </hed:HedTag>
+  <hed:HedTag rdf:about="https://purl.org/hed/tag#SubnodeD3">
+    <rdfs:label>SubnodeD3</rdfs:label>
+    <hed:hasHedParent>
+      <hed:HedTag rdf:about="https://purl.org/hed/tag#A-extensionallowed">
+        <rdfs:label>A-extensionallowed</rdfs:label>
+        <rdfs:comment>These should be sorted.  This section should be first.</rdfs:comment>
+        <hed:extensionAllowed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</hed:extensionAllowed>
+      </hed:HedTag>
+    </hed:hasHedParent>
+  </hed:HedTag>
+  <hed:HedTag rdf:about="https://purl.org/hed/tag#SubnodeB2">
+    <rdfs:label>SubnodeB2</rdfs:label>
+    <hed:hasHedParent>
+      <hed:HedTag rdf:about="https://purl.org/hed/tag#B-nonextension">
+        <rdfs:label>B-nonextension</rdfs:label>
+        <rdfs:comment>These should not be sorted.  B should be first</rdfs:comment>
+      </hed:HedTag>
+    </hed:hasHedParent>
+  </hed:HedTag>
+  <hed:HeaderMember rdf:about="https://purl.org/hed#Unmerged">
+    <rdfs:label>unmerged</rdfs:label>
+    <hed:HeaderAttribute>True</hed:HeaderAttribute>
+  </hed:HeaderMember>
+  <hed:HedTag rdf:about="https://purl.org/hed/tag#Violin-subsound1">
+    <rdfs:label>Violin-subsound1</rdfs:label>
+    <hed:hasHedParent>
+      <hed:HedTag rdf:about="https://purl.org/hed/tag#Violin-sound">
+        <rdfs:label>Violin-sound</rdfs:label>
+        <rdfs:comment>These should be sorted.  Violin should be last</rdfs:comment>
+        <hed:rooted rdf:resource="https://purl.org/hed/tag#Instrument-sound"/>
+      </hed:HedTag>
+    </hed:hasHedParent>
+  </hed:HedTag>
+  <hed:HedTag rdf:about="https://purl.org/hed/tag#SubnodeE2">
+    <rdfs:label>SubnodeE2</rdfs:label>
+    <hed:hasHedParent rdf:resource="https://purl.org/hed/tag#B-extensionallowed"/>
+  </hed:HedTag>
+  <hed:HeaderMember rdf:about="https://purl.org/hed#WithStandard">
+    <rdfs:label>withStandard</rdfs:label>
+    <hed:HeaderAttribute>8.2.0</hed:HeaderAttribute>
+  </hed:HeaderMember>
+  <hed:HedTag rdf:about="https://purl.org/hed/tag#SubnodeD2">
+    <rdfs:label>SubnodeD2</rdfs:label>
+    <hed:hasHedParent rdf:resource="https://purl.org/hed/tag#A-extensionallowed"/>
+  </hed:HedTag>
+  <hed:HedTag rdf:about="https://purl.org/hed/tag#Violin-subsound3">
+    <rdfs:label>Violin-subsound3</rdfs:label>
+    <hed:hasHedParent rdf:resource="https://purl.org/hed/tag#Violin-sound"/>
+  </hed:HedTag>
+  <hed:HedTag rdf:about="https://purl.org/hed/tag#SubnodeC3">
+    <rdfs:label>SubnodeC3</rdfs:label>
+    <hed:hasHedParent rdf:resource="https://purl.org/hed/tag#C-nonextension"/>
+  </hed:HedTag>
+  <hed:HeaderMember rdf:about="https://purl.org/hed#Version">
+    <rdfs:label>version</rdfs:label>
+    <hed:HeaderAttribute>2.0.0</hed:HeaderAttribute>
+  </hed:HeaderMember>
+  <hed:HedTag rdf:about="https://purl.org/hed/tag#SubnodeD1">
+    <rdfs:label>SubnodeD1</rdfs:label>
+    <hed:hasHedParent rdf:resource="https://purl.org/hed/tag#A-extensionallowed"/>
+  </hed:HedTag>
+  <hed:HedTag rdf:about="https://purl.org/hed/tag#SubnodeA2">
+    <rdfs:label>SubnodeA2</rdfs:label>
+    <hed:hasHedParent>
+      <hed:HedTag rdf:about="https://purl.org/hed/tag#A-nonextension">
+        <rdfs:label>A-nonextension</rdfs:label>
+        <rdfs:comment>These should not be sorted.  A should be second</rdfs:comment>
+      </hed:HedTag>
+    </hed:hasHedParent>
+  </hed:HedTag>
+  <hed:HedTag rdf:about="https://purl.org/hed/tag#SubnodeC2">
+    <rdfs:label>SubnodeC2</rdfs:label>
+    <hed:hasHedParent rdf:resource="https://purl.org/hed/tag#C-nonextension"/>
+  </hed:HedTag>
+  <hed:HedTag rdf:about="https://purl.org/hed/tag#SubnodeA3">
+    <rdfs:label>SubnodeA3</rdfs:label>
+    <hed:hasHedParent rdf:resource="https://purl.org/hed/tag#A-nonextension"/>
+  </hed:HedTag>
+  <hed:HedTag rdf:about="https://purl.org/hed/tag#SubnodeA1">
+    <rdfs:label>SubnodeA1</rdfs:label>
+    <hed:hasHedParent rdf:resource="https://purl.org/hed/tag#A-nonextension"/>
+  </hed:HedTag>
+  <hed:HedTag rdf:about="https://purl.org/hed/tag#Violin-subsound2">
+    <rdfs:label>Violin-subsound2</rdfs:label>
+    <hed:hasHedParent rdf:resource="https://purl.org/hed/tag#Violin-sound"/>
+  </hed:HedTag>
+  <hed:HedElement rdf:about="https://purl.org/hed#Epilogue">
+    <rdfs:label>epilogue</rdfs:label>
+  </hed:HedElement>
+  <hed:HedTag rdf:about="https://purl.org/hed/tag#SubnodeB1">
+    <rdfs:label>SubnodeB1</rdfs:label>
+    <hed:hasHedParent rdf:resource="https://purl.org/hed/tag#B-nonextension"/>
+  </hed:HedTag>
+  <hed:HedElement rdf:about="https://purl.org/hed#Prologue">
+    <rdfs:label>epilogue</rdfs:label>
+    <hed:elementValue>This schema tests the ordering effects of various combinations of rooted and extension allowed for rooted schemas.</hed:elementValue>
+  </hed:HedElement>
+  <hed:HeaderMember rdf:about="https://purl.org/hed#Library">
+    <rdfs:label>library</rdfs:label>
+    <hed:HeaderAttribute>testlib</hed:HeaderAttribute>
+  </hed:HeaderMember>
+  <hed:HedTag rdf:about="https://purl.org/hed/tag#Flute-subsound1">
+    <rdfs:label>Flute-subsound1</rdfs:label>
+    <hed:hasHedParent rdf:resource="https://purl.org/hed/tag#Flute-sound"/>
+  </hed:HedTag>
+</rdf:RDF>

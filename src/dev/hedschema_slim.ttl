@@ -1,0 +1,102 @@
+@prefix ex: <http://example.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix hed: <https://purl.org/hed#> .
+
+
+<https://purl.org/hed> rdf:type owl:Ontology ;
+    owl:versionInfo "1.0" ;
+    rdfs:label "HED Base Schema Ontology" ;
+    rdfs:comment "This is the base ontology." ;
+    dc:title "HED Base Schema Ontology" ;
+    dc:description "This ontology describes the base classes for the ontology." .
+
+# Classes specifying the schema header
+
+hed:HedElement rdf:type owl:Class ;
+    rdfs:comment "A class representing any object in a HED schema." .
+
+hed:HeaderMember rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedElement .
+
+hed:HeaderAttribute rdf:type owl:DatatypeProperty ;
+    rdfs:domain hed:HeaderMember ;
+    rdfs:range xsd:string .
+
+#--------------------------------------------------------
+# Properties pertaining to the structure of the schema.
+
+hed:elementValue rdf:type owl:DatatypeProperty ;
+    rdfs:comment "The value of an instance of the element." ;
+    rdfs:label "elementValue" ;
+    rdfs:domain hed:HedElement ;
+    rdfs:range xsd:string .
+
+# Hed tag class
+hed:HedTag rdf:type owl:Class ; 
+    rdfs:subClassOf hed:HedElement ;
+    rdfs:comment "Represents a HED term or node." ;
+    rdfs:label "HedTag" .
+
+# Hed tag placeholder class
+hed:HedPlaceholder rdf:type owl:Class ; 
+    rdfs:subClassOf hed:HedTag ;
+    rdfs:comment "Represents a node placeholder." ;
+    rdfs:label "HedPlaceholder" .    
+
+hed:HedUnitClass rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedElement ;
+    rdfs:comment "Organizes unit classes and the units for the nodes." ;    
+    rdfs:label "HedUnitClass" .
+
+hed:HedUnit rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedElement ;
+    rdfs:comment "Represents a unit element." ;    
+    rdfs:label "HedUnit" ;
+    hed:unitClass hed:HedUnitClass .
+
+hed:HedUnitModifier rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedElement ;
+    rdfs:comment "Organizes unit modifiers." ;
+    rdfs:label "HedUnitModifier" .
+
+
+# '''Value classes''' <nowiki>[Specification of the rules for the values provided by users.]</nowiki>
+hed:HedValueClass rdf:type owl:Class ;
+    rdfs:subClassOf hed:HedElement ;
+    rdfs:comment "The rules for the values provided by users." ;
+    rdfs:label "HedValueClass" .
+
+#------------------------------------------------------------------------------------
+# Property definitions that are internal to the rdf representation of the HED schema
+hed:hasHedParent rdf:type owl:ObjectProperty ;
+    rdfs:comment "Represents the relationship of a HED term to its parent in HED hierarchy" ;
+    rdfs:label "hasHedParent" ;
+    rdfs:domain hed:HedTag ;
+    rdfs:range hed:HedTag .
+
+#------------------------------------------------------------------------------------
+# Schema attribute property definitions
+hed:schemaAttributeDatatypeProperty rdf:type owl:DatatypeProperty .
+hed:schemaAttributeObjectProperty rdf:type owl:ObjectProperty .
+
+
+hed:schemaProperty rdf:type owl:AnnotationProperty .
+
+## -----------------------------------------------------
+# Custom data types
+hed:LetterString rdf:type rdfs:Datatype ;
+    owl:onDatatype xsd:string ;
+    owl:withRestrictions ([ xsd:pattern "[a-zA-Z]+" ]) ;
+    rdfs:comment "Represents values that are in letters" ;
+    rdfs:label "letters" .
+
+ex:CustomEmail rdf:type rdfs:Datatype ;
+    owl:onDataType xsd:string ;
+    owl:withRestrictions ([ xsd:pattern "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}" ]) .  
+
+# --------------------------------------------------------------------------------------
+

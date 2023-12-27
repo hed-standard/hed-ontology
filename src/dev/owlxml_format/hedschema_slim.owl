@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:hed="https://purl.org/hed#"
+>
+  <owl:DatatypeProperty rdf:about="https://purl.org/hed#HeaderAttribute">
+    <rdfs:domain rdf:resource="https://purl.org/hed#HeaderMember"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <rdfs:Datatype rdf:about="https://purl.org/hed#LetterString">
+    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:withRestrictions rdf:parseType="Collection">
+      <rdf:Description rdf:nodeID="ndd27c80dfa90465d9328fd5b5ff600a9b1">
+        <xsd:pattern>[a-zA-Z]+</xsd:pattern>
+      </rdf:Description>
+    </owl:withRestrictions>
+    <rdfs:comment>Represents values that are in letters</rdfs:comment>
+    <rdfs:label>letters</rdfs:label>
+  </rdfs:Datatype>
+  <owl:Class rdf:about="https://purl.org/hed#HedPlaceholder">
+    <rdfs:subClassOf rdf:resource="https://purl.org/hed#HedTag"/>
+    <rdfs:comment>Represents a node placeholder.</rdfs:comment>
+    <rdfs:label>HedPlaceholder</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/hed#HedUnitModifier">
+    <rdfs:subClassOf rdf:resource="https://purl.org/hed#HedElement"/>
+    <rdfs:comment>Organizes unit modifiers.</rdfs:comment>
+    <rdfs:label>HedUnitModifier</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/hed#HedValueClass">
+    <rdfs:subClassOf rdf:resource="https://purl.org/hed#HedElement"/>
+    <rdfs:comment>The rules for the values provided by users.</rdfs:comment>
+    <rdfs:label>HedValueClass</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/hed#HedUnit">
+    <rdfs:subClassOf rdf:resource="https://purl.org/hed#HedElement"/>
+    <rdfs:comment>Represents a unit element.</rdfs:comment>
+    <rdfs:label>HedUnit</rdfs:label>
+    <hed:unitClass rdf:resource="https://purl.org/hed#HedUnitClass"/>
+  </owl:Class>
+  <owl:Ontology rdf:about="https://purl.org/hed">
+    <owl:versionInfo>1.0</owl:versionInfo>
+    <rdfs:label>HED Base Schema Ontology</rdfs:label>
+    <rdfs:comment>This is the base ontology.</rdfs:comment>
+    <dc:title>HED Base Schema Ontology</dc:title>
+    <dc:description>This ontology describes the base classes for the ontology.</dc:description>
+  </owl:Ontology>
+  <owl:DatatypeProperty rdf:about="https://purl.org/hed#schemaAttributeDatatypeProperty"/>
+  <owl:ObjectProperty rdf:about="https://purl.org/hed#hasHedParent">
+    <rdfs:comment>Represents the relationship of a HED term to its parent in HED hierarchy</rdfs:comment>
+    <rdfs:label>hasHedParent</rdfs:label>
+    <rdfs:domain rdf:resource="https://purl.org/hed#HedTag"/>
+    <rdfs:range rdf:resource="https://purl.org/hed#HedTag"/>
+  </owl:ObjectProperty>
+  <rdfs:Datatype rdf:about="http://example.org/CustomEmail">
+    <owl:onDataType rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:withRestrictions rdf:parseType="Collection">
+      <rdf:Description rdf:nodeID="ndd27c80dfa90465d9328fd5b5ff600a9b3">
+        <xsd:pattern>[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}</xsd:pattern>
+      </rdf:Description>
+    </owl:withRestrictions>
+  </rdfs:Datatype>
+  <owl:DatatypeProperty rdf:about="https://purl.org/hed#elementValue">
+    <rdfs:comment>The value of an instance of the element.</rdfs:comment>
+    <rdfs:label>elementValue</rdfs:label>
+    <rdfs:domain rdf:resource="https://purl.org/hed#HedElement"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:AnnotationProperty rdf:about="https://purl.org/hed#schemaProperty"/>
+  <owl:ObjectProperty rdf:about="https://purl.org/hed#schemaAttributeObjectProperty"/>
+  <owl:Class rdf:about="https://purl.org/hed#HedUnitClass">
+    <rdfs:subClassOf rdf:resource="https://purl.org/hed#HedElement"/>
+    <rdfs:comment>Organizes unit classes and the units for the nodes.</rdfs:comment>
+    <rdfs:label>HedUnitClass</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/hed#HeaderMember">
+    <rdfs:subClassOf rdf:resource="https://purl.org/hed#HedElement"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/hed#HedTag">
+    <rdfs:subClassOf rdf:resource="https://purl.org/hed#HedElement"/>
+    <rdfs:comment>Represents a HED term or node.</rdfs:comment>
+    <rdfs:label>HedTag</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/hed#HedElement">
+    <rdfs:comment>A class representing any object in a HED schema.</rdfs:comment>
+  </owl:Class>
+</rdf:RDF>
