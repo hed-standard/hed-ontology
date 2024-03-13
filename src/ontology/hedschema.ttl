@@ -4,13 +4,13 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix hed: <https://purl.org/hed#> .
+@prefix hed: <https://purl.org/hed/hed-schema#> .
 
 <https://purl.org/hed> rdf:type owl:Ontology ;
     owl:versionInfo "1.0" ;
-    rdfs:label "HED Base Schema Ontology" ;
+    rdfs:label "HED Schema Ontology" ;
     rdfs:comment "This is the base ontology." ;
-    dc:title "HED Base Schema Ontology" ;
+    dc:title "HED Schema Ontology" ;
     dc:description "This ontology describes the base classes for the ontology." .
 
 # Classes specifying the schema structure
@@ -513,19 +513,4 @@ hed:valueClass rdf:type owl:ObjectProperty ;
     rdfs:label "valueClass" ;
     rdfs:domain hed:HedTag ;
     rdfs:range hed:HedValueClass .
-
-
-## -----------------------------------------------------
-# Custom data types
-hed:LetterString rdf:type rdfs:Datatype ;
-    owl:onDatatype xsd:string ;
-    owl:withRestrictions ([ xsd:pattern "[a-zA-Z]+" ]) ;
-    rdfs:comment "Represents values that are in letters" ;
-    rdfs:label "letters" .
-
-ex:CustomEmail rdf:type rdfs:Datatype ;
-    owl:onDataType xsd:string ;
-    owl:withRestrictions ([ xsd:pattern "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}" ]) .  
-
-# --------------------------------------------------------------------------------------
 

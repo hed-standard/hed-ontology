@@ -5,14 +5,14 @@ Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 Prefix: xml: <http://www.w3.org/XML/1998/namespace>
 Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
-Prefix: : <http://purl.org/hed/hed.owl>
+Prefix: : <http://purl.org/hed/hedterms.owl>
 
 
 
-Ontology: <http://purl.org/hed/hed.owl>
+Ontology: <http://purl.org/hed/hed-struct.owl>
 
-Import: <http://purl.obolibrary.org/obo/hed/imports/cob_import.owl>
-Import: <http://purl.obolibrary.org/obo/hed/imports/ro_import.owl>
+Import: <http://purl.org/hed/imports/cob_import.owl>
+Import: <http://purl.org/hed/imports/ro_import.owl>
 
 Annotations: 
     dcterms:description "Formal ontology representation of the HED standard schema.",
