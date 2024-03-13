@@ -1,0 +1,1146 @@
+Prefix: dc: <http://purl.org/dc/elements/1.1/>
+Prefix: foaf: <http://xmlns.com/foaf/0.1/>
+Prefix: obo1: <http://purl.obolibrary.org/obo/>
+Prefix: obo: <http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/>
+Prefix: oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+Prefix: protege: <http://protege.stanford.edu/plugins/owl/protege#>
+Prefix: swrl: <http://www.w3.org/2003/11/swrl#>
+Prefix: swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#>
+Prefix: swrlb: <http://www.w3.org/2003/11/swrlb#>
+Prefix: terms: <http://purl.org/dc/terms/>
+Prefix: : <https://purl.org/hed/releases/working/hed-schema#>
+
+Ontology: <http://purl.org/hed/releases/working/hed-schema.owl>
+
+
+Annotations: 
+    dc:description "This ontology describes the base classes for the ontology.",
+    dc:title "HED Base Schema Ontology",
+    rdfs:comment "This is the base ontology.",
+    rdfs:label "HED Base Schema Ontology",
+    owl:versionInfo "1.0"
+
+AnnotationProperty: dc:description
+
+    
+AnnotationProperty: dc:title
+
+    
+AnnotationProperty: hed:boolProperty
+
+    Annotations: 
+        rdfs:comment "Has an xsd:boolean value",
+        rdfs:comment "This schema attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values.",
+        rdfs:label "boolProperty"
+    
+    
+AnnotationProperty: hed:elementProperty
+
+    Annotations: 
+        rdfs:comment "Indicates a schema attribute can apply to any type of element (tag term, unit class, etc).",
+        rdfs:label "elementProperty"
+    
+    Range: 
+        <http://www.w3.org/2001/XMLSchema#boolean>
+    
+    
+AnnotationProperty: hed:isheritedProperty
+
+    Annotations: 
+        rdfs:comment "Indicates a schema attribute is inherited by child nodes. This property only applies to schema attributes for nodes.",
+        rdfs:label "isHeritedProperty"
+    
+    Range: 
+        <http://www.w3.org/2001/XMLSchema#boolean>
+    
+    
+AnnotationProperty: hed:nodeProperty
+
+    Annotations: 
+        rdfs:comment "Indicates a attribute applies to node (tag-term) elements. This was added to allow for an attribute to apply to multiple elements.",
+        rdfs:label "nodeProperty"
+    
+    Range: 
+        <http://www.w3.org/2001/XMLSchema#boolean>
+    
+    
+AnnotationProperty: hed:unitClassProperty
+
+    Annotations: 
+        rdfs:comment "Indicates a schema attribute applies to unit classes.",
+        rdfs:label "unitClassProperty"
+    
+    Range: 
+        <http://www.w3.org/2001/XMLSchema#boolean>
+    
+    
+AnnotationProperty: hed:unitModifierProperty
+
+    Annotations: 
+        rdfs:comment "Indicates a schema attribute applies to unit modifier classes.",
+        rdfs:label "unitModifierProperty"
+    
+    Range: 
+        <http://www.w3.org/2001/XMLSchema#boolean>
+    
+    
+AnnotationProperty: hed:unitProperty
+
+    Annotations: 
+        rdfs:comment "Indicates a schema attribute applies to units within a unit class.",
+        rdfs:label "unitProperty"
+    
+    Range: 
+        <http://www.w3.org/2001/XMLSchema#boolean>
+    
+    
+AnnotationProperty: hed:valueClassProperty
+
+    Annotations: 
+        rdfs:comment "Indicates a schema attribute applies to value classes.",
+        rdfs:label "valueClassProperty"
+    
+    Range: 
+        <http://www.w3.org/2001/XMLSchema#boolean>
+    
+    
+AnnotationProperty: owl:versionInfo
+
+    
+AnnotationProperty: rdfs:comment
+
+    
+AnnotationProperty: rdfs:label
+
+    
+Datatype: xsd:boolean
+
+    
+Datatype: xsd:decimal
+
+    
+Datatype: xsd:string
+
+    
+ObjectProperty: hed:defaultUnits
+
+    Annotations: 
+        rdfs:comment "a top-level library schema node is identical to a node of the same name in the partnered standard schema. This attribute can only appear in nodes that have the inLibrary schema attribute.",
+        rdfs:label "defaultUnits"
+    
+    SubPropertyOf: 
+        hed:schemaAttributeObjectProperty
+    
+    Domain: 
+        hed:HedUnitClass
+    
+    Range: 
+        hed:HedUnit
+    
+    
+ObjectProperty: hed:hasHedParent
+
+    Annotations: 
+        rdfs:comment "Represents the relationship of a HED term to its parent in HED hierarchy",
+        rdfs:label "hasHedParent"
+    
+    Domain: 
+        hed:HedTag
+    
+    Range: 
+        hed:HedTag
+    
+    
+ObjectProperty: hed:inSchemaSection
+
+    Annotations: 
+        rdfs:comment "Indicates what section the element appears in.",
+        rdfs:label "inSchemaSection"
+    
+    Domain: 
+        hed:HedElement
+    
+    Range: 
+        hed:HedSection
+    
+    
+ObjectProperty: hed:relatedTag
+
+    Annotations: 
+        rdfs:comment "Indicates another tag  that is closely related to this tag. This attribute is used by tagging tools to provide tagging suggestions",
+        rdfs:label "relatedTag"
+    
+    SubPropertyOf: 
+        hed:schemaAttributeObjectProperty
+    
+    Domain: 
+        hed:HedTag
+    
+    Range: 
+        hed:HedTag
+    
+    
+ObjectProperty: hed:rooted
+
+    Annotations: 
+        rdfs:comment "Indicates that a top-level library schema node is identical to a node of the same name in the partnered standard schema. This attribute can only appear in nodes that have the inLibrary schema attribute.",
+        rdfs:label "rooted"
+    
+    SubPropertyOf: 
+        hed:schemaAttributeObjectProperty
+    
+    Domain: 
+        hed:HedTag
+    
+    Range: 
+        hed:HedTag
+    
+    
+ObjectProperty: hed:schemaAttributeObjectProperty
+
+    
+ObjectProperty: hed:suggestedTag
+
+    Annotations: 
+        rdfs:comment "Indicates another tag  that is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions",
+        rdfs:label "suggestedTag"
+    
+    SubPropertyOf: 
+        hed:schemaAttributeObjectProperty
+    
+    Domain: 
+        hed:HedTag
+    
+    Range: 
+        hed:HedTag
+    
+    
+ObjectProperty: hed:unitClass
+
+    Annotations: 
+        rdfs:comment "Indicates which unit class this value tag belongs to.",
+        rdfs:comment "Property specify the type of unit class a unit belongs to.",
+        rdfs:label "unitClass"
+    
+    SubPropertyOf: 
+        hed:schemaAttributeObjectProperty
+    
+    Domain: 
+        hed:HedTag,
+        hed:HedUnit
+    
+    Range: 
+        hed:HedUnitClass
+    
+    
+ObjectProperty: hed:valueClass
+
+    Annotations: 
+        rdfs:comment "Indicates which value class this value tag belongs to.",
+        rdfs:label "valueClass"
+    
+    SubPropertyOf: 
+        hed:schemaAttributeObjectProperty
+    
+    Domain: 
+        hed:HedTag
+    
+    Range: 
+        hed:HedValueClass
+    
+    
+DataProperty: hed:SIUnit
+
+    Annotations: 
+        rdfs:comment "Indicates that this unit element is an SI unit and can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.",
+        rdfs:label "SIUnit"
+    
+    Domain: 
+        hed:HedUnit
+    
+    Range: 
+        xsd:boolean
+    
+    SubPropertyOf: 
+        hed:schemaAttributeDatatypeProperty
+    
+    
+DataProperty: hed:SIUnitModifier
+
+    Annotations: 
+        rdfs:comment "Indicates that this SI unit modifier represents a multiple or submultiple of a base unit rather than a unit symbol.",
+        rdfs:label "SIUnitModifier"
+    
+    Domain: 
+        hed:HedUnitModifier
+    
+    Range: 
+        xsd:boolean
+    
+    SubPropertyOf: 
+        hed:schemaAttributeDatatypeProperty
+    
+    
+DataProperty: hed:SIUnitSymbolModifier
+
+    Annotations: 
+        rdfs:comment "Indicates that this SI unit modifier represents a multiple or submultiple of a unit symbol rather than a base symbol.",
+        rdfs:label "SIUnitSymbolModifier"
+    
+    Domain: 
+        hed:HedUnitModifier
+    
+    Range: 
+        xsd:boolean
+    
+    SubPropertyOf: 
+        hed:schemaAttributeDatatypeProperty
+    
+    
+DataProperty: hed:allowedCharacter
+
+    Annotations: 
+        rdfs:comment "A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder. Normally the allowed characters are listed individually. However, the word letters designates the upper and lower case alphabetic characters and the word digits designates the digits 0-9. The word blank designates the blank character.",
+        rdfs:label "allowedCharacter"
+    
+    Domain: 
+        hed:HedValueClass
+    
+    Range: 
+        xsd:string
+    
+    SubPropertyOf: 
+        hed:schemaAttributeDatatypeProperty
+    
+    
+DataProperty: hed:conversionFactor
+
+    Annotations: 
+        rdfs:comment "The factor to multiply these units by to convert to default units.",
+        rdfs:label "conversionFactor"
+    
+    Domain: 
+        hed:HedUnit,
+        hed:HedUnitModifier
+    
+    Range: 
+        xsd:decimal
+    
+    SubPropertyOf: 
+        hed:schemaAttributeDatatypeProperty
+    
+    
+DataProperty: hed:deprecatedFrom
+
+    Annotations: 
+        rdfs:comment "Indicates that this element is deprecated. The value of the attribute is the latest schema version in which the element appeared in undeprecated form.",
+        rdfs:label "deprecatedFrom"
+    
+    Domain: 
+        hed:HedElement
+    
+    Range: 
+        xsd:string
+    
+    SubPropertyOf: 
+        hed:schemaAttributeDatatypeProperty
+    
+    
+DataProperty: hed:elementValue
+
+    Annotations: 
+        rdfs:comment "The value of an instance of the element.",
+        rdfs:label "elementValue"
+    
+    Domain: 
+        hed:HedElement
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: hed:extensionAllowed
+
+    Annotations: 
+        rdfs:comment "A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of the hashtag placeholders.",
+        rdfs:label "extensionAllowed"
+    
+    Domain: 
+        hed:HedTag
+    
+    Range: 
+        xsd:boolean
+    
+    SubPropertyOf: 
+        hed:schemaAttributeDatatypeProperty
+    
+    
+DataProperty: hed:inLibrary
+
+    Annotations: 
+        rdfs:comment "Indicates this schema element came from the named library schema, not the standard schema. This attribute is added by tools when a library schema is merged into its partnered standard schema.",
+        rdfs:label "inLibrary"
+    
+    Domain: 
+        hed:HedElement
+    
+    Range: 
+        xsd:string
+    
+    SubPropertyOf: 
+        hed:schemaAttributeDatatypeProperty
+    
+    
+DataProperty: hed:isTopHedTag
+
+    Annotations: 
+        rdfs:comment "Indicates that the HedTag is a top-level tag.",
+        rdfs:label "isTopHedTag"
+    
+    Domain: 
+        hed:HedTag
+    
+    Range: 
+        xsd:boolean
+    
+    
+DataProperty: hed:library
+
+    Annotations: 
+        rdfs:comment "The name of the library schema if applicable.",
+        rdfs:label "library"
+    
+    Domain: 
+        hed:HedHeaderSection
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: hed:recommended
+
+    Annotations: 
+        rdfs:comment "Indicates that the event-level HED string should include this tag.",
+        rdfs:label "recommended"
+    
+    Domain: 
+        hed:HedTag
+    
+    Range: 
+        xsd:boolean
+    
+    SubPropertyOf: 
+        hed:schemaAttributeDatatypeProperty
+    
+    
+DataProperty: hed:requireChild
+
+    Annotations: 
+        rdfs:comment "Indicates that that one of the node's descendants must be included when using this tag.",
+        rdfs:label "requireChild"
+    
+    Domain: 
+        hed:HedTag
+    
+    Range: 
+        xsd:boolean
+    
+    SubPropertyOf: 
+        hed:schemaAttributeDatatypeProperty
+    
+    
+DataProperty: hed:required
+
+    Annotations: 
+        rdfs:comment "A schema attribute indicating that every event-level HED string should include this tag.",
+        rdfs:label "required"
+    
+    Domain: 
+        hed:HedTag
+    
+    Range: 
+        xsd:boolean
+    
+    SubPropertyOf: 
+        hed:schemaAttributeDatatypeProperty
+    
+    
+DataProperty: hed:reserved
+
+    Annotations: 
+        rdfs:comment "Indicates that this tag has special meaning and requires special handling by tools.",
+        rdfs:label "reserved"
+    
+    Domain: 
+        hed:HedTag
+    
+    Range: 
+        xsd:boolean
+    
+    SubPropertyOf: 
+        hed:schemaAttributeDatatypeProperty
+    
+    
+DataProperty: hed:schemaAttributeDatatypeProperty
+
+    
+DataProperty: hed:tagGroup
+
+    Annotations: 
+        rdfs:comment "Indicates that the tag can only appear inside a tag group.",
+        rdfs:label "tagGroup"
+    
+    Domain: 
+        hed:HedTag
+    
+    Range: 
+        xsd:boolean
+    
+    SubPropertyOf: 
+        hed:schemaAttributeDatatypeProperty
+    
+    
+DataProperty: hed:takesValue
+
+    Annotations: 
+        rdfs:comment "Indicates that the tag is a hashtag placeholder that is expected to be replaced with a user-defined value.",
+        rdfs:label "takesValue"
+    
+    Domain: 
+        hed:HedTag
+    
+    Range: 
+        xsd:boolean
+    
+    SubPropertyOf: 
+        hed:schemaAttributeDatatypeProperty
+    
+    
+DataProperty: hed:topLevelTagGroup
+
+    Annotations: 
+        rdfs:comment "Indicates that this tag (or its descendants) can only appear in a top-level tag group. A tag group can have at most one tag with this attribute.",
+        rdfs:label "topLevelTagGroup"
+    
+    Domain: 
+        hed:HedTag
+    
+    Range: 
+        xsd:boolean
+    
+    SubPropertyOf: 
+        hed:schemaAttributeDatatypeProperty
+    
+    
+DataProperty: hed:unique
+
+    Annotations: 
+        rdfs:comment "Indicates that only one of this tag or its descendants can be used in the event-level HED string.",
+        rdfs:label "unique"
+    
+    Domain: 
+        hed:HedTag
+    
+    Range: 
+        xsd:boolean
+    
+    SubPropertyOf: 
+        hed:schemaAttributeDatatypeProperty
+    
+    
+DataProperty: hed:unitPrefix
+
+    Annotations: 
+        rdfs:comment "Indicates a prefix (e.g., dollar sign in the currency units).",
+        rdfs:label "unitPrefix"
+    
+    Domain: 
+        hed:HedUnit
+    
+    Range: 
+        xsd:boolean
+    
+    SubPropertyOf: 
+        hed:schemaAttributeDatatypeProperty
+    
+    
+DataProperty: hed:unitSymbol
+
+    Annotations: 
+        rdfs:comment "Indicates that an abbreviation or symbol representing a type of unit. Unit symbols represent both the singular and the plural and thus cannot be pluralized.",
+        rdfs:label "unitSymbol"
+    
+    Domain: 
+        hed:HedUnit
+    
+    Range: 
+        xsd:boolean
+    
+    SubPropertyOf: 
+        hed:schemaAttributeDatatypeProperty
+    
+    
+DataProperty: hed:unmerged
+
+    Annotations: 
+        rdfs:comment "If true, the schema is not merged with a partner schema.",
+        rdfs:label "unmerged"
+    
+    Domain: 
+        hed:HedHeaderSection
+    
+    Range: 
+        xsd:boolean
+    
+    
+DataProperty: hed:version
+
+    Annotations: 
+        rdfs:comment "The semantic version of this schema.",
+        rdfs:label "version"
+    
+    Domain: 
+        hed:HedHeaderSection
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: hed:wikiElementName
+
+    Annotations: 
+        rdfs:comment "The name of the element in MEDIAWIKI format.",
+        rdfs:label "wikiElementName"
+    
+    Domain: 
+        hed:HedElement
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: hed:withStandard
+
+    Annotations: 
+        rdfs:comment "The version of the schema's standard schema partner.",
+        rdfs:label "withStandard"
+    
+    Domain: 
+        hed:HedHeaderSection
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: hed:xmlElementName
+
+    Annotations: 
+        rdfs:comment "The name of the element in XML format.",
+        rdfs:label "xmlElementName"
+    
+    Domain: 
+        hed:HedElement
+    
+    Range: 
+        xsd:string
+    
+    
+Class: hed:HedElement
+
+    Annotations: 
+        rdfs:comment "A class representing any object in a HED schema."
+    
+    
+Class: hed:HedEndSchemaSection
+
+    Annotations: 
+        rdfs:comment "Required end marker for schema file.",
+        rdfs:label "HedEndSchemaSection"
+    
+    SubClassOf: 
+        hed:HedSection
+    
+    
+Class: hed:HedEndSection
+
+    Annotations: 
+        rdfs:comment "The required end marker for the HED schema.",
+        rdfs:label "HedEndSection"
+    
+    SubClassOf: 
+        hed:HedSection
+    
+    
+Class: hed:HedEpilogueSection
+
+    Annotations: 
+        rdfs:comment "This section contains citation, licensing, and other information.",
+        rdfs:label "HedEpilogueSection"
+    
+    SubClassOf: 
+        hed:HedSection
+    
+    
+Class: hed:HedHeaderSection
+
+    Annotations: 
+        rdfs:comment "This section contains the schema header.",
+        rdfs:label "HedHeaderSection"
+    
+    SubClassOf: 
+        hed:HedSection
+    
+    
+Class: hed:HedPlaceholder
+
+    Annotations: 
+        rdfs:comment "Represents a node placeholder.",
+        rdfs:label "HedPlaceholder"
+    
+    SubClassOf: 
+        hed:HedTag
+    
+    
+Class: hed:HedPrologueSection
+
+    Annotations: 
+        rdfs:comment "An overview of the schema and its purpose.",
+        rdfs:label "HedPrologueSection"
+    
+    SubClassOf: 
+        hed:HedSection
+    
+    
+Class: hed:HedPropertiesSection
+
+    Annotations: 
+        rdfs:comment "Properties of the schema attributes themselves. These are used for schema handling and verification.",
+        rdfs:label "HedPropertiesSection"
+    
+    SubClassOf: 
+        hed:HedSection
+    
+    
+Class: hed:HedSchemaAttributesSection
+
+    Annotations: 
+        rdfs:comment "Schema section defining the attribute modifiers of other sections of the schema.",
+        rdfs:label "HedSchemaAttributesSection"
+    
+    SubClassOf: 
+        hed:HedSection
+    
+    
+Class: hed:HedSection
+
+    Annotations: 
+        rdfs:comment "Represents the sections of the schema.",
+        rdfs:label "HedSection"
+    
+    SubClassOf: 
+        hed:HedElement
+    
+    
+Class: hed:HedStartSchemaSection
+
+    Annotations: 
+        rdfs:comment "The marker indicating the beginning of the main body of the schema.",
+        rdfs:label "HedStartSchemaSection"
+    
+    SubClassOf: 
+        hed:HedSection
+    
+    
+Class: hed:HedTag
+
+    Annotations: 
+        rdfs:comment "Represents a HED term or node.",
+        rdfs:label "HedTag"
+    
+    SubClassOf: 
+        hed:HedElement
+    
+    
+Class: hed:HedUnit
+
+    Annotations: 
+        rdfs:comment "Represents a unit element.",
+        rdfs:label "HedUnit"
+    
+    SubClassOf: 
+        hed:HedElement
+    
+    
+Class: hed:HedUnitClass
+
+    Annotations: 
+        rdfs:comment "Organizes unit classes and the units for the nodes.",
+        rdfs:label "HedUnitClass"
+    
+    SubClassOf: 
+        hed:HedElement
+    
+    
+Class: hed:HedUnitClassesSection
+
+    Annotations: 
+        rdfs:comment "Schema section defining unit classes and the units for the nodes.",
+        rdfs:label "HedUnitClassesSection"
+    
+    SubClassOf: 
+        hed:HedSection
+    
+    
+Class: hed:HedUnitModifier
+
+    Annotations: 
+        rdfs:comment "Organizes unit modifiers.",
+        rdfs:label "HedUnitModifier"
+    
+    SubClassOf: 
+        hed:HedElement
+    
+    
+Class: hed:HedUnitModifiersSection
+
+    Annotations: 
+        rdfs:comment "Schema section defining unit multiples and submultiples.",
+        rdfs:label "HedUnitModifiersSection"
+    
+    SubClassOf: 
+        hed:HedSection
+    
+    
+Class: hed:HedValueClass
+
+    Annotations: 
+        rdfs:comment "The rules for the values provided by users.",
+        rdfs:label "HedValueClass"
+    
+    SubClassOf: 
+        hed:HedElement
+    
+    
+Class: hed:HedValueClassesSection
+
+    Annotations: 
+        rdfs:comment "Schema section containing rules governing values provided for placeholders.",
+        rdfs:label "HedValueClassesSection"
+    
+    SubClassOf: 
+        hed:HedSection
+    
+    
+Individual: hed:HedEndSchemaSection
+
+    Annotations: 
+        rdfs:comment "Required end marker for schema file.",
+        rdfs:label "HedEndSchemaSection"
+    
+    Facts:  
+     hed:wikiElementName  "!# end schema ",
+     hed:xmlElementName  "/schema"
+    
+    
+Individual: hed:HedEndSection
+
+    Annotations: 
+        rdfs:comment "The required end marker for the HED schema.",
+        rdfs:label "HedEndSection"
+    
+    Facts:  
+     hed:wikiElementName  "!# end hed",
+     hed:xmlElementName  "/HED"
+    
+    
+Individual: hed:HedEpilogueSection
+
+    Annotations: 
+        rdfs:comment "This section contains citation, licensing, and other information.",
+        rdfs:label "HedEpilogueSection"
+    
+    Facts:  
+     hed:wikiElementName  "'''Epilogue'''",
+     hed:xmlElementName  "epilogue"
+    
+    
+Individual: hed:HedHeaderSection
+
+    Annotations: 
+        rdfs:comment "This section contains the schema header.",
+        rdfs:label "HedHeaderSection"
+    
+    Facts:  
+     hed:wikiElementName  "HED",
+     hed:xmlElementName  "HED"
+    
+    
+Individual: hed:HedPrologueSection
+
+    Annotations: 
+        rdfs:comment "An overview of the schema and its purpose.",
+        rdfs:label "HedPrologueSection"
+    
+    Facts:  
+     hed:wikiElementName  "'''Prologue'''",
+     hed:xmlElementName  "prologue"
+    
+    
+Individual: hed:HedPropertiesSection
+
+    Annotations: 
+        rdfs:comment "Properties of the schema attributes themselves. These are used for schema handling and verification.",
+        rdfs:label "HedPropertiesSection"
+    
+    Facts:  
+     hed:wikiElementName  "'''Properties'''",
+     hed:xmlElementName  "PropertyDefinitions"
+    
+    
+Individual: hed:HedSchemaAttributesSection
+
+    Annotations: 
+        rdfs:comment "Schema section defining the attribute modifiers of other sections of the schema.",
+        rdfs:label "HedSchemaAttributesSection"
+    
+    Facts:  
+     hed:wikiElementName  "'''Schema attributes'''",
+     hed:xmlElementName  "SchemaAttributeDefinitions"
+    
+    
+Individual: hed:HedStartSchemaSection
+
+    Annotations: 
+        rdfs:comment "The marker indicating the beginning of the main body of the schema.",
+        rdfs:label "HedStartSchemaSection"
+    
+    Facts:  
+     hed:wikiElementName  "!# start schema ",
+     hed:xmlElementName  "schema"
+    
+    
+Individual: hed:HedTag
+
+    Annotations: 
+        rdfs:comment "Represents a HED term or node.",
+        rdfs:label "HedTag"
+    
+    Facts:  
+     hed:xmlElementName  "node"
+    
+    
+Individual: hed:HedUnit
+
+    Annotations: 
+        rdfs:comment "Represents a unit element.",
+        rdfs:label "HedUnit"
+    
+    Facts:  
+     hed:unitClass  hed:HedUnitClass,
+     hed:xmlElementName  "unit"
+    
+    
+Individual: hed:HedUnitClass
+
+    Annotations: 
+        rdfs:comment "Organizes unit classes and the units for the nodes.",
+        rdfs:label "HedUnitClass"
+    
+    Facts:  
+     hed:wikiElementName  "Unit classes",
+     hed:xmlElementName  "unitClassDefinitions"
+    
+    
+Individual: hed:HedUnitClassesSection
+
+    Annotations: 
+        rdfs:comment "Schema section defining unit classes and the units for the nodes.",
+        rdfs:label "HedUnitClassesSection"
+    
+    Facts:  
+     hed:wikiElementName  "'''Unit classes'''",
+     hed:xmlElementName  "UnitClassDefinitions"
+    
+    
+Individual: hed:HedUnitModifier
+
+    Annotations: 
+        rdfs:comment "Organizes unit modifiers.",
+        rdfs:label "HedUnitModifier"
+    
+    Facts:  
+     hed:wikiElementName  "Unit modifiers",
+     hed:xmlElementName  "unitModifierDefinitions"
+    
+    
+Individual: hed:HedUnitModifiersSection
+
+    Annotations: 
+        rdfs:comment "Schema section defining unit multiples and submultiples.",
+        rdfs:label "HedUnitModifiersSection"
+    
+    Facts:  
+     hed:wikiElementName  "'''Unit modifiers'''",
+     hed:xmlElementName  "UnitModifierDefinitions"
+    
+    
+Individual: hed:HedValueClass
+
+    Annotations: 
+        rdfs:comment "The rules for the values provided by users.",
+        rdfs:label "HedValueClass"
+    
+    Facts:  
+     hed:wikiElementName  "Value classes",
+     hed:xmlElementName  "valueClassDefinitions"
+    
+    
+Individual: hed:HedValueClassesSection
+
+    Annotations: 
+        rdfs:comment "Schema section containing rules governing values provided for placeholders.",
+        rdfs:label "HedValueClassesSection"
+    
+    Facts:  
+     hed:wikiElementName  "'''Value classes'''",
+     hed:xmlElementName  "ValueClassDefinitions"
+    
+    
+Individual: hed:boolProperty
+
+    Annotations: 
+        rdfs:comment "Has an xsd:boolean value",
+        rdfs:comment "This schema attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values.",
+        rdfs:label "boolProperty"
+    
+    Facts:  
+     hed:wikiElementName  "Properties",
+     hed:xmlElementName  "propertyDefinitions"
+    
+    
+Individual: hed:elementProperty
+
+    Annotations: 
+        rdfs:comment "Indicates a schema attribute can apply to any type of element (tag term, unit class, etc).",
+        rdfs:label "elementProperty"
+    
+    Facts:  
+     hed:wikiElementName  "Properties",
+     hed:xmlElementName  "propertyDefinitions"
+    
+    
+Individual: hed:isheritedProperty
+
+    Annotations: 
+        rdfs:comment "Indicates a schema attribute is inherited by child nodes. This property only applies to schema attributes for nodes.",
+        rdfs:label "isHeritedProperty"
+    
+    Facts:  
+     hed:wikiElementName  "Properties",
+     hed:xmlElementName  "propertyDefinitions"
+    
+    
+Individual: hed:library
+
+    Annotations: 
+        rdfs:comment "The name of the library schema if applicable.",
+        rdfs:label "library"
+    
+    Facts:  
+     hed:wikiElementName  "library",
+     hed:xmlElementName  "library"
+    
+    
+Individual: hed:nodeProperty
+
+    Annotations: 
+        rdfs:comment "Indicates a attribute applies to node (tag-term) elements. This was added to allow for an attribute to apply to multiple elements.",
+        rdfs:label "nodeProperty"
+    
+    Facts:  
+     hed:wikiElementName  "Properties",
+     hed:xmlElementName  "propertyDefinitions"
+    
+    
+Individual: hed:unitClassProperty
+
+    Annotations: 
+        rdfs:comment "Indicates a schema attribute applies to unit classes.",
+        rdfs:label "unitClassProperty"
+    
+    Facts:  
+     hed:wikiElementName  "Properties",
+     hed:xmlElementName  "propertyDefinitions"
+    
+    
+Individual: hed:unitModifierProperty
+
+    Annotations: 
+        rdfs:comment "Indicates a schema attribute applies to unit modifier classes.",
+        rdfs:label "unitModifierProperty"
+    
+    Facts:  
+     hed:wikiElementName  "Properties",
+     hed:xmlElementName  "propertyDefinitions"
+    
+    
+Individual: hed:unitProperty
+
+    Annotations: 
+        rdfs:comment "Indicates a schema attribute applies to units within a unit class.",
+        rdfs:label "unitProperty"
+    
+    Facts:  
+     hed:wikiElementName  "Properties",
+     hed:xmlElementName  "propertyDefinitions"
+    
+    
+Individual: hed:unmerged
+
+    Annotations: 
+        rdfs:comment "If true, the schema is not merged with a partner schema.",
+        rdfs:label "unmerged"
+    
+    Facts:  
+     hed:wikiElementName  "unmerged",
+     hed:xmlElementName  "unmerged"
+    
+    
+Individual: hed:valueClassProperty
+
+    Annotations: 
+        rdfs:comment "Indicates a schema attribute applies to value classes.",
+        rdfs:label "valueClassProperty"
+    
+    Facts:  
+     hed:wikiElementName  "Properties",
+     hed:xmlElementName  "propertyDefinitions"
+    
+    
+Individual: hed:version
+
+    Annotations: 
+        rdfs:comment "The semantic version of this schema.",
+        rdfs:label "version"
+    
+    Facts:  
+     hed:wikiElementName  "version",
+     hed:xmlElementName  "version"
+    
+    
+Individual: hed:withStandard
+
+    Annotations: 
+        rdfs:comment "The version of the schema's standard schema partner.",
+        rdfs:label "withStandard"
+    
+    Facts:  
+     hed:wikiElementName  "withStandard",
+     hed:xmlElementName  "withStandard"
+    
+    
