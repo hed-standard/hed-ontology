@@ -16,10 +16,10 @@ Ontology: <http://purl.org/hed/releases/working/hed-schema.owl>
 
 
 Annotations: 
-    dc:description "This ontology describes the base classes for the ontology.",
-    dc:title "HED Base Schema Ontology",
-    rdfs:comment "This is the base ontology.",
-    rdfs:label "HED Base Schema Ontology",
+    rdfs:comment "Ontology specifying the structure of a HED (Hierarchical Event Descriptor) vocabulary schema.",
+    dc:title "HED Schema Structure Ontology",
+    dc:description "This schema is used to spec.",
+    rdfs:label "HED Schema Structure Ontology",
     owl:versionInfo "1.0"
 
 AnnotationProperty: dc:description
@@ -30,17 +30,18 @@ AnnotationProperty: dc:title
     
 AnnotationProperty: hed:boolProperty
 
-    Annotations: 
+    Annotations:
+        rdfs:label "boolProperty",
         rdfs:comment "Has an xsd:boolean value",
-        rdfs:comment "This schema attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values.",
-        rdfs:label "boolProperty"
+        rdfs:comment "Designates a schema attribute whose presence indicates true and absence indicates false."
     
     
 AnnotationProperty: hed:elementProperty
 
-    Annotations: 
+    Annotations:
+        rdfs:label "elementProperty",
         rdfs:comment "Indicates a schema attribute can apply to any type of element (tag term, unit class, etc).",
-        rdfs:label "elementProperty"
+
     
     Range: 
         <http://www.w3.org/2001/XMLSchema#boolean>

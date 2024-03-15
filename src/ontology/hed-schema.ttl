@@ -1,799 +1,304 @@
-@prefix : <https://purl.org/hed/hed-schema.owl/> .
+@prefix : <https://purl.org/hed/hed-schema#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix terms: <http://purl.org/dc/terms/> .
-@prefix hedsch: <https://purl.org/hed/hed-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix heds: <https://purl.org/hed/hed-schema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://purl.org/hed/hed-schema.owl/> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@base <https://purl.org/hed/hed-schema#> .
 
-hedsch:HED_0000000
-    rdf:type        owl:Ontology ;
-    owl:versionIRI  <https://purl.org/hed/releases/working/hed-schema.owl> ;
-    dc:description  "This ontology describes the HED Hierarchical Event Descriptor schema structure."@en ;
-    dc:title        "HED Schema Structure Ontology (HEDS)" ;
-    terms:license   <http://creativecommons.org/licenses/by/4.0/> ;
-    rdfs:comment    "This ontology defines the elements of the HED schema structure. The actual HED tags are in HED." ;
-    rdfs:label      "HED Schema Ontology" ;
-    rdfs:seeAlso    <https://github.com/hed-standard/hed-ontology> ;
-    owl:versionInfo "releases/working" .
+<https://purl.org/hed/hed-schema#> rdf:type owl:Ontology ;
+                                    owl:versionIRI <https://purl.org/hed/releases/working/hed-schema.owl> ;
+                                    dc:contributor "Ian Callanan" ,
+                                                   "Kay Robbins" ,
+                                                   "Scott Makeig" ;
+                                    dc:description "This ontology defines the HED Hierarchical Event Descriptor schema structure."@en ;
+                                    dc:title "HED Schema Structure Ontology (HEDS)" ;
+                                    terms:license <http://creativecommons.org/licenses/by/4.0/> ;
+                                    rdfs:comment "This ontology only defines the structural elements of the HED schema. The actual HED tags are in HED." ;
+                                    rdfs:label "HED Schema Ontology" ;
+                                    rdfs:seeAlso <https://github.com/hed-standard/hed-ontology> ;
+                                    owl:versionInfo "releases/working" ;
+                                    foaf:homepage <https://www.hedtags.org> .
 
 #################################################################
 #    Annotation properties
 #################################################################
 
+###  http://purl.org/dc/elements/1.1/contributor
+dc:contributor rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/coverage
+dc:coverage rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/date
+dc:date rdf:type owl:AnnotationProperty .
+
+
 ###  http://purl.org/dc/elements/1.1/description
 dc:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/format
+dc:format rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/identifier
+dc:identifier rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/language
+dc:language rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/member
+dc:member rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/publisher
+dc:publisher rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/relation
+dc:relation rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/rights
+dc:rights rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/source
+dc:source rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/subject
+dc:subject rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/title
 dc:title rdf:type owl:AnnotationProperty .
 
 
-###  https://purl.org/hed/hed-schema.owl/hed-schema#boolProperty
-<https://purl.org/hed/hed-schema.owl/hed-schema#boolProperty> rdf:type owl:AnnotationProperty .
+###  http://purl.org/dc/elements/1.1/type
+dc:type rdf:type owl:AnnotationProperty .
 
 
-###  https://purl.org/hed/hed-schema.owl/hed-schema#elementProperty
-<https://purl.org/hed/hed-schema.owl/hed-schema#elementProperty> rdf:type owl:AnnotationProperty ;
-                                                                 rdfs:range xsd:boolean .
+###  http://purl.org/dc/terms/license
+terms:license rdf:type owl:AnnotationProperty .
 
 
-###  http://purl.org/hed/hed-schema.owl/HEDS_
-<https://purl.org/hed/hed-schema.owl/hed-schema#isheritedProperty> rdf:type owl:AnnotationProperty ;
-                                                                   rdfs:range xsd:boolean .
+###  http://xmlns.com/foaf/0.1/homepage
+foaf:homepage rdf:type owl:AnnotationProperty .
 
 
-###  https://purl.org/hed/hed-schema.owl/hed-schema#nodeProperty
-<https://purl.org/hed/hed-schema.owl/hed-schema#nodeProperty> rdf:type owl:AnnotationProperty ;
-                                                              rdfs:range xsd:boolean .
+###  http://xmlns.com/foaf/0.1/mbox
+foaf:mbox rdf:type owl:AnnotationProperty .
 
 
-###  https://purl.org/hed/hed-schema.owl/hed-schema#unitClassProperty
-<https://purl.org/hed/hed-schema.owl/hed-schema#unitClassProperty> rdf:type owl:AnnotationProperty ;
-                                                                   rdfs:range xsd:boolean .
+###  http://xmlns.com/foaf/0.1/page
+foaf:page rdf:type owl:AnnotationProperty .
 
 
-###  https://purl.org/hed/hed-schema.owl/hed-schema#unitModifierProperty
-<https://purl.org/hed/hed-schema.owl/hed-schema#unitModifierProperty> rdf:type owl:AnnotationProperty ;
-                                                                      rdfs:range xsd:boolean .
+###  https://purl.org/hed/hed-schema#HED_0000022
+heds:HED_0000022 rdf:type owl:AnnotationProperty ;
+                 dc:description "An annotation property indicating the label of the marker used in the MediaWiki format of the schema." ;
+                 rdfs:label "wikiElementName" .
 
 
-###  https://purl.org/hed/hed-schema.owl/hed-schema#unitProperty
-<https://purl.org/hed/hed-schema.owl/hed-schema#unitProperty> rdf:type owl:AnnotationProperty ;
-                                                              rdfs:range xsd:boolean .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#valueClassProperty
-<https://purl.org/hed/hed-schema.owl/hed-schema#valueClassProperty> rdf:type owl:AnnotationProperty ;
-                                                                    rdfs:range xsd:boolean .
-
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#defaultUnits
-<https://purl.org/hed/hed-schema.owl/hed-schema#defaultUnits> rdf:type owl:ObjectProperty ;
-                                                              rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeObjectProperty> ;
-                                                              rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitClass> ;
-                                                              rdfs:range <https://purl.org/hed/hed-schema.owl/hed-schema#HedUnit> ;
-                                                              rdfs:comment "a top-level library schema node is identical to a node of the same name in the partnered standard schema. This attribute can only appear in nodes that have the inLibrary schema attribute." ;
-                                                              rdfs:label "defaultUnits" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#hasHedParent
-<https://purl.org/hed/hed-schema.owl/hed-schema#hasHedParent> rdf:type owl:ObjectProperty ;
-                                                              rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> ;
-                                                              rdfs:range <https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> ;
-                                                              rdfs:comment "Represents the relationship of a HED term to its parent in HED hierarchy" ;
-                                                              rdfs:label "hasHedParent" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#inSchemaSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#inSchemaSection> rdf:type owl:ObjectProperty ;
-                                                                 rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedElement> ;
-                                                                 rdfs:range <https://purl.org/hed/hed-schema.owl/hed-schema#HedSection> ;
-                                                                 rdfs:comment "Indicates what section the element appears in." ;
-                                                                 rdfs:label "inSchemaSection" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#relatedTag
-<https://purl.org/hed/hed-schema.owl/hed-schema#relatedTag> rdf:type owl:ObjectProperty ;
-                                                            rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeObjectProperty> ;
-                                                            rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> ;
-                                                            rdfs:range <https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> ;
-                                                            rdfs:comment "Indicates another tag  that is closely related to this tag. This attribute is used by tagging tools to provide tagging suggestions" ;
-                                                            rdfs:label "relatedTag" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#rooted
-<https://purl.org/hed/hed-schema.owl/hed-schema#rooted> rdf:type owl:ObjectProperty ;
-                                                        rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeObjectProperty> ;
-                                                        rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> ;
-                                                        rdfs:range <https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> ;
-                                                        rdfs:comment "Indicates that a top-level library schema node is identical to a node of the same name in the partnered standard schema. This attribute can only appear in nodes that have the inLibrary schema attribute." ;
-                                                        rdfs:label "rooted" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeObjectProperty
-<https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeObjectProperty> rdf:type owl:ObjectProperty .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#suggestedTag
-<https://purl.org/hed/hed-schema.owl/hed-schema#suggestedTag> rdf:type owl:ObjectProperty ;
-                                                              rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeObjectProperty> ;
-                                                              rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> ;
-                                                              rdfs:range <https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> ;
-                                                              rdfs:comment "Indicates another tag  that is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions" ;
-                                                              rdfs:label "suggestedTag" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#unitClass
-<https://purl.org/hed/hed-schema.owl/hed-schema#unitClass> rdf:type owl:ObjectProperty ;
-                                                           rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeObjectProperty> ;
-                                                           rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> ,
-                                                                       <https://purl.org/hed/hed-schema.owl/hed-schema#HedUnit> ;
-                                                           rdfs:range <https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitClass> ;
-                                                           rdfs:comment "Indicates which unit class this value tag belongs to." ,
-                                                                        "Property specify the type of unit class a unit belongs to." ;
-                                                           rdfs:label "unitClass" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#valueClass
-<https://purl.org/hed/hed-schema.owl/hed-schema#valueClass> rdf:type owl:ObjectProperty ;
-                                                            rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeObjectProperty> ;
-                                                            rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> ;
-                                                            rdfs:range <https://purl.org/hed/hed-schema.owl/hed-schema#HedValueClass> ;
-                                                            rdfs:comment "Indicates which value class this value tag belongs to." ;
-                                                            rdfs:label "valueClass" .
-
-
-#################################################################
-#    Data properties
-#################################################################
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#SIUnit
-<https://purl.org/hed/hed-schema.owl/hed-schema#SIUnit> rdf:type owl:DatatypeProperty ;
-                                                        rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeDatatypeProperty> ;
-                                                        rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedUnit> ;
-                                                        rdfs:range xsd:boolean ;
-                                                        rdfs:comment "Indicates that this unit element is an SI unit and can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard." ;
-                                                        rdfs:label "SIUnit" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#SIUnitModifier
-<https://purl.org/hed/hed-schema.owl/hed-schema#SIUnitModifier> rdf:type owl:DatatypeProperty ;
-                                                                rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeDatatypeProperty> ;
-                                                                rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitModifier> ;
-                                                                rdfs:range xsd:boolean ;
-                                                                rdfs:comment "Indicates that this SI unit modifier represents a multiple or submultiple of a base unit rather than a unit symbol." ;
-                                                                rdfs:label "SIUnitModifier" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#SIUnitSymbolModifier
-<https://purl.org/hed/hed-schema.owl/hed-schema#SIUnitSymbolModifier> rdf:type owl:DatatypeProperty ;
-                                                                      rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeDatatypeProperty> ;
-                                                                      rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitModifier> ;
-                                                                      rdfs:range xsd:boolean ;
-                                                                      rdfs:comment "Indicates that this SI unit modifier represents a multiple or submultiple of a unit symbol rather than a base symbol." ;
-                                                                      rdfs:label "SIUnitSymbolModifier" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#allowedCharacter
-<https://purl.org/hed/hed-schema.owl/hed-schema#allowedCharacter> rdf:type owl:DatatypeProperty ;
-                                                                  rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeDatatypeProperty> ;
-                                                                  rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedValueClass> ;
-                                                                  rdfs:range xsd:string ;
-                                                                  rdfs:comment "A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder. Normally the allowed characters are listed individually. However, the word letters designates the upper and lower case alphabetic characters and the word digits designates the digits 0-9. The word blank designates the blank character." ;
-                                                                  rdfs:label "allowedCharacter" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#conversionFactor
-<https://purl.org/hed/hed-schema.owl/hed-schema#conversionFactor> rdf:type owl:DatatypeProperty ;
-                                                                  rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeDatatypeProperty> ;
-                                                                  rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedUnit> ,
-                                                                              <https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitModifier> ;
-                                                                  rdfs:range xsd:decimal ;
-                                                                  rdfs:comment "The factor to multiply these units by to convert to default units." ;
-                                                                  rdfs:label "conversionFactor" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#deprecatedFrom
-<https://purl.org/hed/hed-schema.owl/hed-schema#deprecatedFrom> rdf:type owl:DatatypeProperty ;
-                                                                rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeDatatypeProperty> ;
-                                                                rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedElement> ;
-                                                                rdfs:range xsd:string ;
-                                                                rdfs:comment "Indicates that this element is deprecated. The value of the attribute is the latest schema version in which the element appeared in undeprecated form." ;
-                                                                rdfs:label "deprecatedFrom" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#elementValue
-<https://purl.org/hed/hed-schema.owl/hed-schema#elementValue> rdf:type owl:DatatypeProperty ;
-                                                              rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedElement> ;
-                                                              rdfs:range xsd:string ;
-                                                              rdfs:comment "The value of an instance of the element." ;
-                                                              rdfs:label "elementValue" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#extensionAllowed
-<https://purl.org/hed/hed-schema.owl/hed-schema#extensionAllowed> rdf:type owl:DatatypeProperty ;
-                                                                  rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeDatatypeProperty> ;
-                                                                  rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> ;
-                                                                  rdfs:range xsd:boolean ;
-                                                                  rdfs:comment "A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of the hashtag placeholders." ;
-                                                                  rdfs:label "extensionAllowed" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#inLibrary
-<https://purl.org/hed/hed-schema.owl/hed-schema#inLibrary> rdf:type owl:DatatypeProperty ;
-                                                           rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeDatatypeProperty> ;
-                                                           rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedElement> ;
-                                                           rdfs:range xsd:string ;
-                                                           rdfs:comment "Indicates this schema element came from the named library schema, not the standard schema. This attribute is added by tools when a library schema is merged into its partnered standard schema." ;
-                                                           rdfs:label "inLibrary" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#isTopHedTag
-<https://purl.org/hed/hed-schema.owl/hed-schema#isTopHedTag> rdf:type owl:DatatypeProperty ;
-                                                             rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> ;
-                                                             rdfs:range xsd:boolean ;
-                                                             rdfs:comment "Indicates that the HedTag is a top-level tag." ;
-                                                             rdfs:label "isTopHedTag" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#library
-<https://purl.org/hed/hed-schema.owl/hed-schema#library> rdf:type owl:DatatypeProperty ;
-                                                         rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedHeaderSection> ;
-                                                         rdfs:range xsd:string .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#recommended
-<https://purl.org/hed/hed-schema.owl/hed-schema#recommended> rdf:type owl:DatatypeProperty ;
-                                                             rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeDatatypeProperty> ;
-                                                             rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> ;
-                                                             rdfs:range xsd:boolean ;
-                                                             rdfs:comment "Indicates that the event-level HED string should include this tag." ;
-                                                             rdfs:label "recommended" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#requireChild
-<https://purl.org/hed/hed-schema.owl/hed-schema#requireChild> rdf:type owl:DatatypeProperty ;
-                                                              rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeDatatypeProperty> ;
-                                                              rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> ;
-                                                              rdfs:range xsd:boolean ;
-                                                              rdfs:comment "Indicates that that one of the node's descendants must be included when using this tag." ;
-                                                              rdfs:label "requireChild" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#required
-<https://purl.org/hed/hed-schema.owl/hed-schema#required> rdf:type owl:DatatypeProperty ;
-                                                          rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeDatatypeProperty> ;
-                                                          rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> ;
-                                                          rdfs:range xsd:boolean ;
-                                                          rdfs:comment "A schema attribute indicating that every event-level HED string should include this tag." ;
-                                                          rdfs:label "required" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#reserved
-<https://purl.org/hed/hed-schema.owl/hed-schema#reserved> rdf:type owl:DatatypeProperty ;
-                                                          rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeDatatypeProperty> ;
-                                                          rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> ;
-                                                          rdfs:range xsd:boolean ;
-                                                          rdfs:comment "Indicates that this tag has special meaning and requires special handling by tools." ;
-                                                          rdfs:label "reserved" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeDatatypeProperty
-<https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeDatatypeProperty> rdf:type owl:DatatypeProperty .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#tagGroup
-<https://purl.org/hed/hed-schema.owl/hed-schema#tagGroup> rdf:type owl:DatatypeProperty ;
-                                                          rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeDatatypeProperty> ;
-                                                          rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> ;
-                                                          rdfs:range xsd:boolean ;
-                                                          rdfs:comment "Indicates that the tag can only appear inside a tag group." ;
-                                                          rdfs:label "tagGroup" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#takesValue
-<https://purl.org/hed/hed-schema.owl/hed-schema#takesValue> rdf:type owl:DatatypeProperty ;
-                                                            rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeDatatypeProperty> ;
-                                                            rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> ;
-                                                            rdfs:range xsd:boolean ;
-                                                            rdfs:comment "Indicates that the tag is a hashtag placeholder that is expected to be replaced with a user-defined value." ;
-                                                            rdfs:label "takesValue" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#topLevelTagGroup
-<https://purl.org/hed/hed-schema.owl/hed-schema#topLevelTagGroup> rdf:type owl:DatatypeProperty ;
-                                                                  rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeDatatypeProperty> ;
-                                                                  rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> ;
-                                                                  rdfs:range xsd:boolean ;
-                                                                  rdfs:comment "Indicates that this tag (or its descendants) can only appear in a top-level tag group. A tag group can have at most one tag with this attribute." ;
-                                                                  rdfs:label "topLevelTagGroup" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#unique
-<https://purl.org/hed/hed-schema.owl/hed-schema#unique> rdf:type owl:DatatypeProperty ;
-                                                        rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeDatatypeProperty> ;
-                                                        rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> ;
-                                                        rdfs:range xsd:boolean ;
-                                                        rdfs:comment "Indicates that only one of this tag or its descendants can be used in the event-level HED string." ;
-                                                        rdfs:label "unique" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#unitPrefix
-<https://purl.org/hed/hed-schema.owl/hed-schema#unitPrefix> rdf:type owl:DatatypeProperty ;
-                                                            rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeDatatypeProperty> ;
-                                                            rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedUnit> ;
-                                                            rdfs:range xsd:boolean ;
-                                                            rdfs:comment "Indicates a prefix (e.g., dollar sign in the currency units)." ;
-                                                            rdfs:label "unitPrefix" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#unitSymbol
-<https://purl.org/hed/hed-schema.owl/hed-schema#unitSymbol> rdf:type owl:DatatypeProperty ;
-                                                            rdfs:subPropertyOf <https://purl.org/hed/hed-schema.owl/hed-schema#schemaAttributeDatatypeProperty> ;
-                                                            rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedUnit> ;
-                                                            rdfs:range xsd:boolean ;
-                                                            rdfs:comment "Indicates that an abbreviation or symbol representing a type of unit. Unit symbols represent both the singular and the plural and thus cannot be pluralized." ;
-                                                            rdfs:label "unitSymbol" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#unmerged
-<https://purl.org/hed/hed-schema.owl/hed-schema#unmerged> rdf:type owl:DatatypeProperty ;
-                                                          rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedHeaderSection> ;
-                                                          rdfs:range xsd:boolean .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#version
-<https://purl.org/hed/hed-schema.owl/hed-schema#version> rdf:type owl:DatatypeProperty ;
-                                                         rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedHeaderSection> ;
-                                                         rdfs:range xsd:string .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName
-<https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> rdf:type owl:DatatypeProperty ;
-                                                                 rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedElement> ;
-                                                                 rdfs:range xsd:string ;
-                                                                 rdfs:comment "The name of the element in MEDIAWIKI format." ;
-                                                                 rdfs:label "wikiElementName" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#withStandard
-<https://purl.org/hed/hed-schema.owl/hed-schema#withStandard> rdf:type owl:DatatypeProperty ;
-                                                              rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedHeaderSection> ;
-                                                              rdfs:range xsd:string .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName
-<https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> rdf:type owl:DatatypeProperty ;
-                                                                rdfs:domain <https://purl.org/hed/hed-schema.owl/hed-schema#HedElement> ;
-                                                                rdfs:range xsd:string ;
-                                                                rdfs:comment "The name of the element in XML format." ;
-                                                                rdfs:label "xmlElementName" .
+###  https://purl.org/hed/hed-schema#HED_0000023
+heds:HED_0000023 rdf:type owl:AnnotationProperty ;
+                 dc:description "An annotation property indicating the label of the marker used in the XML format of the schema." ;
+                 rdfs:label "xmlElementName" .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  https://purl.org/hed/hed-schema.owl#HED_0000001
-hedsch:HED_0000001
-    rdf:type     owl:Class ;
-    rdfs:label   "HedElement" ;
-    rdfs:comment "A class representing any object in a HED schema." .
-
-###  https://purl.org/hed/hed-schema.owl#HED_0000002
-hedsch:HED_0000002
-    rdf:type        owl:Class ;
-    rdfs:label      "HedSection" ;
-    rdfs:comment "A class representing any section of the HED schema structure." ;
-    rdfs:subClassOf hedsch:HED_0000001 .
-
-###  https://purl.org/hed/hed-schema.owl#HED_0000003
-hedsch:HED_0000003 rdf:type owl:Class ;
-    rdfs:subClassOf hedsch:HedSection ;
-    rdfs:comment "This section contains the schema header." ;
-    rdfs:label "HedHeaderSection" ;
-    hedsch:wikiElementName "HED" ;
-    hedsch:xmlElementName "HED" .
-
-###  https://purl.org/hed/hed-schema.owl#HED_0000004
-hedsch:HED_0000004 rdf:type owl:Class ;
-    rdfs:subClassOf hedsch:HedSection ;
-    rdfs:comment "An overview of the schema and its purpose." ;
-    rdfs:label "HedPrologueSection" ;
-    hedsch:wikiElementName "'''Prologue'''" ;
-    hedsch:xmlElementName "prologue" .
-
-###  https://purl.org/hed/hed-schema.owl#HED_0000002
-hedsch:HED_0000002
-    rdf:type        owl:Class ;
-    rdfs:label      "HedEndSchemaSection" ;
-    rdfs:subClassOf <https://purl.org/hed/hed-schema.owl/hed-schema#HedSection> .
-
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedEndSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedEndSection> rdf:type owl:Class ;
-                                                               rdfs:subClassOf <https://purl.org/hed/hed-schema.owl/hed-schema#HedSection> .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedEpilogueSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedEpilogueSection> rdf:type owl:Class ;
-                                                                    rdfs:subClassOf <https://purl.org/hed/hed-schema.owl/hed-schema#HedSection> .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedHeaderSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedHeaderSection> rdf:type owl:Class ;
-                                                                  rdfs:subClassOf <https://purl.org/hed/hed-schema.owl/hed-schema#HedSection> .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedPlaceholder
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedPlaceholder> rdf:type owl:Class ;
-                                                                rdfs:subClassOf <https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> ;
-                                                                rdfs:comment "Represents a node placeholder." ;
-                                                                rdfs:label "HedPlaceholder" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedPrologueSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedPrologueSection> rdf:type owl:Class ;
-                                                                    rdfs:subClassOf <https://purl.org/hed/hed-schema.owl/hed-schema#HedSection> .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedPropertiesSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedPropertiesSection> rdf:type owl:Class ;
-                                                                      rdfs:subClassOf <https://purl.org/hed/hed-schema.owl/hed-schema#HedSection> .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedSchemaAttributesSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedSchemaAttributesSection> rdf:type owl:Class ;
-                                                                            rdfs:subClassOf <https://purl.org/hed/hed-schema.owl/hed-schema#HedSection> .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedSection> rdf:type owl:Class ;
-                                                            rdfs:subClassOf <https://purl.org/hed/hed-schema.owl/hed-schema#HedElement> ;
-                                                            rdfs:comment "Represents the sections of the schema." ;
-                                                            rdfs:label "HedSection" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedStartSchemaSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedStartSchemaSection> rdf:type owl:Class ;
-                                                                       rdfs:subClassOf <https://purl.org/hed/hed-schema.owl/hed-schema#HedSection> .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedTag
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> rdf:type owl:Class ;
-                                                        rdfs:subClassOf <https://purl.org/hed/hed-schema.owl/hed-schema#HedElement> .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedUnit
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedUnit> rdf:type owl:Class ;
-                                                         rdfs:subClassOf <https://purl.org/hed/hed-schema.owl/hed-schema#HedElement> .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitClass
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitClass> rdf:type owl:Class ;
-                                                              rdfs:subClassOf <https://purl.org/hed/hed-schema.owl/hed-schema#HedElement> .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitClassesSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitClassesSection> rdf:type owl:Class ;
-                                                                       rdfs:subClassOf <https://purl.org/hed/hed-schema.owl/hed-schema#HedSection> .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitModifier
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitModifier> rdf:type owl:Class ;
-                                                                 rdfs:subClassOf <https://purl.org/hed/hed-schema.owl/hed-schema#HedElement> .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitModifiersSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitModifiersSection> rdf:type owl:Class ;
-                                                                         rdfs:subClassOf <https://purl.org/hed/hed-schema.owl/hed-schema#HedSection> .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedValueClass
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedValueClass> rdf:type owl:Class ;
-                                                               rdfs:subClassOf <https://purl.org/hed/hed-schema.owl/hed-schema#HedElement> .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedValueClassesSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedValueClassesSection> rdf:type owl:Class ;
-                                                                        rdfs:subClassOf <https://purl.org/hed/hed-schema.owl/hed-schema#HedSection> .
-
-
-#################################################################
-#    Individuals
-#################################################################
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedEndSchemaSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedEndSchemaSection> rdf:type owl:NamedIndividual ;
-                                                                     <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "!# end schema " ;
-                                                                     <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "/schema" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedEndSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedEndSection> rdf:type owl:NamedIndividual ;
-                                                               <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "!# end hed" ;
-                                                               <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "/HED" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedEpilogueSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedEpilogueSection> rdf:type owl:NamedIndividual ;
-                                                                    <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "'''Epilogue'''" ;
-                                                                    <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "epilogue" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedHeaderSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedHeaderSection> rdf:type owl:NamedIndividual ;
-                                                                  <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "HED" ;
-                                                                  <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "HED" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedPrologueSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedPrologueSection> rdf:type owl:NamedIndividual ;
-                                                                    <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "'''Prologue'''" ;
-                                                                    <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "prologue" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedPropertiesSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedPropertiesSection> rdf:type owl:NamedIndividual ;
-                                                                      <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "'''Properties'''" ;
-                                                                      <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "PropertyDefinitions" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedSchemaAttributesSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedSchemaAttributesSection> rdf:type owl:NamedIndividual ;
-                                                                            <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "'''Schema attributes'''" ;
-                                                                            <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "SchemaAttributeDefinitions" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedStartSchemaSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedStartSchemaSection> rdf:type owl:NamedIndividual ;
-                                                                       <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "!# start schema " ;
-                                                                       <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "schema" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedTag
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> rdf:type owl:NamedIndividual ;
-                                                        <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "node" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedUnit
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedUnit> rdf:type owl:NamedIndividual ;
-                                                         <https://purl.org/hed/hed-schema.owl/hed-schema#unitClass> <https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitClass> ;
-                                                         <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "unit" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitClass
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitClass> rdf:type owl:NamedIndividual ;
-                                                              <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "Unit classes" ;
-                                                              <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "unitClassDefinitions" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitClassesSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitClassesSection> rdf:type owl:NamedIndividual ;
-                                                                       <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "'''Unit classes'''" ;
-                                                                       <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "UnitClassDefinitions" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitModifier
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitModifier> rdf:type owl:NamedIndividual ;
-                                                                 <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "Unit modifiers" ;
-                                                                 <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "unitModifierDefinitions" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitModifiersSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitModifiersSection> rdf:type owl:NamedIndividual ;
-                                                                         <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "'''Unit modifiers'''" ;
-                                                                         <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "UnitModifierDefinitions" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedValueClass
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedValueClass> rdf:type owl:NamedIndividual ;
-                                                               <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "Value classes" ;
-                                                               <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "valueClassDefinitions" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#HedValueClassesSection
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedValueClassesSection> rdf:type owl:NamedIndividual ;
-                                                                        <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "'''Value classes'''" ;
-                                                                        <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "ValueClassDefinitions" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#boolProperty
-<https://purl.org/hed/hed-schema.owl/hed-schema#boolProperty> rdf:type owl:NamedIndividual ;
-                                                              <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "Properties" ;
-                                                              <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "propertyDefinitions" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#elementProperty
-<https://purl.org/hed/hed-schema.owl/hed-schema#elementProperty> rdf:type owl:NamedIndividual ;
-                                                                 <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "Properties" ;
-                                                                 <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "propertyDefinitions" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#isheritedProperty
-<https://purl.org/hed/hed-schema.owl/hed-schema#isheritedProperty> rdf:type owl:NamedIndividual ;
-                                                                   <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "Properties" ;
-                                                                   <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "propertyDefinitions" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#library
-<https://purl.org/hed/hed-schema.owl/hed-schema#library> rdf:type owl:NamedIndividual ;
-                                                         <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "library" ;
-                                                         <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "library" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#nodeProperty
-<https://purl.org/hed/hed-schema.owl/hed-schema#nodeProperty> rdf:type owl:NamedIndividual ;
-                                                              <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "Properties" ;
-                                                              <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "propertyDefinitions" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#unitClassProperty
-<https://purl.org/hed/hed-schema.owl/hed-schema#unitClassProperty> rdf:type owl:NamedIndividual ;
-                                                                   <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "Properties" ;
-                                                                   <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "propertyDefinitions" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#unitModifierProperty
-<https://purl.org/hed/hed-schema.owl/hed-schema#unitModifierProperty> rdf:type owl:NamedIndividual ;
-                                                                      <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "Properties" ;
-                                                                      <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "propertyDefinitions" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#unitProperty
-<https://purl.org/hed/hed-schema.owl/hed-schema#unitProperty> rdf:type owl:NamedIndividual ;
-                                                              <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "Properties" ;
-                                                              <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "propertyDefinitions" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#unmerged
-<https://purl.org/hed/hed-schema.owl/hed-schema#unmerged> rdf:type owl:NamedIndividual ;
-                                                          <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "unmerged" ;
-                                                          <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "unmerged" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#valueClassProperty
-<https://purl.org/hed/hed-schema.owl/hed-schema#valueClassProperty> rdf:type owl:NamedIndividual ;
-                                                                    <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "Properties" ;
-                                                                    <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "propertyDefinitions" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#version
-<https://purl.org/hed/hed-schema.owl/hed-schema#version> rdf:type owl:NamedIndividual ;
-                                                         <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "version" ;
-                                                         <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "version" .
-
-
-###  https://purl.org/hed/hed-schema.owl/hed-schema#withStandard
-<https://purl.org/hed/hed-schema.owl/hed-schema#withStandard> rdf:type owl:NamedIndividual ;
-                                                              <https://purl.org/hed/hed-schema.owl/hed-schema#wikiElementName> "withStandard" ;
-                                                              <https://purl.org/hed/hed-schema.owl/hed-schema#xmlElementName> "withStandard" .
-
-
-#################################################################
-#    Annotations
-#################################################################
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedEndSchemaSection> rdfs:comment "Required end marker for schema file." ;
-                                                                     rdfs:label "HedEndSchemaSection" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedEndSection> rdfs:comment "The required end marker for the HED schema." ;
-                                                               rdfs:label "HedEndSection" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedEpilogueSection> rdfs:comment "This section contains citation, licensing, and other information." ;
-                                                                    rdfs:label "HedEpilogueSection" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedHeaderSection> rdfs:comment "This section contains the schema header." ;
-                                                                  rdfs:label "HedHeaderSection" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedPrologueSection> rdfs:comment "An overview of the schema and its purpose." ;
-                                                                    rdfs:label "HedPrologueSection" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedPropertiesSection> rdfs:comment "Properties of the schema attributes themselves. These are used for schema handling and verification." ;
-                                                                      rdfs:label "HedPropertiesSection" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedSchemaAttributesSection> rdfs:comment "Schema section defining the attribute modifiers of other sections of the schema." ;
-                                                                            rdfs:label "HedSchemaAttributesSection" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedStartSchemaSection> rdfs:comment "The marker indicating the beginning of the main body of the schema." ;
-                                                                       rdfs:label "HedStartSchemaSection" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedTag> rdfs:comment "Represents a HED term or node." ;
-                                                        rdfs:label "HedTag" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedUnit> rdfs:comment "Represents a unit element." ;
-                                                         rdfs:label "HedUnit" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitClass> rdfs:comment "Organizes unit classes and the units for the nodes." ;
-                                                              rdfs:label "HedUnitClass" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitClassesSection> rdfs:comment "Schema section defining unit classes and the units for the nodes." ;
-                                                                       rdfs:label "HedUnitClassesSection" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitModifier> rdfs:comment "Organizes unit modifiers." ;
-                                                                 rdfs:label "HedUnitModifier" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedUnitModifiersSection> rdfs:comment "Schema section defining unit multiples and submultiples." ;
-                                                                         rdfs:label "HedUnitModifiersSection" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedValueClass> rdfs:comment "The rules for the values provided by users." ;
-                                                               rdfs:label "HedValueClass" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#HedValueClassesSection> rdfs:comment "Schema section containing rules governing values provided for placeholders." ;
-                                                                        rdfs:label "HedValueClassesSection" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#boolProperty> rdfs:comment "Has an xsd:boolean value" ,
-                                                                           "This schema attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values." ;
-                                                              rdfs:label "boolProperty" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#elementProperty> rdfs:comment "Indicates a schema attribute can apply to any type of element (tag term, unit class, etc)." ;
-                                                                 rdfs:label "elementProperty" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#isheritedProperty> rdfs:comment "Indicates a schema attribute is inherited by child nodes. This property only applies to schema attributes for nodes." ;
-                                                                   rdfs:label "isHeritedProperty" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#library> rdfs:comment "The name of the library schema if applicable." ;
-                                                         rdfs:label "library" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#nodeProperty> rdfs:comment "Indicates a attribute applies to node (tag-term) elements. This was added to allow for an attribute to apply to multiple elements." ;
-                                                              rdfs:label "nodeProperty" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#unitClassProperty> rdfs:comment "Indicates a schema attribute applies to unit classes." ;
-                                                                   rdfs:label "unitClassProperty" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#unitModifierProperty> rdfs:comment "Indicates a schema attribute applies to unit modifier classes." ;
-                                                                      rdfs:label "unitModifierProperty" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#unitProperty> rdfs:comment "Indicates a schema attribute applies to units within a unit class." ;
-                                                              rdfs:label "unitProperty" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#unmerged> rdfs:comment "If true, the schema is not merged with a partner schema." ;
-                                                          rdfs:label "unmerged" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#valueClassProperty> rdfs:comment "Indicates a schema attribute applies to value classes." ;
-                                                                    rdfs:label "valueClassProperty" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#version> rdfs:comment "The semantic version of this schema." ;
-                                                         rdfs:label "version" .
-
-
-<https://purl.org/hed/hed-schema.owl/hed-schema#withStandard> rdfs:comment "The version of the schema's standard schema partner." ;
-                                                              rdfs:label "withStandard" .
-
-
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+###  https://purl.org/hed/hed-schema#HED_0000001
+heds:HED_0000001 rdf:type owl:Class ;
+                 rdfs:subClassOf owl:Thing ;
+                 dc:description "A class representing any object in a HED schema." ;
+                 rdfs:comment "Used to anchor all items in both the structural schema and the tags." ;
+                 rdfs:label "HedElement" .
+
+
+###  https://purl.org/hed/hed-schema#HED_0000002
+heds:HED_0000002 rdf:type owl:Class ;
+                 rdfs:subClassOf heds:HED_0000001 ;
+                 dc:description "A class representing any section of the HED schema structure." ;
+                 rdfs:label "HedSection" .
+
+
+###  https://purl.org/hed/hed-schema#HED_0000003
+heds:HED_0000003 rdf:type owl:Class ;
+                 rdfs:subClassOf heds:HED_0000002 ;
+                 dc:description "A class representing the HED schema header structure." ;
+                 rdfs:comment "The schema header contains the HED schema version, which is distinct from the ontology version." ;
+                 rdfs:label "HedHeaderSection" ;
+                 heds:HED_0000022 "HED" ;
+                 heds:HED_0000023 "<HED>" .
+
+
+###  https://purl.org/hed/hed-schema#HED_0000004
+heds:HED_0000004 rdf:type owl:Class ;
+                 rdfs:subClassOf heds:HED_0000002 ;
+                 dc:description "A class representing the structure element defining the prologue of the schema." ;
+                 rdfs:label "HedPrologueSection" ;
+                 heds:HED_0000022 "'''Prologue'''" ;
+                 heds:HED_0000023 "<prologue>" .
+
+
+###  https://purl.org/hed/hed-schema#HED_0000005
+heds:HED_0000005 rdf:type owl:Class ;
+                 rdfs:subClassOf heds:HED_0000002 ;
+                 dc:description "The marker indicating the beginning of the main body of the schema." ;
+                 rdfs:label "HedSchemaSection" ;
+                 heds:HED_0000022 "!# start schema" ;
+                 heds:HED_0000023 "<schema>" .
+
+
+###  https://purl.org/hed/hed-schema#HED_0000006
+heds:HED_0000006 rdf:type owl:Class ;
+                 rdfs:subClassOf heds:HED_0000001 ;
+                 dc:description "Represents a HED term or node." ;
+                 rdfs:label "HedTag" ;
+                 heds:HED_0000023 "<node>" .
+
+
+###  https://purl.org/hed/hed-schema#HED_0000007
+heds:HED_0000007 rdf:type owl:Class ;
+                 rdfs:subClassOf heds:HED_0000006 ;
+                 dc:description "Represents a node placeholder." ;
+                 rdfs:label "HedPlaceholder" ;
+                 heds:HED_0000023 "<node>" .
+
+
+###  https://purl.org/hed/hed-schema#HED_0000008
+heds:HED_0000008 rdf:type owl:Class ;
+                 rdfs:subClassOf heds:HED_0000002 ;
+                 dc:description "Required marker for the end of the schema section." ;
+                 rdfs:label "HedEndSchemaSection" ;
+                 heds:HED_0000023 "</schema>" .
+
+
+###  https://purl.org/hed/hed-schema#HED_0000009
+heds:HED_0000009 rdf:type owl:Class ;
+                 rdfs:subClassOf heds:HED_0000002 ;
+                 dc:description "Schema section defining unit classes and the units for the nodes." ;
+                 rdfs:label "HedUnitClassDefinitionSection" ;
+                 heds:HED_0000022 "'''Unit classes'''" ;
+                 heds:HED_0000023 "<unitClassDefinitions>" .
+
+
+###  https://purl.org/hed/hed-schema#HED_0000011
+heds:HED_0000011 rdf:type owl:Class ;
+                 rdfs:subClassOf heds:HED_0000001 ;
+                 dc:description "A class representing a unit element." ;
+                 rdfs:label "HedUnit" ;
+                 heds:HED_0000023 "<unit>" .
+
+
+###  https://purl.org/hed/hed-schema#HED_0000012
+heds:HED_0000012 rdf:type owl:Class ;
+                 rdfs:subClassOf heds:HED_0000002 ;
+                 dc:description "Schema section defining unit multiples and submultiples." ;
+                 rdfs:label "HedUnitModifierDefinitionSection" ;
+                 heds:HED_0000022 "'''Unit modifiers'''" ;
+                 heds:HED_0000023 "<unitModifierDefinitions>" .
+
+
+###  https://purl.org/hed/hed-schema#HED_0000013
+heds:HED_0000013 rdf:type owl:Class ;
+                 rdfs:subClassOf heds:HED_0000001 ;
+                 dc:description "A class defining a unit modifier" ;
+                 rdfs:label "HedUnitModifier" ;
+                 heds:HED_0000023 "<unitModifierDefinition>" .
+
+
+###  https://purl.org/hed/hed-schema#HED_0000014
+heds:HED_0000014 rdf:type owl:Class ;
+                 rdfs:subClassOf heds:HED_0000002 ;
+                 dc:description "Schema section containing rules governing values provided for placeholders." ;
+                 rdfs:label "HedValueClassDefinitionSection" ;
+                 heds:HED_0000022 "'''Value classes'''" ;
+                 heds:HED_0000023 "<valueClassDefinitions>" .
+
+
+###  https://purl.org/hed/hed-schema#HED_0000015
+heds:HED_0000015 rdf:type owl:Class ;
+                 rdfs:subClassOf heds:HED_0000001 ;
+                 dc:description "A class representing a type of rules for the values provided by users." ;
+                 rdfs:label "HedValueClass" ;
+                 heds:HED_0000023 "<valueClassDefinition>" .
+
+
+###  https://purl.org/hed/hed-schema#HED_0000016
+heds:HED_0000016 rdf:type owl:Class ;
+                 rdfs:subClassOf heds:HED_0000002 ;
+                 dc:description "Schema section defining the attribute modifiers of other sections of the schema." ;
+                 rdfs:label "HedAttributeDefinitionSection" ;
+                 heds:HED_0000022 "'''Schema attributes'''" ;
+                 heds:HED_0000023 "<schemaAttributeDefinitions>" .
+
+
+###  https://purl.org/hed/hed-schema#HED_0000017
+heds:HED_0000017 rdf:type owl:Class ;
+                 rdfs:subClassOf heds:HED_0000001 ;
+                 dc:description "A class describing a type of schema attribute." ;
+                 rdfs:label "HedSchemaAttribute" ;
+                 heds:HED_0000023 "<schemaAttributeDefinition>" .
+
+
+###  https://purl.org/hed/hed-schema#HED_0000018
+heds:HED_0000018 rdf:type owl:Class ;
+                 rdfs:subClassOf heds:HED_0000002 ;
+                 dc:description "A class representing the section that defines properties of the schema attributes." ;
+                 rdfs:label "HedPropertyDefinitionSection" ;
+                 heds:HED_0000022 "'''Properties'''" ;
+                 heds:HED_0000023 "<propertyDefinitions>" .
+
+
+###  https://purl.org/hed/hed-schema#HED_0000019
+heds:HED_0000019 rdf:type owl:Class ;
+                 rdfs:subClassOf heds:HED_0000001 ;
+                 dc:description "A class describing a property of a schema attribute." ;
+                 rdfs:label "HedAttributeProperty" ;
+                 heds:HED_0000023 "<propertyDefinition>" .
+
+
+###  https://purl.org/hed/hed-schema#HED_0000020
+heds:HED_0000020 rdf:type owl:Class ;
+                 rdfs:subClassOf heds:HED_0000002 ;
+                 dc:description "This section contains citation, licensing, and other information." ;
+                 rdfs:label "HedEpilogueSection" ;
+                 heds:HED_0000022 "'''Epilogue'''" ;
+                 heds:HED_0000023 "<epilogue>" .
+
+
+###  https://purl.org/hed/hed-schema#HED_0000021
+heds:HED_0000021 rdf:type owl:Class ;
+                 rdfs:subClassOf heds:HED_0000002 ;
+                 dc:description "The required end marker for the HED schema." ;
+                 rdfs:label "HedEndSection" ;
+                 heds:HED_0000023 "</HED>" .
+
+
+###  https://purl.org/hed/hed-schema#0000010
+<https://purl.org/hed/hed-schema#0000010> rdf:type owl:Class ;
+                                          rdfs:subClassOf heds:HED_0000001 ;
+                                          dc:description "A class representing a category of units such as acceleration units." ;
+                                          rdfs:label "HedUnitClassDefinition" ;
+                                          heds:HED_0000023 "<unitClassDefinition>" .
+
+
+###  Generated by the OWL API (version 4.5.26) https://github.com/owlcs/owlapi
