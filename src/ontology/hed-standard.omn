@@ -71,7 +71,7 @@ Class: heds:HED_0000013 # HedEndSection
 Class: heds:HED_0000014 # HedTag
 Class: heds:HED_0000015 # HedTagWithParent
 Class: heds:HED_0000016 # HedPlaceholder
-Class: heds:HED_0000017 # HedUnitClassDefinition
+Class: heds:HED_0000017 # HedUnitClass
 Class: heds:HED_0000018 # HedUnit
 Class: heds:HED_0000019 # HedUnitModifier
 Class: heds:HED_0000020 # HedValueClass
@@ -93,52 +93,52 @@ Class: hed:HED_0001003
         rdfs:label "StandardHedHeaderSection"
     SubClassOf: heds:HED_0000003
 
-Class: heds:HED_0001004
+Class: hed:HED_0001004
     Annotations:
         rdfs:label "StandardHedPrologueSection"
     SubClassOf: heds:HED_0000004
 
-Class: heds:HED_0001005
+Class: hed:HED_0001005
     Annotations:
         rdfs:label "StandardHedSchemaSection"
     SubClassOf: heds:HED_0000005
 
-Class: heds:HED_0001006
+Class: hed:HED_0001006
     Annotations:
         rdfs:label "StandardHedEndSchemaSection"
     SubClassOf: heds:HED_0000006
 
-Class: heds:HED_0001007
+Class: hed:HED_0001007
     Annotations:
         rdfs:label "StandardHedUnitClassDefinitionSection"
     SubClassOf: heds:HED_0000007
 
-Class: heds:HED_0001008
+Class: hed:HED_0001008
     Annotations:
         rdfs:label "StandardHedUnitModifierDefinitionSection"
     SubClassOf: heds:HED_0000008
 
-Class: heds:HED_0001009
+Class: hed:HED_0001009
     Annotations:
         rdfs:label "StandardHedValueClassDefinitionSection"
     SubClassOf: heds:HED_0000009
 
-Class: heds:HED_0000010
+Class: hed:HED_0001010
     Annotations:
         rdfs:label "StandardHedAttributeDefinitionSection"
     SubClassOf: heds:HED_0000010
 
-Class: heds:HED_0000011
+Class: hed:HED_0001011
     Annotations:
         rdfs:label "StandardHedAttributePropertyDefinitionSection"
     SubClassOf: heds:HED_0000003
 
-Class: heds:HED_0000012
+Class: hed:HED_0001012
     Annotations:
         rdfs:label "StandardHedEpilogueSection"
     SubClassOf: heds:HED_0000003
 
-Class: heds:HED_0000013
+Class: hed:HED_0001013
     Annotations:
         rdfs:label "StandardHedEndSection"
     SubClassOf: heds:HED_0000013
@@ -165,7 +165,7 @@ DataProperty: hed:HED_0001202
         dc:description "The factor to multiply these units by to convert to default units."
     SubPropertyOf: heds:HED_0000112
     Domain: (heds:HED_0000018 or heds:HED_0000019)
-    Range: xsd:decimal
+    Range: xsd:float
 
 DataProperty: hed:HED_0001203
     Annotations:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   # * deprecatedFrom <nowiki>{elementProperty}[Indicates that this element is deprecated. The value of the attribute is the latest schema version in which the element appeared in undeprecated form.]</nowiki>
@@ -247,7 +247,6 @@ ObjectProperty: hed:HED_0001212
     Domain: heds:HED_0000014
     Range: heds:HED_0000014
 
-
 DataProperty: hed:HED_0001213
     Annotations:
         rdfs:label "SIUnit",
@@ -255,7 +254,6 @@ DataProperty: hed:HED_0001213
     SubPropertyOf: heds:HED_0000112
     Domain: heds:HED_0000018
     Range: xsd:boolean
-
 
 DataProperty: hed:HED_0001214
     Annotations:
@@ -265,7 +263,6 @@ DataProperty: hed:HED_0001214
     Domain: heds:HED_0000019
     Range: xsd:boolean
 
-
 DataProperty: hed:HED_0001215
     Annotations:
         rdfs:label "SIUnitSymbolModifier",
@@ -273,7 +270,6 @@ DataProperty: hed:HED_0001215
     SubPropertyOf: heds:HED_0000112
     Domain: heds:HED_0000019
     Range: xsd:boolean
-
 
 ObjectProperty: hed:HED_0001216
     Annotations:
@@ -283,7 +279,6 @@ ObjectProperty: hed:HED_0001216
     Domain: heds:HED_0000014
     Range: heds:HED_0000014
 
-
 DataProperty: hed:HED_0001217
     Annotations:
         rdfs:label "tagGroup",
@@ -291,7 +286,6 @@ DataProperty: hed:HED_0001217
     SubPropertyOf: heds:HED_0000112
     Domain: heds:HED_0000014
     Range: xsd:boolean
-
 
 DataProperty: hed:HED_0001218
     Annotations:
@@ -301,7 +295,6 @@ DataProperty: hed:HED_0001218
     Domain: heds:HED_0000014
     Range: xsd:boolean
 
-
 DataProperty: hed:HED_0001219
     Annotations:
         rdfs:label "topLevelTagGroup",
@@ -309,7 +302,6 @@ DataProperty: hed:HED_0001219
     SubPropertyOf: heds:HED_0000112
     Domain: heds:HED_0000014
     Range: xsd:boolean
-
 
 DataProperty: hed:HED_0001220
     Annotations:
@@ -319,15 +311,13 @@ DataProperty: hed:HED_0001220
     Domain: heds:HED_0000014
     Range: xsd:boolean
 
-
 ObjectProperty: hed:HED_0001221
     Annotations:
         rdfs:label "unitClass",
         dc:description "Indicates which unit class this value tag belongs to."
     SubPropertyOf: heds:HED_0000111
-    Domain: heds:HED_0000014
+    Domain: heds:HED_0000016
     Range: heds:HED_0000017
-
 
 DataProperty: hed:HED_0001222
     Annotations:
@@ -337,7 +327,6 @@ DataProperty: hed:HED_0001222
     Domain: heds:HED_0000018
     Range: xsd:boolean
 
-
 DataProperty: hed:HED_0001223
     Annotations:
         rdfs:label "unitSymbol",
@@ -346,18 +335,26 @@ DataProperty: hed:HED_0001223
     Domain: heds:HED_0000018
     Range: xsd:boolean
 
-
 ObjectProperty: hed:HED_0001224
     Annotations:
         rdfs:label "valueClass",
         dc:description "Indicates which value class this value tag belongs to."
     subPropertyOf: heds:HED_0000111
-    Domain: heds:HED_0000014
+    Domain: heds:HED_0000016
     Range: heds:HED_0000020
 
-
-Class: hed:HED_0001000
+Class: hed:HED_0002001
     Annotations:
-        rdfs:label "MyClass"
-    SubClassOf:
-        owl:Thing
+        rdfs:label "Event",
+        dc:description "Something that happens at a given time and (typically) place. Elements of this tag subtree designate the general category in which an event falls."
+    EquivalentTo:
+        heds:HED_0000014
+        and (hed:HED_0001205 value "false"^^xsd:boolean)
+
+Class: hed:HED_0002001
+    Annotations:
+        rdfs:label "Sensory-event",
+        dc:description "Something perceivable by the participant. An event meant to be an experimental stimulus should include the tag Task-property/Task-event-role/Experimental-stimulus."
+    EquivalentTo:
+        heds:HED_0000015
+        and (heds:HED_0000104 exactly 1 hed:HED_0002001)

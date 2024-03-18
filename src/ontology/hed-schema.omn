@@ -272,7 +272,7 @@ Class: heds:HED_0000015
 
 Class: heds:HED_0000016
     Annotations:
-        rdfs:label "HedPlaceholder",
+        rdfs:label "HedTagPlaceholder",
         dc:description "A node placeholder for an actual value when annotation is assembled.",
         heds:HED_0000102 "<node>"
     SubClassOf:
@@ -280,7 +280,7 @@ Class: heds:HED_0000016
 
 Class: heds:HED_0000017
     Annotations:
-        rdfs:label "HedUnitClassDefinition",
+        rdfs:label "HedUnitClass",
         dc:description "A category of units such as acceleration units.",
         rdfs:comment "HED unit class definitions are in the HedUnitClassDefinitionSection section of the HED schema.",
         heds:HED_0000102 "<unitClassDefinition>"
@@ -292,11 +292,12 @@ Class: heds:HED_0000018
     Annotations:
         rdfs:label "HedUnit",
         dc:description "A unit element such as seconds.",
-        rdfs:comment "HED units have a isOfUnitType association with a HedUnitClassDefinition.",
+        rdfs:comment "HED units have a isOfUnitType association with a HedUnitClass.",
         heds:HED_0000102 "<unit>"
     EquivalentTo:
         heds:HED_0000001
-        and (heds:HED_0000105 some heds:HED_0000007)
+        and (heds:HED_0000103 some heds:HED_0000007)
+        and (heds:HED_0000105 some heds:HED_0000017)
 
 Class: heds:HED_0000019
     Annotations:
@@ -397,7 +398,7 @@ Class: heds:HED_0000029
 Class: heds:HED_0000030
     Annotations:
         rdfs:label "unitClassProperty",
-        dc:description "If present this schema attribute can be applied to any HedUnitClassDefinition."
+        dc:description "If present this schema attribute can be applied to any HedUnitClass."
     SubClassOf:
         heds:HED_0000022
 
