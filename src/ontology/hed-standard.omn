@@ -82,7 +82,6 @@ Class: heds:HED_0000024 # Prologue
 Class: heds:HED_0000025 # Epilogue
 Class: heds:HED_0000100  # HedSchema
 
-
 Class: hed:HED_0001002
     Annotations:
         rdfs:label "StandardSchema"
@@ -125,18 +124,18 @@ Class: hed:HED_0001009
 
 Class: hed:HED_0001010
     Annotations:
-        rdfs:label "StandardHedAttributeDefinitionSection"
+        rdfs:label "StandardHedSchemaAttributeDefinitionSection"
     SubClassOf: heds:HED_0000010
 
 Class: hed:HED_0001011
     Annotations:
         rdfs:label "StandardHedAttributePropertyDefinitionSection"
-    SubClassOf: heds:HED_0000003
+    SubClassOf: heds:HED_0000011
 
 Class: hed:HED_0001012
     Annotations:
         rdfs:label "StandardHedEpilogueSection"
-    SubClassOf: heds:HED_0000003
+    SubClassOf: heds:HED_0000012
 
 Class: hed:HED_0001013
     Annotations:
@@ -149,7 +148,7 @@ Class: hed:HED_0001023
     EquivalentTo:
         heds:HED_0000023
         and (heds:HED_0000103 some hed:HED_0001003)
-        and (heds:HED_0000108 value \"8.3.01\"^^xsd:string)
+        and (heds:HED_0000108 value \"8.3.1\"^^xsd:string)
 
 DataProperty: hed:HED_0001201
     Annotations:
@@ -351,10 +350,11 @@ Class: hed:HED_0002001
         heds:HED_0000014
         and (hed:HED_0001205 value "false"^^xsd:boolean)
 
-Class: hed:HED_0002001
+Class: hed:HED_0002002
     Annotations:
         rdfs:label "Sensory-event",
         dc:description "Something perceivable by the participant. An event meant to be an experimental stimulus should include the tag Task-property/Task-event-role/Experimental-stimulus."
+    SubClassOf: hed:HED_0002001
     EquivalentTo:
         heds:HED_0000015
         and (heds:HED_0000104 exactly 1 hed:HED_0002001)
