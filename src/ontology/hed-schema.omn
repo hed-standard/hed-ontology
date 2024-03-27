@@ -44,69 +44,64 @@ AnnotationProperty: foaf:homepage
 ObjectProperty: heds:HED_0000101
     Annotations:
         rdfs:label "containsHedSection",
-        dc:description "Indicates this schema contains this section.",
-        rdfs:comment "Maps a HedSection into a HedSchema."
-    Domain: heds:HED_0000004
-    Range: heds:HED_0000005
-    
+        dc:description "Indicates this schema contains this section."
+    Domain: heds:HED_0000006
+    Range: heds:HED_0000007
+
 ObjectProperty: heds:HED_0000102
     Annotations:
         rdfs:label "inHedSection",
         dc:description "Indicates what section the element appears in.",
-        rdfs:comment "Maps a HedEntity into its appropriate HedSection class."
-    Domain: heds:HED_0000001
-    Range: heds:HED_0000003
+        rdfs:comment "Maps any HedElement into its appropriate HedSection class."
+    Domain: heds:HED_0000003
+    Range: heds:HED_0000005
 
 ObjectProperty: heds:HED_0000103
     Annotations:
         rdfs:label "hasHedParent",
         dc:description "Associates a HedTag with its parent in the HED hierarchy.",
-        rdfs:comment "Maps a HedTagWithParent into a HedTag, determining the HED schema hierarchical structure."
-    Domain: heds:HED_0000018
-    Range: heds:HED_0000017
+        rdfs:comment "This is a structural property which determines the hierarchical tree. Top level nodes should extend HedTag directly."
+    Domain: heds:HED_0000016
+    Range: heds:HED_0000016
 
 ObjectProperty: heds:HED_0000104
     Annotations:
         rdfs:label "hasUnitType",
         dc:description "Associates a HedUnit with its category (HedUnitClass).",
-        rdfs:comment "Maps HedUnit into HedUnitClass, allowing tools to place a unit in its correct grouping."
-    Domain: heds:HED_0000021
-    Range: heds:HED_0000020
+        rdfs:comment "This is a structural property which allows tools to place a unit in its correct grouping."
+    Domain: heds:HED_0000020
+    Range: heds:HED_0000019
 
 DataProperty: heds:HED_0000201
     Annotations:
         rdfs:label "version",
-        dc:description "The semantic version of this schema.",
-        rdfs:comment "Maps HedHeader into its schema version."
+        dc:description "The semantic version of this schema."
     Characteristics: Functional
-    Domain: heds:HED_0000026
+    Domain: heds:HED_0000023
     Range: xsd:string
 
 DataProperty: heds:HED_0000202
     Annotations:
         rdfs:label "library",
-        dc:description "The name of the library schema if applicable, otherwise an empty string.",
-        rdfs:comment "Maps HedHeader into its library name if this is a library schema."
+        dc:description "The name of the library schema if applicable, otherwise an empty string."
     Characteristics: Functional
-    Domain: heds:HED_0000026
+    Domain: heds:HED_0000023
     Range: xsd:string
 
 DataProperty: heds:HED_0000203
     Annotations:
         rdfs:label "unmerged",
-        dc:description "If true, the schema is not merged with a partner schema.",
-        rdfs:comment "Maps HedHeader into an indicator of whether this is a library merged with its standard schema partner."
+        dc:description "If true, the schema is not merged with a partner schema."
     Characteristics: Functional
-    Domain: heds:HED_0000026
+    Domain: heds:HED_0000023
     Range: xsd:boolean
 
 DataProperty: heds:HED_0000204
     Annotations:
         rdfs:label "withStandard",
-        dc:description "The version of the HED schema's standard schema partner.",
-        rdfs:comment "Maps HedHeader into the version number of the standard schema it is partnered with (libraries only).
+        dc:description "The version of the HED schema's standard schema partner."
     Characteristics: Functional
-    Domain: heds:HED_0000026
+    Domain: heds:HED_0000023
     Range: xsd:string
 
 Class: heds:HED_0000001
@@ -128,16 +123,15 @@ Class: heds:HED_0000002
 Class: heds:HED_0000003
     Annotations:
         rdfs:label "HedElement",
-        dc:description "Any content item in a HED schema.",
-        rdfs:comment "Used to anchor the tags, attributes, unit classes, units, unit modifiers, and value classes."
+        dc:description "Any item in a HED schema.",
+        rdfs:comment "Used to anchor all items in both the structural schema and the tags."
     SubClassOf:
         heds:HED_0000001
 
 Class: heds:HED_0000004
     Annotations:
         rdfs:label "HedSchema",
-        dc:description "The overall structure of the HED schema by section.",
-        rdfs:comment "Holds the overall HED schema hierarchical structure"
+        dc:description "The overall structure of the HED schema by section."
     EquivalentTo:
         heds:HED_0000002
         and (heds:HED_0000101 exactly 1 heds:HED_0000006)
@@ -150,7 +144,6 @@ Class: heds:HED_0000004
         and (heds:HED_0000101 exactly 1 heds:HED_0000013)
         and (heds:HED_0000101 exactly 1 heds:HED_0000014)
         and (heds:HED_0000101 exactly 1 heds:HED_0000015)
-		and (heds:HED_0000101 exactly 1 heds:HED_0000016)
 
 Class: heds:HED_0000005
     Annotations:
@@ -199,7 +192,7 @@ Class: heds:HED_0000010
 Class: heds:HED_0000011
     Annotations:
         rdfs:label "HedUnitModifierDefinitionSection",
-        dc:description "The definitions of unit multiples and sub-multiples."
+        dc:description "The definitions of unit multiples and submultiples."
     SubClassOf:
         heds:HED_0000005
 
@@ -219,26 +212,19 @@ Class: heds:HED_0000013
 
 Class: heds:HED_0000014
     Annotations:
-        rdfs:label "HedAttributePropertyDefinitionSection",
-        dc:description "Definitions of the properties of HED schema attributes."
-    SubClassOf:
-        heds:HED_0000005
-
-Class: heds:HED_0000015
-    Annotations:
         rdfs:label "HedEpilogueSection",
         dc:description "The ending section containing material such as citation, licensing, and other information."
     SubClassOf:
         heds:HED_0000005
 
-Class: heds:HED_0000016
+Class: heds:HED_0000015
     Annotations:
         rdfs:label "HedEndSection",
         dc:description "The required end marker for the HED schema."
     SubClassOf:
         heds:HED_0000005
 
-Class: heds:HED_0000017
+Class: heds:HED_0000016
     Annotations:
         rdfs:label "HedTag",
         dc:description "A HED vocabulary term or node.",
@@ -247,21 +233,22 @@ Class: heds:HED_0000017
         heds:HED_0000003
         and (heds:HED_0000102 exactly 1 heds:HED_0000008)
 
-Class: heds:HED_0000018
+Class: heds:HED_0000017
     Annotations:
         rdfs:label "HedTagWithParent",
         dc:description "A HedTag that is not a top-level tag."
     EquivalentTo:
-        heds:HED_0000017
-        and (heds:HED_0000103 exactly 1 heds:HED_0000017)
+        heds:HED_0000016
+        and (heds:HED_0000103 exactly 1 heds:HED_0000016)
 
-Class: heds:HED_0000019
+Class: heds:HED_0000018
     Annotations:
         rdfs:label "HedTagPlaceholder",
         dc:description "A tag placeholder for an actual value when annotation is assembled."
-    SubClassOf: heds:HED_0000018
+    SubClassOf:
+        heds:HED_0000017
 
-Class: heds:HED_0000020
+Class: heds:HED_0000019
     Annotations:
         rdfs:label "HedUnitClass",
         dc:description "A category of units such as acceleration units.",
@@ -270,7 +257,7 @@ Class: heds:HED_0000020
         heds:HED_0000003
         and (heds:HED_0000102 some heds:HED_0000010)
 
-Class: heds:HED_0000021
+Class: heds:HED_0000020
     Annotations:
         rdfs:label "HedUnit",
         dc:description "A unit element such as seconds.",
@@ -278,9 +265,9 @@ Class: heds:HED_0000021
     EquivalentTo:
         heds:HED_0000003
         and (heds:HED_0000102 some heds:HED_0000010)
-        and (heds:HED_0000104 some heds:HED_0000020)
+        and (heds:HED_0000104 some heds:HED_0000019)
 
-Class: heds:HED_0000022
+Class: heds:HED_0000021
     Annotations:
         rdfs:label "HedUnitModifier",
         dc:description "A unit modifier such as kilo.",
@@ -289,7 +276,7 @@ Class: heds:HED_0000022
         heds:HED_0000003
         and (heds:HED_0000102 some heds:HED_0000011)
 
-Class: heds:HED_0000023
+Class: heds:HED_0000022
     Annotations:
         rdfs:label "HedValueClass",
         dc:description "Rules for a type of value provided by users to substitute for placeholders.",
@@ -298,19 +285,19 @@ Class: heds:HED_0000023
         heds:HED_0000003
         and (heds:HED_0000102 some heds:HED_0000012)
 
-Class: heds:HED_0000024
+Class: heds:HED_0000023
     Annotations:
         rdfs:label "HedHeader",
         dc:description "Contains the specification of the schema version and partnership."
     EquivalentTo:
-        heds:HED_0000002
+        heds:HED_0000003
         and (heds:HED_0000102 exactly 1 heds:HED_0000006)
         and (heds:HED_0000201 exactly 1 xsd:string)
         and (heds:HED_0000202 max 1 xsd:string)
-        and (heds:HED_0000203 max 1 xsd:string)
-        and (heds:HED_0000204 max 1 xsd:boolean)
+        and (heds:HED_0000204 max 1 xsd:string)
+        and (heds:HED_0000203 max 1 xsd:boolean)
 
-Class: heds:HED_0000025
+Class: heds:HED_0000024
     Annotations:
         rdfs:label "HedPrologue",
         dc:description "The introductory text of a HED schema which describes is purpose and scope."
@@ -318,10 +305,11 @@ Class: heds:HED_0000025
         heds:HED_0000002
         and (heds:HED_0000102 exactly 1 heds:HED_0000007)
 
-Class: heds:HED_0000026
+Class: heds:HED_0000025
     Annotations:
         rdfs:label "HedEpilogue",
         dc:description "The end piece text of a HED schema which describes sources and other reference material."
     EquivalentTo:
         heds:HED_0000002
-        and (heds:HED_0000102 exactly 1 heds:HED_0000015)
+        and (heds:HED_0000102 exactly 1 heds:HED_0000014)
+
