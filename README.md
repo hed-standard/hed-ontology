@@ -18,7 +18,7 @@ http://purl.obolibrary.org/obo/hed.owl
 
 ### Editors' version
 
-Editors of this ontology should use the edit version, [src/ontology/hed-edit.owl](src/ontology/hed-edit.owl)
+Editors of this ontology should use the edit version, [src/ontology/hed-edit.owl](src/ontology/scratch/hed-edit.owl)
 
 ## Contact
 

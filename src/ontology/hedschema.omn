@@ -1,28 +1,25 @@
-Prefix: dc: <http://purl.org/dc/elements/1.1/>
-Prefix: foaf: <http://xmlns.com/foaf/0.1/>
-Prefix: obo1: <http://purl.obolibrary.org/obo/>
-Prefix: obo: <http://www.geneontology.org/formats/oboInOwl#http://purl.obolibrary.org/obo/>
-Prefix: oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
-Prefix: owl: <http://www.w3.org/2002/07/owl#>
-Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-Prefix: xml: <http://www.w3.org/XML/1998/namespace>
-Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
-Prefix: protege: <http://protege.stanford.edu/plugins/owl/protege#>
-Prefix: swrl: <http://www.w3.org/2003/11/swrl#>
-Prefix: swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#>
-Prefix: swrlb: <http://www.w3.org/2003/11/swrlb#>
-Prefix: terms: <http://purl.org/dc/terms/>
-Prefix: : <https://purl.org/hed/releases/working/hed-schema#>
+Prefix: dc <http://purl.org/dc/elements/1.1/>
+Prefix: foaf <http://xmlns.com/foaf/0.1/>
+Prefix: owl <http://www.w3.org/2002/07/owl#>
+Prefix: rdf <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xml <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd <http://www.w3.org/2001/XMLSchema#>
+Prefix: protege <http://protege.stanford.edu/plugins/owl/protege#>
+Prefix: swrl <http://www.w3.org/2003/11/swrl#>
+Prefix: swrla <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#>
+Prefix: swrlb <http://www.w3.org/2003/11/swrlb#>
+Prefix: terms <http://purl.org/dc/terms/>
+Prefix: heds <https://purl.org/hed/releases/working/hed-schema#>
 
 Ontology: <http://purl.org/hed/releases/working/hed-schema.owl>
 
 
 Annotations: 
-    dc:description "This ontology describes the base classes for the ontology.",
-    dc:title "HED Base Schema Ontology",
-    rdfs:comment "This is the base ontology.",
-    rdfs:label "HED Base Schema Ontology",
+    rdfs:comment "Ontology specifying the structure of a HED (Hierarchical Event Descriptor) vocabulary schema.",
+    dc:title "HED Schema Structure Ontology",
+    dc:description "This schema is used to spec.",
+    rdfs:label "HED Schema Structure Ontology",
     owl:versionInfo "1.0"
 
 AnnotationProperty: dc:description
@@ -33,17 +30,18 @@ AnnotationProperty: dc:title
     
 AnnotationProperty: hed:boolProperty
 
-    Annotations: 
+    Annotations:
+        rdfs:label "boolProperty",
         rdfs:comment "Has an xsd:boolean value",
-        rdfs:comment "This schema attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values.",
-        rdfs:label "boolProperty"
+        rdfs:comment "Designates a schema attribute whose presence indicates true and absence indicates false."
     
     
 AnnotationProperty: hed:elementProperty
 
-    Annotations: 
+    Annotations:
+        rdfs:label "elementProperty",
         rdfs:comment "Indicates a schema attribute can apply to any type of element (tag term, unit class, etc).",
-        rdfs:label "elementProperty"
+
     
     Range: 
         <http://www.w3.org/2001/XMLSchema#boolean>
