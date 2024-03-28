@@ -290,7 +290,7 @@ Class: heds:HED_0000023
         rdfs:label "HedHeader",
         dc:description "Contains the specification of the schema version and partnership."
     EquivalentTo:
-        heds:HED_0000003
+        heds:HED_0000002
         and (heds:HED_0000102 exactly 1 heds:HED_0000006)
         and (heds:HED_0000201 exactly 1 xsd:string)
         and (heds:HED_0000202 max 1 xsd:string)
