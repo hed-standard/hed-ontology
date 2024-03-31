@@ -1,0 +1,32 @@
+hedId	Level	rdfs:label	Parent	Attributes	dc:description	EquivalentTo	Comment	Source
+HED_0012001	0-10	Event	HedTag	suggestedTag=Task-property	Something that happens at a given time and (typically) place. Elements of this tag subtree designate the general category in which an event falls.	HedTag and (suggestedTag some Task-property)		
+HED_0012002	1-11	Sensory-event	Event	suggestedTag=Task-event-role, suggestedTag=Sensory-presentation	Something perceivable by the participant. An event meant to be an experimental stimulus should include the tag Task-property/Task-event-role/Experimental-stimulus.	Eventand and (suggestedTag some Task-event-role) and (suggestedTag some Sensory-presentation)		
+								
+HED_0012009	0-19	Agent	HedTag	suggestedTag=Agent-property	Someone or something that takes an active role or produces a specified effect.The role or effect may be implicit. Being alive or performing an activity such as a computation may qualify something to be an agent. An agent may also be something that simulates something else.			
+HED_0012010	1-20	Animal-agent	Agent		An agent that is an animal.			
+		Avatar-agent	Agent		An agent associated with an icon or avatar representing another agent.			
+		Controller-agent	Agent		An agent experiment control software or hardware.			
+		Human-agent	Agent		A person who takes an active role or produces a specified effect.			
+		Robotic-agent	Agent		An agent mechanical device capable of performing a variety of often complex tasks on command or by being programmed in advance.			
+		Softtware-agent	Agent		An agent computer program that interacts with the participant in an active role such as an AI advisor.			
+								
+HED_0012016	0-27	Action		extensionAllowed	Do something.			
+	1-28	Communicate	Action		Convey knowledge of or information about something.			
+	2	Communicate-gesturally	Communicate	relatedTag=Move-face, relatedTag=Move-upper-extremity	Communicate nonverbally using visible bodily actions, either in place of speech or together and in parallel with spoken words. Gestures include movement of the hands, face, or other parts of the body.			
+								
+HED_0012171	0-183	Item		extensionAllowed	An independently existing thing (living or nonliving).			
+	1-184	Biological-item			An entity that is biological, that is related to living organisms.			
+	2-185	Anatomical-item			A biological structure, system, fluid or other substance excluding single molecular entities.			
+								
+	0-425	Property		extensionAllowed	Something that pertains to a thing. A characteristic of some entity. A quality or feature regarded as a characteristic or inherent part of someone or something. HED attributes are adjectives or adverbs.			
+	1-426	Agent-property			Something that pertains to an agent.			
+	2-427	Agent-state	Agent-property		The state of the agent.			
+								
+HED_0012492	1-505	Data-property			Something that pertains to data or information.			
+	2-506	Data-artifact			An anomalous, interfering, or distorting signal originating from a source other than the item being studied.			
+								
+HED_0012459	2-562	Data-value			Designation of the type of a data item.			
+								
+HED0012642	3-655	Statistical-value	Data-value		A value based on or employing the principles of statistics.			
+HED0012643	4-656	Data-maximum	Data-maximum		The largest possible quantity or degree.			
+HED0012644	5-657	Data-maximum-#	Data-maximum-#	takesValue, valueClass=numericClass				
