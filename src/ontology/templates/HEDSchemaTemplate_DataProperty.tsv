@@ -1,4 +1,4 @@
-ID	label	Type	Domain	Range	Characteristics	Properties	Description	Comment
+hedId	label	Type	Domain	Range	Characteristics	Properties	Description	Comment
 HED_0000300	version	DataProperty	HedHeader	xsd:string	Functional		The semantic version of this schema.	Maps HedHeader into its schema version.
 HED_0000301	library	DataProperty	HedHeader	xsd:string	Functional		The name of the library schema if applicable, otherwise an empty string.	Maps HedHeader into its library name if this is a library schema.
 HED_0000302	unmerged	DataProperty	HedHeader	xsd:boolean	Functional		If true, the schema is not merged with a partner schema.	Maps HedHeader into an indicator of whether this is a library merged with its standard schema partner.
@@ -6,7 +6,7 @@ HED_0000303	withStandard	DataProperty	HedHeader	xsd:string	Functional		The versi
 HED_0000304	allowedCharacter	DataProperty	HedUnit, HedUnitModifier, HedValueClass	xsd:string		unitDomain, unitModifierDomain, valueClassDomain, stringRange	A special character that is allowed in expressing the value of a placeholder of a specified value class. Allowed characters may be listed individual, named individually, or named as a group as specified in Section 2.2 Character sets and restrictions of the HED specification.	
 HED_0000305	conversionFactor	DataProperty	HedUnit or HedUnitModifier	xsd:float		unitDomain, unitModifierDomain, numericRange	The factor to multiply these units or unit modifiers by to convert to default units.	
 HED_0000306	deprecatedFrom	DataProperty	HedElement	xsd:string		elementDomain, stringRange	The schema version number when this element was first deprecated.	
-HED_0000307	extensionAllowed	DataProperty	HedTag	xsd:boolean		tagDomain, boolRange, isInheritedProperty	Users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of the hashtag placeholders.	
+HED_0000307	extensionAllowed	DataProperty	HedTag	xsd:boolean		tagDomain, boolRange	Users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of the hashtag placeholders.	
 HED_0000308	inLibrary	DataProperty	HedElement	xsd:string		elementDomain, stringRange	The named library schema that this schema element is from. This attribute is added by tools when a library schema is merged into its partnered standard schema.	
 HED_0000309	reserved	DataProperty	HedTag	xsd:boolean		tagDomain, boolRange	This tag has special meaning and requires special handling by tools.	
 HED_0000310	SIUnit	DataProperty	HedUnit	xsd:boolean		unitDomain, boolRange	This unit element is an SI unit and can be modified by multiple and sub-multiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.	
