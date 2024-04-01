@@ -1,7 +1,5 @@
-ID	label	Type	Domain	Range	Characteristics	Properties	Description	Comment
+hedId	label	Type	Domain	Range	Characteristics	Properties	Description	Comment
 HED_0000500	hedId	AnnotationProperty	HedElement	xsd:string		elementDomain, stringRange	The unique identifier of this element in the HED namespace.	Maps HedElement into string.
 HED_0000501	requireChild	AnnotationProperty	HedTag	xsd:boolean		tagDomain, boolRange	This tag must have a descendent.	Maps a HedTag into a boolean.
-HED_0000502	rooted	AnnotationProperty	HedTag	HedTag		tagDomain, nodeRange, isInheritedProperty	This top-level library schema node should have a parent which is the indicated node in the partnered standard schema.	Maps a HedTag into a HedTag name as a string.
+HED_0000502	rooted	AnnotationProperty	HedTag	xsd:string		tagDomain, stringRange	This top-level library schema node should have a parent which is the indicated node in the partnered standard schema.	Maps a HedTag into a HedTag name as a string.
 HED_0000503	takesValue	AnnotationProperty	HedTag	xsd:boolean		tagDomain, boolRange	This tag is a hashtag placeholder that is expected to be replaced with a user-defined value.	Maps a HedTag into a unit class.
-HED_0000504	unitClass	AnnotationProperty	HedTag	HedUnitClass		tagDomain, stringRange	The unit class that the value of a placeholder node can belong to.	Maps a HedTag into a HedUnitClass name as a string.
-HED_0000505	valueClass	AnnotationProperty	HedTag	HedValueClass		tagDomain, valueClassRange	Type of value taken on by the value of a placeholder node.	Maps a HedTag into a HedValueClass name as a string.

@@ -102,21 +102,33 @@ AnnotationProperty: heds:HED_0000503
         rdfs:label "takesValue"
     
     
-AnnotationProperty: heds:HED_0000504
+ObjectProperty: heds:HED_0000108
 
     Annotations: 
         dc:description "The unit class this placeholder tag belongs to.",
         rdfs:comment "Maps a HedTag into a HedUnitClass name as a string.",
         rdfs:label "unitClass"
+
+    Domain:
+        heds:HED_0000016
+
+    Range:
+        heds:HED_0000017
+
     
-    
-AnnotationProperty: heds:HED_0000505
+ObjectProperty: heds:HED_0000109
 
     Annotations: 
         dc:description "The value class this placeholder tag belongs to.",
         rdfs:comment "Maps a HedTag into a HedValueClass name as a string.",
         rdfs:label "valueClass"
-    
+
+    Domain:
+        heds:HED_0000016
+
+    Range:
+        heds:HED_0000020
+
     
 AnnotationProperty: owl:versionInfo
 
@@ -263,33 +275,7 @@ ObjectProperty: heds:HED_0000107
     
     Range: 
         heds:HED_0000016
-    
-    
-DataProperty: hed:HED_0010126
 
-    Annotations: 
-        dc:description "This element comes from the indicated library version. This attribute is added by tools when a library schema is merged into its partnered standard schema.",
-        rdfs:label "inLibrary"
-    
-    Domain: 
-        heds:HED_0000003
-    
-    Range: 
-        xsd:string
-    
-    
-DataProperty: hed:HED_0010135
-
-    Annotations: 
-        dc:description "This tag can only appear inside a tag group.",
-        rdfs:label "tagGroup"
-    
-    Domain: 
-        heds:HED_0000016
-    
-    Range: 
-        xsd:boolean
-    
     
 DataProperty: heds:HED_0000300
 
@@ -793,11 +779,11 @@ Class: hed:HED_0012644
     Annotations: 
         dc:description "The numeric value of the data maximum.",
         heds:HED_0000503 true,
-        heds:HED_0000505 "numericClass",
         rdfs:label "Data-maximum-#"
     
-    SubClassOf: 
+    EquivalentTo:
         hed:HED_0012643
+        and (heds:HED_0000109 some hed:HED_0011303)
     
     
 Class: heds:HED_0000001
@@ -829,9 +815,8 @@ Class: heds:HED_0000003
         rdfs:comment "Used to anchor all items in both the structural schema and the tags.",
         rdfs:label "HedElement"
     
-    EquivalentTo: 
+    SubClassOf:
         heds:HED_0000001
-         and (heds:HED_0000300 value true)
     
     
 Class: heds:HED_0000004
