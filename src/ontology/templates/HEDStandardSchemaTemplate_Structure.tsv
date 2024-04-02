@@ -1,15 +1,5 @@
 hedID	Class	Parent	
 HED_0010004	StandardSchema	HedSchema	
-HED_0010005	StandardHeaderSection	HedHeaderSection	
-HED_0010007	StandardPrologueSection	HedPrologueSection	
-HED_0010008	StandardSchemaSection	HedSchemaSection	
-HED_0010009	StandardEndSchemaSection	HedEndSchemaSection	
-HED_0010010	StandardUnitClassDefinitionSection	HedUnitClassDefinitionSection	
-HED_0010011	StandardUnitModifierDefinitionSection	HedUnitModifierDefinitionSection	
-HED_0010012	StandardValueClassDefinitionSection	HedValueClassDefinitionSection	
-HED_0010013	StandardAttributeDefinitionSection	HedSchemaAttributeDefinitionSection	
-HED_0010014	StandardEpilogueSection	HedEpilogueSection	
-HED_0010015	StandardEndSection	HedEndSection	
-HED_0010023	StandardHeader	HedHeader	
-HED_0010024	StandardPrologue	HedPrologue	The HED standard schema is a hierarchically-organized vocabulary for annotating events and experimental structure. HED annotations consist of comma-separated tags drawn from this vocabulary. This vocabulary can be augmented by terms drawn from specialized library schema.
-HED_0010025	StandardEpilogue	HedEpilogueSection	This schema is released under the Creative Commons Attribution 4.0 International and is a product of the HED Working Group. The DOI for the latest version of the HED standard schema is 10.5281/zenodo.7876037.
+HED_0010005	StandardHeader	HedHeader	
+HED_0010006	StandardPrologue	HedPrologue	The HED standard schema is a hierarchically-organized vocabulary for annotating events and experimental structure. HED annotations consist of comma-separated tags drawn from this vocabulary. This vocabulary can be augmented by terms drawn from specialized library schema.
+HED_0010007	StandardEpilogue	HedEpilogueSection	This schema is released under the Creative Commons Attribution 4.0 International and is a product of the HED Working Group. The DOI for the latest version of the HED standard schema is 10.5281/zenodo.7876037.

@@ -1,7 +1,7 @@
-Prefix: : <http://purl.org/hed/hed-schema#>
+Prefix: : <http://purl.org/hed/releases/working/hed-standard.owl/>
 Prefix: dc: <http://purl.org/dc/elements/1.1/>
 Prefix: foaf: <http://xmlns.com/foaf/0.1/>
-Prefix: heds: <https://purl.org/hed/hed-schema#>
+Prefix: heds: <http://purl.org/hed/releases/working/hed-schema#>
 Prefix: owl: <http://www.w3.org/2002/07/owl#>
 Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -14,751 +14,606 @@ Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
 Ontology: <http://purl.org/hed/hed-schema#>
 <http://purl.org/hed/releases/working/hed-schema.owl>
 
-Annotations: 
+Annotations:
     dc:contributor "Ian Callanan",
     dc:contributor "Kay Robbins",
     dc:contributor "Scott Makeig",
     dc:description "This ontology defines the HED Hierarchical Event Descriptor schema structure."@en,
     dc:description "This ontology only defines the structural elements of the HED schema. The actual HED tags are in HED.",
-    dc:title "HED Schema Structure Ontology (HEDS)",
+    dc:title "HED Schema Ontology (HEDS)",
     terms:license <http://creativecommons.org/licenses/by/4.0/>,
     rdfs:label "HED Schema Ontology",
     rdfs:seeAlso <https://github.com/hed-standard/hed-ontology>,
     owl:versionInfo "releases/working",
     foaf:homepage <https://www.hedtags.org>
 
-Annotations:
-    dc:contributor "Ian Callanan",
-    dc:contributor "Kay Robbins",
-    dc:contributor "Scott Makeig",
-    dc:description "This ontology defines the HED Hierarchical Event Descriptor standard vocabulary."@en,
-    dc:description "This ontology defines the vocabulary of the HED standard schema and relies on the structural HED schema ontology.",
-    dc:title "HED Standard Ontology (HED)",
-    terms:license <http://creativecommons.org/licenses/by/4.0/>,
-    rdfs:label "HED Standard Ontology",
-    rdfs:seeAlso <https://github.com/hed-standard/hed-ontology>,
-    owl:versionInfo "releases/working",
-    foaf:homepage <https://www.hedtags.org>
 
 AnnotationProperty: dc:contributor
 
-
+    
 AnnotationProperty: dc:creator
 
-
+    
 AnnotationProperty: dc:date
 
-
+    
 AnnotationProperty: dc:description
 
-
+    
 AnnotationProperty: dc:format
 
-
+    
 AnnotationProperty: dc:identifier
 
-
+    
 AnnotationProperty: dc:language
 
-
+    
 AnnotationProperty: dc:publisher
 
-
+    
 AnnotationProperty: dc:relation
 
-
+    
 AnnotationProperty: dc:source
 
-
+    
 AnnotationProperty: dc:subject
 
-
+    
 AnnotationProperty: dc:title
 
-
+    
 AnnotationProperty: dc:type
 
-
+    
 AnnotationProperty: foaf:homepage
 
-
+    
 AnnotationProperty: heds:HED_0000500
 
-    Annotations:
+    Annotations: 
         dc:description "The unique identifier of this element in the HED namespace.",
         rdfs:comment "Maps HedElement into string.",
         rdfs:label "hedId"
-
-
+    
+    
 AnnotationProperty: heds:HED_0000501
 
-    Annotations:
+    Annotations: 
         dc:description "This tag requires that a descendent node be included.",
         rdfs:comment "Maps a HedTag into a boolean.",
         rdfs:label "requireChild"
-
-
+    
+    
 AnnotationProperty: heds:HED_0000502
 
-    Annotations:
+    Annotations: 
         dc:description "This top-level library schema node should have a parent which is the indicated node in the partnered standard schema.",
         rdfs:comment "Maps a HedTag into a HedTag name as a string.",
         rdfs:label "rooted"
-
-
+    
+    
 AnnotationProperty: heds:HED_0000503
 
-    Annotations:
+    Annotations: 
         dc:description "This tag is a hashtag placeholder that is expected to be replaced with a user-defined value.",
         rdfs:comment "Maps a HedTag into a boolean.",
         rdfs:label "takesValue"
-
-
-AnnotationProperty: heds:HED_0000504
-
-    Annotations:
-        dc:description "The unit class this placeholder tag belongs to.",
-        rdfs:comment "Maps a HedTag into a HedUnitClass name as a string.",
-        rdfs:label "unitClass"
-
-
-AnnotationProperty: heds:HED_0000505
-
-    Annotations:
-        dc:description "The value class this placeholder tag belongs to.",
-        rdfs:comment "Maps a HedTag into a HedValueClass name as a string.",
-        rdfs:label "valueClass"
-
-
+    
+    
 AnnotationProperty: owl:versionInfo
 
-
+    
 AnnotationProperty: rdfs:comment
 
-
+    
 AnnotationProperty: rdfs:label
 
-
+    
 AnnotationProperty: rdfs:seeAlso
 
-
+    
 AnnotationProperty: terms:license
 
-
+    
 Datatype: rdf:PlainLiteral
 
-
+    
 Datatype: xsd:boolean
 
-
+    
 Datatype: xsd:float
 
-
+    
 Datatype: xsd:string
 
-
-ObjectProperty: heds:HED_0000106
-
-    Annotations:
-        dc:description "A HED tag that is closely related to this tag. This attribute is used by tagging tools.",
-        rdfs:label "relatedTag"
-
-    Domain:
-        heds:HED_0000016
-
-    Range:
-        heds:HED_0000016
-
-
-ObjectProperty: heds:HED_0000107
-
-    Annotations:
-        dc:description "A tag is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions",
-        rdfs:label "suggestedTag"
-
-    Domain:
-        heds:HED_0000016
-
-    Range:
-        heds:HED_0000016
-
-
+    
 ObjectProperty: heds:HED_0000101
 
-    Annotations:
-        dc:description "Indicates this schema contains this section.",
-        rdfs:label "containsHedSection"
-
-    Domain:
-        heds:HED_0000006
-
-    Range:
-        heds:HED_0000007
-
-
+    Annotations: 
+        dc:description "Associates a HedSchema with some HedEntity.",
+        rdfs:comment "This is a structural property which allows tools to place an element in its correct schema.",
+        rdfs:label "hasHedEntity"
+    
+    Domain: 
+        heds:HED_0000004
+    
+    Range: 
+        heds:HED_0000001
+    
+    
 ObjectProperty: heds:HED_0000102
 
-    Annotations:
-        dc:description "Indicates what section the element appears in.",
-        rdfs:comment "Maps any HedElement into its appropriate HedSection class.",
-        rdfs:label "inHedSection"
-
-    Domain:
-        heds:HED_0000003
-
-    Range:
-        heds:HED_0000005
-
-
-ObjectProperty: heds:HED_0000103
-
-    Annotations:
-        dc:description "Associates a HedElement with its particular HedSchema class.",
+    Annotations: 
+        dc:description "Associates a HedEntity with its particular HedSchema class.",
         rdfs:comment "This is a structural property which allows tools to place an element in its correct schema.",
         rdfs:label "inHedSchema"
+    
+    Domain: 
+        heds:HED_0000001
+    
+    Range: 
+        heds:HED_0000004
+    
+    
+ObjectProperty: heds:HED_0000103
 
-    Domain:
-        heds:HED_0000003
-
-    Range:
-        heds:HED_0000017
-
-
-ObjectProperty: heds:HED_0000104
-
-    Annotations:
+    Annotations: 
         dc:description "Associates a HedUnit with its category (HedUnitClass).",
         rdfs:comment "This is a structural property which allows tools to place a unit in its correct grouping.",
         rdfs:label "hasUnitType"
+    
+    Domain: 
+        heds:HED_0000007
+    
+    Range: 
+        heds:HED_0000006
+    
+    
+ObjectProperty: heds:HED_0000104
 
-    Domain:
-        heds:HED_0000018
-
-    Range:
-        heds:HED_0000017
-
-
-ObjectProperty: heds:HED_0000105
-
-    Annotations:
+    Annotations: 
         dc:description "The default units to use if the placeholder has a unit class but the substituted value has no units.",
         rdfs:label "defaultUnits"
+    
+    Domain: 
+        heds:HED_0000006
+    
+    Range: 
+        heds:HED_0000007
+    
+    
+ObjectProperty: heds:HED_0000105
 
-    Domain:
-        heds:HED_0000017
+    Annotations: 
+        dc:description "A HED tag that is closely related to this tag. This attribute is used by tagging tools.",
+        rdfs:label "relatedTag"
+    
+    Domain: 
+        heds:HED_0000005
+    
+    Range: 
+        heds:HED_0000005
+    
+    
+ObjectProperty: heds:HED_0000106
 
-    Range:
-        heds:HED_0000018
+    Annotations: 
+        dc:description "A tag is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions",
+        rdfs:label "suggestedTag"
+    
+    Domain: 
+        heds:HED_0000005
+    
+    Range: 
+        heds:HED_0000005
+    
+    
+ObjectProperty: heds:HED_0000107
 
+    Annotations: 
+        dc:description "The unit class this placeholder tag belongs to.",
+        rdfs:comment "Maps a HedTag into a HedUnitClass name as a string.",
+        rdfs:label "unitClass"
+    
+    Domain: 
+        heds:HED_0000005
+    
+    Range: 
+        heds:HED_0000006
+    
+    
+ObjectProperty: heds:HED_0000108
 
-DataProperty: heds:HED_0000308
-
-    Annotations:
-        dc:description "This element comes from the indicated library version. This attribute is added by tools when a library schema is merged into its partnered standard schema.",
-        rdfs:label "inLibrary"
-
-    Domain:
-        heds:HED_0000003
-
-    Range:
-        xsd:string
-
-
-DataProperty: heds:HED_0000313
-
-    Annotations:
-        dc:description "This tag can only appear inside a tag group.",
-        rdfs:label "tagGroup"
-
-    Domain:
-        heds:HED_0000016
-
-    Range:
-        xsd:boolean
-
-
+    Annotations: 
+        dc:description "The value class this placeholder tag belongs to.",
+        rdfs:comment "Maps a HedTag into a HedValueClass name as a string.",
+        rdfs:label "valueClass"
+    
+    Domain: 
+        heds:HED_0000005
+    
+    Range: 
+        heds:HED_0000009
+    
+    
 DataProperty: heds:HED_0000300
 
-    Annotations:
+    Annotations: 
         dc:description "The semantic version of this schema.",
         rdfs:label "version"
-
-    Characteristics:
+    
+    Characteristics: 
         Functional
-
-    Domain:
-        heds:HED_0000021
-
-    Range:
+    
+    Domain: 
+        heds:HED_0000010
+    
+    Range: 
         xsd:string
-
-
+    
+    
 DataProperty: heds:HED_0000301
 
-    Annotations:
+    Annotations: 
         dc:description "The name of the library schema if applicable, otherwise an empty string.",
         rdfs:label "library"
-
-    Characteristics:
+    
+    Characteristics: 
         Functional
-
-    Domain:
-        heds:HED_0000021
-
-    Range:
+    
+    Domain: 
+        heds:HED_0000010
+    
+    Range: 
         xsd:string
-
-
+    
+    
 DataProperty: heds:HED_0000302
 
-    Annotations:
+    Annotations: 
         dc:description "If true, the schema is not merged with a partner schema.",
         rdfs:label "unmerged"
-
-    Characteristics:
+    
+    Characteristics: 
         Functional
-
-    Domain:
-        heds:HED_0000021
-
-    Range:
+    
+    Domain: 
+        heds:HED_0000010
+    
+    Range: 
         xsd:boolean
-
-
+    
+    
 DataProperty: heds:HED_0000303
 
-    Annotations:
+    Annotations: 
         dc:description "The version of the HED schema's standard schema partner.",
         rdfs:label "withStandard"
-
-    Characteristics:
+    
+    Characteristics: 
         Functional
-
-    Domain:
-        heds:HED_0000021
-
-    Range:
+    
+    Domain: 
+        heds:HED_0000010
+    
+    Range: 
         xsd:string
-
-
+    
+    
 DataProperty: heds:HED_0000304
 
-    Annotations:
+    Annotations: 
         dc:description "A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder. Normally the allowed characters are listed individually. However, the word letters designates the upper and lower case alphabetic characters and the word digits designates the digits 0-9. The word blank designates the blank character.",
         rdfs:label "allowedCharacter"
-
-    Domain:
+    
+    Domain: 
         heds:HED_0000003
-
-    Range:
+    
+    Range: 
         xsd:string
-
-
+    
+    
 DataProperty: heds:HED_0000305
 
-    Annotations:
+    Annotations: 
         dc:description "The factor to multiply these units or unit modifiers by to convert to default units.",
         rdfs:label "conversionFactor"
-
-    Domain:
-        heds:HED_0000018 or heds:HED_0000019
-
-    Range:
+    
+    Domain: 
+        heds:HED_0000007 or heds:HED_0000008
+    
+    Range: 
         xsd:float
-
-
+    
+    
 DataProperty: heds:HED_0000306
 
-    Annotations:
+    Annotations: 
         dc:description "Indicates that this element is deprecated. The value of the attribute is the latest schema version in which the element appeared in undeprecated form.",
         rdfs:label "deprecatedFrom"
-
-    Domain:
+    
+    Domain: 
         heds:HED_0000003
-
-    Range:
+    
+    Range: 
         xsd:string
-
-
+    
+    
 DataProperty: heds:HED_0000307
 
-    Annotations:
+    Annotations: 
         dc:description "A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of the hashtag placeholders.",
         rdfs:label "extensionAllowed"
-
-    Domain:
-        heds:HED_0000016
-
-    Range:
+    
+    Domain: 
+        heds:HED_0000005
+    
+    Range: 
         xsd:boolean
+    
+    
+DataProperty: heds:HED_0000308
 
-
+    Annotations: 
+        dc:description "This element comes from the indicated library version. This attribute is added by tools when a library schema is merged into its partnered standard schema.",
+        rdfs:label "inLibrary"
+    
+    Domain: 
+        heds:HED_0000003
+    
+    Range: 
+        xsd:string
+    
+    
 DataProperty: heds:HED_0000309
 
-    Annotations:
+    Annotations: 
         dc:description "This tag has special meaning and requires special handling by tools",
         rdfs:label "reserved"
-
-    Domain:
-        heds:HED_0000016
-
-    Range:
+    
+    Domain: 
+        heds:HED_0000005
+    
+    Range: 
         xsd:boolean
-
-
+    
+    
 DataProperty: heds:HED_0000310
 
-    Annotations:
+    Annotations: 
         dc:description "Indicates that this unit element is an SI unit and can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.",
         rdfs:label "SIUnit"
-
-    Domain:
-        heds:HED_0000018
-
-    Range:
+    
+    Domain: 
+        heds:HED_0000007
+    
+    Range: 
         xsd:boolean
-
-
+    
+    
 DataProperty: heds:HED_0000311
 
-    Annotations:
+    Annotations: 
         dc:description "This SI unit modifier represents a multiple or submultiple of a base unit rather than a unit symbol.",
         rdfs:label "SIUnitModifier"
-
-    Domain:
-        heds:HED_0000019
-
-    Range:
+    
+    Domain: 
+        heds:HED_0000008
+    
+    Range: 
         xsd:boolean
-
-
+    
+    
 DataProperty: heds:HED_0000312
 
-    Annotations:
+    Annotations: 
         dc:description "This SI unit modifier represents a multiple or submultiple of a unit symbol rather than a base symbol.",
         rdfs:label "SIUnitSymbolModifier"
-
-    Domain:
-        heds:HED_0000019
-
-    Range:
+    
+    Domain: 
+        heds:HED_0000008
+    
+    Range: 
         xsd:boolean
+    
+    
+DataProperty: heds:HED_0000313
 
-
+    Annotations: 
+        dc:description "This tag can only appear inside a tag group.",
+        rdfs:label "tagGroup"
+    
+    Domain: 
+        heds:HED_0000005
+    
+    Range: 
+        xsd:boolean
+    
+    
 DataProperty: heds:HED_0000314
 
-    Annotations:
+    Annotations: 
         dc:description "This tag (or its descendants) can only appear in a top-level tag group. A tag group can have at most one tag with this attribute.",
         rdfs:label "topLevelTagGroup"
-
-    Domain:
-        heds:HED_0000016
-
-    Range:
+    
+    Domain: 
+        heds:HED_0000005
+    
+    Range: 
         xsd:boolean
-
-
+    
+    
 DataProperty: heds:HED_0000315
 
-    Annotations:
+    Annotations: 
         dc:description "Only one of this tag or its descendants can be used in the event-level HED string.",
         rdfs:label "unique"
-
-    Domain:
-        heds:HED_0000016
-
-    Range:
+    
+    Domain: 
+        heds:HED_0000005
+    
+    Range: 
         xsd:boolean
-
-
+    
+    
 DataProperty: heds:HED_0000316
 
-    Annotations:
+    Annotations: 
         dc:description "This unit is a prefix unit (e.g., dollar sign in the currency units).",
         rdfs:label "unitPrefix"
-
-    Domain:
-        heds:HED_0000018
-
-    Range:
+    
+    Domain: 
+        heds:HED_0000007
+    
+    Range: 
         xsd:boolean
-
-
+    
+    
 DataProperty: heds:HED_0000317
 
-    Annotations:
+    Annotations: 
         dc:description "This is an abbreviation or symbol representing a type of unit. Unit symbols represent both the singular and the plural and thus cannot be pluralized.",
         rdfs:label "unitSymbol"
-
-    Domain:
-        heds:HED_0000018
-
-    Range:
+    
+    Domain: 
+        heds:HED_0000007
+    
+    Range: 
         xsd:boolean
 
-
+    
 Class: heds:HED_0000001
 
-    Annotations:
+    Annotations: 
         dc:description "Any item in the HED ontology.",
         rdfs:comment "Used to anchor all items in both the structural schema and the tags.",
         rdfs:label "HedEntity"
-
-    SubClassOf:
+    
+    SubClassOf: 
         owl:Thing
-
-
+    
+    
 Class: heds:HED_0000002
 
-    Annotations:
+    Annotations: 
         dc:description "Any structural element of the HED schema including header, sections, epilogue, and prologue.",
         rdfs:comment "Used to anchor all items in both the structural.",
         rdfs:label "HedStructure"
-
-    SubClassOf:
+    
+    EquivalentTo: 
         heds:HED_0000001
-
-
+         and (heds:HED_0000102 exactly 1 heds:HED_0000004)
+    
+    
 Class: heds:HED_0000003
 
-    Annotations:
+    Annotations: 
         dc:description "Any item in a HED schema.",
         rdfs:comment "Used to anchor all items in both the structural schema and the tags.",
         rdfs:label "HedElement"
-
-    EquivalentTo:
+    
+    EquivalentTo: 
         heds:HED_0000001
-         and (heds:HED_0000300 value true)
-
-
+         and (heds:HED_0000102 exactly 1 heds:HED_0000004)
+    
+    
 Class: heds:HED_0000004
 
-    Annotations:
+    Annotations: 
         dc:description "The overall structure of the HED schema by section.",
         rdfs:label "HedSchema"
-
-    EquivalentTo:
+    
+    SubClassOf: 
         heds:HED_0000002
-         and (heds:HED_0000101 exactly 1 heds:HED_0000006)
-         and (heds:HED_0000101 exactly 1 heds:HED_0000007)
-         and (heds:HED_0000101 exactly 1 heds:HED_0000008)
-         and (heds:HED_0000101 exactly 1 heds:HED_0000009)
-         and (heds:HED_0000101 exactly 1 heds:HED_0000010)
-         and (heds:HED_0000101 exactly 1 heds:HED_0000011)
-         and (heds:HED_0000101 exactly 1 heds:HED_0000012)
-         and (heds:HED_0000101 exactly 1 heds:HED_0000013)
-         and (heds:HED_0000101 exactly 1 heds:HED_0000014)
-         and (heds:HED_0000101 exactly 1 heds:HED_0000015)
-
-
+    
+    
 Class: heds:HED_0000005
 
-    Annotations:
-        dc:description "Any section of the HED schema structure.",
-        rdfs:comment "This is a structural class defining the different sections of the HED schema.",
-        rdfs:label "HedSection"
-
-    SubClassOf:
-        heds:HED_0000002
-
-
+    Annotations: 
+        dc:description "A HED vocabulary term or node representing a HED tag.",
+        rdfs:label "HedTag"
+    
+    SubClassOf: 
+        heds:HED_0000003
+    
+    
 Class: heds:HED_0000006
 
-    Annotations:
-        dc:description "The HED schema header structure.",
-        rdfs:comment "The schema header contains the HED schema version, which is distinct from the ontology version.",
-        rdfs:label "HedHeaderSection"
-
-    SubClassOf:
-        heds:HED_0000005
-
-
+    Annotations: 
+        dc:description "A category of units such as acceleration units.",
+        rdfs:label "HedUnitClass"
+    
+    EquivalentTo: 
+        heds:HED_0000003
+         and (heds:HED_0000102 exactly 1 heds:HED_0000004)
+    
+    
 Class: heds:HED_0000007
 
-    Annotations:
-        dc:description "The schema section containing an introduction to this HED schema.",
-        rdfs:label "HedPrologueSection"
-
-    SubClassOf:
-        heds:HED_0000005
-
-
-Class: heds:HED_0000008
-
-    Annotations:
-        dc:description "The schema section for main body of the schema containing the HED vocabulary.",
-        rdfs:label "HedSchemaSection"
-
-    SubClassOf:
-        heds:HED_0000005
-
-
-Class: heds:HED_0000009
-
-    Annotations:
-        dc:description "The required marker for the end of the HED schema vocabulary section.",
-        rdfs:label "HedEndSchemaSection"
-
-    SubClassOf:
-        heds:HED_0000005
-
-
-Class: heds:HED_0000010
-
-    Annotations:
-        dc:description "The schema section defining unit classes and the units for the nodes.",
-        rdfs:label "HedUnitClassDefinitionSection"
-
-    SubClassOf:
-        heds:HED_0000005
-
-
-Class: heds:HED_0000011
-
-    Annotations:
-        dc:description "The definitions of unit multiples and submultiples.",
-        rdfs:label "HedUnitModifierDefinitionSection"
-
-    SubClassOf:
-        heds:HED_0000005
-
-
-Class: heds:HED_0000012
-
-    Annotations:
-        dc:description "The definitions of values allowed for placeholders.",
-        rdfs:label "HedValueClassDefinitionSection"
-
-    SubClassOf:
-        heds:HED_0000005
-
-
-Class: heds:HED_0000013
-
-    Annotations:
-        dc:description "Definitions of attributes for elements in other sections of the HED schema.",
-        rdfs:label "HedSchemaAttributeDefinitionSection"
-
-    SubClassOf:
-        heds:HED_0000005
-
-
-Class: heds:HED_0000014
-
-    Annotations:
-        dc:description "The ending section containing material such as citation, licensing, and other information.",
-        rdfs:label "HedEpilogueSection"
-
-    SubClassOf:
-        heds:HED_0000005
-
-
-Class: heds:HED_0000015
-
-    Annotations:
-        dc:description "The required end marker for the HED schema.",
-        rdfs:label "HedEndSection"
-
-    SubClassOf:
-        heds:HED_0000005
-
-
-Class: heds:HED_0000016
-
-    Annotations:
-        dc:description "A HED vocabulary term or node.",
-        rdfs:comment "A HED Element that is in the HEDSchemaSection and represents a HED tag.",
-        rdfs:label "HedTag"
-
-    EquivalentTo:
-        heds:HED_0000003
-         and (heds:HED_0000102 exactly 1 heds:HED_0000008)
-
-
-Class: heds:HED_0000017
-
-    Annotations:
-        dc:description "A category of units such as acceleration units.",
-        rdfs:comment "HED unit class definitions are in the HedUnitClassDefinitionSection section of the HED schema.",
-        rdfs:label "HedUnitClass"
-
-    EquivalentTo:
-        heds:HED_0000003
-         and (heds:HED_0000102 some heds:HED_0000010)
-
-
-Class: heds:HED_0000018
-
-    Annotations:
+    Annotations: 
         dc:description "A unit element such as seconds.",
         rdfs:comment "HED units have a isOfUnitType association with a HedUnitClass.",
         rdfs:label "HedUnit"
-
-    EquivalentTo:
+    
+    EquivalentTo: 
         heds:HED_0000003
-         and (heds:HED_0000102 some heds:HED_0000010)
-         and (heds:HED_0000104 some heds:HED_0000017)
+         and (heds:HED_0000103 some heds:HED_0000006)
+    
+    
+Class: heds:HED_0000008
 
-
-Class: heds:HED_0000019
-
-    Annotations:
+    Annotations: 
         dc:description "A unit modifier such as kilo.",
-        rdfs:comment "A unit modifier is in the HEDUnitModifierDefinitionSection of the HED schema.",
         rdfs:label "HedUnitModifier"
-
-    EquivalentTo:
+    
+    SubClassOf: 
         heds:HED_0000003
-         and (heds:HED_0000102 some heds:HED_0000011)
+    
+    
+Class: heds:HED_0000009
 
-
-Class: heds:HED_0000020
-
-    Annotations:
+    Annotations: 
         dc:description "Rules for a type of value provided by users to substitute for placeholders.",
-        rdfs:comment "A value class is in the HedValueClassDefinitionSection of the HED schema.",
         rdfs:label "HedValueClass"
-
-    EquivalentTo:
+    
+    SubClassOf: 
         heds:HED_0000003
-         and (heds:HED_0000102 some heds:HED_0000012)
+    
+    
+Class: heds:HED_0000010
 
-
-Class: heds:HED_0000021
-
-    Annotations:
+    Annotations: 
         dc:description "Contains the specification of the schema version and partnership.",
         rdfs:label "HedHeader"
-
-    EquivalentTo:
+    
+    EquivalentTo: 
         heds:HED_0000002
-         and (heds:HED_0000102 exactly 1 heds:HED_0000006)
          and (heds:HED_0000300 exactly 1 xsd:string)
          and (heds:HED_0000301 max 1 xsd:string)
          and (heds:HED_0000302 max 1 xsd:boolean)
          and (heds:HED_0000303 max 1 xsd:string)
+    
+    
+Class: heds:HED_0000011
 
-
-Class: heds:HED_0000022
-
-    Annotations:
+    Annotations: 
         dc:description "The introductory text of a HED schema which describes is purpose and scope.",
         rdfs:label "HedPrologue"
-
-    EquivalentTo:
+    
+    SubClassOf: 
         heds:HED_0000002
-         and (heds:HED_0000102 exactly 1 heds:HED_0000007)
-
-
-Class: heds:HED_0000023
+    
+    
+Class: heds:HED_0000012
 
     Annotations: 
         dc:description "The end piece text of a HED schema which describes sources and other reference material.",
         rdfs:label "HedEpilogue"
     
-    EquivalentTo: 
+    SubClassOf: 
         heds:HED_0000002
-         and (heds:HED_0000102 exactly 1 heds:HED_0000014)
     
     
 Class: owl:Thing
