@@ -1,13 +1,13 @@
-ID	label	Parent 	Description	Comment	Equivalence
+ID	label	Parent 	Description	Comment	EquivalentTo
 HED_0000001	HedEntity	owl:Thing			
 HED_0000002	HedStructure	HedEntity			
-HED_0000003	HedElement	HedEntity	Any item in a HED schema.	Used to anchor all items in both the structural schema and the tags.	
-HED_0000004	HedSchema	HedStructure	The overall structure of the HED schema by section.		heds:HedElement and
-HED_0000005	HedTag	HedElement	A HED vocabulary term or node.	A HedElement that is in the HEDSchemaSection and represents a HED tag.	HedElement and (inSchemaSection exactly 1 HedSchemaSection)
-HED_0000006	HedUnitClass	HedElement	A category of units such as acceleration units.	HED unit class definitions are in the HedUnitClassDefinitionSection section of the HED schema.	HedElement and (inSchemaSection HedUnitClassDefinitionSection)
-HED_0000007	HedUnit	HedElement	A unit element such as seconds.	HED units have a isOfUnitType association with a HedUnitClass.	HedElement and (inSchemaSection HedUnitClassDefinitionSection) and (isOfUnitType some HedUnitClass)
-HED_0000008	HedUnitModifier	HedElement	A unit modifier such as kilo.	A unit modifier is in the HEDUnitModifierDefinitionSection of the HED schema.	HedElement and (inSchemaSection HedUnitModifierDefinitionSection)
-HED_0000009	HedValueClass	HedElement	Rules for a type of value provided by users to substitute for placeholders.	A value class is in the HedValueClassDefinitionSection of the HED schema.	HedElement and (inSchemaSection HedValueClassDefinitionSection)
-HED_0000010	HedHeader	HedStructure	Contains the specification of the schema version and partnership.		HedElement and (inHedSection exactly 1 HedHeaderSection) and (version exactly 1 xsd:string) and (library max 1 xsd:string) and (unmerged 1 xsd:string) and (withStandard max 1 xsd:boolean)
-HED_0000011	HedPrologue	HedStructure	The introductory text of a HED schema which describes is purpose and scope.		HedElement and (inHedSection exactly 1 HedPrologueSection)
-HED_0000012	HedEpilogue	HedStructure	The end piece text of a HED schema which describes sources and other reference material.		
+HED_0000003	HedElement	HedEntity	Any item in a HED schema.	Used to anchor all items in both the structural schema and the tags.	and (inHedSchema exactly 1 HedSchema)
+HED_0000004	HedSchema	HedStructure	The overall structure of the HED schema by section.		HedElement and (hasHedEntity exactly 1 HedHeader) and (hasHedEntity exactly 1 HedPrologue) and (hasHedEntity exactly 1 HedEpilogue)
+HED_0000005	HedTag	HedElement	A HED vocabulary term or node.	A HedElement that is in the HEDSchemaSection and represents a HED tag.	
+HED_0000006	HedUnitClass	HedElement	A category of units such as acceleration units.	HED unit class definitions are in the HedUnitClassDefinitionSection section of the HED schema.	
+HED_0000007	HedUnit	HedElement	A unit element such as seconds.	HED units have a isOfUnitType association with a HedUnitClass.	HedElement and and (isOfUnitType some HedUnitClass)
+HED_0000008	HedUnitModifier	HedElement	A unit modifier such as kilo.	A unit modifier is in the HEDUnitModifierDefinitionSection of the HED schema.	
+HED_0000009	HedValueClass	HedElement	Rules for a type of value provided by users to substitute for placeholders.	A value class is in the HedValueClassDefinitionSection of the HED schema.	
+HED_0000010	HedHeader	HedElement	Contains the specification of the schema version and partnership.		HedElement and (version exactly 1 xsd:string) and (library max 1 xsd:string) and (unmerged 1 xsd:string) and (withStandard max 1 xsd:boolean)
+HED_0000011	HedPrologue	HedElement	The introductory text of a HED schema which describes is purpose and scope.		
+HED_0000012	HedEpilogue	HedElement	The end piece text of a HED schema which describes sources and other reference material.		

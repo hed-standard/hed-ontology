@@ -162,7 +162,7 @@ ObjectProperty: heds:HED_0000103
     Annotations: 
         dc:description "Associates a HedUnit with its category (HedUnitClass).",
         rdfs:comment "This is a structural property which allows tools to place a unit in its correct grouping.",
-        rdfs:label "hasUnitType"
+        rdfs:label "hasUnitClass"
     
     Domain: 
         heds:HED_0000007
@@ -494,7 +494,42 @@ Class: hed:HED_0010004
          and (heds:HED_0000101 some hed:HED_0010010)
          and (heds:HED_0000101 some hed:HED_0010011)
          and (heds:HED_0000101 some hed:HED_0010012)
-    
+
+Class: hed:HED_0010006
+
+    Annotations:
+        rdfs:label "StandardUnitClass"
+
+    EquivalentTo:
+        heds:HED_0000006
+         and (heds:HED_0000102 some hed:HED_0010004)
+
+Class: hed:HED_0010007
+
+    Annotations:
+        rdfs:label "StandardUnit"
+
+    EquivalentTo:
+        heds:HED_0000007
+         and (heds:HED_0000102 some hed:HED_0010004)
+
+Class: hed:HED_0010008
+
+    Annotations:
+        rdfs:label "StandardUnitModifier"
+
+    EquivalentTo:
+        heds:HED_0000008
+         and (heds:HED_0000102 some hed:HED_0010004)
+
+Class: hed:HED_0010009
+
+    Annotations:
+        rdfs:label "StandardValueClass"
+
+    EquivalentTo:
+        heds:HED_0000009
+         and (heds:HED_0000102 some hed:HED_0010004)
     
 Class: hed:HED_0010010
 
@@ -536,8 +571,7 @@ Class: hed:HED_0010400
         rdfs:label "deca"
     
     EquivalentTo: 
-        heds:HED_0000008
-         and (heds:HED_0000102 some hed:HED_0010004)
+        hed:HED_0010008
          and (heds:HED_0000305 value 10.0f)
          and (heds:HED_0000311 value true)
     
@@ -549,8 +583,7 @@ Class: hed:HED_0011303
         rdfs:label "numericClass"
     
     EquivalentTo: 
-        heds:HED_0000009
-         and (heds:HED_0000102 some hed:HED_0010004)
+        hed:HED_0010009
          and (heds:HED_0000304 value "E")
          and (heds:HED_0000304 value "digits")
          and (heds:HED_0000304 value "e")
@@ -565,8 +598,7 @@ Class: hed:HED_0011500
         rdfs:label "accelerationUnits"
     
     EquivalentTo: 
-        heds:HED_0000006
-         and (heds:HED_0000102 some hed:HED_0010004)
+        hed:HED_0010006
          and (heds:HED_0000104 some hed:HED_0011600)
     
     
@@ -576,10 +608,10 @@ Class: hed:HED_0011600
         rdfs:label "m-per-s^2"
     
     EquivalentTo: 
-        heds:HED_0000007
-         and (heds:HED_0000102 some hed:HED_0010004)
+        hed:HED_0010007
          and (heds:HED_0000103 some hed:HED_0011500)
          and (heds:HED_0000304 value "caret")
+         and (heds:HED_0000305 value 1.0)
          and (heds:HED_0000310 value true)
          and (heds:HED_0000317 value true)
     
@@ -744,7 +776,7 @@ Class: heds:HED_0000007
     
     EquivalentTo: 
         heds:HED_0000003
-         and (heds:HED_0000103 some heds:HED_0000006)
+         and (heds:HED_0000103 exactly 1 heds:HED_0000006)
     
     
 Class: heds:HED_0000008

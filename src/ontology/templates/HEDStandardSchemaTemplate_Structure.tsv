@@ -1,5 +1,9 @@
 hedID	Class	Parent	
 HED_0010004	StandardSchema	HedSchema	
-HED_0010005	StandardHeader	HedHeader	
-HED_0010006	StandardPrologue	HedPrologue	The HED standard schema is a hierarchically-organized vocabulary for annotating events and experimental structure. HED annotations consist of comma-separated tags drawn from this vocabulary. This vocabulary can be augmented by terms drawn from specialized library schema.
-HED_0010007	StandardEpilogue	HedEpilogueSection	This schema is released under the Creative Commons Attribution 4.0 International and is a product of the HED Working Group. The DOI for the latest version of the HED standard schema is 10.5281/zenodo.7876037.
+HED_0010006	StandardUnitClass	HedUnitClass	
+HED_0010007	StandardUnit	HedUnit	
+HED_0010008	StandardUnitModifier	HedUnitModifier	
+HED_0010009	StandardValueClass	HedValueclass	
+HED_0010010	StandardHeader	HedHeader	
+HED_0010011	StandardPrologue	HedPrologue	The HED standard schema is a hierarchically-organized vocabulary for annotating events and experimental structure. HED annotations consist of comma-separated tags drawn from this vocabulary. This vocabulary can be augmented by terms drawn from specialized library schema.
+HED_0010012	StandardEpilogue	HedEpilogueSection	This schema is released under the Creative Commons Attribution 4.0 International and is a product of the HED Working Group. The DOI for the latest version of the HED standard schema is 10.5281/zenodo.7876037.
