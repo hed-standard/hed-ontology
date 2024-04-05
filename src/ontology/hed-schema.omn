@@ -162,7 +162,7 @@ ObjectProperty: heds:HED_0000103
     Annotations: 
         dc:description "Associates a HedUnit with its category (HedUnitClass).",
         rdfs:comment "This is a structural property which allows tools to place a unit in its correct grouping.",
-        rdfs:label "hasUnitType"
+        rdfs:label "hasUnitClass"
     
     Domain: 
         heds:HED_0000007
