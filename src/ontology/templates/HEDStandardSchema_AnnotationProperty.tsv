@@ -1,0 +1,4 @@
+hedId	rdfs:label	Type	omn:Domain	omn:Range	omn:Characteristics	Properties	dc:description	rdfs:comment
+HED_0010501	requireChild	AnnotationProperty	HedTag	xsd:boolean		tagDomain, boolRange	This tag must have a descendent.	Maps a HedTag into a boolean.
+HED_0010502	rooted	AnnotationProperty	HedTag	xsd:string		tagDomain, stringRange	This top-level library schema node should have a parent which is the indicated node in the partnered standard schema.	Maps a HedTag into a HedTag name as a string.
+HED_0010503	takesValue	AnnotationProperty	HedTag	xsd:boolean		tagDomain, boolRange	This tag is a hashtag placeholder that is expected to be replaced with a user-defined value.	Maps a HedTag into a unit class.

@@ -171,7 +171,7 @@ ObjectProperty: heds:HED_0000103
         heds:HED_0000006
     
     
-ObjectProperty: heds:HED_0000104
+ObjectProperty: hed:HED_0010104
 
     Annotations: 
         dc:description "The default units to use if the placeholder has a unit class but the substituted value has no units.",
@@ -184,7 +184,7 @@ ObjectProperty: heds:HED_0000104
         heds:HED_0000007
     
     
-ObjectProperty: heds:HED_0000105
+ObjectProperty: hed:HED_0010105
 
     Annotations: 
         dc:description "A HED tag that is closely related to this tag. This attribute is used by tagging tools.",
@@ -197,7 +197,7 @@ ObjectProperty: heds:HED_0000105
         heds:HED_0000005
     
     
-ObjectProperty: heds:HED_0000106
+ObjectProperty: hed:HED_0010106
 
     Annotations: 
         dc:description "A tag is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions",
@@ -224,7 +224,7 @@ ObjectProperty: heds:HED_0000107
         heds:HED_0000006
     
     
-ObjectProperty: heds:HED_0000108
+ObjectProperty: hed:HED_0010108
 
     Annotations: 
         dc:description "The value class this placeholder tag belongs to.",
@@ -302,7 +302,7 @@ DataProperty: heds:HED_0000303
         xsd:string
     
     
-DataProperty: heds:HED_0000304
+DataProperty: hed:HED_0010304
 
     Annotations: 
         dc:description "A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder. Normally the allowed characters are listed individually. However, the word letters designates the upper and lower case alphabetic characters and the word digits designates the digits 0-9. The word blank designates the blank character.",
@@ -315,7 +315,7 @@ DataProperty: heds:HED_0000304
         xsd:string
     
     
-DataProperty: heds:HED_0000305
+DataProperty: hed:HED_0010305
 
     Annotations: 
         dc:description "The factor to multiply these units or unit modifiers by to convert to default units.",
@@ -328,7 +328,7 @@ DataProperty: heds:HED_0000305
         xsd:float
     
     
-DataProperty: heds:HED_0000306
+DataProperty: hed:HED_0010306
 
     Annotations: 
         dc:description "Indicates that this element is deprecated. The value of the attribute is the latest schema version in which the element appeared in undeprecated form.",
@@ -341,7 +341,7 @@ DataProperty: heds:HED_0000306
         xsd:string
     
     
-DataProperty: heds:HED_0000307
+DataProperty: hed:HED_0010307
 
     Annotations: 
         dc:description "A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of the hashtag placeholders.",
@@ -354,7 +354,7 @@ DataProperty: heds:HED_0000307
         xsd:boolean
     
     
-DataProperty: heds:HED_0000308
+DataProperty: hed:HED_0010308
 
     Annotations: 
         dc:description "This element comes from the indicated library version. This attribute is added by tools when a library schema is merged into its partnered standard schema.",
@@ -367,7 +367,7 @@ DataProperty: heds:HED_0000308
         xsd:string
     
     
-DataProperty: heds:HED_0000309
+DataProperty: hed:HED_0010309
 
     Annotations: 
         dc:description "This tag has special meaning and requires special handling by tools",
@@ -380,7 +380,7 @@ DataProperty: heds:HED_0000309
         xsd:boolean
     
     
-DataProperty: heds:HED_0000310
+DataProperty: hed:HED_0010310
 
     Annotations: 
         dc:description "Indicates that this unit element is an SI unit and can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.",
@@ -393,7 +393,7 @@ DataProperty: heds:HED_0000310
         xsd:boolean
     
     
-DataProperty: heds:HED_0000311
+DataProperty: hed:HED_0010311
 
     Annotations: 
         dc:description "This SI unit modifier represents a multiple or submultiple of a base unit rather than a unit symbol.",
@@ -406,7 +406,7 @@ DataProperty: heds:HED_0000311
         xsd:boolean
     
     
-DataProperty: heds:HED_0000312
+DataProperty: hed:HED_0010312
 
     Annotations: 
         dc:description "This SI unit modifier represents a multiple or submultiple of a unit symbol rather than a base symbol.",
@@ -419,7 +419,7 @@ DataProperty: heds:HED_0000312
         xsd:boolean
     
     
-DataProperty: heds:HED_0000313
+DataProperty: hed:HED_0010313
 
     Annotations: 
         dc:description "This tag can only appear inside a tag group.",
@@ -432,7 +432,7 @@ DataProperty: heds:HED_0000313
         xsd:boolean
     
     
-DataProperty: heds:HED_0000314
+DataProperty: hed:HED_0010314
 
     Annotations: 
         dc:description "This tag (or its descendants) can only appear in a top-level tag group. A tag group can have at most one tag with this attribute.",
@@ -445,7 +445,7 @@ DataProperty: heds:HED_0000314
         xsd:boolean
     
     
-DataProperty: heds:HED_0000315
+DataProperty: hed:HED_0010315
 
     Annotations: 
         dc:description "Only one of this tag or its descendants can be used in the event-level HED string.",
@@ -458,7 +458,7 @@ DataProperty: heds:HED_0000315
         xsd:boolean
     
     
-DataProperty: heds:HED_0000316
+DataProperty: hed:HED_0010316
 
     Annotations: 
         dc:description "This unit is a prefix unit (e.g., dollar sign in the currency units).",
@@ -471,7 +471,7 @@ DataProperty: heds:HED_0000316
         xsd:boolean
     
     
-DataProperty: heds:HED_0000317
+DataProperty: hed:HED_0010317
 
     Annotations: 
         dc:description "This is an abbreviation or symbol representing a type of unit. Unit symbols represent both the singular and the plural and thus cannot be pluralized.",
@@ -572,8 +572,8 @@ Class: hed:HED_0010400
     
     EquivalentTo: 
         hed:HED_0010008
-         and (heds:HED_0000305 value 10.0f)
-         and (heds:HED_0000311 value true)
+         and (hed:HED_0010305 value 10.0f)
+         and (hed:HED_0010311 value true)
     
     
 Class: hed:HED_0011303
@@ -584,12 +584,12 @@ Class: hed:HED_0011303
     
     EquivalentTo: 
         hed:HED_0010009
-         and (heds:HED_0000304 value "E")
-         and (heds:HED_0000304 value "digits")
-         and (heds:HED_0000304 value "e")
-         and (heds:HED_0000304 value "hyphen")
-         and (heds:HED_0000304 value "period")
-         and (heds:HED_0000304 value "plus")
+         and (hed:HED_0010304 value "E")
+         and (hed:HED_0010304 value "digits")
+         and (hed:HED_0010304 value "e")
+         and (hed:HED_0010304 value "hyphen")
+         and (hed:HED_0010304 value "period")
+         and (hed:HED_0010304 value "plus")
     
     
 Class: hed:HED_0011500
@@ -599,7 +599,7 @@ Class: hed:HED_0011500
     
     EquivalentTo: 
         hed:HED_0010006
-         and (heds:HED_0000104 some hed:HED_0011600)
+         and (hed:HED_0010104 some hed:HED_0011600)
     
     
 Class: hed:HED_0011600
@@ -610,10 +610,10 @@ Class: hed:HED_0011600
     EquivalentTo: 
         hed:HED_0010007
          and (heds:HED_0000103 some hed:HED_0011500)
-         and (heds:HED_0000304 value "caret")
-         and (heds:HED_0000305 value 1.0)
-         and (heds:HED_0000310 value true)
-         and (heds:HED_0000317 value true)
+         and (hed:HED_0010304 value "caret")
+         and (hed:HED_0010305 value 1.0)
+         and (hed:HED_0010310 value true)
+         and (hed:HED_0010317 value true)
     
     
 Class: hed:HED_0012001
@@ -646,7 +646,7 @@ Class: hed:HED_0012412
     EquivalentTo: 
         heds:HED_0000005
          and (heds:HED_0000102 some hed:HED_0010004)
-         and (heds:HED_0000307 value true)
+         and (hed:HED_0010307 value true)
     
     
 Class: hed:HED_0012459
@@ -669,27 +669,27 @@ Class: hed:HED_0012492
         hed:HED_0012412
     
     
-Class: hed:HED_0012642
+Class: hed:HED_0012697
 
     Annotations: 
         dc:description "A value based on or employing the principles of statistics.",
         rdfs:label "Statistical-value"
     
     SubClassOf: 
-        hed:HED_0012459
+        hed:HED_0012492
     
     
-Class: hed:HED_0012643
+Class: hed:HED_0012698
 
     Annotations: 
         dc:description "The largest possible quantity or degree.",
         rdfs:label "Data-maximum"
     
     SubClassOf: 
-        hed:HED_0012642
+        hed:HED_0012697
     
     
-Class: hed:HED_0012644
+Class: hed:HED_0012699
 
     Annotations: 
         dc:description "The numeric value of the data maximum.",
@@ -697,8 +697,8 @@ Class: hed:HED_0012644
         rdfs:label "Data-maximum-#"
     
     EquivalentTo: 
-        hed:HED_0012643
-         and (heds:HED_0000108 some hed:HED_0011303)
+        hed:HED_0012698
+         and (hed:HED_0010108 some hed:HED_0011303)
     
     
 Class: heds:HED_0000001
