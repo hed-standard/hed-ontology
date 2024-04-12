@@ -1,4 +1,4 @@
-ID	Label	Type	Attributes	Description	EquivalentTo
+hedId	rdfs:label	Parent class	Attributes	dc:description	omn:EquivalentTo
 HED_0011500	accelerationUnits	StandardUnitClass	defaultUnits=m-per-s^2		StandardUnitClass and (defaultUnits value m-per-s^2)
 HED_0011501	angleUnits	StandardUnitClass	defaultUnits=radian		StandardUnitClass and (defaultUnits some radian)
 HED_0011502	areaUnits	StandardUnitClass	defaultUnits=m^2		StandardUnitClass and (defaultUnits some m^2)

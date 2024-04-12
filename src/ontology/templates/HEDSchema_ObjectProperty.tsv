@@ -1,0 +1,4 @@
+hedId	rdfs:label	Type	omn:Domain	omn:Range	omn:Characteristics	Properties	dc:description	rdfs:comment
+HED_0000101	hasHedEntity	ObjectProperty	HedSchema	HedEntity				
+HED_0000102	inHedSchema	ObjectProperty	HedEntity	HedSchema				
+HED_0000103	hasUnitClass	ObjectProperty	HedUnit	HedUnitClass			Associates a HedUnit with its category (HedUnitClass).	Maps HedUnit into HedUnitClass, allowing tools to place a unit in its correct grouping.

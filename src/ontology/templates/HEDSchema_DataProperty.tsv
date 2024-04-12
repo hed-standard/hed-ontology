@@ -1,0 +1,5 @@
+hedId	rdfs:label	Type	omn:Domain	omn:Range	omn:Characteristics	Properties	dc:description	rdfs:comment
+HED_0000300	version	DataProperty	HedHeader	xsd:string	Functional		The semantic version of this schema.	Maps HedHeader into its schema version.
+HED_0000301	library	DataProperty	HedHeader	xsd:string	Functional		The name of the library schema if applicable, otherwise an empty string.	Maps HedHeader into its library name if this is a library schema.
+HED_0000302	unmerged	DataProperty	HedHeader	xsd:boolean	Functional		If true, the schema is not merged with a partner schema.	Maps HedHeader into an indicator of whether this is a library merged with its standard schema partner.
+HED_0000303	withStandard	DataProperty	HedHeader	xsd:string	Functional		The version of the HED schema's standard schema partner.	Maps HedHeader into the version number of the standard schema it is partnered with (libraries only)

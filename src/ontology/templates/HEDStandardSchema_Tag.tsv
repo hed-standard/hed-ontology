@@ -1,6 +1,6 @@
-hedId	Level	rdfs:label	Parent	Attributes	dc:description	EquivalentTo	Comment	Source
-HED_0012001	0-10	Event	HedTag	suggestedTag=Task-property	Something that happens at a given time and (typically) place. Elements of this tag subtree designate the general category in which an event falls.	HedTag and (suggestedTag some Task-property)		
-HED_0012002	1-11	Sensory-event	Event	suggestedTag=Task-event-role, suggestedTag=Sensory-presentation	Something perceivable by the participant. An event meant to be an experimental stimulus should include the tag Task-property/Task-event-role/Experimental-stimulus.	Event and (suggestedTag some Task-event-role) and (suggestedTag some Sensory-presentation)		
+hedId	Level	rdfs:label	Parent class	Attributes	dc:description	omn:EquivalentTo	rdfs:comment	dc:source
+HED_0012001	0	Event	HedTag	suggestedTag=Task-property	Something that happens at a given time and (typically) place. Elements of this tag subtree designate the general category in which an event falls.	HedTag and (suggestedTag some Task-property)	...	...
+HED_0012002	1	Sensory-event	Event	suggestedTag=Task-event-role, suggestedTag=Sensory-presentation	Something perceivable by the participant. An event meant to be an experimental stimulus should include the tag Task-property/Task-event-role/Experimental-stimulus.	Event and (suggestedTag some Task-event-role) and (suggestedTag some Sensory-presentation)		
 								
 HED_0012009	0-19	Agent	HedTag	suggestedTag=Agent-property	Someone or something that takes an active role or produces a specified effect.The role or effect may be implicit. Being alive or performing an activity such as a computation may qualify something to be an agent. An agent may also be something that simulates something else.			
 HED_0012010	1-20	Animal-agent	Agent		An agent that is an animal.			
@@ -23,10 +23,10 @@ HED_0012171	0-183	Item		extensionAllowed	An independently existing thing (living
 	2-427	Agent-state	Agent-property		The state of the agent.			
 								
 HED_0012492	1-505	Data-property			Something that pertains to data or information.			
-	2-506	Data-artifact			An anomalous, interfering, or distorting signal originating from a source other than the item being studied.			
+HED_0012493	2-506	Data-artifact			An anomalous, interfering, or distorting signal originating from a source other than the item being studied.			
 								
 HED_0012459	2-562	Data-value			Designation of the type of a data item.			
 								
-HED0012642	3-655	Statistical-value	Data-value		A value based on or employing the principles of statistics.			
-HED0012643	4-656	Data-maximum	Data-maximum		The largest possible quantity or degree.			
-HED0012644	5-657	Data-maximum-#	Data-maximum-#	takesValue, valueClass=numericClass				
+HED_0012697	3-655	Statistical-value	Data-value		A value based on or employing the principles of statistics.			
+HED_0012698	4-656	Data-maximum	Data-maximum		The largest possible quantity or degree.			
+HED_0012699	5-657	Data-maximum-#	Data-maximum-#	takesValue, valueClass=numericClass				
