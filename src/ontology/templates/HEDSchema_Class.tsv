@@ -1,4 +1,4 @@
-hedId	rdfs:label	Parent 	dc:description	rdfs:comment	omn:EquivalentTo
+hedId	rdfs:label	omn:SubClassOf	dc:description	rdfs:comment	omn:EquivalentTo
 HED_0000001	HedEntity	owl:Thing			
 HED_0000002	HedStructure	HedEntity			
 HED_0000003	HedElement	HedEntity	Any item in a HED schema.	Used to anchor all items in both the structural schema and the tags.	and (inHedSchema exactly 1 HedSchema)

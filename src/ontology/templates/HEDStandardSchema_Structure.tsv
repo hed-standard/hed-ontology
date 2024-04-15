@@ -1,4 +1,4 @@
-hedID	rdfs:label	Attributes	Parent class	dc:description	omn:EquivalentTo
+hedID	rdfs:label	Attributes	omn:SubClassOf	dc:description	omn:EquivalentTo
 HED_0010004	StandardSchema		HedSchema		
 HED_0010006	StandardUnitClass		HedUnitClass		
 HED_0010007	StandardUnit		HedUnit		

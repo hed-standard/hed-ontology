@@ -1,4 +1,4 @@
-hedId	rdfs:label	Parent class	hasUnitClass	Attributes	dc:description	omn:EquivalentTo
+hedId	rdfs:label	omn:SubClassOf	heds:hasUnitClass	Attributes	dc:description	omn:EquivalentTo
 HED_0011600	m-per-s^2	StandardUnit	accelerationUnits	SIUnit, unitSymbol, conversionFactor=1.0, allowedCharacter=caret		StandardUnit and (hasUnitClass some accelerationUnits) and (allowedCharacter value "caret") and (conversionFactor value 1.0) and (SIUnit value true) and (unitSymbol value true)
 HED_0011601	radian	StandardUnit	angleUnits	SIUnit, conversionFactor=1.0		StandardUnit and (hasUnitClass exactly 1 angleUnits) and (conversionFactor value 1.0)
 HED_0011602	rad	StandardUnit	angleUnits	SIUnit, unitSymbol, conversionFactor=1.0		StandardUnit and (hasUnitClass exactly 1 angleUnits) and (conversionFactor value 1.0)
