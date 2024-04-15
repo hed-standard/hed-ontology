@@ -78,7 +78,7 @@ AnnotationProperty: heds:HED_0000500
         rdfs:label "hedId"
     
     
-AnnotationProperty: heds:HED_0000501
+AnnotationProperty: hed:HED_0010501
 
     Annotations: 
         dc:description "This tag requires that a descendent node be included.",
@@ -86,7 +86,7 @@ AnnotationProperty: heds:HED_0000501
         rdfs:label "requireChild"
     
     
-AnnotationProperty: heds:HED_0000502
+AnnotationProperty: hed:HED_0010502
 
     Annotations: 
         dc:description "This top-level library schema node should have a parent which is the indicated node in the partnered standard schema.",
@@ -94,7 +94,7 @@ AnnotationProperty: heds:HED_0000502
         rdfs:label "rooted"
     
     
-AnnotationProperty: heds:HED_0000503
+AnnotationProperty: hed:HED_0010503
 
     Annotations: 
         dc:description "This tag is a hashtag placeholder that is expected to be replaced with a user-defined value.",
@@ -344,7 +344,7 @@ DataProperty: hed:HED_0010306
 DataProperty: hed:HED_0010307
 
     Annotations: 
-        dc:description "A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of the hashtag placeholders.",
+        dc:description "A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes except for hashtag placeholders.",
         rdfs:label "extensionAllowed"
     
     Domain: 
@@ -693,7 +693,7 @@ Class: hed:HED_0012699
 
     Annotations: 
         dc:description "The numeric value of the data maximum.",
-        heds:HED_0000503 true,
+        heds:HED_0010503 true,
         rdfs:label "Data-maximum-#"
     
     EquivalentTo: 
