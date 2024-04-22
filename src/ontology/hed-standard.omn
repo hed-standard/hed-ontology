@@ -633,7 +633,7 @@ Class: hed:HED_0012002
         dc:description "Something perceivable by the participant. An event meant to be an experimental stimulus should include the tag Task-property/Task-event-role/Experimental-stimulus.",
         rdfs:label "Sensory-event"
     
-    SubClassOf: 
+    SubClassOf:
         hed:HED_0012001
     
     
@@ -642,7 +642,7 @@ Class: hed:HED_0012412
     Annotations: 
         dc:description "Something that pertains to a thing. A characteristic of some entity. A quality or feature regarded as a characteristic or inherent part of someone or something. HED attributes are adjectives or adverbs.",
         rdfs:label "Property"
-    
+
     EquivalentTo: 
         heds:HED_0000005
          and (heds:HED_0000102 some hed:HED_0010004)
@@ -693,7 +693,7 @@ Class: hed:HED_0012699
 
     Annotations: 
         dc:description "The numeric value of the data maximum.",
-        heds:HED_0010503 true,
+        hed:HED_0010503 true,
         rdfs:label "Data-maximum-#"
     
     EquivalentTo: 
