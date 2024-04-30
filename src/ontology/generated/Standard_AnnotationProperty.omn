@@ -1,49 +1,45 @@
-AnnotationProperty: HED_0010308
+AnnotationProperty: hed:HED_0010308
 	Annotations:
 		dc:description "The unique identifier of this element in the HED namespace.",
 		rdfs:label "hedId",
-		hed:HED_0010308 "HED_0010308",
-		hed:HED_0010703 true,
-		hed:HED_0010707 true
+		hed:hed:HED_0010703 true,
+		hed:hed:HED_0010707 true
 	Domain:
 		hed:HED_0000003
 	Range:
 		string
 
 
-AnnotationProperty: HED_0010501
+AnnotationProperty: hed:HED_0010501
 	Annotations:
 		dc:description "This tag must have a descendent.",
 		rdfs:label "requireChild",
-		hed:HED_0010308 "HED_0010501",
-		hed:HED_0010704 true,
-		hed:HED_0010702 true
+		hed:hed:HED_0010704 true,
+		hed:hed:HED_0010702 true
 	Domain:
 		hed:HED_0000007
 	Range:
 		boolean
 
 
-AnnotationProperty: HED_0010502
+AnnotationProperty: hed:HED_0010502
 	Annotations:
 		dc:description "This top-level library schema node should have a parent which is the indicated node in the partnered standard schema.",
 		rdfs:label "rooted",
-		hed:HED_0010308 "HED_0010502",
-		hed:HED_0010704 true,
-		hed:HED_0010705 true
+		hed:hed:HED_0010704 true,
+		hed:hed:HED_0010705 true
 	Domain:
 		hed:HED_0000007
 	Range:
 		hed:HED_0000007
 
 
-AnnotationProperty: HED_0010503
+AnnotationProperty: hed:HED_0010503
 	Annotations:
 		dc:description "This tag is a hashtag placeholder that is expected to be replaced with a user-defined value.",
 		rdfs:label "takesValue",
-		hed:HED_0010308 "HED_0010503",
-		hed:HED_0010704 true,
-		hed:HED_0010702 true
+		hed:hed:HED_0010704 true,
+		hed:hed:HED_0010702 true
 	Domain:
 		hed:HED_0000007
 	Range:

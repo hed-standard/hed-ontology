@@ -1,129 +1,113 @@
-Class: HED_0011500
+Class: hed:HED_0011500
 	Annotations:
-		rdfs:label "accelerationUnits",
-		hed:HED_0010308 "HED_0011500"
+		rdfs:label "accelerationUnits"
 	EquivalentTo:
 		hed:HED_0010006
-		and (HED_0010104 some HED_0011600)
+		and (hed:HED_0010104 some hed:HED_0011600)
 
-Class: HED_0011501
+Class: hed:HED_0011501
 	Annotations:
-		rdfs:label "angleUnits",
-		hed:HED_0010308 "HED_0011501"
+		rdfs:label "angleUnits"
 	EquivalentTo:
 		hed:HED_0010006
-		and (HED_0010104 some HED_0011601)
+		and (hed:HED_0010104 some hed:HED_0011601)
 
-Class: HED_0011502
+Class: hed:HED_0011502
 	Annotations:
-		rdfs:label "areaUnits",
-		hed:HED_0010308 "HED_0011502"
+		rdfs:label "areaUnits"
 	EquivalentTo:
 		hed:HED_0010006
-		and (HED_0010104 some HED_0011604)
+		and (hed:HED_0010104 some hed:HED_0011604)
 
-Class: HED_0011503
+Class: hed:HED_0011503
 	Annotations:
 		dc:description "Units indicating the worth of something.",
-		rdfs:label "currencyUnits",
-		hed:HED_0010308 "HED_0011503"
+		rdfs:label "currencyUnits"
 	EquivalentTo:
 		hed:HED_0010006
-		and (HED_0010104 some HED_0011606)
+		and (hed:HED_0010104 some hed:HED_0011606)
 
-Class: HED_0011504
+Class: hed:HED_0011504
 	Annotations:
-		rdfs:label "electricPotentialUnits",
-		hed:HED_0010308 "HED_0011504"
+		rdfs:label "electricPotentialUnits"
 	EquivalentTo:
 		hed:HED_0010006
-		and (HED_0010104 some 0011644)
+		and (hed:HED_0010104 some hed:0011644)
 
-Class: HED_0011505
+Class: hed:HED_0011505
 	Annotations:
-		rdfs:label "frequencyUnits",
-		hed:HED_0010308 "HED_0011505"
+		rdfs:label "frequencyUnits"
 	EquivalentTo:
 		hed:HED_0010006
-		and (HED_0010104 some HED_0011612)
+		and (hed:HED_0010104 some hed:HED_0011612)
 
-Class: HED_0011506
+Class: hed:HED_0011506
 	Annotations:
-		rdfs:label "intensityUnits",
-		hed:HED_0010308 "HED_0011506"
+		rdfs:label "intensityUnits"
 	EquivalentTo:
 		hed:HED_0010006
-		and (HED_0010104 some HED_0011613)
+		and (hed:HED_0010104 some hed:HED_0011613)
 
-Class: HED_0011507
+Class: hed:HED_0011507
 	Annotations:
-		rdfs:label "jerkUnits",
-		hed:HED_0010308 "HED_0011507"
+		rdfs:label "jerkUnits"
 	EquivalentTo:
 		hed:HED_0010006
-		and (HED_0010104 some HED_0011616)
+		and (hed:HED_0010104 some hed:HED_0011616)
 
-Class: HED_0011508
+Class: hed:HED_0011508
 	Annotations:
-		rdfs:label "magneticFieldUnits",
-		hed:HED_0010308 "HED_0011508"
+		rdfs:label "magneticFieldUnits"
 	EquivalentTo:
 		hed:HED_0010006
-		and (HED_0010104 some HED_0011618)
+		and (hed:HED_0010104 some hed:HED_0011618)
 
-Class: HED_0011509
+Class: hed:HED_0011509
 	Annotations:
-		rdfs:label "memorySizeUnits",
-		hed:HED_0010308 "HED_0011509"
+		rdfs:label "memorySizeUnits"
 	EquivalentTo:
 		hed:HED_0010006
-		and (HED_0010104 some HED_0011620)
+		and (hed:HED_0010104 some hed:HED_0011620)
 
-Class: HED_0011510
+Class: hed:HED_0011510
 	Annotations:
-		rdfs:label "physicalLengthUnits",
-		hed:HED_0010308 "HED_0011510"
+		rdfs:label "physicalLengthUnits"
 	EquivalentTo:
 		hed:HED_0010006
-		and (HED_0010104 some HED_0011625)
+		and (hed:HED_0010104 some hed:HED_0011625)
 
-Class: HED_0011511
+Class: hed:HED_0011511
 	Annotations:
-		rdfs:label "speedUnits",
-		hed:HED_0010308 "HED_0011511"
+		rdfs:label "speedUnits"
 	EquivalentTo:
 		hed:HED_0010006
-		and (HED_0010104 some HED_0011627)
+		and (hed:HED_0010104 some hed:HED_0011627)
 
-Class: HED_0011512
+Class: hed:HED_0011512
 	Annotations:
-		rdfs:label "temperatureUnits",
-		hed:HED_0010308 "HED_0011512"
+		rdfs:label "temperatureUnits"
 	EquivalentTo:
 		hed:HED_0010006
-		and (HED_0010104 some HED_0011630)
+		and (hed:HED_0010104 some hed:HED_0011630)
 
-Class: HED_0011513
+Class: hed:HED_0011513
 	Annotations:
-		rdfs:label "timeUnits",
-		hed:HED_0010308 "HED_0011513"
+		rdfs:label "timeUnits"
 	EquivalentTo:
 		hed:HED_0010006
-		and (HED_0010104 some HED_0011634)
+		and (hed:HED_0010104 some hed:HED_0011634)
 
-Class: HED_0011514
+Class: hed:HED_0011514
 	Annotations:
-		rdfs:label "volumeUnits",
-		hed:HED_0010308 "HED_0011514"
+		rdfs:label "volumeUnits"
 	EquivalentTo:
 		hed:HED_0010006
-		and (HED_0010104 some HED_0011639)
+		and (hed:HED_0010104 some hed:HED_0011639)
 
-Class: HED_0011515
+Class: hed:HED_0011515
 	Annotations:
-		rdfs:label "weightUnits",
-		hed:HED_0010308 "HED_0011515"
+		rdfs:label "weightUnits"
 	EquivalentTo:
 		hed:HED_0010006
-		and (HED_0010104 some HED_0011640)
+		and (hed:HED_0010104 some hed:HED_0011640)
 
