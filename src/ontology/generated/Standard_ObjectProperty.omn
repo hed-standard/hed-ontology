@@ -1,0 +1,78 @@
+ObjectProperty: HED_0010104
+	Annotations:
+		dc:description "The default units to use if the placeholder has a unit class but the substituted value has no units.",
+		rdfs:label "defaultUnits",
+		hed:HED_0010308 "HED_0010104",
+		hed:HED_0010708 true,
+		hed:HED_0010712 true
+	Domain:
+		hed:HED_0000006
+	Range:
+		hed:HED_0000007
+
+
+ObjectProperty: HED_0010109
+	Annotations:
+		dc:description "This tag is part of the indicated tag -- as in the nose is part of the face.",
+		rdfs:label "isPartOf",
+		hed:HED_0010308 "HED_0010109",
+		hed:HED_0010704 true,
+		hed:HED_0010705 true
+	Domain:
+		hed:HED_0000007
+	Range:
+		hed:HED_0000007
+
+
+ObjectProperty: HED_0010105
+	Annotations:
+		dc:description "A HED tag that is closely related to this tag. This attribute is used by tagging tools.",
+		rdfs:label "relatedTag",
+		hed:HED_0010308 "HED_0010105",
+		hed:HED_0010704 true,
+		hed:HED_0010705 true
+	Domain:
+		hed:HED_0000007
+	Range:
+		hed:HED_0000007
+
+
+ObjectProperty: HED_0010106
+	Annotations:
+		dc:description "A tag that is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions.",
+		rdfs:label "suggestedTag",
+		hed:HED_0010308 "HED_0010106",
+		hed:HED_0010704 true,
+		hed:HED_0010705 true
+	Domain:
+		hed:HED_0000007
+	Range:
+		hed:HED_0000007
+
+
+ObjectProperty: HED_0010107
+	Annotations:
+		dc:description "The unit class that the value of a placeholder node can belong to.",
+		rdfs:label "unitClass",
+		hed:HED_0010308 "HED_0010107",
+		hed:HED_0010704 true,
+		hed:HED_0010709 true
+	Domain:
+		hed:HED_0000007
+	Range:
+		hed:HED_0000006
+
+
+ObjectProperty: HED_0010108
+	Annotations:
+		dc:description "Type of value taken on by the value of a placeholder node.",
+		rdfs:label "valueClass",
+		hed:HED_0010308 "HED_0010108",
+		hed:HED_0010704 true,
+		hed:HED_0010714 true
+	Domain:
+		hed:HED_0000007
+	Range:
+		hed:HED_0000009
+
+
