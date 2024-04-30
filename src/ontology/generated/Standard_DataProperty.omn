@@ -9,7 +9,7 @@ DataProperty: hed:HED_0010304
 	Domain:
 		hed:HED_0000007 or hed:HED_0000008 or hed:HED_0000009
 	Range:
-		string
+		xsd:string
 
 
 DataProperty: hed:HED_0010305
@@ -22,7 +22,7 @@ DataProperty: hed:HED_0010305
 	Domain:
 		hed:HED_0000007 or hed:HED_0000008
 	Range:
-		float
+		xsd:float
 
 
 DataProperty: hed:HED_0010306
@@ -34,7 +34,7 @@ DataProperty: hed:HED_0010306
 	Domain:
 		hed:HED_0000003
 	Range:
-		string
+		xsd:string
 
 
 DataProperty: hed:HED_0010307
@@ -46,7 +46,7 @@ DataProperty: hed:HED_0010307
 	Domain:
 		hed:HED_0000007
 	Range:
-		boolean
+		xsd:boolean
 
 
 DataProperty: hed:HED_0010309
@@ -58,7 +58,7 @@ DataProperty: hed:HED_0010309
 	Domain:
 		hed:HED_0000003
 	Range:
-		string
+		xsd:string
 
 
 DataProperty: hed:HED_0010310
@@ -70,7 +70,7 @@ DataProperty: hed:HED_0010310
 	Domain:
 		hed:HED_0000007
 	Range:
-		boolean
+		xsd:boolean
 
 
 DataProperty: hed:HED_0010311
@@ -82,7 +82,7 @@ DataProperty: hed:HED_0010311
 	Domain:
 		hed:HED_0000007
 	Range:
-		boolean
+		xsd:boolean
 
 
 DataProperty: hed:HED_0010312
@@ -94,7 +94,7 @@ DataProperty: hed:HED_0010312
 	Domain:
 		hed:HED_0000008
 	Range:
-		boolean
+		xsd:boolean
 
 
 DataProperty: hed:HED_0010313
@@ -106,7 +106,7 @@ DataProperty: hed:HED_0010313
 	Domain:
 		hed:HED_0000008
 	Range:
-		boolean
+		xsd:boolean
 
 
 DataProperty: hed:HED_0010314
@@ -118,7 +118,7 @@ DataProperty: hed:HED_0010314
 	Domain:
 		hed:HED_0000007
 	Range:
-		boolean
+		xsd:boolean
 
 
 DataProperty: hed:HED_0010315
@@ -130,7 +130,7 @@ DataProperty: hed:HED_0010315
 	Domain:
 		hed:HED_0000007
 	Range:
-		boolean
+		xsd:boolean
 
 
 DataProperty: hed:HED_0010316
@@ -142,7 +142,7 @@ DataProperty: hed:HED_0010316
 	Domain:
 		hed:HED_0000007
 	Range:
-		boolean
+		xsd:boolean
 
 
 DataProperty: hed:HED_0010317
@@ -154,7 +154,7 @@ DataProperty: hed:HED_0010317
 	Domain:
 		hed:HED_0000007
 	Range:
-		boolean
+		xsd:boolean
 
 
 DataProperty: hed:HED_0010318
@@ -166,6 +166,6 @@ DataProperty: hed:HED_0010318
 	Domain:
 		hed:HED_0000007
 	Range:
-		boolean
+		xsd:boolean
 
 
