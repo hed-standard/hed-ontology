@@ -1,0 +1,84 @@
+AnnotationProperty: HED_0010701
+	Annotations:
+		dc:description "The value is not inherited by child nodes.",
+		rdfs:label "annotationProperty",
+		hed:HED_0010308 "HED_0010701"
+
+AnnotationProperty: HED_0010702
+	Annotations:
+		dc:description "This schema attribute's value can be true or false. This property was formerly named boolProperty.",
+		rdfs:label "boolRange",
+		hed:HED_0010308 "HED_0010702"
+
+AnnotationProperty: HED_0010703
+	Annotations:
+		dc:description "This schema attribute can apply to any type of element class (i.e., tag, unit, unit class, unit modifier, or value class). This property was formerly named elementProperty.",
+		rdfs:label "elementDomain",
+		hed:HED_0010308 "HED_0010703"
+
+AnnotationProperty: HED_0010704
+	Annotations:
+		dc:description "This schema attribute can apply to node (tag-term) elements. This was added so attributes could apply to multiple types of elements. This property was formerly named nodeProperty.",
+		rdfs:label "tagDomain",
+		hed:HED_0010308 "HED_0010704"
+
+AnnotationProperty: HED_0010705
+	Annotations:
+		dc:description "This schema attribute's value can be a node. This property was formerly named nodeProperty.",
+		rdfs:label "tagRange",
+		hed:HED_0010308 "HED_0010705"
+
+AnnotationProperty: HED_0010706
+	Annotations:
+		dc:description "This schema attribute's value can be numeric.",
+		rdfs:label "numericRange",
+		hed:HED_0010308 "HED_0010706"
+
+AnnotationProperty: HED_0010707
+	Annotations:
+		dc:description "This schema attribute's value can be a string.",
+		rdfs:label "stringRange",
+		hed:HED_0010308 "HED_0010707"
+
+AnnotationProperty: HED_0010708
+	Annotations:
+		dc:description "This schema attribute can apply to unit classes. This property was formerly named unitClassProperty.",
+		rdfs:label "unitClassDomain",
+		hed:HED_0010308 "HED_0010708"
+
+AnnotationProperty: HED_0010709
+	Annotations:
+		dc:description "This schema attribute's value can be a unit class.",
+		rdfs:label "unitClassRange",
+		hed:HED_0010308 "HED_0010709"
+
+AnnotationProperty: HED_0010710
+	Annotations:
+		dc:description "This schema attribute can apply to unit modifiers. This property was formerly named unitModifierProperty.",
+		rdfs:label "unitModifierDomain",
+		hed:HED_0010308 "HED_0010710"
+
+AnnotationProperty: HED_0010711
+	Annotations:
+		dc:description "This schema attribute can apply to units. This property was formerly named unitProperty.",
+		rdfs:label "unitDomain",
+		hed:HED_0010308 "HED_0010711"
+
+AnnotationProperty: HED_0010712
+	Annotations:
+		dc:description "This schema attribute's value can be units.",
+		rdfs:label "unitRange",
+		hed:HED_0010308 "HED_0010712"
+
+AnnotationProperty: HED_0010713
+	Annotations:
+		dc:description "This schema attribute can apply to value classes. This property was formerly named valueClassProperty.",
+		rdfs:label "valueClassDomain",
+		hed:HED_0010308 "HED_0010713"
+
+AnnotationProperty: HED_0010714
+	Annotations:
+		dc:description "This schema attribute's value can be a value class.",
+		rdfs:label "valueClassRange",
+		hed:HED_0010308 "HED_0010714"
+

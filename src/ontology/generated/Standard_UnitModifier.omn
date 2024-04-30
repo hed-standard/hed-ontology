@@ -1,0 +1,400 @@
+Class: HED_0011400
+	Annotations:
+		dc:description "SI unit multiple representing 10e1.",
+		rdfs:label "deca",
+		hed:HED_0010308 "HED_0011400"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010312 value true)
+		and (HED_0010305 value 10.0)
+
+Class: HED_0011401
+	Annotations:
+		dc:description "SI unit multiple representing 10e1.",
+		rdfs:label "da",
+		hed:HED_0010308 "HED_0011401"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010313 value true)
+		and (HED_0010305 value 10.0)
+
+Class: HED_0011402
+	Annotations:
+		dc:description "SI unit multiple representing 10e2.",
+		rdfs:label "hecto",
+		hed:HED_0010308 "HED_0011402"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010312 value true)
+		and (HED_0010305 value 100.0)
+
+Class: HED_0011403
+	Annotations:
+		dc:description "SI unit multiple representing 10e2.",
+		rdfs:label "h",
+		hed:HED_0010308 "HED_0011403"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010313 value true)
+		and (HED_0010305 value 100.0)
+
+Class: HED_0011404
+	Annotations:
+		dc:description "SI unit multiple representing 10e3.",
+		rdfs:label "kilo",
+		hed:HED_0010308 "HED_0011404"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010312 value true)
+		and (HED_0010305 value 1000.0)
+
+Class: HED_0011405
+	Annotations:
+		dc:description "SI unit multiple representing 10e3.",
+		rdfs:label "k",
+		hed:HED_0010308 "HED_0011405"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010313 value true)
+		and (HED_0010305 value 1000.0)
+
+Class: HED_0011406
+	Annotations:
+		dc:description "SI unit multiple representing 10e6.",
+		rdfs:label "mega",
+		hed:HED_0010308 "HED_0011406"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010312 value true)
+		and (HED_0010305 value 10e6)
+
+Class: HED_0011407
+	Annotations:
+		dc:description "SI unit multiple representing 10e6.",
+		rdfs:label "M",
+		hed:HED_0010308 "HED_0011407"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010313 value true)
+		and (HED_0010305 value 10e6)
+
+Class: HED_0011408
+	Annotations:
+		dc:description "SI unit multiple representing 10e9.",
+		rdfs:label "giga",
+		hed:HED_0010308 "HED_0011408"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010312 value true)
+		and (HED_0010305 value 10e9)
+
+Class: HED_0011409
+	Annotations:
+		dc:description "SI unit multiple representing 10e9.",
+		rdfs:label "G",
+		hed:HED_0010308 "HED_0011409"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010313 value true)
+		and (HED_0010305 value 10e9)
+
+Class: HED_0011410
+	Annotations:
+		dc:description "SI unit multiple representing 10e12.",
+		rdfs:label "tera",
+		hed:HED_0010308 "HED_0011410"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010312 value true)
+		and (HED_0010305 value 10e12)
+
+Class: HED_0011411
+	Annotations:
+		dc:description "SI unit multiple representing 10e12.",
+		rdfs:label "T",
+		hed:HED_0010308 "HED_0011411"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010313 value true)
+		and (HED_0010305 value 10e12)
+
+Class: HED_0011412
+	Annotations:
+		dc:description "SI unit multiple representing 10e15.",
+		rdfs:label "peta",
+		hed:HED_0010308 "HED_0011412"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010312 value true)
+		and (HED_0010305 value 10e15)
+
+Class: HED_0011413
+	Annotations:
+		dc:description "SI unit multiple representing 10e15.",
+		rdfs:label "P",
+		hed:HED_0010308 "HED_0011413"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010313 value true)
+		and (HED_0010305 value 10e15)
+
+Class: HED_0011414
+	Annotations:
+		dc:description "SI unit multiple representing 10e18.",
+		rdfs:label "exa",
+		hed:HED_0010308 "HED_0011414"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010312 value true)
+		and (HED_0010305 value 10e18)
+
+Class: HED_0011415
+	Annotations:
+		dc:description "SI unit multiple representing 10e18.",
+		rdfs:label "E",
+		hed:HED_0010308 "HED_0011415"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010313 value true)
+		and (HED_0010305 value 10e18)
+
+Class: HED_0011416
+	Annotations:
+		dc:description "SI unit multiple representing 10e21.",
+		rdfs:label "zetta",
+		hed:HED_0010308 "HED_0011416"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010312 value true)
+		and (HED_0010305 value 10e21)
+
+Class: HED_0011417
+	Annotations:
+		dc:description "SI unit multiple representing 10e21.",
+		rdfs:label "Z",
+		hed:HED_0010308 "HED_0011417"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010313 value true)
+		and (HED_0010305 value 10e21)
+
+Class: HED_0011418
+	Annotations:
+		dc:description "SI unit multiple representing 10e24.",
+		rdfs:label "yotta",
+		hed:HED_0010308 "HED_0011418"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010312 value true)
+		and (HED_0010305 value 10e24)
+
+Class: HED_0011419
+	Annotations:
+		dc:description "SI unit multiple representing 10e24.",
+		rdfs:label "Y",
+		hed:HED_0010308 "HED_0011419"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010313 value true)
+		and (HED_0010305 value 10e24)
+
+Class: HED_0011420
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-1.",
+		rdfs:label "deci",
+		hed:HED_0010308 "HED_0011420"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010312 value true)
+		and (HED_0010305 value 0.1)
+
+Class: HED_0011421
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-1.",
+		rdfs:label "d",
+		hed:HED_0010308 "HED_0011421"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010313 value true)
+		and (HED_0010305 value 0.1)
+
+Class: HED_0011422
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-2.",
+		rdfs:label "centi",
+		hed:HED_0010308 "HED_0011422"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010312 value true)
+		and (HED_0010305 value 0.01)
+
+Class: HED_0011423
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-2.",
+		rdfs:label "c",
+		hed:HED_0010308 "HED_0011423"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010313 value true)
+		and (HED_0010305 value 0.01)
+
+Class: HED_0011424
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-3.",
+		rdfs:label "milli",
+		hed:HED_0010308 "HED_0011424"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010312 value true)
+		and (HED_0010305 value 0.001)
+
+Class: HED_0011425
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-3.",
+		rdfs:label "m",
+		hed:HED_0010308 "HED_0011425"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010313 value true)
+		and (HED_0010305 value 0.001)
+
+Class: HED_0011426
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-6.",
+		rdfs:label "micro",
+		hed:HED_0010308 "HED_0011426"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010312 value true)
+		and (HED_0010305 value 10e-6)
+
+Class: HED_0011427
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-6.",
+		rdfs:label "u",
+		hed:HED_0010308 "HED_0011427"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010313 value true)
+		and (HED_0010305 value 10e-6)
+
+Class: HED_0011428
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-9.",
+		rdfs:label "nano",
+		hed:HED_0010308 "HED_0011428"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010312 value true)
+		and (HED_0010305 value 10e-9)
+
+Class: HED_0011429
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-9.",
+		rdfs:label "n",
+		hed:HED_0010308 "HED_0011429"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010313 value true)
+		and (HED_0010305 value 10e-9)
+
+Class: HED_0011430
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-12.",
+		rdfs:label "pico",
+		hed:HED_0010308 "HED_0011430"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010312 value true)
+		and (HED_0010305 value 10e-12)
+
+Class: HED_0011431
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-12.",
+		rdfs:label "p",
+		hed:HED_0010308 "HED_0011431"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010313 value true)
+		and (HED_0010305 value 10e-12)
+
+Class: HED_0011432
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-15.",
+		rdfs:label "femto",
+		hed:HED_0010308 "HED_0011432"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010312 value true)
+		and (HED_0010305 value 10e-15)
+
+Class: HED_0011433
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-15.",
+		rdfs:label "f",
+		hed:HED_0010308 "HED_0011433"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010313 value true)
+		and (HED_0010305 value 10e-15)
+
+Class: HED_0011434
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-18.",
+		rdfs:label "atto",
+		hed:HED_0010308 "HED_0011434"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010312 value true)
+		and (HED_0010305 value 10e-18)
+
+Class: HED_0011435
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-18.",
+		rdfs:label "a",
+		hed:HED_0010308 "HED_0011435"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010313 value true)
+		and (HED_0010305 value 10e-18)
+
+Class: HED_0011436
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-21.",
+		rdfs:label "zepto",
+		hed:HED_0010308 "HED_0011436"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010312 value true)
+		and (HED_0010305 value 10e-21)
+
+Class: HED_0011437
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-21.",
+		rdfs:label "z",
+		hed:HED_0010308 "HED_0011437"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010313 value true)
+		and (HED_0010305 value 10e-21)
+
+Class: HED_0011438
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-24.",
+		rdfs:label "yocto",
+		hed:HED_0010308 "HED_0011438"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010312 value true)
+		and (HED_0010305 value 10e-24)
+
+Class: HED_0011439
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-24.",
+		rdfs:label "y",
+		hed:HED_0010308 "HED_0011439"
+	EquivalentTo:
+		hed:HED_0010008
+		and (HED_0010313 value true)
+		and (HED_0010305 value 10e-24)
+
