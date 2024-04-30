@@ -2,10 +2,10 @@ DataProperty: hed:HED_0010304
 	Annotations:
 		dc:description "A special character that is allowed in expressing the value of a placeholder of a specified value class. Allowed characters may be listed individual, named individually, or named as a group as specified in Section 2.2 Character sets and restrictions of the HED specification.",
 		rdfs:label "allowedCharacter",
-		hed:hed:HED_0010711 true,
-		hed:hed:HED_0010710 true,
-		hed:hed:HED_0010713 true,
-		hed:hed:HED_0010707 true
+		hed:HED_0010711 true,
+		hed:HED_0010710 true,
+		hed:HED_0010713 true,
+		hed:HED_0010707 true
 	Domain:
 		hed:HED_0000007 or hed:HED_0000008 or hed:HED_0000009
 	Range:
@@ -16,9 +16,9 @@ DataProperty: hed:HED_0010305
 	Annotations:
 		dc:description "The factor to multiply these units or unit modifiers by to convert to default units.",
 		rdfs:label "conversionFactor",
-		hed:hed:HED_0010711 true,
-		hed:hed:HED_0010710 true,
-		hed:hed:HED_0010706 true
+		hed:HED_0010711 true,
+		hed:HED_0010710 true,
+		hed:HED_0010706 true
 	Domain:
 		hed:HED_0000007 or hed:HED_0000008
 	Range:
@@ -29,8 +29,8 @@ DataProperty: hed:HED_0010306
 	Annotations:
 		dc:description "The latest schema version in which the element was not deprecated.",
 		rdfs:label "deprecatedFrom",
-		hed:hed:HED_0010703 true,
-		hed:hed:HED_0010707 true
+		hed:HED_0010703 true,
+		hed:HED_0010707 true
 	Domain:
 		hed:HED_0000003
 	Range:
@@ -41,8 +41,8 @@ DataProperty: hed:HED_0010307
 	Annotations:
 		dc:description "Users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes except for hashtag placeholders.",
 		rdfs:label "extensionAllowed",
-		hed:hed:HED_0010704 true,
-		hed:hed:HED_0010702 true
+		hed:HED_0010704 true,
+		hed:HED_0010702 true
 	Domain:
 		hed:HED_0000007
 	Range:
@@ -53,8 +53,8 @@ DataProperty: hed:HED_0010309
 	Annotations:
 		dc:description "The named library schema that this schema element is from. This attribute is added by tools when a library schema is merged into its partnered standard schema.",
 		rdfs:label "inLibrary",
-		hed:hed:HED_0010703 true,
-		hed:hed:HED_0010707 true
+		hed:HED_0010703 true,
+		hed:HED_0010707 true
 	Domain:
 		hed:HED_0000003
 	Range:
@@ -65,8 +65,8 @@ DataProperty: hed:HED_0010310
 	Annotations:
 		dc:description "This tag has special meaning and requires special handling by tools.",
 		rdfs:label "reserved",
-		hed:hed:HED_0010704 true,
-		hed:hed:HED_0010702 true
+		hed:HED_0010704 true,
+		hed:HED_0010702 true
 	Domain:
 		hed:HED_0000007
 	Range:
@@ -77,8 +77,8 @@ DataProperty: hed:HED_0010311
 	Annotations:
 		dc:description "This unit element is an SI unit and can be modified by multiple and sub-multiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.",
 		rdfs:label "SIUnit",
-		hed:hed:HED_0010711 true,
-		hed:hed:HED_0010702 true
+		hed:HED_0010711 true,
+		hed:HED_0010702 true
 	Domain:
 		hed:HED_0000007
 	Range:
@@ -89,8 +89,8 @@ DataProperty: hed:HED_0010312
 	Annotations:
 		dc:description "This SI unit modifier represents a multiple or sub-multiple of a base unit rather than a unit symbol.",
 		rdfs:label "SIUnitModifier",
-		hed:hed:HED_0010710 true,
-		hed:hed:HED_0010702 true
+		hed:HED_0010710 true,
+		hed:HED_0010702 true
 	Domain:
 		hed:HED_0000008
 	Range:
@@ -101,8 +101,8 @@ DataProperty: hed:HED_0010313
 	Annotations:
 		dc:description "This SI unit modifier represents a multiple or sub-multiple of a unit symbol rather than a base symbol.",
 		rdfs:label "SIUnitSymbolModifier",
-		hed:hed:HED_0010710 true,
-		hed:hed:HED_0010702 true
+		hed:HED_0010710 true,
+		hed:HED_0010702 true
 	Domain:
 		hed:HED_0000008
 	Range:
@@ -113,8 +113,8 @@ DataProperty: hed:HED_0010314
 	Annotations:
 		dc:description "This tag can only appear inside a tag group.",
 		rdfs:label "tagGroup",
-		hed:hed:HED_0010704 true,
-		hed:hed:HED_0010702 true
+		hed:HED_0010704 true,
+		hed:HED_0010702 true
 	Domain:
 		hed:HED_0000007
 	Range:
@@ -125,8 +125,8 @@ DataProperty: hed:HED_0010315
 	Annotations:
 		dc:description "This tag (or its descendants) can only appear in a top-level tag group. There are additional tag-specific restrictions on what other tags can appear in the group with this tag.",
 		rdfs:label "topLevelTagGroup",
-		hed:hed:HED_0010704 true,
-		hed:hed:HED_0010702 true
+		hed:HED_0010704 true,
+		hed:HED_0010702 true
 	Domain:
 		hed:HED_0000007
 	Range:
@@ -137,8 +137,8 @@ DataProperty: hed:HED_0010316
 	Annotations:
 		dc:description "Only one of this tag or its descendants can be used in the event-level HED string.",
 		rdfs:label "unique",
-		hed:hed:HED_0010704 true,
-		hed:hed:HED_0010702 true
+		hed:HED_0010704 true,
+		hed:HED_0010702 true
 	Domain:
 		hed:HED_0000007
 	Range:
@@ -149,8 +149,8 @@ DataProperty: hed:HED_0010317
 	Annotations:
 		dc:description "This unit is a prefix unit (e.g., dollar sign in the currency units).",
 		rdfs:label "unitPrefix",
-		hed:hed:HED_0010711 true,
-		hed:hed:HED_0010702 true
+		hed:HED_0010711 true,
+		hed:HED_0010702 true
 	Domain:
 		hed:HED_0000007
 	Range:
@@ -161,8 +161,8 @@ DataProperty: hed:HED_0010318
 	Annotations:
 		dc:description "This tag is an abbreviation or symbol representing a type of unit. Unit symbols represent both the singular and the plural and thus cannot be pluralized.",
 		rdfs:label "unitSymbol",
-		hed:hed:HED_0010711 true,
-		hed:hed:HED_0010702 true
+		hed:HED_0010711 true,
+		hed:HED_0010702 true
 	Domain:
 		hed:HED_0000007
 	Range:
