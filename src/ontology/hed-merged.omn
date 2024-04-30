@@ -1,3 +1,991 @@
+Prefix: : <http://purl.org/hed/releases/working/hed-standard.owl/>
+Prefix: dc: <http://purl.org/dc/elements/1.1/>
+Prefix: foaf: <http://xmlns.com/foaf/0.1/>
+Prefix: hed: <http://purl.org/hed/releases/working/hed-schema#>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: terms: <http://purl.org/dc/terms/>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+Ontology: <http://purl.org/hed/hed-schema#>
+<http://purl.org/hed/releases/working/hed-schema.owl>
+
+Annotations:
+    dc:contributor "Ian Callanan",
+    dc:contributor "Kay Robbins",
+    dc:contributor "Scott Makeig",
+    dc:description "This ontology defines the HED Hierarchical Event Descriptor schema structure."@en,
+    dc:description "This ontology only defines the structural elements of the HED schema. The actual HED tags are in HED.",
+    dc:title "HED Schema Ontology (HEDS)",
+    terms:license <http://creativecommons.org/licenses/by/4.0/>,
+    rdfs:label "HED Schema Ontology",
+    rdfs:seeAlso <https://github.com/hed-standard/hed-ontology>,
+    owl:versionInfo "releases/working",
+    foaf:homepage <https://www.hedtags.org>
+
+
+AnnotationProperty: dc:contributor
+
+    
+AnnotationProperty: dc:creator
+
+    
+AnnotationProperty: dc:date
+
+    
+AnnotationProperty: dc:description
+
+    
+AnnotationProperty: dc:format
+
+    
+AnnotationProperty: dc:identifier
+
+    
+AnnotationProperty: dc:language
+
+    
+AnnotationProperty: dc:publisher
+
+    
+AnnotationProperty: dc:relation
+
+    
+AnnotationProperty: dc:source
+
+    
+AnnotationProperty: dc:subject
+
+    
+AnnotationProperty: dc:title
+
+    
+AnnotationProperty: dc:type
+
+    
+AnnotationProperty: foaf:homepage
+
+    
+AnnotationProperty: hed:HED_0000500
+
+    Annotations: 
+        dc:description "The unique identifier of this element in the HED namespace.",
+        rdfs:comment "Maps HedElement into string.",
+        rdfs:label "hedId"
+    
+    
+AnnotationProperty: hed:HED_0000501
+
+    Annotations: 
+        dc:description "This tag requires that a descendent node be included.",
+        rdfs:comment "Maps a HedTag into a boolean.",
+        rdfs:label "requireChild"
+    
+    
+AnnotationProperty: hed:HED_0000502
+
+    Annotations: 
+        dc:description "This top-level library schema node should have a parent which is the indicated node in the partnered standard schema.",
+        rdfs:comment "Maps a HedTag into a HedTag name as a string.",
+        rdfs:label "rooted"
+    
+    
+AnnotationProperty: hed:HED_0000503
+
+    Annotations: 
+        dc:description "This tag is a hashtag placeholder that is expected to be replaced with a user-defined value.",
+        rdfs:comment "Maps a HedTag into a boolean.",
+        rdfs:label "takesValue"
+    
+    
+AnnotationProperty: owl:versionInfo
+
+    
+AnnotationProperty: rdfs:comment
+
+    
+AnnotationProperty: rdfs:label
+
+    
+AnnotationProperty: rdfs:seeAlso
+
+    
+AnnotationProperty: terms:license
+
+    
+Datatype: rdf:PlainLiteral
+
+    
+Datatype: xsd:boolean
+
+    
+Datatype: xsd:float
+
+    
+Datatype: xsd:string
+
+    
+ObjectProperty: hed:HED_0000101
+
+    Annotations: 
+        dc:description "Associates a HedSchema with some HedEntity.",
+        rdfs:comment "This is a structural property which allows tools to place an element in its correct schema.",
+        rdfs:label "hasHedEntity"
+    
+    Domain: 
+        hed:HED_0000004
+    
+    Range: 
+        hed:HED_0000001
+    
+    
+ObjectProperty: hed:HED_0000102
+
+    Annotations: 
+        dc:description "Associates a HedEntity with its particular HedSchema class.",
+        rdfs:comment "This is a structural property which allows tools to place an element in its correct schema.",
+        rdfs:label "inHedSchema"
+    
+    Domain: 
+        hed:HED_0000001
+    
+    Range: 
+        hed:HED_0000004
+    
+    
+ObjectProperty: hed:HED_0000103
+
+    Annotations: 
+        dc:description "Associates a HedUnit with its category (HedUnitClass).",
+        rdfs:comment "This is a structural property which allows tools to place a unit in its correct grouping.",
+        rdfs:label "hasUnitClass"
+    
+    Domain: 
+        hed:HED_0000007
+    
+    Range: 
+        hed:HED_0000006
+    
+    
+ObjectProperty: hed:HED_0000104
+
+    Annotations: 
+        dc:description "The default units to use if the placeholder has a unit class but the substituted value has no units.",
+        rdfs:label "defaultUnits"
+    
+    Domain: 
+        hed:HED_0000006
+    
+    Range: 
+        hed:HED_0000007
+    
+    
+ObjectProperty: hed:HED_0000105
+
+    Annotations: 
+        dc:description "A HED tag that is closely related to this tag. This attribute is used by tagging tools.",
+        rdfs:label "relatedTag"
+    
+    Domain: 
+        hed:HED_0000005
+    
+    Range: 
+        hed:HED_0000005
+    
+    
+ObjectProperty: hed:HED_0000106
+
+    Annotations: 
+        dc:description "A tag is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions",
+        rdfs:label "suggestedTag"
+    
+    Domain: 
+        hed:HED_0000005
+    
+    Range: 
+        hed:HED_0000005
+    
+    
+ObjectProperty: hed:HED_0000107
+
+    Annotations: 
+        dc:description "The unit class this placeholder tag belongs to.",
+        rdfs:comment "Maps a HedTag into a HedUnitClass name as a string.",
+        rdfs:label "unitClass"
+    
+    Domain: 
+        hed:HED_0000005
+    
+    Range: 
+        hed:HED_0000006
+    
+    
+ObjectProperty: hed:HED_0000108
+
+    Annotations: 
+        dc:description "The value class this placeholder tag belongs to.",
+        rdfs:comment "Maps a HedTag into a HedValueClass name as a string.",
+        rdfs:label "valueClass"
+    
+    Domain: 
+        hed:HED_0000005
+    
+    Range: 
+        hed:HED_0000009
+    
+    
+DataProperty: hed:HED_0000300
+
+    Annotations: 
+        dc:description "The semantic version of this schema.",
+        rdfs:label "version"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        hed:HED_0000010
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: hed:HED_0000301
+
+    Annotations: 
+        dc:description "The name of the library schema if applicable, otherwise an empty string.",
+        rdfs:label "library"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        hed:HED_0000010
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: hed:HED_0000302
+
+    Annotations: 
+        dc:description "If true, the schema is not merged with a partner schema.",
+        rdfs:label "unmerged"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        hed:HED_0000010
+    
+    Range: 
+        xsd:boolean
+    
+    
+DataProperty: hed:HED_0000303
+
+    Annotations: 
+        dc:description "The version of the HED schema's standard schema partner.",
+        rdfs:label "withStandard"
+    
+    Characteristics: 
+        Functional
+    
+    Domain: 
+        hed:HED_0000010
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: hed:HED_0000304
+
+    Annotations: 
+        dc:description "A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder. Normally the allowed characters are listed individually. However, the word letters designates the upper and lower case alphabetic characters and the word digits designates the digits 0-9. The word blank designates the blank character.",
+        rdfs:label "allowedCharacter"
+    
+    Domain: 
+        hed:HED_0000003
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: hed:HED_0000305
+
+    Annotations: 
+        dc:description "The factor to multiply these units or unit modifiers by to convert to default units.",
+        rdfs:label "conversionFactor"
+    
+    Domain: 
+        hed:HED_0000007 or hed:HED_0000008
+    
+    Range: 
+        xsd:float
+    
+    
+DataProperty: hed:HED_0000306
+
+    Annotations: 
+        dc:description "Indicates that this element is deprecated. The value of the attribute is the latest schema version in which the element appeared in undeprecated form.",
+        rdfs:label "deprecatedFrom"
+    
+    Domain: 
+        hed:HED_0000003
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: hed:HED_0000307
+
+    Annotations: 
+        dc:description "A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of the hashtag placeholders.",
+        rdfs:label "extensionAllowed"
+    
+    Domain: 
+        hed:HED_0000005
+    
+    Range: 
+        xsd:boolean
+    
+    
+DataProperty: hed:HED_0000308
+
+    Annotations: 
+        dc:description "This element comes from the indicated library version. This attribute is added by tools when a library schema is merged into its partnered standard schema.",
+        rdfs:label "inLibrary"
+    
+    Domain: 
+        hed:HED_0000003
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: hed:HED_0000309
+
+    Annotations: 
+        dc:description "This tag has special meaning and requires special handling by tools",
+        rdfs:label "reserved"
+    
+    Domain: 
+        hed:HED_0000005
+    
+    Range: 
+        xsd:boolean
+    
+    
+DataProperty: hed:HED_0000310
+
+    Annotations: 
+        dc:description "Indicates that this unit element is an SI unit and can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.",
+        rdfs:label "SIUnit"
+    
+    Domain: 
+        hed:HED_0000007
+    
+    Range: 
+        xsd:boolean
+    
+    
+DataProperty: hed:HED_0000311
+
+    Annotations: 
+        dc:description "This SI unit modifier represents a multiple or submultiple of a base unit rather than a unit symbol.",
+        rdfs:label "SIUnitModifier"
+    
+    Domain: 
+        hed:HED_0000008
+    
+    Range: 
+        xsd:boolean
+    
+    
+DataProperty: hed:HED_0000312
+
+    Annotations: 
+        dc:description "This SI unit modifier represents a multiple or submultiple of a unit symbol rather than a base symbol.",
+        rdfs:label "SIUnitSymbolModifier"
+    
+    Domain: 
+        hed:HED_0000008
+    
+    Range: 
+        xsd:boolean
+    
+    
+DataProperty: hed:HED_0000313
+
+    Annotations: 
+        dc:description "This tag can only appear inside a tag group.",
+        rdfs:label "tagGroup"
+    
+    Domain: 
+        hed:HED_0000005
+    
+    Range: 
+        xsd:boolean
+    
+    
+DataProperty: hed:HED_0000314
+
+    Annotations: 
+        dc:description "This tag (or its descendants) can only appear in a top-level tag group. A tag group can have at most one tag with this attribute.",
+        rdfs:label "topLevelTagGroup"
+    
+    Domain: 
+        hed:HED_0000005
+    
+    Range: 
+        xsd:boolean
+    
+    
+DataProperty: hed:HED_0000315
+
+    Annotations: 
+        dc:description "Only one of this tag or its descendants can be used in the event-level HED string.",
+        rdfs:label "unique"
+    
+    Domain: 
+        hed:HED_0000005
+    
+    Range: 
+        xsd:boolean
+    
+    
+DataProperty: hed:HED_0000316
+
+    Annotations: 
+        dc:description "This unit is a prefix unit (e.g., dollar sign in the currency units).",
+        rdfs:label "unitPrefix"
+    
+    Domain: 
+        hed:HED_0000007
+    
+    Range: 
+        xsd:boolean
+    
+    
+DataProperty: hed:HED_0000317
+
+    Annotations: 
+        dc:description "This is an abbreviation or symbol representing a type of unit. Unit symbols represent both the singular and the plural and thus cannot be pluralized.",
+        rdfs:label "unitSymbol"
+    
+    Domain: 
+        hed:HED_0000007
+    
+    Range: 
+        xsd:boolean
+
+    
+Class: hed:HED_0000001
+
+    Annotations: 
+        dc:description "Any item in the HED ontology.",
+        rdfs:comment "Used to anchor all items in both the structural schema and the tags.",
+        rdfs:label "HedEntity"
+    
+    SubClassOf: 
+        owl:Thing
+    
+    
+Class: hed:HED_0000002
+
+    Annotations: 
+        dc:description "Any structural element of the HED schema including header, sections, epilogue, and prologue.",
+        rdfs:comment "Used to anchor all items in both the structural.",
+        rdfs:label "HedStructure"
+    
+    EquivalentTo: 
+        hed:HED_0000001
+         and (hed:HED_0000102 exactly 1 hed:HED_0000004)
+    
+    
+Class: hed:HED_0000003
+
+    Annotations: 
+        dc:description "Any item in a HED schema.",
+        rdfs:comment "Used to anchor all items in both the structural schema and the tags.",
+        rdfs:label "HedElement"
+    
+    EquivalentTo: 
+        hed:HED_0000001
+         and (hed:HED_0000102 exactly 1 hed:HED_0000004)
+    
+    
+Class: hed:HED_0000004
+
+    Annotations: 
+        dc:description "The overall structure of the HED schema by section.",
+        rdfs:label "HedSchema"
+    
+    SubClassOf: 
+        hed:HED_0000002
+    
+    
+Class: hed:HED_0000005
+
+    Annotations: 
+        dc:description "A HED vocabulary term or node representing a HED tag.",
+        rdfs:label "HedTag"
+    
+    SubClassOf: 
+        hed:HED_0000003
+    
+    
+Class: hed:HED_0000006
+
+    Annotations: 
+        dc:description "A category of units such as acceleration units.",
+        rdfs:label "HedUnitClass"
+    
+    EquivalentTo: 
+        hed:HED_0000003
+         and (hed:HED_0000102 exactly 1 hed:HED_0000004)
+    
+    
+Class: hed:HED_0000007
+
+    Annotations: 
+        dc:description "A unit element such as seconds.",
+        rdfs:comment "HED units have a isOfUnitType association with a HedUnitClass.",
+        rdfs:label "HedUnit"
+    
+    EquivalentTo: 
+        hed:HED_0000003
+         and (hed:HED_0000103 some hed:HED_0000006)
+    
+    
+Class: hed:HED_0000008
+
+    Annotations: 
+        dc:description "A unit modifier such as kilo.",
+        rdfs:label "HedUnitModifier"
+    
+    SubClassOf: 
+        hed:HED_0000003
+    
+    
+Class: hed:HED_0000009
+
+    Annotations: 
+        dc:description "Rules for a type of value provided by users to substitute for placeholders.",
+        rdfs:label "HedValueClass"
+    
+    SubClassOf: 
+        hed:HED_0000003
+    
+    
+Class: hed:HED_0000010
+
+    Annotations: 
+        dc:description "Contains the specification of the schema version and partnership.",
+        rdfs:label "HedHeader"
+    
+    EquivalentTo: 
+        hed:HED_0000002
+         and (hed:HED_0000300 exactly 1 xsd:string)
+         and (hed:HED_0000301 max 1 xsd:string)
+         and (hed:HED_0000302 max 1 xsd:boolean)
+         and (hed:HED_0000303 max 1 xsd:string)
+    
+    
+Class: hed:HED_0000011
+
+    Annotations: 
+        dc:description "The introductory text of a HED schema which describes is purpose and scope.",
+        rdfs:label "HedPrologue"
+    
+    SubClassOf: 
+        hed:HED_0000002
+    
+    
+Class: hed:HED_0000012
+
+    Annotations: 
+        dc:description "The end piece text of a HED schema which describes sources and other reference material.",
+        rdfs:label "HedEpilogue"
+    
+    SubClassOf: 
+        hed:HED_0000002
+    
+    
+Class: owl:Thing
+
+    
+
+
+AnnotationProperty: hed:HED_0010308
+	Annotations:
+		dc:description "The unique identifier of this element in the HED namespace.",
+		rdfs:label "hedId",
+		hed:HED_0010703 true,
+		hed:HED_0010707 true
+
+
+AnnotationProperty: hed:HED_0010501
+	Annotations:
+		dc:description "This tag must have a descendent.",
+		rdfs:label "requireChild",
+		hed:HED_0010704 true,
+		hed:HED_0010702 true
+	Domain:
+		hed:HED_0000007
+	Range:
+		boolean
+
+
+AnnotationProperty: hed:HED_0010502
+	Annotations:
+		dc:description "This top-level library schema node should have a parent which is the indicated node in the partnered standard schema.",
+		rdfs:label "rooted",
+		hed:HED_0010704 true,
+		hed:HED_0010705 true
+	Domain:
+		hed:HED_0000007
+	Range:
+		hed:HED_0000007
+
+
+AnnotationProperty: hed:HED_0010503
+	Annotations:
+		dc:description "This tag is a hashtag placeholder that is expected to be replaced with a user-defined value.",
+		rdfs:label "takesValue",
+		hed:HED_0010704 true,
+		hed:HED_0010702 true
+	Domain:
+		hed:HED_0000007
+	Range:
+		boolean
+
+
+
+
+AnnotationProperty: hed:HED_0010701
+	Annotations:
+		dc:description "The value is not inherited by child nodes.",
+		rdfs:label "annotationProperty"
+
+AnnotationProperty: hed:HED_0010702
+	Annotations:
+		dc:description "This schema attribute's value can be true or false. This property was formerly named boolProperty.",
+		rdfs:label "boolRange"
+
+AnnotationProperty: hed:HED_0010703
+	Annotations:
+		dc:description "This schema attribute can apply to any type of element class (i.e., tag, unit, unit class, unit modifier, or value class). This property was formerly named elementProperty.",
+		rdfs:label "elementDomain"
+
+AnnotationProperty: hed:HED_0010704
+	Annotations:
+		dc:description "This schema attribute can apply to node (tag-term) elements. This was added so attributes could apply to multiple types of elements. This property was formerly named nodeProperty.",
+		rdfs:label "tagDomain"
+
+AnnotationProperty: hed:HED_0010705
+	Annotations:
+		dc:description "This schema attribute's value can be a node. This property was formerly named nodeProperty.",
+		rdfs:label "tagRange"
+
+AnnotationProperty: hed:HED_0010706
+	Annotations:
+		dc:description "This schema attribute's value can be numeric.",
+		rdfs:label "numericRange"
+
+AnnotationProperty: hed:HED_0010707
+	Annotations:
+		dc:description "This schema attribute's value can be a string.",
+		rdfs:label "stringRange"
+
+AnnotationProperty: hed:HED_0010708
+	Annotations:
+		dc:description "This schema attribute can apply to unit classes. This property was formerly named unitClassProperty.",
+		rdfs:label "unitClassDomain"
+
+AnnotationProperty: hed:HED_0010709
+	Annotations:
+		dc:description "This schema attribute's value can be a unit class.",
+		rdfs:label "unitClassRange"
+
+AnnotationProperty: hed:HED_0010710
+	Annotations:
+		dc:description "This schema attribute can apply to unit modifiers. This property was formerly named unitModifierProperty.",
+		rdfs:label "unitModifierDomain"
+
+AnnotationProperty: hed:HED_0010711
+	Annotations:
+		dc:description "This schema attribute can apply to units. This property was formerly named unitProperty.",
+		rdfs:label "unitDomain"
+
+AnnotationProperty: hed:HED_0010712
+	Annotations:
+		dc:description "This schema attribute's value can be units.",
+		rdfs:label "unitRange"
+
+AnnotationProperty: hed:HED_0010713
+	Annotations:
+		dc:description "This schema attribute can apply to value classes. This property was formerly named valueClassProperty.",
+		rdfs:label "valueClassDomain"
+
+AnnotationProperty: hed:HED_0010714
+	Annotations:
+		dc:description "This schema attribute's value can be a value class.",
+		rdfs:label "valueClassRange"
+
+
+
+DataProperty: hed:HED_0010304
+	Annotations:
+		dc:description "A special character that is allowed in expressing the value of a placeholder of a specified value class. Allowed characters may be listed individual, named individually, or named as a group as specified in Section 2.2 Character sets and restrictions of the HED specification.",
+		rdfs:label "allowedCharacter",
+		hed:HED_0010711 true,
+		hed:HED_0010710 true,
+		hed:HED_0010713 true,
+		hed:HED_0010707 true
+	Domain:
+		hed:HED_0000007 or hed:HED_0000008 or hed:HED_0000009
+	Range:
+		string
+
+
+DataProperty: hed:HED_0010305
+	Annotations:
+		dc:description "The factor to multiply these units or unit modifiers by to convert to default units.",
+		rdfs:label "conversionFactor",
+		hed:HED_0010711 true,
+		hed:HED_0010710 true,
+		hed:HED_0010706 true
+	Domain:
+		hed:HED_0000007 or hed:HED_0000008
+	Range:
+		float
+
+
+DataProperty: hed:HED_0010306
+	Annotations:
+		dc:description "The latest schema version in which the element was not deprecated.",
+		rdfs:label "deprecatedFrom",
+		hed:HED_0010703 true,
+		hed:HED_0010707 true
+	Domain:
+		hed:HED_0000003
+	Range:
+		string
+
+
+DataProperty: hed:HED_0010307
+	Annotations:
+		dc:description "Users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes except for hashtag placeholders.",
+		rdfs:label "extensionAllowed",
+		hed:HED_0010704 true,
+		hed:HED_0010702 true
+	Domain:
+		hed:HED_0000007
+	Range:
+		boolean
+
+
+DataProperty: hed:HED_0010309
+	Annotations:
+		dc:description "The named library schema that this schema element is from. This attribute is added by tools when a library schema is merged into its partnered standard schema.",
+		rdfs:label "inLibrary",
+		hed:HED_0010703 true,
+		hed:HED_0010707 true
+	Domain:
+		hed:HED_0000003
+	Range:
+		string
+
+
+DataProperty: hed:HED_0010310
+	Annotations:
+		dc:description "This tag has special meaning and requires special handling by tools.",
+		rdfs:label "reserved",
+		hed:HED_0010704 true,
+		hed:HED_0010702 true
+	Domain:
+		hed:HED_0000007
+	Range:
+		boolean
+
+
+DataProperty: hed:HED_0010311
+	Annotations:
+		dc:description "This unit element is an SI unit and can be modified by multiple and sub-multiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.",
+		rdfs:label "SIUnit",
+		hed:HED_0010711 true,
+		hed:HED_0010702 true
+	Domain:
+		hed:HED_0000007
+	Range:
+		boolean
+
+
+DataProperty: hed:HED_0010312
+	Annotations:
+		dc:description "This SI unit modifier represents a multiple or sub-multiple of a base unit rather than a unit symbol.",
+		rdfs:label "SIUnitModifier",
+		hed:HED_0010710 true,
+		hed:HED_0010702 true
+	Domain:
+		hed:HED_0000008
+	Range:
+		boolean
+
+
+DataProperty: hed:HED_0010313
+	Annotations:
+		dc:description "This SI unit modifier represents a multiple or sub-multiple of a unit symbol rather than a base symbol.",
+		rdfs:label "SIUnitSymbolModifier",
+		hed:HED_0010710 true,
+		hed:HED_0010702 true
+	Domain:
+		hed:HED_0000008
+	Range:
+		boolean
+
+
+DataProperty: hed:HED_0010314
+	Annotations:
+		dc:description "This tag can only appear inside a tag group.",
+		rdfs:label "tagGroup",
+		hed:HED_0010704 true,
+		hed:HED_0010702 true
+	Domain:
+		hed:HED_0000007
+	Range:
+		boolean
+
+
+DataProperty: hed:HED_0010315
+	Annotations:
+		dc:description "This tag (or its descendants) can only appear in a top-level tag group. There are additional tag-specific restrictions on what other tags can appear in the group with this tag.",
+		rdfs:label "topLevelTagGroup",
+		hed:HED_0010704 true,
+		hed:HED_0010702 true
+	Domain:
+		hed:HED_0000007
+	Range:
+		boolean
+
+
+DataProperty: hed:HED_0010316
+	Annotations:
+		dc:description "Only one of this tag or its descendants can be used in the event-level HED string.",
+		rdfs:label "unique",
+		hed:HED_0010704 true,
+		hed:HED_0010702 true
+	Domain:
+		hed:HED_0000007
+	Range:
+		boolean
+
+
+DataProperty: hed:HED_0010317
+	Annotations:
+		dc:description "This unit is a prefix unit (e.g., dollar sign in the currency units).",
+		rdfs:label "unitPrefix",
+		hed:HED_0010711 true,
+		hed:HED_0010702 true
+	Domain:
+		hed:HED_0000007
+	Range:
+		boolean
+
+
+DataProperty: hed:HED_0010318
+	Annotations:
+		dc:description "This tag is an abbreviation or symbol representing a type of unit. Unit symbols represent both the singular and the plural and thus cannot be pluralized.",
+		rdfs:label "unitSymbol",
+		hed:HED_0010711 true,
+		hed:HED_0010702 true
+	Domain:
+		hed:HED_0000007
+	Range:
+		boolean
+
+
+
+
+ObjectProperty: hed:HED_0010104
+	Annotations:
+		dc:description "The default units to use if the placeholder has a unit class but the substituted value has no units.",
+		rdfs:label "defaultUnits",
+		hed:HED_0010708 true,
+		hed:HED_0010712 true
+	Domain:
+		hed:HED_0000006
+	Range:
+		hed:HED_0000007
+
+
+ObjectProperty: hed:HED_0010109
+	Annotations:
+		dc:description "This tag is part of the indicated tag -- as in the nose is part of the face.",
+		rdfs:label "isPartOf",
+		hed:HED_0010704 true,
+		hed:HED_0010705 true
+	Domain:
+		hed:HED_0000007
+	Range:
+		hed:HED_0000007
+
+
+ObjectProperty: hed:HED_0010105
+	Annotations:
+		dc:description "A HED tag that is closely related to this tag. This attribute is used by tagging tools.",
+		rdfs:label "relatedTag",
+		hed:HED_0010704 true,
+		hed:HED_0010705 true
+	Domain:
+		hed:HED_0000007
+	Range:
+		hed:HED_0000007
+
+
+ObjectProperty: hed:HED_0010106
+	Annotations:
+		dc:description "A tag that is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions.",
+		rdfs:label "suggestedTag",
+		hed:HED_0010704 true,
+		hed:HED_0010705 true
+	Domain:
+		hed:HED_0000007
+	Range:
+		hed:HED_0000007
+
+
+ObjectProperty: hed:HED_0010107
+	Annotations:
+		dc:description "The unit class that the value of a placeholder node can belong to.",
+		rdfs:label "unitClass",
+		hed:HED_0010704 true,
+		hed:HED_0010709 true
+	Domain:
+		hed:HED_0000007
+	Range:
+		hed:HED_0000006
+
+
+ObjectProperty: hed:HED_0010108
+	Annotations:
+		dc:description "Type of value taken on by the value of a placeholder node.",
+		rdfs:label "valueClass",
+		hed:HED_0010704 true,
+		hed:HED_0010714 true
+	Domain:
+		hed:HED_0000007
+	Range:
+		hed:HED_0000009
+
+
+
+
 Class: hed:HED_0012001
 	Annotations:
 		dc:description "Something that happens at a given time and (typically) place. Elements of this tag subtree designate the general category in which an event falls.",
@@ -8914,4 +9902,964 @@ Class: hed:HED_0013199
 		rdfs:label "Waiting-for"
 	SubClassOf:
 		hed:HED_0013193
+
+
+
+Class: hed:HED_0011500
+	Annotations:
+		rdfs:label "accelerationUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011600)
+
+Class: hed:HED_0011501
+	Annotations:
+		rdfs:label "angleUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011601)
+
+Class: hed:HED_0011502
+	Annotations:
+		rdfs:label "areaUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011604)
+
+Class: hed:HED_0011503
+	Annotations:
+		dc:description "Units indicating the worth of something.",
+		rdfs:label "currencyUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011606)
+
+Class: hed:HED_0011504
+	Annotations:
+		rdfs:label "electricPotentialUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:0011644)
+
+Class: hed:HED_0011505
+	Annotations:
+		rdfs:label "frequencyUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011612)
+
+Class: hed:HED_0011506
+	Annotations:
+		rdfs:label "intensityUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011613)
+
+Class: hed:HED_0011507
+	Annotations:
+		rdfs:label "jerkUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011616)
+
+Class: hed:HED_0011508
+	Annotations:
+		rdfs:label "magneticFieldUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011618)
+
+Class: hed:HED_0011509
+	Annotations:
+		rdfs:label "memorySizeUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011620)
+
+Class: hed:HED_0011510
+	Annotations:
+		rdfs:label "physicalLengthUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011625)
+
+Class: hed:HED_0011511
+	Annotations:
+		rdfs:label "speedUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011627)
+
+Class: hed:HED_0011512
+	Annotations:
+		rdfs:label "temperatureUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011630)
+
+Class: hed:HED_0011513
+	Annotations:
+		rdfs:label "timeUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011634)
+
+Class: hed:HED_0011514
+	Annotations:
+		rdfs:label "volumeUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011639)
+
+Class: hed:HED_0011515
+	Annotations:
+		rdfs:label "weightUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011640)
+
+
+
+Class: hed:HED_0011600
+	Annotations:
+		rdfs:label "m-per-s^2"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0010304 value "caret")
+		and (hed:HED_0000103 some hed:HED_0011500)
+
+Class: hed:HED_0011601
+	Annotations:
+		rdfs:label "radian"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011501)
+
+Class: hed:HED_0011602
+	Annotations:
+		rdfs:label "rad"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011501)
+
+Class: hed:HED_0011603
+	Annotations:
+		rdfs:label "degree"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010305 value 0.0174533)
+		and (hed:HED_0000103 some hed:HED_0011501)
+
+Class: hed:HED_0011604
+	Annotations:
+		rdfs:label "m^2"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0010304 value "caret")
+		and (hed:HED_0000103 some hed:HED_0011502)
+
+Class: hed:HED_0011605
+	Annotations:
+		rdfs:label "dollar"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011503)
+
+Class: hed:HED_0011606
+	Annotations:
+		rdfs:label "$"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010317 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0010304 value "dollar")
+		and (hed:HED_0000103 some hed:HED_0011503)
+
+Class: hed:HED_0011607
+	Annotations:
+		dc:description "The official currency of a large subset of member countries of the European Union.",
+		rdfs:label "euro"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0000103 some hed:HED_0011503)
+
+Class: hed:HED_0011608
+	Annotations:
+		dc:description "An arbitrary unit of value, usually an integer indicating reward or penalty.",
+		rdfs:label "point"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0000103 some hed:HED_0011503)
+
+Class: hed:HED_0011609
+	Annotations:
+		rdfs:label "v"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 0.000001)
+		and (hed:HED_0000103 some hed:HED_0011504)
+
+Class: hed:0011644
+	Annotations:
+		dc:description "Added as a direct unit because it is the default unit.",
+		rdfs:label "uv"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011504)
+
+Class: hed:HED_0011610
+	Annotations:
+		rdfs:label "Volt"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010305 value 0.000001)
+		and (hed:HED_0000103 some hed:HED_0011504)
+
+Class: hed:HED_0011611
+	Annotations:
+		rdfs:label "hertz"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011505)
+
+Class: hed:HED_0011612
+	Annotations:
+		rdfs:label "Hz"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011505)
+
+Class: hed:HED_0011613
+	Annotations:
+		dc:description "Intensity expressed as ratio to a threshold. May be used for sound intensity.",
+		rdfs:label "dB"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011506)
+
+Class: hed:HED_0011614
+	Annotations:
+		dc:description "Units used to express light intensity.",
+		rdfs:label "candela"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0000103 some hed:HED_0011506)
+
+Class: hed:HED_0011615
+	Annotations:
+		dc:description "Units used to express light intensity.",
+		rdfs:label "cd"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0000103 some hed:HED_0011506)
+
+Class: hed:HED_0011616
+	Annotations:
+		rdfs:label "m-per-s^3"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0010304 value "caret")
+		and (hed:HED_0000103 some hed:HED_0011507)
+
+Class: hed:HED_0011617
+	Annotations:
+		rdfs:label "tesla"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010305 value 10e-15)
+		and (hed:HED_0000103 some hed:HED_0011508)
+
+Class: hed:HED_0011618
+	Annotations:
+		rdfs:label "T"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 10e-15)
+		and (hed:HED_0000103 some hed:HED_0011508)
+
+Class: hed:HED_0011619
+	Annotations:
+		rdfs:label "byte"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011509)
+
+Class: hed:HED_0011620
+	Annotations:
+		rdfs:label "B"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011509)
+
+Class: hed:HED_0011621
+	Annotations:
+		rdfs:label "foot"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010305 value 0.3048)
+		and (hed:HED_0000103 some hed:HED_0011510)
+
+Class: hed:HED_0011622
+	Annotations:
+		rdfs:label "inch"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010305 value 0.0254)
+		and (hed:HED_0000103 some hed:HED_0011510)
+
+Class: hed:HED_0011623
+	Annotations:
+		rdfs:label "meter"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011510)
+
+Class: hed:HED_0011624
+	Annotations:
+		rdfs:label "metre"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011510)
+
+Class: hed:HED_0011625
+	Annotations:
+		rdfs:label "m"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011510)
+
+Class: hed:HED_0011626
+	Annotations:
+		rdfs:label "mile"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010305 value 1609.34)
+		and (hed:HED_0000103 some hed:HED_0011510)
+
+Class: hed:HED_0011627
+	Annotations:
+		rdfs:label "m-per-s"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011511)
+
+Class: hed:HED_0011628
+	Annotations:
+		rdfs:label "mph"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 0.44704)
+		and (hed:HED_0000103 some hed:HED_0011511)
+
+Class: hed:HED_0011629
+	Annotations:
+		rdfs:label "kph"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 0.277778)
+		and (hed:HED_0000103 some hed:HED_0011511)
+
+Class: hed:HED_0011630
+	Annotations:
+		rdfs:label "degree-Celsius"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011512)
+
+Class: hed:HED_0011631
+	Annotations:
+		dc:description "Units are not allowed to have spaces. Use degree-Celsius or oC instead.",
+		rdfs:label "degree Celsius"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010306 value "8.2.0")
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011512)
+
+Class: hed:HED_0011632
+	Annotations:
+		rdfs:label "oC"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011512)
+
+Class: hed:HED_0011633
+	Annotations:
+		rdfs:label "second"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011513)
+
+Class: hed:HED_0011634
+	Annotations:
+		rdfs:label "s"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011513)
+
+Class: hed:HED_0011635
+	Annotations:
+		rdfs:label "day"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010305 value 86400)
+		and (hed:HED_0000103 some hed:HED_0011513)
+
+Class: hed:HED_00645
+	Annotations:
+		rdfs:label "month"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0000103 some hed:HED_0011513)
+
+Class: hed:HED_0011636
+	Annotations:
+		rdfs:label "minute"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010305 value 60)
+		and (hed:HED_0000103 some hed:HED_0011513)
+
+Class: hed:HED_0011637
+	Annotations:
+		dc:description "Should be in 24-hour format.",
+		rdfs:label "hour"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010305 value 3600)
+		and (hed:HED_0000103 some hed:HED_0011513)
+
+Class: hed:HED_0011638
+	Annotations:
+		dc:description "Years do not have a constant conversion factor to seconds.",
+		rdfs:label "year"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0000103 some hed:HED_0011513)
+
+Class: hed:HED_0011639
+	Annotations:
+		rdfs:label "m^3"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0010304 value "caret")
+		and (hed:HED_0000103 some hed:HED_0011514)
+
+Class: hed:HED_0011640
+	Annotations:
+		rdfs:label "g"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011515)
+
+Class: hed:HED_0011641
+	Annotations:
+		rdfs:label "gram"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011515)
+
+Class: hed:HED_0011642
+	Annotations:
+		rdfs:label "pound"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010305 value 453.592)
+		and (hed:HED_0000103 some hed:HED_0011515)
+
+Class: hed:HED_0011643
+	Annotations:
+		rdfs:label "lb"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010305 value 453.592)
+		and (hed:HED_0000103 some hed:HED_0011515)
+
+
+
+Class: hed:HED_0011400
+	Annotations:
+		dc:description "SI unit multiple representing 10e1.",
+		rdfs:label "deca"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010312 value true)
+		and (hed:HED_0010305 value 10.0)
+
+Class: hed:HED_0011401
+	Annotations:
+		dc:description "SI unit multiple representing 10e1.",
+		rdfs:label "da"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010313 value true)
+		and (hed:HED_0010305 value 10.0)
+
+Class: hed:HED_0011402
+	Annotations:
+		dc:description "SI unit multiple representing 10e2.",
+		rdfs:label "hecto"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010312 value true)
+		and (hed:HED_0010305 value 100.0)
+
+Class: hed:HED_0011403
+	Annotations:
+		dc:description "SI unit multiple representing 10e2.",
+		rdfs:label "h"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010313 value true)
+		and (hed:HED_0010305 value 100.0)
+
+Class: hed:HED_0011404
+	Annotations:
+		dc:description "SI unit multiple representing 10e3.",
+		rdfs:label "kilo"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010312 value true)
+		and (hed:HED_0010305 value 1000.0)
+
+Class: hed:HED_0011405
+	Annotations:
+		dc:description "SI unit multiple representing 10e3.",
+		rdfs:label "k"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010313 value true)
+		and (hed:HED_0010305 value 1000.0)
+
+Class: hed:HED_0011406
+	Annotations:
+		dc:description "SI unit multiple representing 10e6.",
+		rdfs:label "mega"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010312 value true)
+		and (hed:HED_0010305 value 10e6)
+
+Class: hed:HED_0011407
+	Annotations:
+		dc:description "SI unit multiple representing 10e6.",
+		rdfs:label "M"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010313 value true)
+		and (hed:HED_0010305 value 10e6)
+
+Class: hed:HED_0011408
+	Annotations:
+		dc:description "SI unit multiple representing 10e9.",
+		rdfs:label "giga"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010312 value true)
+		and (hed:HED_0010305 value 10e9)
+
+Class: hed:HED_0011409
+	Annotations:
+		dc:description "SI unit multiple representing 10e9.",
+		rdfs:label "G"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010313 value true)
+		and (hed:HED_0010305 value 10e9)
+
+Class: hed:HED_0011410
+	Annotations:
+		dc:description "SI unit multiple representing 10e12.",
+		rdfs:label "tera"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010312 value true)
+		and (hed:HED_0010305 value 10e12)
+
+Class: hed:HED_0011411
+	Annotations:
+		dc:description "SI unit multiple representing 10e12.",
+		rdfs:label "T"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010313 value true)
+		and (hed:HED_0010305 value 10e12)
+
+Class: hed:HED_0011412
+	Annotations:
+		dc:description "SI unit multiple representing 10e15.",
+		rdfs:label "peta"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010312 value true)
+		and (hed:HED_0010305 value 10e15)
+
+Class: hed:HED_0011413
+	Annotations:
+		dc:description "SI unit multiple representing 10e15.",
+		rdfs:label "P"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010313 value true)
+		and (hed:HED_0010305 value 10e15)
+
+Class: hed:HED_0011414
+	Annotations:
+		dc:description "SI unit multiple representing 10e18.",
+		rdfs:label "exa"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010312 value true)
+		and (hed:HED_0010305 value 10e18)
+
+Class: hed:HED_0011415
+	Annotations:
+		dc:description "SI unit multiple representing 10e18.",
+		rdfs:label "E"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010313 value true)
+		and (hed:HED_0010305 value 10e18)
+
+Class: hed:HED_0011416
+	Annotations:
+		dc:description "SI unit multiple representing 10e21.",
+		rdfs:label "zetta"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010312 value true)
+		and (hed:HED_0010305 value 10e21)
+
+Class: hed:HED_0011417
+	Annotations:
+		dc:description "SI unit multiple representing 10e21.",
+		rdfs:label "Z"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010313 value true)
+		and (hed:HED_0010305 value 10e21)
+
+Class: hed:HED_0011418
+	Annotations:
+		dc:description "SI unit multiple representing 10e24.",
+		rdfs:label "yotta"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010312 value true)
+		and (hed:HED_0010305 value 10e24)
+
+Class: hed:HED_0011419
+	Annotations:
+		dc:description "SI unit multiple representing 10e24.",
+		rdfs:label "Y"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010313 value true)
+		and (hed:HED_0010305 value 10e24)
+
+Class: hed:HED_0011420
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-1.",
+		rdfs:label "deci"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010312 value true)
+		and (hed:HED_0010305 value 0.1)
+
+Class: hed:HED_0011421
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-1.",
+		rdfs:label "d"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010313 value true)
+		and (hed:HED_0010305 value 0.1)
+
+Class: hed:HED_0011422
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-2.",
+		rdfs:label "centi"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010312 value true)
+		and (hed:HED_0010305 value 0.01)
+
+Class: hed:HED_0011423
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-2.",
+		rdfs:label "c"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010313 value true)
+		and (hed:HED_0010305 value 0.01)
+
+Class: hed:HED_0011424
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-3.",
+		rdfs:label "milli"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010312 value true)
+		and (hed:HED_0010305 value 0.001)
+
+Class: hed:HED_0011425
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-3.",
+		rdfs:label "m"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010313 value true)
+		and (hed:HED_0010305 value 0.001)
+
+Class: hed:HED_0011426
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-6.",
+		rdfs:label "micro"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010312 value true)
+		and (hed:HED_0010305 value 10e-6)
+
+Class: hed:HED_0011427
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-6.",
+		rdfs:label "u"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010313 value true)
+		and (hed:HED_0010305 value 10e-6)
+
+Class: hed:HED_0011428
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-9.",
+		rdfs:label "nano"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010312 value true)
+		and (hed:HED_0010305 value 10e-9)
+
+Class: hed:HED_0011429
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-9.",
+		rdfs:label "n"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010313 value true)
+		and (hed:HED_0010305 value 10e-9)
+
+Class: hed:HED_0011430
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-12.",
+		rdfs:label "pico"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010312 value true)
+		and (hed:HED_0010305 value 10e-12)
+
+Class: hed:HED_0011431
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-12.",
+		rdfs:label "p"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010313 value true)
+		and (hed:HED_0010305 value 10e-12)
+
+Class: hed:HED_0011432
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-15.",
+		rdfs:label "femto"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010312 value true)
+		and (hed:HED_0010305 value 10e-15)
+
+Class: hed:HED_0011433
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-15.",
+		rdfs:label "f"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010313 value true)
+		and (hed:HED_0010305 value 10e-15)
+
+Class: hed:HED_0011434
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-18.",
+		rdfs:label "atto"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010312 value true)
+		and (hed:HED_0010305 value 10e-18)
+
+Class: hed:HED_0011435
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-18.",
+		rdfs:label "a"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010313 value true)
+		and (hed:HED_0010305 value 10e-18)
+
+Class: hed:HED_0011436
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-21.",
+		rdfs:label "zepto"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010312 value true)
+		and (hed:HED_0010305 value 10e-21)
+
+Class: hed:HED_0011437
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-21.",
+		rdfs:label "z"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010313 value true)
+		and (hed:HED_0010305 value 10e-21)
+
+Class: hed:HED_0011438
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-24.",
+		rdfs:label "yocto"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010312 value true)
+		and (hed:HED_0010305 value 10e-24)
+
+Class: hed:HED_0011439
+	Annotations:
+		dc:description "SI unit submultiple representing 10e-24.",
+		rdfs:label "y"
+	EquivalentTo:
+		hed:HED_0010008
+		and (hed:HED_0010313 value true)
+		and (hed:HED_0010305 value 10e-24)
+
+
+
+Class: hed:HED_0011301
+	Annotations:
+		dc:description "Date-times should conform to ISO8601 date-time format YYYY-MM-DDThh:mm:ss.000000Z (year, month, day, hour (24h), minute, second, optional fractional seconds, and optional UTC time indicator. Any variation on the full form is allowed.",
+		rdfs:label "dateTimeClass"
+	EquivalentTo:
+		hed:HED_0010009
+		and (hed:HED_0010304 value "digits")
+		and (hed:HED_0010304 value "T")
+		and (hed:HED_0010304 value "hyphen")
+		and (hed:HED_0010304 value "colon")
+
+Class: hed:HED_0011302
+	Annotations:
+		dc:description "Value class designating values that have the characteristics of node names. The allowed characters are alphanumeric, hyphen, and underscore.",
+		rdfs:label "nameClass"
+	EquivalentTo:
+		hed:HED_0010009
+		and (hed:HED_0010304 value "letters")
+		and (hed:HED_0010304 value "digits")
+		and (hed:HED_0010304 value "underscore")
+		and (hed:HED_0010304 value "hyphen")
+
+Class: hed:HED_0011303
+	Annotations:
+		dc:description "Value must be a valid numerical value.",
+		rdfs:label "numericClass"
+	EquivalentTo:
+		hed:HED_0010009
+		and (hed:HED_0010304 value "digits")
+		and (hed:HED_0010304 value "E")
+		and (hed:HED_0010304 value "e")
+		and (hed:HED_0010304 value "plus")
+		and (hed:HED_0010304 value "hyphen")
+		and (hed:HED_0010304 value "period")
+
+Class: hed:HED_0011304
+	Annotations:
+		dc:description "Posix path specification.",
+		rdfs:label "posixPath"
+	EquivalentTo:
+		hed:HED_0010009
+		and (hed:HED_0010304 value "digits")
+		and (hed:HED_0010304 value "letters")
+		and (hed:HED_0010304 value "slash")
+		and (hed:HED_0010304 value "colon")
+
+Class: hed:HED_0011305
+	Annotations:
+		dc:description "Values that have the characteristics of text such as in descriptions. The text characters include printable characters (32 <= ASCII  < 127) excluding comma, square bracket and curly braces as well as nonascii (ASCII codes > 127).",
+		rdfs:label "textClass"
+	EquivalentTo:
+		hed:HED_0010009
+		and (hed:HED_0010304 value "text")
+
+
 
