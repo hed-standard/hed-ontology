@@ -1,4 +1,4 @@
-Prefix: : <http://purl.org/hed/releases/working/hed-standard.owl/>
+
 Prefix: dc: <http://purl.org/dc/elements/1.1/>
 Prefix: foaf: <http://xmlns.com/foaf/0.1/>
 Prefix: hed: <http://purl.org/hed/releases/working/hed-schema#>
