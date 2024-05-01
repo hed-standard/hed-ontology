@@ -299,10 +299,10 @@ hed:HED_0012297	7	Scroll-wheel	Computer-mouse		A scroll wheel or mouse wheel is 
 hed:HED_0012298	6	Joystick	Input-device		A control device that uses a movable handle to create two-axis input for a computer device.	Input-device			
 hed:HED_0012299	6	Keyboard	Input-device		A device consisting of mechanical keys that are pressed to create input to a computer.	Input-device			
 hed:HED_0012300	7	Keyboard-key	Keyboard		A button on a keyboard usually representing letters, numbers, functions, or symbols.	Keyboard			
-hed:HED_0012301	8	Keyboard-key-#	Keyboard-key	takesValue	Value of a keyboard key.	Keyboard-key and (takesValue value true)			
+hed:HED_0012301	8	Keyboard-key-#	Keyboard-key	takesValue	Value of a keyboard key.	Keyboard-key			
 hed:HED_0012302	6	Keypad	Input-device		A device consisting of keys, usually in a block arrangement, that provides limited input to a system.	Input-device			
 hed:HED_0012303	7	Keypad-key	Keypad		A key on a separate section of a computer keyboard that groups together numeric keys and those for mathematical or other special functions in an arrangement like that of a calculator.	Keypad			
-hed:HED_0012304	8	Keypad-key-#	Keypad-key	takesValue	Value of keypad key.	Keypad-key and (takesValue value true)			
+hed:HED_0012304	8	Keypad-key-#	Keypad-key	takesValue	Value of keypad key.	Keypad-key			
 hed:HED_0012305	6	Microphone	Input-device		A device designed to convert sound to an electrical signal.	Input-device			
 hed:HED_0012306	6	Push-button	Input-device		A switch designed to be operated by pressing a button.	Input-device			
 hed:HED_0012307	5	Output-device	IO-device		Any piece of computer hardware equipment which converts information into human understandable form.	IO-device			
@@ -473,7 +473,7 @@ hed:HED_0012471	3	Experiment-participant	Agent-task-role		Someone who takes part
 hed:HED_0012472	3	Experimenter	Agent-task-role		Person who is the owner of the experiment and has its responsibility.	Agent-task-role			
 hed:HED_0012473	2	Agent-trait	Agent-property		A genetically, environmentally, or socially determined characteristic of an agent.	Agent-property			
 hed:HED_0012474	3	Age	Agent-trait		Length of time elapsed time since birth of the agent.	Agent-trait			
-hed:HED_0012475	4	Age-#	Age	takesValue, valueClass=numericClass		Age and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012475	4	Age-#	Age	takesValue, valueClass=numericClass		Age and (valueClass some numericClass)			
 hed:HED_0012476	3	Agent-experience-level	Agent-trait		Amount of skill or knowledge that the agent has as pertains to the task.	Agent-trait			
 hed:HED_0012477	4	Expert-level	Agent-experience-level	relatedTag=Intermediate-experience-level, relatedTag=Novice-level	Having comprehensive and authoritative knowledge of or skill in a particular area related to the task.	Agent-experience-level and (relatedTag some Intermediate-experience-level) and (relatedTag some Novice-level)			
 hed:HED_0012478	4	Intermediate-experience-level	Agent-experience-level	relatedTag=Expert-level, relatedTag=Novice-level	Having a moderate amount of knowledge or skill related to the task.	Agent-experience-level and (relatedTag some Expert-level) and (relatedTag some Novice-level)			
@@ -517,7 +517,7 @@ hed:HED_0012515	4	Electrode-movement-artifact	Nonbiological-artifact		Artifact f
 hed:HED_0012516	4	Electrode-pops-artifact	Nonbiological-artifact		Brief artifact with a steep rise and slow fall of an electrophysiological signal, most often caused by a loose electrode.	Nonbiological-artifact			
 hed:HED_0012517	4	Induction-artifact	Nonbiological-artifact		Artifacts induced by nearby equipment. In EEG, these are usually of high frequency.	Nonbiological-artifact			
 hed:HED_0012518	4	Line-noise-artifact	Nonbiological-artifact		Power line noise at 50 Hz or 60 Hz.	Nonbiological-artifact			
-hed:HED_0012519	5	Line-noise-artifact-#	Line-noise-artifact	takesValue, valueClass=numericClass, unitClass=frequencyUnits		Line-noise-artifact and (takesValue value true) and (valueClass some numericClass) and (unitClass some frequencyUnits)			
+hed:HED_0012519	5	Line-noise-artifact-#	Line-noise-artifact	takesValue, valueClass=numericClass, unitClass=frequencyUnits		Line-noise-artifact and (valueClass some numericClass) and (unitClass some frequencyUnits)			
 hed:HED_0012520	4	Salt-bridge-artifact	Nonbiological-artifact		Artifact from salt-bridge between EEG electrodes.	Nonbiological-artifact			
 hed:HED_0012521	2	Data-marker	Data-property		An indicator placed to mark something.	Data-property			
 hed:HED_0012522	3	Data-break-marker	Data-marker		An indicator place to indicate a gap in the data.	Data-marker			
@@ -530,17 +530,17 @@ hed:HED_0012528	4	Time-out	Temporal-marker		A cancellation or cessation that aut
 hed:HED_0012529	4	Time-sync	Temporal-marker		A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.	Temporal-marker			
 hed:HED_0012530	2	Data-resolution	Data-property		Smallest change in a quality being measured by an sensor that causes a perceptible change.	Data-property			
 hed:HED_0012531	3	Printer-resolution	Data-resolution		Resolution of a printer, usually expressed as the number of dots-per-inch for a printer.	Data-resolution			
-hed:HED_0012532	4	Printer-resolution-#	Printer-resolution	takesValue, valueClass=numericClass		Printer-resolution and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012532	4	Printer-resolution-#	Printer-resolution	takesValue, valueClass=numericClass		Printer-resolution and (valueClass some numericClass)			
 hed:HED_0012533	3	Screen-resolution	Data-resolution		Resolution of a screen, usually expressed as the of pixels in a dimension for a digital display device.	Data-resolution			
-hed:HED_0012534	4	Screen-resolution-#	Screen-resolution	takesValue, valueClass=numericClass		Screen-resolution and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012534	4	Screen-resolution-#	Screen-resolution	takesValue, valueClass=numericClass		Screen-resolution and (valueClass some numericClass)			
 hed:HED_0012535	3	Sensory-resolution	Data-resolution		Resolution of measurements by a sensing device.	Data-resolution			
-hed:HED_0012536	4	Sensory-resolution-#	Sensory-resolution	takesValue, valueClass=numericClass		Sensory-resolution and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012536	4	Sensory-resolution-#	Sensory-resolution	takesValue, valueClass=numericClass		Sensory-resolution and (valueClass some numericClass)			
 hed:HED_0012537	3	Spatial-resolution	Data-resolution		Linear spacing of a spatial measurement.	Data-resolution			
-hed:HED_0012538	4	Spatial-resolution-#	Spatial-resolution	takesValue, valueClass=numericClass		Spatial-resolution and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012538	4	Spatial-resolution-#	Spatial-resolution	takesValue, valueClass=numericClass		Spatial-resolution and (valueClass some numericClass)			
 hed:HED_0012539	3	Spectral-resolution	Data-resolution		Measures the ability of a sensor to  resolve features in the electromagnetic spectrum.	Data-resolution			
-hed:HED_0012540	4	Spectral-resolution-#	Spectral-resolution	takesValue, valueClass=numericClass		Spectral-resolution and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012540	4	Spectral-resolution-#	Spectral-resolution	takesValue, valueClass=numericClass		Spectral-resolution and (valueClass some numericClass)			
 hed:HED_0012541	3	Temporal-resolution	Data-resolution		Measures the ability of a sensor to  resolve features in time.	Data-resolution			
-hed:HED_0012542	4	Temporal-resolution-#	Temporal-resolution	takesValue, valueClass=numericClass		Temporal-resolution and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012542	4	Temporal-resolution-#	Temporal-resolution	takesValue, valueClass=numericClass		Temporal-resolution and (valueClass some numericClass)			
 hed:HED_0012543	2	Data-source-type	Data-property		The type of place, person, or thing from which the data comes or can be obtained.	Data-property			
 hed:HED_0012544	3	Computed-feature	Data-source-type		A feature computed from the data by a tool. This tag should be grouped with a label of the form Toolname_propertyName.	Data-source-type			
 hed:HED_0012545	3	Computed-prediction	Data-source-type		A computed extrapolation of known data.	Data-source-type			
@@ -625,97 +625,97 @@ hed:HED_0012623	5	Upward	Categorical-orientation-value	relatedTag=Downward, rela
 hed:HED_0012624	5	Vertically-oriented	Categorical-orientation-value	relatedTag=Horizontally-oriented	Oriented perpendicular to the plane of the horizon.	Categorical-orientation-value and (relatedTag some Horizontally-oriented)			
 hed:HED_0012625	3	Physical-value	Data-value		The value of some physical property of something.	Data-value			
 hed:HED_0012626	4	Temperature	Physical-value		A measure of hot or cold based on the average kinetic energy of the atoms or molecules in the system.	Physical-value			
-hed:HED_0012627	5	Temperature-#	Temperature	takesValue, valueClass=numericClass, unitClass=temperatureUnits		Temperature and (takesValue value true) and (valueClass some numericClass) and (unitClass some temperatureUnits)			
+hed:HED_0012627	5	Temperature-#	Temperature	takesValue, valueClass=numericClass, unitClass=temperatureUnits		Temperature and (valueClass some numericClass) and (unitClass some temperatureUnits)			
 hed:HED_0012628	4	Weight	Physical-value		The relative mass or the quantity of matter contained by something.	Physical-value			
-hed:HED_0012629	5	Weight-#	Weight	takesValue, valueClass=numericClass, unitClass=weightUnits		Weight and (takesValue value true) and (valueClass some numericClass) and (unitClass some weightUnits)			
+hed:HED_0012629	5	Weight-#	Weight	takesValue, valueClass=numericClass, unitClass=weightUnits		Weight and (valueClass some numericClass) and (unitClass some weightUnits)			
 hed:HED_0012630	3	Quantitative-value	Data-value		Something capable of being estimated or expressed with numeric values.	Data-value			
 hed:HED_0012631	4	Fraction	Quantitative-value		A numerical value between 0 and 1.	Quantitative-value			
-hed:HED_0012632	5	Fraction-#	Fraction	takesValue, valueClass=numericClass		Fraction and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012632	5	Fraction-#	Fraction	takesValue, valueClass=numericClass		Fraction and (valueClass some numericClass)			
 hed:HED_0012633	4	Item-count	Quantitative-value		The integer count of something which is usually grouped with the entity it is counting. (Item-count/3, A) indicates that 3 of A have occurred up to this point.	Quantitative-value			
-hed:HED_0012634	5	Item-count-#	Item-count	takesValue, valueClass=numericClass		Item-count and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012634	5	Item-count-#	Item-count	takesValue, valueClass=numericClass		Item-count and (valueClass some numericClass)			
 hed:HED_0012635	4	Item-index	Quantitative-value		The index of an item in a collection, sequence or other structure. (A (Item-index/3, B)) means that A is item number 3 in B.	Quantitative-value			
-hed:HED_0012636	5	Item-index-#	Item-index	takesValue, valueClass=numericClass		Item-index and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012636	5	Item-index-#	Item-index	takesValue, valueClass=numericClass		Item-index and (valueClass some numericClass)			
 hed:HED_0012637	4	Item-interval	Quantitative-value		An integer indicating how many items or entities have passed since the last one of these. An item interval of 0 indicates the current item.	Quantitative-value			
-hed:HED_0012638	5	Item-interval-#	Item-interval	takesValue, valueClass=numericClass		Item-interval and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012638	5	Item-interval-#	Item-interval	takesValue, valueClass=numericClass		Item-interval and (valueClass some numericClass)			
 hed:HED_0012639	4	Percentage	Quantitative-value		A fraction or ratio with 100 understood as the denominator.	Quantitative-value			
-hed:HED_0012640	5	Percentage-#	Percentage	takesValue, valueClass=numericClass		Percentage and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012640	5	Percentage-#	Percentage	takesValue, valueClass=numericClass		Percentage and (valueClass some numericClass)			
 hed:HED_0012641	4	Ratio	Quantitative-value		A quotient of quantities of the same kind for different components within the same system.	Quantitative-value			
-hed:HED_0012642	5	Ratio-#	Ratio	takesValue, valueClass=numericClass		Ratio and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012642	5	Ratio-#	Ratio	takesValue, valueClass=numericClass		Ratio and (valueClass some numericClass)			
 hed:HED_0012643	3	Spatiotemporal-value	Data-value		A property relating to space and/or time.	Data-value			
 hed:HED_0012644	4	Rate-of-change	Spatiotemporal-value		The amount of change accumulated per unit time.	Spatiotemporal-value			
 hed:HED_0012645	5	Acceleration	Rate-of-change		Magnitude of the rate of change in either speed or direction. The direction of change should be given separately.	Rate-of-change			
-hed:HED_0012646	6	Acceleration-#	Acceleration	takesValue, valueClass=numericClass, unitClass=accelerationUnits		Acceleration and (takesValue value true) and (valueClass some numericClass) and (unitClass some accelerationUnits)			
+hed:HED_0012646	6	Acceleration-#	Acceleration	takesValue, valueClass=numericClass, unitClass=accelerationUnits		Acceleration and (valueClass some numericClass) and (unitClass some accelerationUnits)			
 hed:HED_0012647	5	Frequency	Rate-of-change		Frequency is the number of occurrences of a repeating event per unit time.	Rate-of-change			
-hed:HED_0012648	6	Frequency-#	Frequency	takesValue, valueClass=numericClass, unitClass=frequencyUnits		Frequency and (takesValue value true) and (valueClass some numericClass) and (unitClass some frequencyUnits)			
+hed:HED_0012648	6	Frequency-#	Frequency	takesValue, valueClass=numericClass, unitClass=frequencyUnits		Frequency and (valueClass some numericClass) and (unitClass some frequencyUnits)			
 hed:HED_0012649	5	Jerk-rate	Rate-of-change		Magnitude of the rate at which the acceleration of an object changes with respect to time. The direction of change should be given separately.	Rate-of-change			
-hed:HED_0012650	6	Jerk-rate-#	Jerk-rate	takesValue, valueClass=numericClass, unitClass=jerkUnits		Jerk-rate and (takesValue value true) and (valueClass some numericClass) and (unitClass some jerkUnits)			
+hed:HED_0012650	6	Jerk-rate-#	Jerk-rate	takesValue, valueClass=numericClass, unitClass=jerkUnits		Jerk-rate and (valueClass some numericClass) and (unitClass some jerkUnits)			
 hed:HED_0012651	5	Refresh-rate	Rate-of-change		The frequency with which the image on a computer monitor or similar electronic display screen is refreshed, usually expressed in hertz.	Rate-of-change			
-hed:HED_0012652	6	Refresh-rate-#	Refresh-rate	takesValue, valueClass=numericClass		Refresh-rate and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012652	6	Refresh-rate-#	Refresh-rate	takesValue, valueClass=numericClass		Refresh-rate and (valueClass some numericClass)			
 hed:HED_0012653	5	Sampling-rate	Rate-of-change		The number of digital samples taken or recorded per unit of time.	Rate-of-change			
-hed:HED_0012654	6	Sampling-rate-#	Sampling-rate	takesValue, unitClass=frequencyUnits		Sampling-rate and (takesValue value true) and (unitClass some frequencyUnits)			
+hed:HED_0012654	6	Sampling-rate-#	Sampling-rate	takesValue, unitClass=frequencyUnits		Sampling-rate and (unitClass some frequencyUnits)			
 hed:HED_0012655	5	Speed	Rate-of-change		A scalar measure of the rate of movement of the object expressed either as the distance travelled divided by the time taken (average speed) or the rate of change of position with respect to time at a particular point (instantaneous speed). The direction of change should be given separately.	Rate-of-change			
-hed:HED_0012656	6	Speed-#	Speed	takesValue, valueClass=numericClass, unitClass=speedUnits		Speed and (takesValue value true) and (valueClass some numericClass) and (unitClass some speedUnits)			
+hed:HED_0012656	6	Speed-#	Speed	takesValue, valueClass=numericClass, unitClass=speedUnits		Speed and (valueClass some numericClass) and (unitClass some speedUnits)			
 hed:HED_0012657	5	Temporal-rate	Rate-of-change		The number of items per unit of time.	Rate-of-change			
-hed:HED_0012658	6	Temporal-rate-#	Temporal-rate	takesValue, valueClass=numericClass, unitClass=frequencyUnits		Temporal-rate and (takesValue value true) and (valueClass some numericClass) and (unitClass some frequencyUnits)			
+hed:HED_0012658	6	Temporal-rate-#	Temporal-rate	takesValue, valueClass=numericClass, unitClass=frequencyUnits		Temporal-rate and (valueClass some numericClass) and (unitClass some frequencyUnits)			
 hed:HED_0012659	4	Spatial-value	Spatiotemporal-value		Value of an item involving space.	Spatiotemporal-value			
 hed:HED_0012660	5	Angle	Spatial-value		The amount of inclination of one line to another or the plane of one object to another.	Spatial-value			
-hed:HED_0012661	6	Angle-#	Angle	takesValue, unitClass=angleUnits, valueClass=numericClass		Angle and (takesValue value true) and (unitClass some angleUnits) and (valueClass some numericClass)			
+hed:HED_0012661	6	Angle-#	Angle	takesValue, unitClass=angleUnits, valueClass=numericClass		Angle and (unitClass some angleUnits) and (valueClass some numericClass)			
 hed:HED_0012662	5	Distance	Spatial-value		A measure of the space separating two objects or points.	Spatial-value			
-hed:HED_0012663	6	Distance-#	Distance	takesValue, valueClass=numericClass, unitClass=physicalLengthUnits		Distance and (takesValue value true) and (valueClass some numericClass) and (unitClass some physicalLengthUnits)			
+hed:HED_0012663	6	Distance-#	Distance	takesValue, valueClass=numericClass, unitClass=physicalLengthUnits		Distance and (valueClass some numericClass) and (unitClass some physicalLengthUnits)			
 hed:HED_0012664	5	Position	Spatial-value		A reference to the alignment of an object, a particular situation or view of a situation, or the location of an object. Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.	Spatial-value			
 hed:HED_0012665	6	X-position	Position		The position along the x-axis of the frame of reference.	Position			
-hed:HED_0012666	7	X-position-#	X-position	takesValue, valueClass=numericClass, unitClass=physicalLengthUnits		X-position and (takesValue value true) and (valueClass some numericClass) and (unitClass some physicalLengthUnits)			
+hed:HED_0012666	7	X-position-#	X-position	takesValue, valueClass=numericClass, unitClass=physicalLengthUnits		X-position and (valueClass some numericClass) and (unitClass some physicalLengthUnits)			
 hed:HED_0012667	6	Y-position	Position		The position along the y-axis of the frame of reference.	Position			
-hed:HED_0012668	7	Y-position-#	Y-position	takesValue, valueClass=numericClass, unitClass=physicalLengthUnits		Y-position and (takesValue value true) and (valueClass some numericClass) and (unitClass some physicalLengthUnits)			
+hed:HED_0012668	7	Y-position-#	Y-position	takesValue, valueClass=numericClass, unitClass=physicalLengthUnits		Y-position and (valueClass some numericClass) and (unitClass some physicalLengthUnits)			
 hed:HED_0012669	6	Z-position	Position		The position along the z-axis of the frame of reference.	Position			
-hed:HED_0012670	7	Z-position-#	Z-position	takesValue, valueClass=numericClass, unitClass=physicalLengthUnits		Z-position and (takesValue value true) and (valueClass some numericClass) and (unitClass some physicalLengthUnits)			
+hed:HED_0012670	7	Z-position-#	Z-position	takesValue, valueClass=numericClass, unitClass=physicalLengthUnits		Z-position and (valueClass some numericClass) and (unitClass some physicalLengthUnits)			
 hed:HED_0012671	5	Size	Spatial-value		The physical magnitude of something.	Spatial-value			
 hed:HED_0012672	6	Area	Size		The extent of a 2-dimensional surface enclosed within a boundary.	Size			
-hed:HED_0012673	7	Area-#	Area	takesValue, valueClass=numericClass, unitClass=areaUnits		Area and (takesValue value true) and (valueClass some numericClass) and (unitClass some areaUnits)			
+hed:HED_0012673	7	Area-#	Area	takesValue, valueClass=numericClass, unitClass=areaUnits		Area and (valueClass some numericClass) and (unitClass some areaUnits)			
 hed:HED_0012674	6	Depth	Size		The distance from the surface of something especially from the perspective of looking from the front.	Size			
-hed:HED_0012675	7	Depth-#	Depth	takesValue, valueClass=numericClass, unitClass=physicalLengthUnits		Depth and (takesValue value true) and (valueClass some numericClass) and (unitClass some physicalLengthUnits)			
+hed:HED_0012675	7	Depth-#	Depth	takesValue, valueClass=numericClass, unitClass=physicalLengthUnits		Depth and (valueClass some numericClass) and (unitClass some physicalLengthUnits)			
 hed:HED_0012676	6	Height	Size		The vertical measurement or distance from the base to the top of an object.	Size			
-hed:HED_0012677	7	Height-#	Height	takesValue, valueClass=numericClass, unitClass=physicalLengthUnits		Height and (takesValue value true) and (valueClass some numericClass) and (unitClass some physicalLengthUnits)			
+hed:HED_0012677	7	Height-#	Height	takesValue, valueClass=numericClass, unitClass=physicalLengthUnits		Height and (valueClass some numericClass) and (unitClass some physicalLengthUnits)			
 hed:HED_0012678	6	Length	Size		The linear extent in space from one end of something to the other end, or the extent of something from beginning to end.	Size			
-hed:HED_0012679	7	Length-#	Length	takesValue, valueClass=numericClass, unitClass=physicalLengthUnits		Length and (takesValue value true) and (valueClass some numericClass) and (unitClass some physicalLengthUnits)			
+hed:HED_0012679	7	Length-#	Length	takesValue, valueClass=numericClass, unitClass=physicalLengthUnits		Length and (valueClass some numericClass) and (unitClass some physicalLengthUnits)			
 hed:HED_0012680	6	Perimeter	Size		The minimum length of paths enclosing a 2D shape.	Size			
-hed:HED_0012681	7	Perimeter-#	Perimeter	takesValue, valueClass=numericClass, unitClass=physicalLengthUnits		Perimeter and (takesValue value true) and (valueClass some numericClass) and (unitClass some physicalLengthUnits)			
+hed:HED_0012681	7	Perimeter-#	Perimeter	takesValue, valueClass=numericClass, unitClass=physicalLengthUnits		Perimeter and (valueClass some numericClass) and (unitClass some physicalLengthUnits)			
 hed:HED_0012682	6	Radius	Size		The distance of the line from the center of a circle or a sphere to its perimeter or outer surface, respectively.	Size			
-hed:HED_0012683	7	Radius-#	Radius	takesValue, valueClass=numericClass, unitClass=physicalLengthUnits		Radius and (takesValue value true) and (valueClass some numericClass) and (unitClass some physicalLengthUnits)			
+hed:HED_0012683	7	Radius-#	Radius	takesValue, valueClass=numericClass, unitClass=physicalLengthUnits		Radius and (valueClass some numericClass) and (unitClass some physicalLengthUnits)			
 hed:HED_0012684	6	Volume	Size		The amount of three dimensional space occupied by an object or the capacity of a space or container.	Size			
-hed:HED_0012685	7	Volume-#	Volume	takesValue, valueClass=numericClass, unitClass=volumeUnits		Volume and (takesValue value true) and (valueClass some numericClass) and (unitClass some volumeUnits)			
+hed:HED_0012685	7	Volume-#	Volume	takesValue, valueClass=numericClass, unitClass=volumeUnits		Volume and (valueClass some numericClass) and (unitClass some volumeUnits)			
 hed:HED_0012686	6	Width	Size		The extent or measurement of something from side to side.	Size			
-hed:HED_0012687	7	Width-#	Width	takesValue, valueClass=numericClass, unitClass=physicalLengthUnits		Width and (takesValue value true) and (valueClass some numericClass) and (unitClass some physicalLengthUnits)			
+hed:HED_0012687	7	Width-#	Width	takesValue, valueClass=numericClass, unitClass=physicalLengthUnits		Width and (valueClass some numericClass) and (unitClass some physicalLengthUnits)			
 hed:HED_0012688	4	Temporal-value	Spatiotemporal-value		A characteristic of or relating to time or limited by time.	Spatiotemporal-value			
 hed:HED_0012689	5	Delay	Temporal-value	topLevelTagGroup, reserved, relatedTag=Duration	The time at which an event start time is delayed from the current onset time. This tag defines the start time of an event of temporal extent and may be used with the Duration tag.	Temporal-value and (topLevelTagGroup value true) and (reserved value true) and (relatedTag some Duration)			
-hed:HED_0012690	6	Delay-#	Delay	takesValue, valueClass=numericClass, unitClass=timeUnits		Delay and (takesValue value true) and (valueClass some numericClass) and (unitClass some timeUnits)			
+hed:HED_0012690	6	Delay-#	Delay	takesValue, valueClass=numericClass, unitClass=timeUnits		Delay and (valueClass some numericClass) and (unitClass some timeUnits)			
 hed:HED_0012691	5	Duration	Temporal-value	topLevelTagGroup, reserved, relatedTag=Delay	The period of time during which an event occurs. This tag defines the end time of an event of temporal extent and may be used with the Delay tag.	Temporal-value and (topLevelTagGroup value true) and (reserved value true) and (relatedTag some Delay)			
-hed:HED_0012692	6	Duration-#	Duration	takesValue, valueClass=numericClass, unitClass=timeUnits		Duration and (takesValue value true) and (valueClass some numericClass) and (unitClass some timeUnits)			
+hed:HED_0012692	6	Duration-#	Duration	takesValue, valueClass=numericClass, unitClass=timeUnits		Duration and (valueClass some numericClass) and (unitClass some timeUnits)			
 hed:HED_0012693	5	Time-interval	Temporal-value		The period of time separating two instances, events, or occurrences.	Temporal-value			
-hed:HED_0012694	6	Time-interval-#	Time-interval	takesValue, valueClass=numericClass, unitClass=timeUnits		Time-interval and (takesValue value true) and (valueClass some numericClass) and (unitClass some timeUnits)			
+hed:HED_0012694	6	Time-interval-#	Time-interval	takesValue, valueClass=numericClass, unitClass=timeUnits		Time-interval and (valueClass some numericClass) and (unitClass some timeUnits)			
 hed:HED_0012695	5	Time-value	Temporal-value		A value with units of time. Usually grouped with tags identifying what the value represents.	Temporal-value			
-hed:HED_0012696	6	Time-value-#	Time-value	takesValue, valueClass=numericClass, unitClass=timeUnits		Time-value and (takesValue value true) and (valueClass some numericClass) and (unitClass some timeUnits)			
+hed:HED_0012696	6	Time-value-#	Time-value	takesValue, valueClass=numericClass, unitClass=timeUnits		Time-value and (valueClass some numericClass) and (unitClass some timeUnits)			
 hed:HED_0012697	3	Statistical-value	Data-value	extensionAllowed	A value based on or employing the principles of statistics.	Data-value and (extensionAllowed value true)			
 hed:HED_0012698	4	Data-maximum	Statistical-value		The largest possible quantity or degree.	Statistical-value			
-hed:HED_0012699	5	Data-maximum-#	Data-maximum	takesValue, valueClass=numericClass		Data-maximum and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012699	5	Data-maximum-#	Data-maximum	takesValue, valueClass=numericClass		Data-maximum and (valueClass some numericClass)			
 hed:HED_0012700	4	Data-mean	Statistical-value		The sum of a set of values divided by the number of values in the set.	Statistical-value			
-hed:HED_0012701	5	Data-mean-#	Data-mean	takesValue, valueClass=numericClass		Data-mean and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012701	5	Data-mean-#	Data-mean	takesValue, valueClass=numericClass		Data-mean and (valueClass some numericClass)			
 hed:HED_0012702	4	Data-median	Statistical-value		The value which has an equal number of values greater and less than it.	Statistical-value			
-hed:HED_0012703	5	Data-median-#	Data-median	takesValue, valueClass=numericClass		Data-median and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012703	5	Data-median-#	Data-median	takesValue, valueClass=numericClass		Data-median and (valueClass some numericClass)			
 hed:HED_0012704	4	Data-minimum	Statistical-value		The smallest possible quantity.	Statistical-value			
-hed:HED_0012705	5	Data-minimum-#	Data-minimum	takesValue, valueClass=numericClass		Data-minimum and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012705	5	Data-minimum-#	Data-minimum	takesValue, valueClass=numericClass		Data-minimum and (valueClass some numericClass)			
 hed:HED_0012706	4	Probability	Statistical-value		A measure of the expectation of the occurrence of a particular event.	Statistical-value			
-hed:HED_0012707	5	Probability-#	Probability	takesValue, valueClass=numericClass		Probability and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012707	5	Probability-#	Probability	takesValue, valueClass=numericClass		Probability and (valueClass some numericClass)			
 hed:HED_0012708	4	Standard-deviation	Statistical-value		A measure of the range of values in a set of numbers. Standard deviation is a statistic used as a measure of the dispersion or variation in a distribution, equal to the square root of the arithmetic mean of the squares of the deviations from the arithmetic mean.	Statistical-value			
-hed:HED_0012709	5	Standard-deviation-#	Standard-deviation	takesValue, valueClass=numericClass		Standard-deviation and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012709	5	Standard-deviation-#	Standard-deviation	takesValue, valueClass=numericClass		Standard-deviation and (valueClass some numericClass)			
 hed:HED_0012710	4	Statistical-accuracy	Statistical-value		A measure of closeness to true value expressed as a number between 0 and 1.	Statistical-value			
-hed:HED_0012711	5	Statistical-accuracy-#	Statistical-accuracy	takesValue, valueClass=numericClass		Statistical-accuracy and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012711	5	Statistical-accuracy-#	Statistical-accuracy	takesValue, valueClass=numericClass		Statistical-accuracy and (valueClass some numericClass)			
 hed:HED_0012712	4	Statistical-precision	Statistical-value		A quantitative representation of the degree of accuracy necessary for or associated with a particular action.	Statistical-value			
-hed:HED_0012713	5	Statistical-precision-#	Statistical-precision	takesValue, valueClass=numericClass		Statistical-precision and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012713	5	Statistical-precision-#	Statistical-precision	takesValue, valueClass=numericClass		Statistical-precision and (valueClass some numericClass)			
 hed:HED_0012714	4	Statistical-recall	Statistical-value		Sensitivity is a measurement datum qualifying a binary classification test and is computed by subtracting the false negative rate to the integral numeral 1.	Statistical-value			
-hed:HED_0012715	5	Statistical-recall-#	Statistical-recall	takesValue, valueClass=numericClass		Statistical-recall and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012715	5	Statistical-recall-#	Statistical-recall	takesValue, valueClass=numericClass		Statistical-recall and (valueClass some numericClass)			
 hed:HED_0012716	4	Statistical-uncertainty	Statistical-value		A measure of the inherent variability of repeated observation measurements of a quantity including quantities evaluated by statistical methods and by other means.	Statistical-value			
-hed:HED_0012717	5	Statistical-uncertainty-#	Statistical-uncertainty	takesValue, valueClass=numericClass		Statistical-uncertainty and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0012717	5	Statistical-uncertainty-#	Statistical-uncertainty	takesValue, valueClass=numericClass		Statistical-uncertainty and (valueClass some numericClass)			
 hed:HED_0012718	2	Data-variability-attribute	Data-property		An attribute describing how something changes or varies.	Data-property			
 hed:HED_0012719	3	Abrupt	Data-variability-attribute		Marked by sudden change.	Data-variability-attribute			
 hed:HED_0012720	3	Constant	Data-variability-attribute		Continually recurring or continuing without interruption. Not changing in time or space.	Data-variability-attribute			
@@ -755,94 +755,94 @@ hed:HED_0012753	2	Urban	Environmental-property		Relating to, located in, or char
 hed:HED_0012754	2	Virtual-world	Environmental-property		Using technology that creates immersive, computer-generated experiences that a person can interact with and navigate through. The digital content is generally delivered to the user through some type of headset and responds to changes in head position or through interaction with other types of sensors. Existing in a virtual setting such as a simulation or game environment.	Environmental-property			
 hed:HED_0012755	1	Informational-property	Property	extensionAllowed	Something that pertains to a task.	Property and (extensionAllowed value true)			
 hed:HED_0012756	2	Description	Informational-property		An explanation of what the tag group it is in means. If the description is at the top-level of an event string, the description applies to the event.	Informational-property			
-hed:HED_0012757	3	Description-#	Description	takesValue, valueClass=textClass		Description and (takesValue value true) and (valueClass some textClass)			
+hed:HED_0012757	3	Description-#	Description	takesValue, valueClass=textClass		Description and (valueClass some textClass)			
 hed:HED_0012758	2	ID	Informational-property		An alphanumeric name that identifies either a unique object or a unique class of objects. Here the object or class may be an idea, physical countable object (or class), or physical uncountable substance (or class).	Informational-property			
-hed:HED_0012759	3	ID-#	ID	takesValue, valueClass=textClass		ID and (takesValue value true) and (valueClass some textClass)			
+hed:HED_0012759	3	ID-#	ID	takesValue, valueClass=textClass		ID and (valueClass some textClass)			
 hed:HED_0012760	2	Label	Informational-property		A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances. A term that is associated with some entity. A brief description given for purposes of identification. An identifying or descriptive marker that is attached to an object.	Informational-property			
-hed:HED_0012761	3	Label-#	Label	takesValue, valueClass=nameClass		Label and (takesValue value true) and (valueClass some nameClass)			
+hed:HED_0012761	3	Label-#	Label	takesValue, valueClass=nameClass		Label and (valueClass some nameClass)			
 hed:HED_0012762	2	Metadata	Informational-property		Data about data. Information that describes another set of data.	Informational-property			
 hed:HED_0012763	3	Creation-date	Metadata		The date on which the creation of this item began.	Metadata			
-hed:HED_0012764	4	Creation-date-#	Creation-date	takesValue, valueClass=dateTimeClass		Creation-date and (takesValue value true) and (valueClass some dateTimeClass)			
+hed:HED_0012764	4	Creation-date-#	Creation-date	takesValue, valueClass=dateTimeClass		Creation-date and (valueClass some dateTimeClass)			
 hed:HED_0012765	3	Experimental-note	Metadata		A brief written record about the experiment.	Metadata			
-hed:HED_0012766	4	Experimental-note-#	Experimental-note	takesValue, valueClass=textClass		Experimental-note and (takesValue value true) and (valueClass some textClass)			
+hed:HED_0012766	4	Experimental-note-#	Experimental-note	takesValue, valueClass=textClass		Experimental-note and (valueClass some textClass)			
 hed:HED_0012767	3	Library-name	Metadata		Official name of a HED library.	Metadata			
-hed:HED_0012768	4	Library-name-#	Library-name	takesValue, valueClass=nameClass		Library-name and (takesValue value true) and (valueClass some nameClass)			
+hed:HED_0012768	4	Library-name-#	Library-name	takesValue, valueClass=nameClass		Library-name and (valueClass some nameClass)			
 hed:HED_0012769	3	Metadata-identifier	Metadata		Identifier (usually unique) from another metadata source.	Metadata			
 hed:HED_0012770	4	CogAtlas	Metadata-identifier		The Cognitive Atlas ID number of something.	Metadata-identifier			
-hed:HED_0012771	5	CogAtlas-#	CogAtlas	takesValue		CogAtlas and (takesValue value true)			
+hed:HED_0012771	5	CogAtlas-#	CogAtlas	takesValue		CogAtlas			
 hed:HED_0012772	4	CogPo	Metadata-identifier		The CogPO ID number of something.	Metadata-identifier			
-hed:HED_0012773	5	CogPo-#	CogPo	takesValue		CogPo and (takesValue value true)			
+hed:HED_0012773	5	CogPo-#	CogPo	takesValue		CogPo			
 hed:HED_0012774	4	DOI	Metadata-identifier		Digital object identifier for an object.	Metadata-identifier			
-hed:HED_0012775	5	DOI-#	DOI	takesValue		DOI and (takesValue value true)			
+hed:HED_0012775	5	DOI-#	DOI	takesValue		DOI			
 hed:HED_0012776	4	OBO-identifier	Metadata-identifier		The identifier of a term in some Open Biology Ontology (OBO) ontology.	Metadata-identifier			
-hed:HED_0012777	5	OBO-identifier-#	OBO-identifier	takesValue, valueClass=nameClass		OBO-identifier and (takesValue value true) and (valueClass some nameClass)			
+hed:HED_0012777	5	OBO-identifier-#	OBO-identifier	takesValue, valueClass=nameClass		OBO-identifier and (valueClass some nameClass)			
 hed:HED_0012778	4	Species-identifier	Metadata-identifier		A binomial species name from the NCBI Taxonomy, for example, homo sapiens, mus musculus, or rattus norvegicus.	Metadata-identifier			
-hed:HED_0012779	5	Species-identifier-#	Species-identifier	takesValue		Species-identifier and (takesValue value true)			
+hed:HED_0012779	5	Species-identifier-#	Species-identifier	takesValue		Species-identifier			
 hed:HED_0012780	4	Subject-identifier	Metadata-identifier		A sequence of characters used to identify, name, or characterize a trial or study subject.	Metadata-identifier			
-hed:HED_0012781	5	Subject-identifier-#	Subject-identifier	takesValue		Subject-identifier and (takesValue value true)			
+hed:HED_0012781	5	Subject-identifier-#	Subject-identifier	takesValue		Subject-identifier			
 hed:HED_0012782	4	UUID	Metadata-identifier		A unique universal identifier.	Metadata-identifier			
-hed:HED_0012783	5	UUID-#	UUID	takesValue		UUID and (takesValue value true)			
+hed:HED_0012783	5	UUID-#	UUID	takesValue		UUID			
 hed:HED_0012784	4	Version-identifier	Metadata-identifier		An alphanumeric character string that identifies a form or variant of a type or original.	Metadata-identifier			
-hed:HED_0012785	5	Version-identifier-#	Version-identifier	takesValue	Usually is a semantic version.	Version-identifier and (takesValue value true)			
+hed:HED_0012785	5	Version-identifier-#	Version-identifier	takesValue	Usually is a semantic version.	Version-identifier			
 hed:HED_0012786	3	Modified-date	Metadata		The date on which the item was modified (usually the last-modified data unless a complete record of dated modifications is kept.	Metadata			
-hed:HED_0012787	4	Modified-date-#	Modified-date	takesValue, valueClass=dateTimeClass		Modified-date and (takesValue value true) and (valueClass some dateTimeClass)			
+hed:HED_0012787	4	Modified-date-#	Modified-date	takesValue, valueClass=dateTimeClass		Modified-date and (valueClass some dateTimeClass)			
 hed:HED_0012788	3	Pathname	Metadata		The specification of a node (file or directory) in a hierarchical file system, usually specified by listing the nodes top-down.	Metadata			
-hed:HED_0012789	4	Pathname-#	Pathname	takesValue		Pathname and (takesValue value true)			
+hed:HED_0012789	4	Pathname-#	Pathname	takesValue		Pathname			
 hed:HED_0012790	3	URL	Metadata		A valid URL.	Metadata			
-hed:HED_0012791	4	URL-#	URL	takesValue		URL and (takesValue value true)			
+hed:HED_0012791	4	URL-#	URL	takesValue		URL			
 hed:HED_0012792	2	Parameter	Informational-property		Something user-defined for this experiment.	Informational-property			
 hed:HED_0012793	3	Parameter-label	Parameter		The name of the parameter.	Parameter			
-hed:HED_0012794	4	Parameter-label-#	Parameter-label	takesValue, valueClass=nameClass		Parameter-label and (takesValue value true) and (valueClass some nameClass)			
+hed:HED_0012794	4	Parameter-label-#	Parameter-label	takesValue, valueClass=nameClass		Parameter-label and (valueClass some nameClass)			
 hed:HED_0012795	3	Parameter-value	Parameter		The value of the parameter.	Parameter			
-hed:HED_0012796	4	Parameter-value-#	Parameter-value	takesValue, valueClass=textClass		Parameter-value and (takesValue value true) and (valueClass some textClass)			
+hed:HED_0012796	4	Parameter-value-#	Parameter-value	takesValue, valueClass=textClass		Parameter-value and (valueClass some textClass)			
 hed:HED_0012797	1	Organizational-property	Property		Relating to an organization or the action of organizing something.	Property			
 hed:HED_0012798	2	Collection	Organizational-property	reserved	A tag designating a grouping of items such as in a set or list.	Organizational-property and (reserved value true)			
-hed:HED_0012799	3	Collection-#	Collection	takesValue, valueClass=nameClass	Name of the collection.	Collection and (takesValue value true) and (valueClass some nameClass)			
+hed:HED_0012799	3	Collection-#	Collection	takesValue, valueClass=nameClass	Name of the collection.	Collection and (valueClass some nameClass)			
 hed:HED_0012800	2	Condition-variable	Organizational-property	reserved	An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.	Organizational-property and (reserved value true)			
-hed:HED_0012801	3	Condition-variable-#	Condition-variable	takesValue, valueClass=nameClass	Name of the condition variable.	Condition-variable and (takesValue value true) and (valueClass some nameClass)			
+hed:HED_0012801	3	Condition-variable-#	Condition-variable	takesValue, valueClass=nameClass	Name of the condition variable.	Condition-variable and (valueClass some nameClass)			
 hed:HED_0012802	2	Control-variable	Organizational-property	reserved	An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.	Organizational-property and (reserved value true)			
-hed:HED_0012803	3	Control-variable-#	Control-variable	takesValue, valueClass=nameClass	Name of the control variable.	Control-variable and (takesValue value true) and (valueClass some nameClass)			
-hed:HED_0012804	2	Def	Organizational-property	requireChild, reserved	A HED-specific utility tag used with a defined name to represent the tags associated with that definition.	Organizational-property and (requireChild value true) and (reserved value true)			
-hed:HED_0012805	3	Def-#	Def	takesValue, valueClass=nameClass	Name of the definition.	Def and (takesValue value true) and (valueClass some nameClass)			
-hed:HED_0012806	2	Def-expand	Organizational-property	requireChild, reserved, tagGroup	A HED specific utility tag that is grouped with an expanded definition. The child value of the Def-expand is the name of the expanded definition.	Organizational-property and (requireChild value true) and (reserved value true) and (tagGroup value true)			
-hed:HED_0012807	3	Def-expand-#	Def-expand	takesValue, valueClass=nameClass		Def-expand and (takesValue value true) and (valueClass some nameClass)			
-hed:HED_0012808	2	Definition	Organizational-property	requireChild, reserved, topLevelTagGroup	A HED-specific utility tag whose child value is the name of the concept and the tag group associated with the tag is an English language explanation of a concept.	Organizational-property and (requireChild value true) and (reserved value true) and (topLevelTagGroup value true)			
-hed:HED_0012809	3	Definition-#	Definition	takesValue, valueClass=nameClass	Name of the definition.	Definition and (takesValue value true) and (valueClass some nameClass)			
+hed:HED_0012803	3	Control-variable-#	Control-variable	takesValue, valueClass=nameClass	Name of the control variable.	Control-variable and (valueClass some nameClass)			
+hed:HED_0012804	2	Def	Organizational-property	requireChild, reserved	A HED-specific utility tag used with a defined name to represent the tags associated with that definition.	Organizational-property and (reserved value true)			
+hed:HED_0012805	3	Def-#	Def	takesValue, valueClass=nameClass	Name of the definition.	Def and (valueClass some nameClass)			
+hed:HED_0012806	2	Def-expand	Organizational-property	requireChild, reserved, tagGroup	A HED specific utility tag that is grouped with an expanded definition. The child value of the Def-expand is the name of the expanded definition.	Organizational-property and (reserved value true) and (tagGroup value true)			
+hed:HED_0012807	3	Def-expand-#	Def-expand	takesValue, valueClass=nameClass		Def-expand and (valueClass some nameClass)			
+hed:HED_0012808	2	Definition	Organizational-property	requireChild, reserved, topLevelTagGroup	A HED-specific utility tag whose child value is the name of the concept and the tag group associated with the tag is an English language explanation of a concept.	Organizational-property and (reserved value true) and (topLevelTagGroup value true)			
+hed:HED_0012809	3	Definition-#	Definition	takesValue, valueClass=nameClass	Name of the definition.	Definition and (valueClass some nameClass)			
 hed:HED_0012810	2	Event-context	Organizational-property	reserved, topLevelTagGroup, unique	A special HED tag inserted as part of a top-level tag group to contain information about the interrelated conditions under which the event occurs. The event context includes information about other events that are ongoing when this event happens.	Organizational-property and (reserved value true) and (topLevelTagGroup value true) and (unique value true)			
 hed:HED_0012811	2	Event-stream	Organizational-property	reserved	A special HED tag indicating that this event is a member of an ordered succession of events.	Organizational-property and (reserved value true)			
-hed:HED_0012812	3	Event-stream-#	Event-stream	takesValue, valueClass=nameClass	Name of the event stream.	Event-stream and (takesValue value true) and (valueClass some nameClass)			
+hed:HED_0012812	3	Event-stream-#	Event-stream	takesValue, valueClass=nameClass	Name of the event stream.	Event-stream and (valueClass some nameClass)			
 hed:HED_0012813	2	Experimental-intertrial	Organizational-property	reserved	A tag used to indicate a part of the experiment between trials usually where nothing is happening.	Organizational-property and (reserved value true)			
-hed:HED_0012814	3	Experimental-intertrial-#	Experimental-intertrial	takesValue, valueClass=nameClass	Optional label for the intertrial block.	Experimental-intertrial and (takesValue value true) and (valueClass some nameClass)			
+hed:HED_0012814	3	Experimental-intertrial-#	Experimental-intertrial	takesValue, valueClass=nameClass	Optional label for the intertrial block.	Experimental-intertrial and (valueClass some nameClass)			
 hed:HED_0012815	2	Experimental-trial	Organizational-property	reserved	Designates a run or execution of an activity, for example, one execution of a script. A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair or stimulus-response-feedback triad.	Organizational-property and (reserved value true)			
-hed:HED_0012816	3	Experimental-trial-#	Experimental-trial	takesValue, valueClass=nameClass	Optional label for the trial (often a numerical string).	Experimental-trial and (takesValue value true) and (valueClass some nameClass)			
+hed:HED_0012816	3	Experimental-trial-#	Experimental-trial	takesValue, valueClass=nameClass	Optional label for the trial (often a numerical string).	Experimental-trial and (valueClass some nameClass)			
 hed:HED_0012817	2	Indicator-variable	Organizational-property	reserved	An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Experiment indicators are sometimes called dependent variables.	Organizational-property and (reserved value true)			
-hed:HED_0012818	3	Indicator-variable-#	Indicator-variable	takesValue, valueClass=nameClass	Name of the indicator variable.	Indicator-variable and (takesValue value true) and (valueClass some nameClass)			
+hed:HED_0012818	3	Indicator-variable-#	Indicator-variable	takesValue, valueClass=nameClass	Name of the indicator variable.	Indicator-variable and (valueClass some nameClass)			
 hed:HED_0012819	2	Recording	Organizational-property	reserved	A tag designating the data recording. Recording tags are usually have temporal scope which is the entire recording.	Organizational-property and (reserved value true)			
-hed:HED_0012820	3	Recording-#	Recording	takesValue, valueClass=nameClass	Optional label for the recording.	Recording and (takesValue value true) and (valueClass some nameClass)			
+hed:HED_0012820	3	Recording-#	Recording	takesValue, valueClass=nameClass	Optional label for the recording.	Recording and (valueClass some nameClass)			
 hed:HED_0012821	2	Task	Organizational-property	reserved	An assigned piece of work, usually with a time allotment. A tag used to indicate a linkage the structured activities performed as part of the experiment.	Organizational-property and (reserved value true)			
-hed:HED_0012822	3	Task-#	Task	takesValue, valueClass=nameClass	Optional label for the task block.	Task and (takesValue value true) and (valueClass some nameClass)			
+hed:HED_0012822	3	Task-#	Task	takesValue, valueClass=nameClass	Optional label for the task block.	Task and (valueClass some nameClass)			
 hed:HED_0012823	2	Time-block	Organizational-property	reserved	A tag used to indicate a contiguous time block in the experiment during which something is fixed or noted.	Organizational-property and (reserved value true)			
-hed:HED_0012824	3	Time-block-#	Time-block	takesValue, valueClass=nameClass	Optional label for the task block.	Time-block and (takesValue value true) and (valueClass some nameClass)			
+hed:HED_0012824	3	Time-block-#	Time-block	takesValue, valueClass=nameClass	Optional label for the task block.	Time-block and (valueClass some nameClass)			
 hed:HED_0012825	1	Sensory-property	Property		Relating to sensation or the physical senses.	Property			
 hed:HED_0012826	2	Sensory-attribute	Sensory-property		A sensory characteristic associated with another entity.	Sensory-property			
 hed:HED_0012827	3	Auditory-attribute	Sensory-attribute		Pertaining to the sense of hearing.	Sensory-attribute			
 hed:HED_0012828	4	Loudness	Auditory-attribute		Perceived intensity of a sound.	Auditory-attribute			
-hed:HED_0012829	5	Loudness-#	Loudness	takesValue, valueClass=numericClass, valueClass=nameClass		Loudness and (takesValue value true) and (valueClass some numericClass) and (valueClass some nameClass)			
+hed:HED_0012829	5	Loudness-#	Loudness	takesValue, valueClass=numericClass, valueClass=nameClass		Loudness and (valueClass some numericClass) and (valueClass some nameClass)			
 hed:HED_0012830	4	Pitch	Auditory-attribute		A perceptual property that allows the user to order sounds on a frequency scale.	Auditory-attribute			
-hed:HED_0012831	5	Pitch-#	Pitch	takesValue, valueClass=numericClass, unitClass=frequencyUnits		Pitch and (takesValue value true) and (valueClass some numericClass) and (unitClass some frequencyUnits)			
+hed:HED_0012831	5	Pitch-#	Pitch	takesValue, valueClass=numericClass, unitClass=frequencyUnits		Pitch and (valueClass some numericClass) and (unitClass some frequencyUnits)			
 hed:HED_0012832	4	Sound-envelope	Auditory-attribute		Description of how a sound changes over time.	Auditory-attribute			
 hed:HED_0012833	5	Sound-envelope-attack	Sound-envelope		The time taken for initial run-up of level from nil to peak usually beginning when the key on a musical instrument is pressed.	Sound-envelope			
-hed:HED_0012834	6	Sound-envelope-attack-#	Sound-envelope-attack	takesValue, valueClass=numericClass, unitClass=timeUnits		Sound-envelope-attack and (takesValue value true) and (valueClass some numericClass) and (unitClass some timeUnits)			
+hed:HED_0012834	6	Sound-envelope-attack-#	Sound-envelope-attack	takesValue, valueClass=numericClass, unitClass=timeUnits		Sound-envelope-attack and (valueClass some numericClass) and (unitClass some timeUnits)			
 hed:HED_0012835	5	Sound-envelope-decay	Sound-envelope		The time taken for the subsequent run down from the attack level to the designated sustain level.	Sound-envelope			
-hed:HED_0012836	6	Sound-envelope-decay-#	Sound-envelope-decay	takesValue, valueClass=numericClass, unitClass=timeUnits		Sound-envelope-decay and (takesValue value true) and (valueClass some numericClass) and (unitClass some timeUnits)			
+hed:HED_0012836	6	Sound-envelope-decay-#	Sound-envelope-decay	takesValue, valueClass=numericClass, unitClass=timeUnits		Sound-envelope-decay and (valueClass some numericClass) and (unitClass some timeUnits)			
 hed:HED_0012837	5	Sound-envelope-release	Sound-envelope		The time taken for the level to decay from the sustain level to zero after the key is released.	Sound-envelope			
-hed:HED_0012838	6	Sound-envelope-release-#	Sound-envelope-release	takesValue, valueClass=numericClass, unitClass=timeUnits		Sound-envelope-release and (takesValue value true) and (valueClass some numericClass) and (unitClass some timeUnits)			
+hed:HED_0012838	6	Sound-envelope-release-#	Sound-envelope-release	takesValue, valueClass=numericClass, unitClass=timeUnits		Sound-envelope-release and (valueClass some numericClass) and (unitClass some timeUnits)			
 hed:HED_0012839	5	Sound-envelope-sustain	Sound-envelope		The time taken for the main sequence of the sound duration, until the key is released.	Sound-envelope			
-hed:HED_0012840	6	Sound-envelope-sustain-#	Sound-envelope-sustain	takesValue, valueClass=numericClass, unitClass=timeUnits		Sound-envelope-sustain and (takesValue value true) and (valueClass some numericClass) and (unitClass some timeUnits)			
+hed:HED_0012840	6	Sound-envelope-sustain-#	Sound-envelope-sustain	takesValue, valueClass=numericClass, unitClass=timeUnits		Sound-envelope-sustain and (valueClass some numericClass) and (unitClass some timeUnits)			
 hed:HED_0012841	4	Sound-volume	Auditory-attribute		The sound pressure level (SPL) usually the ratio to a reference signal estimated as the lower bound of hearing.	Auditory-attribute			
-hed:HED_0012842	5	Sound-volume-#	Sound-volume	takesValue, valueClass=numericClass, unitClass=intensityUnits		Sound-volume and (takesValue value true) and (valueClass some numericClass) and (unitClass some intensityUnits)			
+hed:HED_0012842	5	Sound-volume-#	Sound-volume	takesValue, valueClass=numericClass, unitClass=intensityUnits		Sound-volume and (valueClass some numericClass) and (unitClass some intensityUnits)			
 hed:HED_0012843	4	Timbre	Auditory-attribute		The perceived sound quality of a singing voice or musical instrument.	Auditory-attribute			
-hed:HED_0012844	5	Timbre-#	Timbre	takesValue, valueClass=nameClass		Timbre and (takesValue value true) and (valueClass some nameClass)			
+hed:HED_0012844	5	Timbre-#	Timbre	takesValue, valueClass=nameClass		Timbre and (valueClass some nameClass)			
 hed:HED_0012845	3	Gustatory-attribute	Sensory-attribute		Pertaining to the sense of taste.	Sensory-attribute			
 hed:HED_0012846	4	Bitter	Gustatory-attribute		Having a sharp, pungent taste.	Gustatory-attribute			
 hed:HED_0012847	4	Salty	Gustatory-attribute		Tasting of or like salt.	Gustatory-attribute			
@@ -1018,24 +1018,24 @@ hed:HED_0013016	5	Color-shade	Color		A slight degree of difference between color
 hed:HED_0013017	6	Dark-shade	Color-shade		A color tone not reflecting much light.	Color-shade			
 hed:HED_0013018	6	Light-shade	Color-shade		A color tone reflecting more light.	Color-shade			
 hed:HED_0013019	5	Grayscale	Color		Using a color map composed of shades of gray, varying from black at the weakest intensity to white at the strongest.	Color			
-hed:HED_0013020	6	Grayscale-#	Grayscale	takesValue, valueClass=numericClass	White intensity between 0 and 1.	Grayscale and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0013020	6	Grayscale-#	Grayscale	takesValue, valueClass=numericClass	White intensity between 0 and 1.	Grayscale and (valueClass some numericClass)			
 hed:HED_0013021	5	HSV-color	Color		A color representation that models how colors appear under light.	Color			
 hed:HED_0013022	6	HSV-value	HSV-color		An attribute of a visual sensation according to which an area appears to emit more or less light.	HSV-color			
-hed:HED_0013023	7	HSV-value-#	HSV-value	takesValue, valueClass=numericClass		HSV-value and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0013023	7	HSV-value-#	HSV-value	takesValue, valueClass=numericClass		HSV-value and (valueClass some numericClass)			
 hed:HED_0013024	6	Hue	HSV-color		Attribute of a visual sensation according to which an area appears to be similar to one of the perceived colors.	HSV-color			
-hed:HED_0013025	7	Hue-#	Hue	takesValue, valueClass=numericClass	Angular value between 0 and 360.	Hue and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0013025	7	Hue-#	Hue	takesValue, valueClass=numericClass	Angular value between 0 and 360.	Hue and (valueClass some numericClass)			
 hed:HED_0013026	6	Saturation	HSV-color		Colorfulness of a stimulus relative to its own brightness.	HSV-color			
-hed:HED_0013027	7	Saturation-#	Saturation	takesValue, valueClass=numericClass	B value of RGB between 0 and 1.	Saturation and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0013027	7	Saturation-#	Saturation	takesValue, valueClass=numericClass	B value of RGB between 0 and 1.	Saturation and (valueClass some numericClass)			
 hed:HED_0013028	5	RGB-color	Color		A color from the RGB schema.	Color			
 hed:HED_0013029	6	RGB-blue	RGB-color		The blue component.	RGB-color			
-hed:HED_0013030	7	RGB-blue-#	RGB-blue	takesValue, valueClass=numericClass	B value of RGB between 0 and 1.	RGB-blue and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0013030	7	RGB-blue-#	RGB-blue	takesValue, valueClass=numericClass	B value of RGB between 0 and 1.	RGB-blue and (valueClass some numericClass)			
 hed:HED_0013031	6	RGB-green	RGB-color		The green component.	RGB-color			
-hed:HED_0013032	7	RGB-green-#	RGB-green	takesValue, valueClass=numericClass	G value of RGB between 0 and 1.	RGB-green and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0013032	7	RGB-green-#	RGB-green	takesValue, valueClass=numericClass	G value of RGB between 0 and 1.	RGB-green and (valueClass some numericClass)			
 hed:HED_0013033	6	RGB-red	RGB-color		The red component.	RGB-color			
-hed:HED_0013034	7	RGB-red-#	RGB-red	takesValue, valueClass=numericClass	R value of RGB between 0 and 1.	RGB-red and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0013034	7	RGB-red-#	RGB-red	takesValue, valueClass=numericClass	R value of RGB between 0 and 1.	RGB-red and (valueClass some numericClass)			
 hed:HED_0013035	4	Luminance	Visual-attribute		A quality that exists by virtue of the luminous intensity per unit area projected in a given direction.	Visual-attribute			
 hed:HED_0013036	4	Luminance-contrast	Visual-attribute	suggestedTag=Percentage, suggestedTag=Ratio	The difference in luminance in specific portions of a scene or image.	Visual-attribute and (suggestedTag some Percentage) and (suggestedTag some Ratio)			
-hed:HED_0013037	5	Luminance-contrast-#	Luminance-contrast	takesValue, valueClass=numericClass	A non-negative value, usually in the range 0 to 1 or alternative 0 to 100, if representing a percentage.	Luminance-contrast and (takesValue value true) and (valueClass some numericClass)			
+hed:HED_0013037	5	Luminance-contrast-#	Luminance-contrast	takesValue, valueClass=numericClass	A non-negative value, usually in the range 0 to 1 or alternative 0 to 100, if representing a percentage.	Luminance-contrast and (valueClass some numericClass)			
 hed:HED_0013038	4	Opacity	Visual-attribute		A measure of impenetrability to light.	Visual-attribute			
 hed:HED_0013039	2	Sensory-presentation	Sensory-property		The entity has a sensory manifestation.	Sensory-property			
 hed:HED_0013040	3	Auditory-presentation	Sensory-presentation		The sense of hearing is used in the presentation to the user.	Sensory-presentation			

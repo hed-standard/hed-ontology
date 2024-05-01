@@ -2142,9 +2142,8 @@ Class: hed:HED_0012301
 		dc:description "Value of a keyboard key.",
 		rdfs:label "Keyboard-key-#",
 		hed:HED_0010503 true
-	EquivalentTo:
+	SubClassOf:
 		hed:HED_0012300
-		and (hed:HED_0010503 value true)
 
 Class: hed:HED_0012302
 	Annotations:
@@ -2165,9 +2164,8 @@ Class: hed:HED_0012304
 		dc:description "Value of keypad key.",
 		rdfs:label "Keypad-key-#",
 		hed:HED_0010503 true
-	EquivalentTo:
+	SubClassOf:
 		hed:HED_0012303
-		and (hed:HED_0010503 value true)
 
 Class: hed:HED_0012305
 	Annotations:
@@ -3376,7 +3374,6 @@ Class: hed:HED_0012475
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012474
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012476
@@ -3693,7 +3690,6 @@ Class: hed:HED_0012519
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012518
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011505)
 
@@ -3799,7 +3795,6 @@ Class: hed:HED_0012532
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012531
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012533
@@ -3815,7 +3810,6 @@ Class: hed:HED_0012534
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012533
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012535
@@ -3831,7 +3825,6 @@ Class: hed:HED_0012536
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012535
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012537
@@ -3847,7 +3840,6 @@ Class: hed:HED_0012538
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012537
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012539
@@ -3863,7 +3855,6 @@ Class: hed:HED_0012540
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012539
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012541
@@ -3879,7 +3870,6 @@ Class: hed:HED_0012542
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012541
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012543
@@ -4557,7 +4547,6 @@ Class: hed:HED_0012627
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012626
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011512)
 
@@ -4574,7 +4563,6 @@ Class: hed:HED_0012629
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012628
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011515)
 
@@ -4598,7 +4586,6 @@ Class: hed:HED_0012632
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012631
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012633
@@ -4614,7 +4601,6 @@ Class: hed:HED_0012634
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012633
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012635
@@ -4630,7 +4616,6 @@ Class: hed:HED_0012636
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012635
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012637
@@ -4646,7 +4631,6 @@ Class: hed:HED_0012638
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012637
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012639
@@ -4662,7 +4646,6 @@ Class: hed:HED_0012640
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012639
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012641
@@ -4678,7 +4661,6 @@ Class: hed:HED_0012642
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012641
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012643
@@ -4708,7 +4690,6 @@ Class: hed:HED_0012646
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012645
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011500)
 
@@ -4725,7 +4706,6 @@ Class: hed:HED_0012648
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012647
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011505)
 
@@ -4742,7 +4722,6 @@ Class: hed:HED_0012650
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012649
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011507)
 
@@ -4759,7 +4738,6 @@ Class: hed:HED_0012652
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012651
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012653
@@ -4775,7 +4753,6 @@ Class: hed:HED_0012654
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012653
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010107 some hed:HED_0011505)
 
 Class: hed:HED_0012655
@@ -4791,7 +4768,6 @@ Class: hed:HED_0012656
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012655
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011511)
 
@@ -4808,7 +4784,6 @@ Class: hed:HED_0012658
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012657
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011505)
 
@@ -4832,7 +4807,6 @@ Class: hed:HED_0012661
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012660
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010107 some hed:HED_0011501)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
@@ -4849,7 +4823,6 @@ Class: hed:HED_0012663
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012662
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011510)
 
@@ -4873,7 +4846,6 @@ Class: hed:HED_0012666
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012665
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011510)
 
@@ -4890,7 +4862,6 @@ Class: hed:HED_0012668
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012667
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011510)
 
@@ -4907,7 +4878,6 @@ Class: hed:HED_0012670
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012669
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011510)
 
@@ -4931,7 +4901,6 @@ Class: hed:HED_0012673
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012672
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011502)
 
@@ -4948,7 +4917,6 @@ Class: hed:HED_0012675
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012674
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011510)
 
@@ -4965,7 +4933,6 @@ Class: hed:HED_0012677
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012676
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011510)
 
@@ -4982,7 +4949,6 @@ Class: hed:HED_0012679
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012678
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011510)
 
@@ -4999,7 +4965,6 @@ Class: hed:HED_0012681
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012680
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011510)
 
@@ -5016,7 +4981,6 @@ Class: hed:HED_0012683
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012682
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011510)
 
@@ -5033,7 +4997,6 @@ Class: hed:HED_0012685
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012684
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011514)
 
@@ -5050,7 +5013,6 @@ Class: hed:HED_0012687
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012686
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011510)
 
@@ -5077,7 +5039,6 @@ Class: hed:HED_0012690
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012689
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011513)
 
@@ -5097,7 +5058,6 @@ Class: hed:HED_0012692
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012691
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011513)
 
@@ -5114,7 +5074,6 @@ Class: hed:HED_0012694
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012693
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011513)
 
@@ -5131,7 +5090,6 @@ Class: hed:HED_0012696
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012695
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011513)
 
@@ -5156,7 +5114,6 @@ Class: hed:HED_0012699
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012698
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012700
@@ -5172,7 +5129,6 @@ Class: hed:HED_0012701
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012700
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012702
@@ -5188,7 +5144,6 @@ Class: hed:HED_0012703
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012702
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012704
@@ -5204,7 +5159,6 @@ Class: hed:HED_0012705
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012704
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012706
@@ -5220,7 +5174,6 @@ Class: hed:HED_0012707
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012706
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012708
@@ -5236,7 +5189,6 @@ Class: hed:HED_0012709
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012708
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012710
@@ -5252,7 +5204,6 @@ Class: hed:HED_0012711
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012710
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012712
@@ -5268,7 +5219,6 @@ Class: hed:HED_0012713
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012712
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012714
@@ -5284,7 +5234,6 @@ Class: hed:HED_0012715
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012714
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012716
@@ -5300,7 +5249,6 @@ Class: hed:HED_0012717
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012716
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012718
@@ -5596,7 +5544,6 @@ Class: hed:HED_0012757
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012756
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011305)
 
 Class: hed:HED_0012758
@@ -5612,7 +5559,6 @@ Class: hed:HED_0012759
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012758
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011305)
 
 Class: hed:HED_0012760
@@ -5628,7 +5574,6 @@ Class: hed:HED_0012761
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012760
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011302)
 
 Class: hed:HED_0012762
@@ -5651,7 +5596,6 @@ Class: hed:HED_0012764
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012763
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011301)
 
 Class: hed:HED_0012765
@@ -5667,7 +5611,6 @@ Class: hed:HED_0012766
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012765
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011305)
 
 Class: hed:HED_0012767
@@ -5683,7 +5626,6 @@ Class: hed:HED_0012768
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012767
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011302)
 
 Class: hed:HED_0012769
@@ -5704,9 +5646,8 @@ Class: hed:HED_0012771
 	Annotations:
 		rdfs:label "CogAtlas-#",
 		hed:HED_0010503 true
-	EquivalentTo:
+	SubClassOf:
 		hed:HED_0012770
-		and (hed:HED_0010503 value true)
 
 Class: hed:HED_0012772
 	Annotations:
@@ -5719,9 +5660,8 @@ Class: hed:HED_0012773
 	Annotations:
 		rdfs:label "CogPo-#",
 		hed:HED_0010503 true
-	EquivalentTo:
+	SubClassOf:
 		hed:HED_0012772
-		and (hed:HED_0010503 value true)
 
 Class: hed:HED_0012774
 	Annotations:
@@ -5734,9 +5674,8 @@ Class: hed:HED_0012775
 	Annotations:
 		rdfs:label "DOI-#",
 		hed:HED_0010503 true
-	EquivalentTo:
+	SubClassOf:
 		hed:HED_0012774
-		and (hed:HED_0010503 value true)
 
 Class: hed:HED_0012776
 	Annotations:
@@ -5751,7 +5690,6 @@ Class: hed:HED_0012777
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012776
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011302)
 
 Class: hed:HED_0012778
@@ -5765,9 +5703,8 @@ Class: hed:HED_0012779
 	Annotations:
 		rdfs:label "Species-identifier-#",
 		hed:HED_0010503 true
-	EquivalentTo:
+	SubClassOf:
 		hed:HED_0012778
-		and (hed:HED_0010503 value true)
 
 Class: hed:HED_0012780
 	Annotations:
@@ -5780,9 +5717,8 @@ Class: hed:HED_0012781
 	Annotations:
 		rdfs:label "Subject-identifier-#",
 		hed:HED_0010503 true
-	EquivalentTo:
+	SubClassOf:
 		hed:HED_0012780
-		and (hed:HED_0010503 value true)
 
 Class: hed:HED_0012782
 	Annotations:
@@ -5795,9 +5731,8 @@ Class: hed:HED_0012783
 	Annotations:
 		rdfs:label "UUID-#",
 		hed:HED_0010503 true
-	EquivalentTo:
+	SubClassOf:
 		hed:HED_0012782
-		and (hed:HED_0010503 value true)
 
 Class: hed:HED_0012784
 	Annotations:
@@ -5811,9 +5746,8 @@ Class: hed:HED_0012785
 		dc:description "Usually is a semantic version.",
 		rdfs:label "Version-identifier-#",
 		hed:HED_0010503 true
-	EquivalentTo:
+	SubClassOf:
 		hed:HED_0012784
-		and (hed:HED_0010503 value true)
 
 Class: hed:HED_0012786
 	Annotations:
@@ -5828,7 +5762,6 @@ Class: hed:HED_0012787
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012786
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011301)
 
 Class: hed:HED_0012788
@@ -5842,9 +5775,8 @@ Class: hed:HED_0012789
 	Annotations:
 		rdfs:label "Pathname-#",
 		hed:HED_0010503 true
-	EquivalentTo:
+	SubClassOf:
 		hed:HED_0012788
-		and (hed:HED_0010503 value true)
 
 Class: hed:HED_0012790
 	Annotations:
@@ -5857,9 +5789,8 @@ Class: hed:HED_0012791
 	Annotations:
 		rdfs:label "URL-#",
 		hed:HED_0010503 true
-	EquivalentTo:
+	SubClassOf:
 		hed:HED_0012790
-		and (hed:HED_0010503 value true)
 
 Class: hed:HED_0012792
 	Annotations:
@@ -5881,7 +5812,6 @@ Class: hed:HED_0012794
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012793
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011302)
 
 Class: hed:HED_0012795
@@ -5897,7 +5827,6 @@ Class: hed:HED_0012796
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012795
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011305)
 
 Class: hed:HED_0012797
@@ -5922,7 +5851,6 @@ Class: hed:HED_0012799
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012798
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011302)
 
 Class: hed:HED_0012800
@@ -5940,7 +5868,6 @@ Class: hed:HED_0012801
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012800
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011302)
 
 Class: hed:HED_0012802
@@ -5958,7 +5885,6 @@ Class: hed:HED_0012803
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012802
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011302)
 
 Class: hed:HED_0012804
@@ -5968,7 +5894,6 @@ Class: hed:HED_0012804
 		hed:HED_0010501 true
 	EquivalentTo:
 		hed:HED_0012797
-		and (hed:HED_0010501 value true)
 		and (hed:HED_0010310 value true)
 
 Class: hed:HED_0012805
@@ -5978,7 +5903,6 @@ Class: hed:HED_0012805
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012804
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011302)
 
 Class: hed:HED_0012806
@@ -5988,7 +5912,6 @@ Class: hed:HED_0012806
 		hed:HED_0010501 true
 	EquivalentTo:
 		hed:HED_0012797
-		and (hed:HED_0010501 value true)
 		and (hed:HED_0010310 value true)
 		and (hed:HED_0010314 value true)
 
@@ -5998,7 +5921,6 @@ Class: hed:HED_0012807
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012806
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011302)
 
 Class: hed:HED_0012808
@@ -6008,7 +5930,6 @@ Class: hed:HED_0012808
 		hed:HED_0010501 true
 	EquivalentTo:
 		hed:HED_0012797
-		and (hed:HED_0010501 value true)
 		and (hed:HED_0010310 value true)
 		and (hed:HED_0010315 value true)
 
@@ -6019,7 +5940,6 @@ Class: hed:HED_0012809
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012808
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011302)
 
 Class: hed:HED_0012810
@@ -6047,7 +5967,6 @@ Class: hed:HED_0012812
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012811
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011302)
 
 Class: hed:HED_0012813
@@ -6065,7 +5984,6 @@ Class: hed:HED_0012814
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012813
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011302)
 
 Class: hed:HED_0012815
@@ -6083,7 +6001,6 @@ Class: hed:HED_0012816
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012815
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011302)
 
 Class: hed:HED_0012817
@@ -6101,7 +6018,6 @@ Class: hed:HED_0012818
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012817
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011302)
 
 Class: hed:HED_0012819
@@ -6119,7 +6035,6 @@ Class: hed:HED_0012820
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012819
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011302)
 
 Class: hed:HED_0012821
@@ -6137,7 +6052,6 @@ Class: hed:HED_0012822
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012821
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011302)
 
 Class: hed:HED_0012823
@@ -6155,7 +6069,6 @@ Class: hed:HED_0012824
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012823
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011302)
 
 Class: hed:HED_0012825
@@ -6192,7 +6105,6 @@ Class: hed:HED_0012829
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012828
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010108 some hed:HED_0011302)
 
@@ -6209,7 +6121,6 @@ Class: hed:HED_0012831
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012830
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011505)
 
@@ -6233,7 +6144,6 @@ Class: hed:HED_0012834
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012833
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011513)
 
@@ -6250,7 +6160,6 @@ Class: hed:HED_0012836
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012835
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011513)
 
@@ -6267,7 +6176,6 @@ Class: hed:HED_0012838
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012837
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011513)
 
@@ -6284,7 +6192,6 @@ Class: hed:HED_0012840
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012839
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011513)
 
@@ -6301,7 +6208,6 @@ Class: hed:HED_0012842
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012841
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 		and (hed:HED_0010107 some hed:HED_0011506)
 
@@ -6318,7 +6224,6 @@ Class: hed:HED_0012844
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0012843
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011302)
 
 Class: hed:HED_0012845
@@ -7553,7 +7458,6 @@ Class: hed:HED_0013020
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0013019
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0013021
@@ -7576,7 +7480,6 @@ Class: hed:HED_0013023
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0013022
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0013024
@@ -7593,7 +7496,6 @@ Class: hed:HED_0013025
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0013024
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0013026
@@ -7610,7 +7512,6 @@ Class: hed:HED_0013027
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0013026
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0013028
@@ -7634,7 +7535,6 @@ Class: hed:HED_0013030
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0013029
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0013031
@@ -7651,7 +7551,6 @@ Class: hed:HED_0013032
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0013031
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0013033
@@ -7668,7 +7567,6 @@ Class: hed:HED_0013034
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0013033
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0013035
@@ -7694,7 +7592,6 @@ Class: hed:HED_0013037
 		hed:HED_0010503 true
 	EquivalentTo:
 		hed:HED_0013036
-		and (hed:HED_0010503 value true)
 		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0013038
