@@ -17,9 +17,9 @@ ObjectProperty: hed:HED_0010109
 		hed:HED_0010704 true,
 		hed:HED_0010705 true
 	Domain:
-		hed:HED_0000007
+		hed:HED_0000005
 	Range:
-		hed:HED_0000007
+		hed:HED_0000005
 
 
 ObjectProperty: hed:HED_0010105
@@ -29,9 +29,9 @@ ObjectProperty: hed:HED_0010105
 		hed:HED_0010704 true,
 		hed:HED_0010705 true
 	Domain:
-		hed:HED_0000007
+		hed:HED_0000005
 	Range:
-		hed:HED_0000007
+		hed:HED_0000005
 
 
 ObjectProperty: hed:HED_0010106
@@ -41,9 +41,9 @@ ObjectProperty: hed:HED_0010106
 		hed:HED_0010704 true,
 		hed:HED_0010705 true
 	Domain:
-		hed:HED_0000007
+		hed:HED_0000005
 	Range:
-		hed:HED_0000007
+		hed:HED_0000005
 
 
 ObjectProperty: hed:HED_0010107
@@ -53,7 +53,7 @@ ObjectProperty: hed:HED_0010107
 		hed:HED_0010704 true,
 		hed:HED_0010709 true
 	Domain:
-		hed:HED_0000007
+		hed:HED_0000005
 	Range:
 		hed:HED_0000006
 
@@ -65,7 +65,7 @@ ObjectProperty: hed:HED_0010108
 		hed:HED_0010704 true,
 		hed:HED_0010714 true
 	Domain:
-		hed:HED_0000007
+		hed:HED_0000005
 	Range:
 		hed:HED_0000009
 
