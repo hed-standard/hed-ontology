@@ -44,7 +44,7 @@ DataProperty: hed:HED_0010307
 		hed:HED_0010704 true,
 		hed:HED_0010702 true
 	Domain:
-		hed:HED_0000007
+		hed:HED_0000005
 	Range:
 		xsd:boolean
 
@@ -68,7 +68,7 @@ DataProperty: hed:HED_0010310
 		hed:HED_0010704 true,
 		hed:HED_0010702 true
 	Domain:
-		hed:HED_0000007
+		hed:HED_0000005
 	Range:
 		xsd:boolean
 
@@ -116,7 +116,7 @@ DataProperty: hed:HED_0010314
 		hed:HED_0010704 true,
 		hed:HED_0010702 true
 	Domain:
-		hed:HED_0000007
+		hed:HED_0000005
 	Range:
 		xsd:boolean
 
@@ -128,7 +128,7 @@ DataProperty: hed:HED_0010315
 		hed:HED_0010704 true,
 		hed:HED_0010702 true
 	Domain:
-		hed:HED_0000007
+		hed:HED_0000005
 	Range:
 		xsd:boolean
 
@@ -140,7 +140,7 @@ DataProperty: hed:HED_0010316
 		hed:HED_0010704 true,
 		hed:HED_0010702 true
 	Domain:
-		hed:HED_0000007
+		hed:HED_0000005
 	Range:
 		xsd:boolean
 
