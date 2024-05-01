@@ -19,8 +19,8 @@ def merge_list(onto_files, out_path):
 
 if __name__ == '__main__':
     onto_list = ['Base_schema.omn', 'Standard_AnnotationProperty.omn', 'Standard_AttributeProperty.omn',
-                 'Standard_DataProperty.omn', 'Standard_ObjectProperty.omn', 'Standard_Tag.omn',
-                 'Standard_UnitClass.omn', 'Standard_Unit.omn', 'Standard_UnitModifier.omn',
+                 'Standard_DataProperty.omn', 'Standard_ObjectProperty.omn', 'Standard_Structure.omn',
+                 'Standard_Tag.omn', 'Standard_UnitClass.omn', 'Standard_Unit.omn', 'Standard_UnitModifier.omn',
                  'Standard_ValueClass.omn']
     generated_path = '../ontology/generated'
     output_path = os.path.realpath(os.path.join('../ontology', 'hed-merged.omn'))
