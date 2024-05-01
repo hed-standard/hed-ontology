@@ -1,7 +1,7 @@
-Prefix: : <http://purl.org/hed/releases/working/hed-standard.owl/>
+
 Prefix: dc: <http://purl.org/dc/elements/1.1/>
 Prefix: foaf: <http://xmlns.com/foaf/0.1/>
-Prefix: hed: <http://purl.org/hed/releases/working/hed-schema#>
+Prefix: hed: <http://purl.org/hed/releases/working/hed-merged#>
 Prefix: owl: <http://www.w3.org/2002/07/owl#>
 Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -9,20 +9,17 @@ Prefix: terms: <http://purl.org/dc/terms/>
 Prefix: xml: <http://www.w3.org/XML/1998/namespace>
 Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
 
-
-
-Ontology: <http://purl.org/hed/hed-schema#>
-<http://purl.org/hed/releases/working/hed-schema.owl>
+Ontology: <http://purl.org/hed/hed#>
+<http://purl.org/hed/releases/working/hed.owl>
 
 Annotations:
     dc:contributor "Ian Callanan",
     dc:contributor "Kay Robbins",
     dc:contributor "Scott Makeig",
-    dc:description "This ontology defines the HED Hierarchical Event Descriptor schema structure."@en,
-    dc:description "This ontology only defines the structural elements of the HED schema. The actual HED tags are in HED.",
-    dc:title "HED Schema Ontology (HEDS)",
+    dc:description "This ontology defines the HED Hierarchical Event Descriptor standard schema."@en,
+    dc:title "HED Ontology (HED)",
     terms:license <http://creativecommons.org/licenses/by/4.0/>,
-    rdfs:label "HED Schema Ontology",
+    rdfs:label "HED Ontology",
     rdfs:seeAlso <https://github.com/hed-standard/hed-ontology>,
     owl:versionInfo "releases/working",
     foaf:homepage <https://www.hedtags.org>
