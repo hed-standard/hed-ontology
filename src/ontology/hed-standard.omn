@@ -539,7 +539,7 @@ Class: hed:HED_0010010
     EquivalentTo: 
         heds:HED_0000010
          and (heds:HED_0000102 some hed:HED_0010004)
-         and (heds:HED_0000300 value "8.3.1")
+         and (heds:HED_0000300 value "8.3.0")
     
     
 Class: hed:HED_0010011
