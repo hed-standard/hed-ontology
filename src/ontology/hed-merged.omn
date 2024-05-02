@@ -66,39 +66,7 @@ AnnotationProperty: dc:type
     
 AnnotationProperty: foaf:homepage
 
-    
-AnnotationProperty: hed:HED_0000500
 
-    Annotations: 
-        dc:description "The unique identifier of this element in the HED namespace.",
-        rdfs:comment "Maps HedElement into string.",
-        rdfs:label "hedId"
-    
-    
-AnnotationProperty: hed:HED_0000501
-
-    Annotations: 
-        dc:description "This tag requires that a descendent node be included.",
-        rdfs:comment "Maps a HedTag into a boolean.",
-        rdfs:label "requireChild"
-    
-    
-AnnotationProperty: hed:HED_0000502
-
-    Annotations: 
-        dc:description "This top-level library schema node should have a parent which is the indicated node in the partnered standard schema.",
-        rdfs:comment "Maps a HedTag into a HedTag name as a string.",
-        rdfs:label "rooted"
-    
-    
-AnnotationProperty: hed:HED_0000503
-
-    Annotations: 
-        dc:description "This tag is a hashtag placeholder that is expected to be replaced with a user-defined value.",
-        rdfs:comment "Maps a HedTag into a boolean.",
-        rdfs:label "takesValue"
-    
-    
 AnnotationProperty: owl:versionInfo
 
     
@@ -167,74 +135,7 @@ ObjectProperty: hed:HED_0000103
     Range: 
         hed:HED_0000006
     
-    
-ObjectProperty: hed:HED_0000104
 
-    Annotations: 
-        dc:description "The default units to use if the placeholder has a unit class but the substituted value has no units.",
-        rdfs:label "defaultUnits"
-    
-    Domain: 
-        hed:HED_0000006
-    
-    Range: 
-        hed:HED_0000007
-    
-    
-ObjectProperty: hed:HED_0000105
-
-    Annotations: 
-        dc:description "A HED tag that is closely related to this tag. This attribute is used by tagging tools.",
-        rdfs:label "relatedTag"
-    
-    Domain: 
-        hed:HED_0000005
-    
-    Range: 
-        hed:HED_0000005
-    
-    
-ObjectProperty: hed:HED_0000106
-
-    Annotations: 
-        dc:description "A tag is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions",
-        rdfs:label "suggestedTag"
-    
-    Domain: 
-        hed:HED_0000005
-    
-    Range: 
-        hed:HED_0000005
-    
-    
-ObjectProperty: hed:HED_0000107
-
-    Annotations: 
-        dc:description "The unit class this placeholder tag belongs to.",
-        rdfs:comment "Maps a HedTag into a HedUnitClass name as a string.",
-        rdfs:label "unitClass"
-    
-    Domain: 
-        hed:HED_0000005
-    
-    Range: 
-        hed:HED_0000006
-    
-    
-ObjectProperty: hed:HED_0000108
-
-    Annotations: 
-        dc:description "The value class this placeholder tag belongs to.",
-        rdfs:comment "Maps a HedTag into a HedValueClass name as a string.",
-        rdfs:label "valueClass"
-    
-    Domain: 
-        hed:HED_0000005
-    
-    Range: 
-        hed:HED_0000009
-    
-    
 DataProperty: hed:HED_0000300
 
     Annotations: 
@@ -297,188 +198,6 @@ DataProperty: hed:HED_0000303
     
     Range: 
         xsd:string
-    
-    
-DataProperty: hed:HED_0000304
-
-    Annotations: 
-        dc:description "A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder. Normally the allowed characters are listed individually. However, the word letters designates the upper and lower case alphabetic characters and the word digits designates the digits 0-9. The word blank designates the blank character.",
-        rdfs:label "allowedCharacter"
-    
-    Domain: 
-        hed:HED_0000003
-    
-    Range: 
-        xsd:string
-    
-    
-DataProperty: hed:HED_0000305
-
-    Annotations: 
-        dc:description "The factor to multiply these units or unit modifiers by to convert to default units.",
-        rdfs:label "conversionFactor"
-    
-    Domain: 
-        hed:HED_0000007 or hed:HED_0000008
-    
-    Range: 
-        xsd:float
-    
-    
-DataProperty: hed:HED_0000306
-
-    Annotations: 
-        dc:description "Indicates that this element is deprecated. The value of the attribute is the latest schema version in which the element appeared in undeprecated form.",
-        rdfs:label "deprecatedFrom"
-    
-    Domain: 
-        hed:HED_0000003
-    
-    Range: 
-        xsd:string
-    
-    
-DataProperty: hed:HED_0000307
-
-    Annotations: 
-        dc:description "A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of the hashtag placeholders.",
-        rdfs:label "extensionAllowed"
-    
-    Domain: 
-        hed:HED_0000005
-    
-    Range: 
-        xsd:boolean
-    
-    
-DataProperty: hed:HED_0000308
-
-    Annotations: 
-        dc:description "This element comes from the indicated library version. This attribute is added by tools when a library schema is merged into its partnered standard schema.",
-        rdfs:label "inLibrary"
-    
-    Domain: 
-        hed:HED_0000003
-    
-    Range: 
-        xsd:string
-    
-    
-DataProperty: hed:HED_0000309
-
-    Annotations: 
-        dc:description "This tag has special meaning and requires special handling by tools",
-        rdfs:label "reserved"
-    
-    Domain: 
-        hed:HED_0000005
-    
-    Range: 
-        xsd:boolean
-    
-    
-DataProperty: hed:HED_0000310
-
-    Annotations: 
-        dc:description "Indicates that this unit element is an SI unit and can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.",
-        rdfs:label "SIUnit"
-    
-    Domain: 
-        hed:HED_0000007
-    
-    Range: 
-        xsd:boolean
-    
-    
-DataProperty: hed:HED_0000311
-
-    Annotations: 
-        dc:description "This SI unit modifier represents a multiple or submultiple of a base unit rather than a unit symbol.",
-        rdfs:label "SIUnitModifier"
-    
-    Domain: 
-        hed:HED_0000008
-    
-    Range: 
-        xsd:boolean
-    
-    
-DataProperty: hed:HED_0000312
-
-    Annotations: 
-        dc:description "This SI unit modifier represents a multiple or submultiple of a unit symbol rather than a base symbol.",
-        rdfs:label "SIUnitSymbolModifier"
-    
-    Domain: 
-        hed:HED_0000008
-    
-    Range: 
-        xsd:boolean
-    
-    
-DataProperty: hed:HED_0000313
-
-    Annotations: 
-        dc:description "This tag can only appear inside a tag group.",
-        rdfs:label "tagGroup"
-    
-    Domain: 
-        hed:HED_0000005
-    
-    Range: 
-        xsd:boolean
-    
-    
-DataProperty: hed:HED_0000314
-
-    Annotations: 
-        dc:description "This tag (or its descendants) can only appear in a top-level tag group. A tag group can have at most one tag with this attribute.",
-        rdfs:label "topLevelTagGroup"
-    
-    Domain: 
-        hed:HED_0000005
-    
-    Range: 
-        xsd:boolean
-    
-    
-DataProperty: hed:HED_0000315
-
-    Annotations: 
-        dc:description "Only one of this tag or its descendants can be used in the event-level HED string.",
-        rdfs:label "unique"
-    
-    Domain: 
-        hed:HED_0000005
-    
-    Range: 
-        xsd:boolean
-    
-    
-DataProperty: hed:HED_0000316
-
-    Annotations: 
-        dc:description "This unit is a prefix unit (e.g., dollar sign in the currency units).",
-        rdfs:label "unitPrefix"
-    
-    Domain: 
-        hed:HED_0000007
-    
-    Range: 
-        xsd:boolean
-    
-    
-DataProperty: hed:HED_0000317
-
-    Annotations: 
-        dc:description "This is an abbreviation or symbol representing a type of unit. Unit symbols represent both the singular and the plural and thus cannot be pluralized.",
-        rdfs:label "unitSymbol"
-    
-    Domain: 
-        hed:HED_0000007
-    
-    Range: 
-        xsd:boolean
 
     
 Class: hed:HED_0000001
@@ -499,9 +218,8 @@ Class: hed:HED_0000002
         rdfs:comment "Used to anchor all items in both the structural.",
         rdfs:label "HedStructure"
     
-    EquivalentTo: 
+    SubClassOf:
         hed:HED_0000001
-         and (hed:HED_0000102 exactly 1 hed:HED_0000004)
     
     
 Class: hed:HED_0000003
@@ -511,9 +229,8 @@ Class: hed:HED_0000003
         rdfs:comment "Used to anchor all items in both the structural schema and the tags.",
         rdfs:label "HedElement"
     
-    EquivalentTo: 
+    SubClassOf:
         hed:HED_0000001
-         and (hed:HED_0000102 exactly 1 hed:HED_0000004)
     
     
 Class: hed:HED_0000004
@@ -766,7 +483,7 @@ DataProperty: hed:HED_0010307
 		hed:HED_0010704 true,
 		hed:HED_0010702 true
 	Domain:
-		hed:HED_0000007
+		hed:HED_0000005
 	Range:
 		xsd:boolean
 
@@ -790,7 +507,7 @@ DataProperty: hed:HED_0010310
 		hed:HED_0010704 true,
 		hed:HED_0010702 true
 	Domain:
-		hed:HED_0000007
+		hed:HED_0000005
 	Range:
 		xsd:boolean
 
@@ -838,7 +555,7 @@ DataProperty: hed:HED_0010314
 		hed:HED_0010704 true,
 		hed:HED_0010702 true
 	Domain:
-		hed:HED_0000007
+		hed:HED_0000005
 	Range:
 		xsd:boolean
 
@@ -850,7 +567,7 @@ DataProperty: hed:HED_0010315
 		hed:HED_0010704 true,
 		hed:HED_0010702 true
 	Domain:
-		hed:HED_0000007
+		hed:HED_0000005
 	Range:
 		xsd:boolean
 
@@ -862,7 +579,7 @@ DataProperty: hed:HED_0010316
 		hed:HED_0010704 true,
 		hed:HED_0010702 true
 	Domain:
-		hed:HED_0000007
+		hed:HED_0000005
 	Range:
 		xsd:boolean
 
@@ -912,9 +629,9 @@ ObjectProperty: hed:HED_0010109
 		hed:HED_0010704 true,
 		hed:HED_0010705 true
 	Domain:
-		hed:HED_0000007
+		hed:HED_0000005
 	Range:
-		hed:HED_0000007
+		hed:HED_0000005
 
 
 ObjectProperty: hed:HED_0010105
@@ -924,9 +641,9 @@ ObjectProperty: hed:HED_0010105
 		hed:HED_0010704 true,
 		hed:HED_0010705 true
 	Domain:
-		hed:HED_0000007
+		hed:HED_0000005
 	Range:
-		hed:HED_0000007
+		hed:HED_0000005
 
 
 ObjectProperty: hed:HED_0010106
@@ -936,9 +653,9 @@ ObjectProperty: hed:HED_0010106
 		hed:HED_0010704 true,
 		hed:HED_0010705 true
 	Domain:
-		hed:HED_0000007
+		hed:HED_0000005
 	Range:
-		hed:HED_0000007
+		hed:HED_0000005
 
 
 ObjectProperty: hed:HED_0010107
@@ -948,7 +665,7 @@ ObjectProperty: hed:HED_0010107
 		hed:HED_0010704 true,
 		hed:HED_0010709 true
 	Domain:
-		hed:HED_0000007
+		hed:HED_0000005
 	Range:
 		hed:HED_0000006
 
@@ -960,7 +677,7 @@ ObjectProperty: hed:HED_0010108
 		hed:HED_0010704 true,
 		hed:HED_0010714 true
 	Domain:
-		hed:HED_0000007
+		hed:HED_0000005
 	Range:
 		hed:HED_0000009
 
@@ -1022,7 +739,7 @@ Class: hed:HED_0010010
     EquivalentTo:
         hed:HED_0000010
          and (hed:HED_0000102 some hed:HED_0010004)
-         and (hed:HED_0000300 value "8.3.1")
+         and (hed:HED_0000300 value "8.3.0")
 
 
 Class: hed:HED_0010011
