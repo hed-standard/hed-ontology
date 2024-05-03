@@ -1,0 +1,423 @@
+Class: hed:HED_0011600
+	Annotations:
+		rdfs:label "m-per-s^2"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0010304 value "caret")
+		and (hed:HED_0000103 some hed:HED_0011500)
+
+Class: hed:HED_0011601
+	Annotations:
+		rdfs:label "radian"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011501)
+
+Class: hed:HED_0011602
+	Annotations:
+		rdfs:label "rad"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011501)
+
+Class: hed:HED_0011603
+	Annotations:
+		rdfs:label "degree"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010305 value 0.0174533)
+		and (hed:HED_0000103 some hed:HED_0011501)
+
+Class: hed:HED_0011604
+	Annotations:
+		rdfs:label "m^2"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0010304 value "caret")
+		and (hed:HED_0000103 some hed:HED_0011502)
+
+Class: hed:HED_0011605
+	Annotations:
+		rdfs:label "dollar"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011503)
+
+Class: hed:HED_0011606
+	Annotations:
+		rdfs:label "$"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010317 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0010304 value "dollar")
+		and (hed:HED_0000103 some hed:HED_0011503)
+
+Class: hed:HED_0011607
+	Annotations:
+		dc:description "The official currency of a large subset of member countries of the European Union.",
+		rdfs:label "euro"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0000103 some hed:HED_0011503)
+
+Class: hed:HED_0011608
+	Annotations:
+		dc:description "An arbitrary unit of value, usually an integer indicating reward or penalty.",
+		rdfs:label "point"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0000103 some hed:HED_0011503)
+
+Class: hed:HED_0011609
+	Annotations:
+		rdfs:label "v"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 0.000001)
+		and (hed:HED_0000103 some hed:HED_0011504)
+
+Class: hed:0011644
+	Annotations:
+		dc:description "Added as a direct unit because it is the default unit.",
+		rdfs:label "uv"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011504)
+
+Class: hed:HED_0011610
+	Annotations:
+		rdfs:label "Volt"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010305 value 0.000001)
+		and (hed:HED_0000103 some hed:HED_0011504)
+
+Class: hed:HED_0011611
+	Annotations:
+		rdfs:label "hertz"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011505)
+
+Class: hed:HED_0011612
+	Annotations:
+		rdfs:label "Hz"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011505)
+
+Class: hed:HED_0011613
+	Annotations:
+		dc:description "Intensity expressed as ratio to a threshold. May be used for sound intensity.",
+		rdfs:label "dB"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011506)
+
+Class: hed:HED_0011614
+	Annotations:
+		dc:description "Units used to express light intensity.",
+		rdfs:label "candela"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0000103 some hed:HED_0011506)
+
+Class: hed:HED_0011615
+	Annotations:
+		dc:description "Units used to express light intensity.",
+		rdfs:label "cd"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0000103 some hed:HED_0011506)
+
+Class: hed:HED_0011616
+	Annotations:
+		rdfs:label "m-per-s^3"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0010304 value "caret")
+		and (hed:HED_0000103 some hed:HED_0011507)
+
+Class: hed:HED_0011617
+	Annotations:
+		rdfs:label "tesla"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010305 value 10e-15)
+		and (hed:HED_0000103 some hed:HED_0011508)
+
+Class: hed:HED_0011618
+	Annotations:
+		rdfs:label "T"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 10e-15)
+		and (hed:HED_0000103 some hed:HED_0011508)
+
+Class: hed:HED_0011619
+	Annotations:
+		rdfs:label "byte"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011509)
+
+Class: hed:HED_0011620
+	Annotations:
+		rdfs:label "B"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011509)
+
+Class: hed:HED_0011621
+	Annotations:
+		rdfs:label "foot"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010305 value 0.3048)
+		and (hed:HED_0000103 some hed:HED_0011510)
+
+Class: hed:HED_0011622
+	Annotations:
+		rdfs:label "inch"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010305 value 0.0254)
+		and (hed:HED_0000103 some hed:HED_0011510)
+
+Class: hed:HED_0011623
+	Annotations:
+		rdfs:label "meter"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011510)
+
+Class: hed:HED_0011624
+	Annotations:
+		rdfs:label "metre"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011510)
+
+Class: hed:HED_0011625
+	Annotations:
+		rdfs:label "m"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011510)
+
+Class: hed:HED_0011626
+	Annotations:
+		rdfs:label "mile"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010305 value 1609.34)
+		and (hed:HED_0000103 some hed:HED_0011510)
+
+Class: hed:HED_0011627
+	Annotations:
+		rdfs:label "m-per-s"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011511)
+
+Class: hed:HED_0011628
+	Annotations:
+		rdfs:label "mph"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 0.44704)
+		and (hed:HED_0000103 some hed:HED_0011511)
+
+Class: hed:HED_0011629
+	Annotations:
+		rdfs:label "kph"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 0.277778)
+		and (hed:HED_0000103 some hed:HED_0011511)
+
+Class: hed:HED_0011630
+	Annotations:
+		rdfs:label "degree-Celsius"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011512)
+
+Class: hed:HED_0011631
+	Annotations:
+		dc:description "Units are not allowed to have spaces. Use degree-Celsius or oC instead.",
+		rdfs:label "degree Celsius"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010306 value "8.2.0")
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011512)
+
+Class: hed:HED_0011632
+	Annotations:
+		rdfs:label "oC"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011512)
+
+Class: hed:HED_0011633
+	Annotations:
+		rdfs:label "second"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011513)
+
+Class: hed:HED_0011634
+	Annotations:
+		rdfs:label "s"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011513)
+
+Class: hed:HED_0011635
+	Annotations:
+		rdfs:label "day"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010305 value 86400)
+		and (hed:HED_0000103 some hed:HED_0011513)
+
+Class: hed:HED_00645
+	Annotations:
+		rdfs:label "month"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0000103 some hed:HED_0011513)
+
+Class: hed:HED_0011636
+	Annotations:
+		rdfs:label "minute"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010305 value 60)
+		and (hed:HED_0000103 some hed:HED_0011513)
+
+Class: hed:HED_0011637
+	Annotations:
+		dc:description "Should be in 24-hour format.",
+		rdfs:label "hour"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010305 value 3600)
+		and (hed:HED_0000103 some hed:HED_0011513)
+
+Class: hed:HED_0011638
+	Annotations:
+		dc:description "Years do not have a constant conversion factor to seconds.",
+		rdfs:label "year"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0000103 some hed:HED_0011513)
+
+Class: hed:HED_0011639
+	Annotations:
+		rdfs:label "m^3"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0010304 value "caret")
+		and (hed:HED_0000103 some hed:HED_0011514)
+
+Class: hed:HED_0011640
+	Annotations:
+		rdfs:label "g"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010318 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011515)
+
+Class: hed:HED_0011641
+	Annotations:
+		rdfs:label "gram"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010311 value true)
+		and (hed:HED_0010305 value 1.0)
+		and (hed:HED_0000103 some hed:HED_0011515)
+
+Class: hed:HED_0011642
+	Annotations:
+		rdfs:label "pound"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010305 value 453.592)
+		and (hed:HED_0000103 some hed:HED_0011515)
+
+Class: hed:HED_0011643
+	Annotations:
+		rdfs:label "lb"
+	EquivalentTo:
+		hed:HED_0010007
+		and (hed:HED_0010305 value 453.592)
+		and (hed:HED_0000103 some hed:HED_0011515)
+
