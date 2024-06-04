@@ -58,7 +58,7 @@ jobs:
           python-version: '3.10'
 
       - name: Install dependencies
-        run: pip install git+https://github.com/ianca/hed-python.git@develop
+        run: pip install git+https://github.com/hed-standard/hed-python.git@develop
 
       - name: Create ontology
         run: |
