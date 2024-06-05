@@ -1,7 +1,7 @@
 
 Prefix: dc: <http://purl.org/dc/elements/1.1/>
 Prefix: foaf: <http://xmlns.com/foaf/0.1/>
-Prefix: hed: <http://purl.org/hed/releases/working/hed-merged#>
+Prefix: hed: <http://purl.org/hed/releases/working/hed-schema#>
 Prefix: owl: <http://www.w3.org/2002/07/owl#>
 Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -9,17 +9,20 @@ Prefix: terms: <http://purl.org/dc/terms/>
 Prefix: xml: <http://www.w3.org/XML/1998/namespace>
 Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
 
-Ontology: <http://purl.org/hed/hed#>
-<http://purl.org/hed/releases/working/hed.owl>
+
+
+Ontology: <http://purl.org/hed/hed-schema#>
+<http://purl.org/hed/releases/working/hed-schema.owl>
 
 Annotations:
     dc:contributor "Ian Callanan",
     dc:contributor "Kay Robbins",
     dc:contributor "Scott Makeig",
-    dc:description "This ontology defines the HED Hierarchical Event Descriptor standard schema."@en,
-    dc:title "HED Ontology (HED)",
+    dc:description "This ontology defines the HED Hierarchical Event Descriptor schema structure."@en,
+    dc:description "This ontology only defines the structural elements of the HED schema. The actual HED tags are in HED.",
+    dc:title "HED Schema Ontology (HEDS)",
     terms:license <http://creativecommons.org/licenses/by/4.0/>,
-    rdfs:label "HED Ontology",
+    rdfs:label "HED Schema Ontology",
     rdfs:seeAlso <https://github.com/hed-standard/hed-ontology>,
     owl:versionInfo "releases/working",
     foaf:homepage <https://www.hedtags.org>
@@ -66,7 +69,39 @@ AnnotationProperty: dc:type
     
 AnnotationProperty: foaf:homepage
 
+    
+AnnotationProperty: hed:HED_0000500
 
+    Annotations: 
+        dc:description "The unique identifier of this element in the HED namespace.",
+        rdfs:comment "Maps HedElement into string.",
+        rdfs:label "hedId"
+    
+    
+AnnotationProperty: hed:HED_0000501
+
+    Annotations: 
+        dc:description "This tag requires that a descendent node be included.",
+        rdfs:comment "Maps a HedTag into a boolean.",
+        rdfs:label "requireChild"
+    
+    
+AnnotationProperty: hed:HED_0000502
+
+    Annotations: 
+        dc:description "This top-level library schema node should have a parent which is the indicated node in the partnered standard schema.",
+        rdfs:comment "Maps a HedTag into a HedTag name as a string.",
+        rdfs:label "rooted"
+    
+    
+AnnotationProperty: hed:HED_0000503
+
+    Annotations: 
+        dc:description "This tag is a hashtag placeholder that is expected to be replaced with a user-defined value.",
+        rdfs:comment "Maps a HedTag into a boolean.",
+        rdfs:label "takesValue"
+    
+    
 AnnotationProperty: owl:versionInfo
 
     
@@ -135,7 +170,74 @@ ObjectProperty: hed:HED_0000103
     Range: 
         hed:HED_0000006
     
+    
+ObjectProperty: hed:HED_0000104
 
+    Annotations: 
+        dc:description "The default units to use if the placeholder has a unit class but the substituted value has no units.",
+        rdfs:label "defaultUnits"
+    
+    Domain: 
+        hed:HED_0000006
+    
+    Range: 
+        hed:HED_0000007
+    
+    
+ObjectProperty: hed:HED_0000105
+
+    Annotations: 
+        dc:description "A HED tag that is closely related to this tag. This attribute is used by tagging tools.",
+        rdfs:label "relatedTag"
+    
+    Domain: 
+        hed:HED_0000005
+    
+    Range: 
+        hed:HED_0000005
+    
+    
+ObjectProperty: hed:HED_0000106
+
+    Annotations: 
+        dc:description "A tag is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions",
+        rdfs:label "suggestedTag"
+    
+    Domain: 
+        hed:HED_0000005
+    
+    Range: 
+        hed:HED_0000005
+    
+    
+ObjectProperty: hed:HED_0000107
+
+    Annotations: 
+        dc:description "The unit class this placeholder tag belongs to.",
+        rdfs:comment "Maps a HedTag into a HedUnitClass name as a string.",
+        rdfs:label "unitClass"
+    
+    Domain: 
+        hed:HED_0000005
+    
+    Range: 
+        hed:HED_0000006
+    
+    
+ObjectProperty: hed:HED_0000108
+
+    Annotations: 
+        dc:description "The value class this placeholder tag belongs to.",
+        rdfs:comment "Maps a HedTag into a HedValueClass name as a string.",
+        rdfs:label "valueClass"
+    
+    Domain: 
+        hed:HED_0000005
+    
+    Range: 
+        hed:HED_0000009
+    
+    
 DataProperty: hed:HED_0000300
 
     Annotations: 
@@ -198,6 +300,188 @@ DataProperty: hed:HED_0000303
     
     Range: 
         xsd:string
+    
+    
+DataProperty: hed:HED_0000304
+
+    Annotations: 
+        dc:description "A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder. Normally the allowed characters are listed individually. However, the word letters designates the upper and lower case alphabetic characters and the word digits designates the digits 0-9. The word blank designates the blank character.",
+        rdfs:label "allowedCharacter"
+    
+    Domain: 
+        hed:HED_0000003
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: hed:HED_0000305
+
+    Annotations: 
+        dc:description "The factor to multiply these units or unit modifiers by to convert to default units.",
+        rdfs:label "conversionFactor"
+    
+    Domain: 
+        hed:HED_0000007 or hed:HED_0000008
+    
+    Range: 
+        xsd:float
+    
+    
+DataProperty: hed:HED_0000306
+
+    Annotations: 
+        dc:description "Indicates that this element is deprecated. The value of the attribute is the latest schema version in which the element appeared in undeprecated form.",
+        rdfs:label "deprecatedFrom"
+    
+    Domain: 
+        hed:HED_0000003
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: hed:HED_0000307
+
+    Annotations: 
+        dc:description "A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of the hashtag placeholders.",
+        rdfs:label "extensionAllowed"
+    
+    Domain: 
+        hed:HED_0000005
+    
+    Range: 
+        xsd:boolean
+    
+    
+DataProperty: hed:HED_0000308
+
+    Annotations: 
+        dc:description "This element comes from the indicated library version. This attribute is added by tools when a library schema is merged into its partnered standard schema.",
+        rdfs:label "inLibrary"
+    
+    Domain: 
+        hed:HED_0000003
+    
+    Range: 
+        xsd:string
+    
+    
+DataProperty: hed:HED_0000309
+
+    Annotations: 
+        dc:description "This tag has special meaning and requires special handling by tools",
+        rdfs:label "reserved"
+    
+    Domain: 
+        hed:HED_0000005
+    
+    Range: 
+        xsd:boolean
+    
+    
+DataProperty: hed:HED_0000310
+
+    Annotations: 
+        dc:description "Indicates that this unit element is an SI unit and can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.",
+        rdfs:label "SIUnit"
+    
+    Domain: 
+        hed:HED_0000007
+    
+    Range: 
+        xsd:boolean
+    
+    
+DataProperty: hed:HED_0000311
+
+    Annotations: 
+        dc:description "This SI unit modifier represents a multiple or submultiple of a base unit rather than a unit symbol.",
+        rdfs:label "SIUnitModifier"
+    
+    Domain: 
+        hed:HED_0000008
+    
+    Range: 
+        xsd:boolean
+    
+    
+DataProperty: hed:HED_0000312
+
+    Annotations: 
+        dc:description "This SI unit modifier represents a multiple or submultiple of a unit symbol rather than a base symbol.",
+        rdfs:label "SIUnitSymbolModifier"
+    
+    Domain: 
+        hed:HED_0000008
+    
+    Range: 
+        xsd:boolean
+    
+    
+DataProperty: hed:HED_0000313
+
+    Annotations: 
+        dc:description "This tag can only appear inside a tag group.",
+        rdfs:label "tagGroup"
+    
+    Domain: 
+        hed:HED_0000005
+    
+    Range: 
+        xsd:boolean
+    
+    
+DataProperty: hed:HED_0000314
+
+    Annotations: 
+        dc:description "This tag (or its descendants) can only appear in a top-level tag group. A tag group can have at most one tag with this attribute.",
+        rdfs:label "topLevelTagGroup"
+    
+    Domain: 
+        hed:HED_0000005
+    
+    Range: 
+        xsd:boolean
+    
+    
+DataProperty: hed:HED_0000315
+
+    Annotations: 
+        dc:description "Only one of this tag or its descendants can be used in the event-level HED string.",
+        rdfs:label "unique"
+    
+    Domain: 
+        hed:HED_0000005
+    
+    Range: 
+        xsd:boolean
+    
+    
+DataProperty: hed:HED_0000316
+
+    Annotations: 
+        dc:description "This unit is a prefix unit (e.g., dollar sign in the currency units).",
+        rdfs:label "unitPrefix"
+    
+    Domain: 
+        hed:HED_0000007
+    
+    Range: 
+        xsd:boolean
+    
+    
+DataProperty: hed:HED_0000317
+
+    Annotations: 
+        dc:description "This is an abbreviation or symbol representing a type of unit. Unit symbols represent both the singular and the plural and thus cannot be pluralized.",
+        rdfs:label "unitSymbol"
+    
+    Domain: 
+        hed:HED_0000007
+    
+    Range: 
+        xsd:boolean
 
     
 Class: hed:HED_0000001
@@ -218,8 +502,9 @@ Class: hed:HED_0000002
         rdfs:comment "Used to anchor all items in both the structural.",
         rdfs:label "HedStructure"
     
-    SubClassOf:
+    EquivalentTo: 
         hed:HED_0000001
+         and (hed:HED_0000102 exactly 1 hed:HED_0000004)
     
     
 Class: hed:HED_0000003
@@ -229,8 +514,9 @@ Class: hed:HED_0000003
         rdfs:comment "Used to anchor all items in both the structural schema and the tags.",
         rdfs:label "HedElement"
     
-    SubClassOf:
+    EquivalentTo: 
         hed:HED_0000001
+         and (hed:HED_0000102 exactly 1 hed:HED_0000004)
     
     
 Class: hed:HED_0000004
@@ -335,7 +621,7 @@ Class: owl:Thing
     
 
 
-AnnotationProperty: hed:HED_0010308
+AnnotationProperty: hed:HED_0010500
 	Annotations:
 		dc:description "The unique identifier of this element in the HED namespace.",
 		rdfs:label "hedId",
@@ -685,83 +971,65 @@ ObjectProperty: hed:HED_0010108
 
 
 Class: hed:HED_0010004
-
-    Annotations:
-        rdfs:label "StandardSchema"
-
-    EquivalentTo:
+    Annotations: 
+        rdfs:label "StandardSchema"  
+    EquivalentTo: 
         hed:HED_0000004
          and (hed:HED_0000101 some hed:HED_0010010)
          and (hed:HED_0000101 some hed:HED_0010011)
          and (hed:HED_0000101 some hed:HED_0010012)
 
 Class: hed:HED_0010006
-
     Annotations:
         rdfs:label "StandardUnitClass"
-
     EquivalentTo:
         hed:HED_0000006
          and (hed:HED_0000102 some hed:HED_0010004)
 
 Class: hed:HED_0010007
-
     Annotations:
         rdfs:label "StandardUnit"
-
     EquivalentTo:
         hed:HED_0000007
          and (hed:HED_0000102 some hed:HED_0010004)
 
 Class: hed:HED_0010008
-
     Annotations:
         rdfs:label "StandardUnitModifier"
-
     EquivalentTo:
         hed:HED_0000008
          and (hed:HED_0000102 some hed:HED_0010004)
 
 Class: hed:HED_0010009
-
     Annotations:
         rdfs:label "StandardValueClass"
-
     EquivalentTo:
         hed:HED_0000009
          and (hed:HED_0000102 some hed:HED_0010004)
 
 Class: hed:HED_0010010
-
     Annotations:
         rdfs:label "StandardHeader"
-
     EquivalentTo:
         hed:HED_0000010
-         and (hed:HED_0000102 some hed:HED_0010004)
-         and (hed:HED_0000300 value "8.3.0")
-
-
+        and (hed:HED_0000102 some hed:HED_0010004)
+        and (hed:HED_0000300 value "8.3.0")
+        
 Class: hed:HED_0010011
-
     Annotations:
-        dc:description "The HED standard schema is a hierarchically-organized vocabulary for annotating events and experimental structure. HED annotations consist of comma-separated tags drawn from this vocabulary. This vocabulary can be augmented by terms drawn from specialized library schema.",
+        dc:description "The HED standard schema is a hierarchically-organized vocabulary for annotating events and experimental structure. HED annotations consist of comma-separated tags drawn from this vocabulary. This vocabulary can be augmented by terms drawn from specialized library schema. \n\nEach term in this vocabulary has a human-readable description and may include additional attributes that give additional properties or that specify how tools should treat the tag during analysis. The meaning of these attributes is described in the Additional schema properties section.",
         rdfs:label "StandardPrologue"
-
     EquivalentTo:
         hed:HED_0000011
-         and (hed:HED_0000102 some hed:HED_0010004)
-
-
-Class: hed:HED_0010012
-
+        and (hed:HED_0000102 some hed:HED_0010004)
+   
+Class: hed:HED_0010012	
     Annotations:
         dc:description "This schema is released under the Creative Commons Attribution 4.0 International and is a product of the HED Working Group. The DOI for the latest version of the HED standard schema is 10.5281/zenodo.7876037.",
         rdfs:label "StandardEpilogue"
-
     EquivalentTo:
         hed:HED_0000012
-         and (hed:HED_0000102 some hed:HED_0010004)
+        and (hed:HED_0000102 some hed:HED_0010004)
 
 
 Class: hed:HED_0012001
@@ -897,7 +1165,7 @@ Class: hed:HED_0012017
 
 Class: hed:HED_0012018
 	Annotations:
-		dc:description "Communicate nonverbally using visible bodily actions, either in place of speech or together and in parallel with spoken words. Gestures include movement of the hands, face, or other parts of the body.",
+		dc:description "Communicate non-verbally using visible bodily actions, either in place of speech or together and in parallel with spoken words. Gestures include movement of the hands, face, or other parts of the body.",
 		rdfs:label "Communicate-gesturally"
 	EquivalentTo:
 		hed:HED_0012017
@@ -1194,7 +1462,7 @@ Class: hed:HED_0012056
 
 Class: hed:HED_0012057
 	Annotations:
-		dc:description "Involuntarily spasm  the diaphragm and respiratory organs, with a sudden closure of the glottis and a characteristic sound like that of a cough.",
+		dc:description "Involuntarily spasm the diaphragm and respiratory organs, with a sudden closure of the glottis and a characteristic sound like that of a cough.",
 		rdfs:label "Hiccup"
 	SubClassOf:
 		hed:HED_0012053
@@ -1453,7 +1721,7 @@ Class: hed:HED_0012093
 
 Class: hed:HED_0012094
 	Annotations:
-		dc:description "Take a deep involuntary  inhalation with the mouth open often as a sign of drowsiness or boredom.",
+		dc:description "Take a deep involuntary inhalation with the mouth open often as a sign of drowsiness or boredom.",
 		rdfs:label "Yawn"
 	SubClassOf:
 		hed:HED_0012087
@@ -1523,7 +1791,7 @@ Class: hed:HED_0012103
 
 Class: hed:HED_0012104
 	Annotations:
-		dc:description "Strike out or flail with the foot or feet.  Strike using the leg, in unison usually with an area of the knee or lower using the foot.",
+		dc:description "Strike out or flail with the foot or feet.Strike using the leg, in unison usually with an area of the knee or lower using the foot.",
 		rdfs:label "Kick"
 	SubClassOf:
 		hed:HED_0012099
@@ -2036,127 +2304,169 @@ Class: hed:HED_0012176
 	SubClassOf:
 		hed:HED_0012175
 
+Class: hed:HED_0013200
+	Annotations:
+		dc:description "A part of the head.",
+		rdfs:label "Head-part"
+	SubClassOf:
+		hed:HED_0012175
+
 Class: hed:HED_0012177
 	Annotations:
 		dc:description "Organ inside the head that is made up of nerve cells and controls the body.",
 		rdfs:label "Brain"
 	SubClassOf:
-		hed:HED_0012176
+		hed:HED_0013200
+
+Class: hed:HED_0013201
+	Annotations:
+		dc:description "A region of the brain.",
+		rdfs:label "Brain-region"
+	SubClassOf:
+		hed:HED_0013200
+
+Class: hed:HED_0013202
+	Annotations:
+		dc:description "A major structure of the brain located near the brainstem. It plays a key role in motor control, coordination, precision, with contributions to different cognitive functions.",
+		rdfs:label "Cerebellum"
+	SubClassOf:
+		hed:HED_0013201
 
 Class: hed:HED_0012178
 	Annotations:
 		rdfs:label "Frontal-lobe"
 	SubClassOf:
-		hed:HED_0012177
+		hed:HED_0013201
 
 Class: hed:HED_0012179
 	Annotations:
 		rdfs:label "Occipital-lobe"
 	SubClassOf:
-		hed:HED_0012177
+		hed:HED_0013201
 
 Class: hed:HED_0012180
 	Annotations:
 		rdfs:label "Parietal-lobe"
 	SubClassOf:
-		hed:HED_0012177
+		hed:HED_0013201
 
 Class: hed:HED_0012181
 	Annotations:
 		rdfs:label "Temporal-lobe"
 	SubClassOf:
-		hed:HED_0012177
+		hed:HED_0013201
 
 Class: hed:HED_0012182
 	Annotations:
 		dc:description "A sense organ needed for the detection of sound and for establishing balance.",
 		rdfs:label "Ear"
 	SubClassOf:
-		hed:HED_0012176
+		hed:HED_0013200
 
 Class: hed:HED_0012183
 	Annotations:
 		dc:description "The anterior portion of the head extending from the forehead to the chin and ear to ear. The facial structures contain the eyes, nose and mouth, cheeks and jaws.",
 		rdfs:label "Face"
 	SubClassOf:
-		hed:HED_0012176
+		hed:HED_0013200
+
+Class: hed:HED_0013203
+	Annotations:
+		dc:description "A part of the face.",
+		rdfs:label "Face-part"
+	SubClassOf:
+		hed:HED_0013200
 
 Class: hed:HED_0012184
 	Annotations:
-		dc:description "The fleshy part of the face bounded by the eyes, nose, ear, and jaw line.",
+		dc:description "The fleshy part of the face bounded by the eyes, nose, ear, and jawline.",
 		rdfs:label "Cheek"
 	SubClassOf:
-		hed:HED_0012183
+		hed:HED_0013203
 
 Class: hed:HED_0012185
 	Annotations:
 		dc:description "The part of the face below the lower lip and including the protruding part of the lower jaw.",
 		rdfs:label "Chin"
 	SubClassOf:
-		hed:HED_0012183
+		hed:HED_0013203
 
 Class: hed:HED_0012186
 	Annotations:
 		dc:description "The organ of sight or vision.",
 		rdfs:label "Eye"
 	SubClassOf:
-		hed:HED_0012183
+		hed:HED_0013203
 
 Class: hed:HED_0012187
 	Annotations:
 		dc:description "The arched strip of hair on the bony ridge above each eye socket.",
 		rdfs:label "Eyebrow"
 	SubClassOf:
-		hed:HED_0012183
+		hed:HED_0013203
 
 Class: hed:HED_0012188
 	Annotations:
 		dc:description "The folds of the skin that cover the eye when closed.",
 		rdfs:label "Eyelid"
 	SubClassOf:
-		hed:HED_0012183
+		hed:HED_0013203
 
 Class: hed:HED_0012189
 	Annotations:
 		dc:description "The part of the face between the eyebrows and the normal hairline.",
 		rdfs:label "Forehead"
 	SubClassOf:
-		hed:HED_0012183
+		hed:HED_0013203
 
 Class: hed:HED_0012190
 	Annotations:
 		dc:description "Fleshy fold which surrounds the opening of the mouth.",
 		rdfs:label "Lip"
 	SubClassOf:
-		hed:HED_0012183
+		hed:HED_0013203
 
 Class: hed:HED_0012191
 	Annotations:
 		dc:description "The proximal portion of the digestive tract, containing the oral cavity and bounded by the oral opening.",
 		rdfs:label "Mouth"
 	SubClassOf:
-		hed:HED_0012183
+		hed:HED_0013203
+
+Class: hed:HED_0013204
+	Annotations:
+		dc:description "A part of the mouth.",
+		rdfs:label "Mouth-part"
+	SubClassOf:
+		hed:HED_0013203
+
+Class: hed:HED_0012193
+	Annotations:
+		dc:description "The hard bone-like structures in the jaws. A collection of teeth arranged in some pattern in the mouth or other part of the body.",
+		rdfs:label "Teeth"
+	SubClassOf:
+		hed:HED_0013204
+
+Class: hed:HED_0013205
+	Annotations:
+		dc:description "A muscular organ in the mouth with significant role in mastication, swallowing, speech, and taste.",
+		rdfs:label "Tongue"
+	SubClassOf:
+		hed:HED_0013204
 
 Class: hed:HED_0012192
 	Annotations:
 		dc:description "A structure of special sense serving as an organ of the sense of smell and as an entrance to the respiratory tract.",
 		rdfs:label "Nose"
 	SubClassOf:
-		hed:HED_0012183
-
-Class: hed:HED_0012193
-	Annotations:
-		dc:description "The hard bonelike structures in the jaws. A collection of teeth arranged in some pattern in the mouth or other part of the body.",
-		rdfs:label "Teeth"
-	SubClassOf:
-		hed:HED_0012183
+		hed:HED_0013203
 
 Class: hed:HED_0012194
 	Annotations:
 		dc:description "The filamentous outgrowth of the epidermis.",
 		rdfs:label "Hair"
 	SubClassOf:
-		hed:HED_0012176
+		hed:HED_0013200
 
 Class: hed:HED_0012195
 	Annotations:
@@ -2165,82 +2475,139 @@ Class: hed:HED_0012195
 	SubClassOf:
 		hed:HED_0012175
 
+Class: hed:HED_0013206
+	Annotations:
+		dc:description "A part of the lower extremity.",
+		rdfs:label "Lower-extremity-part"
+	SubClassOf:
+		hed:HED_0012175
+
 Class: hed:HED_0012196
 	Annotations:
 		dc:description "A gliding joint between the distal ends of the tibia and fibula and the proximal end of the talus.",
 		rdfs:label "Ankle"
 	SubClassOf:
-		hed:HED_0012195
-
-Class: hed:HED_0012197
-	Annotations:
-		dc:description "The fleshy part at the back of the leg below the knee.",
-		rdfs:label "Calf"
-	SubClassOf:
-		hed:HED_0012195
+		hed:HED_0013206
 
 Class: hed:HED_0012198
 	Annotations:
 		dc:description "The structure found below the ankle joint required for locomotion.",
 		rdfs:label "Foot"
 	SubClassOf:
-		hed:HED_0012195
+		hed:HED_0013206
 
-Class: hed:HED_0012199
+Class: hed:HED_0013207
 	Annotations:
-		dc:description "The largest toe on the inner side of the foot.",
-		rdfs:label "Big-toe"
+		dc:description "A part of the foot.",
+		rdfs:label "Foot-part"
 	SubClassOf:
-		hed:HED_0012198
+		hed:HED_0013206
 
 Class: hed:HED_0012200
 	Annotations:
 		dc:description "The back of the foot below the ankle.",
 		rdfs:label "Heel"
 	SubClassOf:
-		hed:HED_0012198
+		hed:HED_0013207
 
 Class: hed:HED_0012201
 	Annotations:
 		dc:description "The part of the foot between the ball and the heel on the inner side.",
 		rdfs:label "Instep"
 	SubClassOf:
-		hed:HED_0012198
+		hed:HED_0013207
+
+Class: hed:HED_0013208
+	Annotations:
+		dc:description "A digit of the foot.",
+		rdfs:label "Toe"
+	SubClassOf:
+		hed:HED_0013207
+
+Class: hed:HED_0012199
+	Annotations:
+		dc:description "The largest toe on the inner side of the foot.",
+		rdfs:label "Big-toe"
+	SubClassOf:
+		hed:HED_0013208
 
 Class: hed:HED_0012202
 	Annotations:
 		dc:description "The smallest toe located on the outer side of the foot.",
 		rdfs:label "Little-toe"
 	SubClassOf:
-		hed:HED_0012198
+		hed:HED_0013208
 
 Class: hed:HED_0012203
 	Annotations:
-		dc:description "The terminal digits of the foot.",
+		dc:description "The terminal digits of the foot. Used to describe collective attributes of all toes, such as bending all toes",
 		rdfs:label "Toes"
-	SubClassOf:
-		hed:HED_0012198
+	EquivalentTo:
+		hed:HED_0013207
+		and (hed:HED_0010105 some hed:HED_0013208)
 
 Class: hed:HED_0012204
 	Annotations:
 		dc:description "A joint connecting the lower part of the femur with the upper part of the tibia.",
 		rdfs:label "Knee"
 	SubClassOf:
-		hed:HED_0012195
+		hed:HED_0013206
+
+Class: hed:HED_0013209
+	Annotations:
+		dc:description "The part of the leg between the knee and the ankle.",
+		rdfs:label "Lower-leg"
+	SubClassOf:
+		hed:HED_0013206
+
+Class: hed:HED_0013210
+	Annotations:
+		dc:description "A part of the lower leg.",
+		rdfs:label "Lower-leg-part"
+	SubClassOf:
+		hed:HED_0013206
+
+Class: hed:HED_0012197
+	Annotations:
+		dc:description "The fleshy part at the back of the leg below the knee.",
+		rdfs:label "Calf"
+	SubClassOf:
+		hed:HED_0013210
 
 Class: hed:HED_0012205
 	Annotations:
 		dc:description "Front part of the leg below the knee.",
 		rdfs:label "Shin"
 	SubClassOf:
-		hed:HED_0012195
+		hed:HED_0013210
+
+Class: hed:HED_0013211
+	Annotations:
+		dc:description "The part of the leg between the hip and the knee.",
+		rdfs:label "Upper-leg"
+	SubClassOf:
+		hed:HED_0013206
+
+Class: hed:HED_0013212
+	Annotations:
+		dc:description "A part of the upper leg.",
+		rdfs:label "Upper-leg-part"
+	SubClassOf:
+		hed:HED_0013206
 
 Class: hed:HED_0012206
 	Annotations:
 		dc:description "Upper part of the leg between hip and knee.",
 		rdfs:label "Thigh"
 	SubClassOf:
-		hed:HED_0012195
+		hed:HED_0013212
+
+Class: hed:HED_0013213
+	Annotations:
+		dc:description "The part of the body connecting the head to the torso, containing the cervical spine and vital pathways of nerves, blood vessels, and the airway.",
+		rdfs:label "Neck"
+	SubClassOf:
+		hed:HED_0012175
 
 Class: hed:HED_0012207
 	Annotations:
@@ -2249,19 +2616,61 @@ Class: hed:HED_0012207
 	SubClassOf:
 		hed:HED_0012175
 
+Class: hed:HED_0013214
+	Annotations:
+		dc:description "A part of the torso.",
+		rdfs:label "Torso-part"
+	SubClassOf:
+		hed:HED_0012175
+
+Class: hed:HED_0013215
+	Annotations:
+		dc:description "The part of the body between the thorax and the pelvis.",
+		rdfs:label "Abdomen"
+	SubClassOf:
+		hed:HED_0013214
+
+Class: hed:HED_0013216
+	Annotations:
+		dc:description "The central mark on the abdomen created by the detachment of the umbilical cord after birth.",
+		rdfs:label "Navel"
+	SubClassOf:
+		hed:HED_0013214
+
+Class: hed:HED_0013217
+	Annotations:
+		dc:description "The bony structure at the base of the spine supporting the legs.",
+		rdfs:label "Pelvis"
+	SubClassOf:
+		hed:HED_0013214
+
+Class: hed:HED_0013218
+	Annotations:
+		dc:description "A part of the pelvis.",
+		rdfs:label "Pelvis-part"
+	SubClassOf:
+		hed:HED_0013214
+
 Class: hed:HED_0012208
 	Annotations:
 		dc:description "The round fleshy parts that form the lower rear area of a human trunk.",
 		rdfs:label "Buttocks"
 	SubClassOf:
-		hed:HED_0012207
+		hed:HED_0013218
+
+Class: hed:HED_0013219
+	Annotations:
+		dc:description "The external organs of reproduction and urination, located in the pelvic region. This includes both male and female genital structures.",
+		rdfs:label "Genitalia"
+	SubClassOf:
+		hed:HED_0013218
 
 Class: hed:HED_0012209
 	Annotations:
-		dc:description "The external organs of reproduction. Deprecated due to spelling error. Use Torso/Genitalia.",
+		dc:description "The external organs of reproduction. Deprecated due to spelling error. Use Genitalia.",
 		rdfs:label "Gentalia"
 	EquivalentTo:
-		hed:HED_0012207
+		hed:HED_0013218
 		and (hed:HED_0010306 value "8.1.0")
 
 Class: hed:HED_0012210
@@ -2269,35 +2678,35 @@ Class: hed:HED_0012210
 		dc:description "The lateral prominence of the pelvis from the waist to the thigh.",
 		rdfs:label "Hip"
 	SubClassOf:
-		hed:HED_0012207
+		hed:HED_0013218
 
 Class: hed:HED_0012211
 	Annotations:
 		dc:description "The rear surface of the human body from the shoulders to the hips.",
 		rdfs:label "Torso-back"
 	SubClassOf:
-		hed:HED_0012207
+		hed:HED_0013214
 
 Class: hed:HED_0012212
 	Annotations:
 		dc:description "The anterior side of the thorax from the neck to the abdomen.",
 		rdfs:label "Torso-chest"
 	SubClassOf:
-		hed:HED_0012207
+		hed:HED_0013214
 
 Class: hed:HED_0012213
 	Annotations:
 		dc:description "Internal organs of the body.",
 		rdfs:label "Viscera"
 	SubClassOf:
-		hed:HED_0012207
+		hed:HED_0013214
 
 Class: hed:HED_0012214
 	Annotations:
 		dc:description "The abdominal circumference at the navel.",
 		rdfs:label "Waist"
 	SubClassOf:
-		hed:HED_0012207
+		hed:HED_0013214
 
 Class: hed:HED_0012215
 	Annotations:
@@ -2306,33 +2715,54 @@ Class: hed:HED_0012215
 	SubClassOf:
 		hed:HED_0012175
 
+Class: hed:HED_0013220
+	Annotations:
+		dc:description "A part of the upper extremity.",
+		rdfs:label "Upper-extremity-part"
+	SubClassOf:
+		hed:HED_0012175
+
 Class: hed:HED_0012216
 	Annotations:
 		dc:description "A type of hinge joint located between the forearm and upper arm.",
 		rdfs:label "Elbow"
 	SubClassOf:
-		hed:HED_0012215
+		hed:HED_0013220
 
 Class: hed:HED_0012217
 	Annotations:
 		dc:description "Lower part of the arm between the elbow and wrist.",
 		rdfs:label "Forearm"
 	SubClassOf:
-		hed:HED_0012215
+		hed:HED_0013220
+
+Class: hed:HED_0013221
+	Annotations:
+		dc:description "A part of the forearm.",
+		rdfs:label "Forearm-part"
+	SubClassOf:
+		hed:HED_0013220
 
 Class: hed:HED_0012218
 	Annotations:
 		dc:description "The distal portion of the upper extremity. It consists of the carpus, metacarpus, and digits.",
 		rdfs:label "Hand"
 	SubClassOf:
-		hed:HED_0012215
+		hed:HED_0013220
+
+Class: hed:HED_0013222
+	Annotations:
+		dc:description "A part of the hand.",
+		rdfs:label "Hand-part"
+	SubClassOf:
+		hed:HED_0013220
 
 Class: hed:HED_0012219
 	Annotations:
 		dc:description "Any of the digits of the hand.",
 		rdfs:label "Finger"
 	SubClassOf:
-		hed:HED_0012218
+		hed:HED_0013222
 
 Class: hed:HED_0012220
 	Annotations:
@@ -2369,40 +2799,55 @@ Class: hed:HED_0012224
 	SubClassOf:
 		hed:HED_0012219
 
+Class: hed:HED_0013223
+	Annotations:
+		dc:description "The terminal digits of the hand. Used to describe collective attributes of all fingers, such as bending all fingers",
+		rdfs:label "Fingers"
+	EquivalentTo:
+		hed:HED_0013222
+		and (hed:HED_0010105 some hed:HED_0012219)
+
 Class: hed:HED_0012225
 	Annotations:
 		dc:description "A part of a finger at a joint where the bone is near the surface, especially where the finger joins the hand.",
 		rdfs:label "Knuckles"
 	SubClassOf:
-		hed:HED_0012218
+		hed:HED_0013222
 
 Class: hed:HED_0012226
 	Annotations:
 		dc:description "The part of the inner surface of the hand that extends from the wrist to the bases of the fingers.",
 		rdfs:label "Palm"
 	SubClassOf:
-		hed:HED_0012218
+		hed:HED_0013222
 
 Class: hed:HED_0012227
 	Annotations:
 		dc:description "Joint attaching upper arm to trunk.",
 		rdfs:label "Shoulder"
 	SubClassOf:
-		hed:HED_0012215
+		hed:HED_0013220
 
 Class: hed:HED_0012228
 	Annotations:
 		dc:description "Portion of arm between shoulder and elbow.",
 		rdfs:label "Upper-arm"
 	SubClassOf:
-		hed:HED_0012215
+		hed:HED_0013220
+
+Class: hed:HED_0013224
+	Annotations:
+		dc:description "A part of the upper arm.",
+		rdfs:label "Upper-arm-part"
+	SubClassOf:
+		hed:HED_0013220
 
 Class: hed:HED_0012229
 	Annotations:
 		dc:description "A joint between the distal end of the radius and the proximal row of carpal bones.",
 		rdfs:label "Wrist"
 	SubClassOf:
-		hed:HED_0012215
+		hed:HED_0013220
 
 Class: hed:HED_0012230
 	Annotations:
@@ -2449,7 +2894,7 @@ Class: hed:HED_0012235
 
 Class: hed:HED_0012236
 	Annotations:
-		dc:description "A  unit of grammatical organization next below the sentence in rank, usually consisting of a subject and predicate.",
+		dc:description "A unit of grammatical organization next below the sentence in rank, usually consisting of a subject and predicate.",
 		rdfs:label "Clause"
 	SubClassOf:
 		hed:HED_0012234
@@ -2555,7 +3000,7 @@ Class: hed:HED_0012250
 
 Class: hed:HED_0012251
 	Annotations:
-		dc:description "The dial face of a clock. A location identifier based on clockface numbering or anatomic subregion.",
+		dc:description "The dial face of a clock. A location identifier based on clock-face-position numbering or anatomic subregion.",
 		rdfs:label "Clockface"
 	SubClassOf:
 		hed:HED_0012249
@@ -2984,7 +3429,7 @@ Class: hed:HED_0012311
 
 Class: hed:HED_0012312
 	Annotations:
-		dc:description "An electronic device designed as a display or a physical device designed to be a protective meshwork.",
+		dc:description "An electronic device designed as a display or a physical device designed to be a protective mesh work.",
 		rdfs:label "Computer-screen"
 	SubClassOf:
 		hed:HED_0012311
@@ -3021,6 +3466,13 @@ Class: hed:HED_0012317
 	Annotations:
 		dc:description "A device for recording electric currents in the brain using electrodes applied to the scalp, to the surface of the brain, or placed within the substance of the brain.",
 		rdfs:label "EEG-recorder"
+	SubClassOf:
+		hed:HED_0012316
+
+Class: hed:HED_0013225
+	Annotations:
+		dc:description "A device for recording electrical activity of muscles using electrodes on the body surface or within the muscular mass.",
+		rdfs:label "EMG-recorder"
 	SubClassOf:
 		hed:HED_0012316
 
@@ -3068,7 +3520,7 @@ Class: hed:HED_0012323
 
 Class: hed:HED_0012324
 	Annotations:
-		dc:description "A device in which a measure function inheres.",
+		dc:description "A device that measures something.",
 		rdfs:label "Measurement-device"
 	SubClassOf:
 		hed:HED_0012281
@@ -3079,14 +3531,6 @@ Class: hed:HED_0012325
 		rdfs:label "Clock"
 	SubClassOf:
 		hed:HED_0012324
-
-Class: hed:HED_0012326
-	Annotations:
-		dc:description "A location identifier based on clockface numbering or anatomic subregion. As an object, just use the tag Clock.",
-		rdfs:label "Clock-face"
-	EquivalentTo:
-		hed:HED_0012325
-		and (hed:HED_0010306 value "8.2.0")
 
 Class: hed:HED_0012327
 	Annotations:
@@ -3181,7 +3625,7 @@ Class: hed:HED_0012339
 
 Class: hed:HED_0012340
 	Annotations:
-		dc:description "Various high-molecular-weight thermoplastic or thermosetting polymers that are capable of being molded, extruded, drawn, or otherwise shaped and then hardened into a form.",
+		dc:description "Various high-molecular-weight thermoplastic or thermo-setting polymers that are capable of being molded, extruded, drawn, or otherwise shaped and then hardened into a form.",
 		rdfs:label "Plastic"
 	SubClassOf:
 		hed:HED_0012336
@@ -3426,7 +3870,7 @@ Class: hed:HED_0012374
 
 Class: hed:HED_0012375
 	Annotations:
-		dc:description "A motor vehicle which, as its primary function, transports cargo rather than human passangers.",
+		dc:description "A motor vehicle which, as its primary function, transports cargo rather than human passengers.",
 		rdfs:label "Truck"
 	SubClassOf:
 		hed:HED_0012367
@@ -3694,7 +4138,7 @@ Class: hed:HED_0012412
 
 Class: hed:HED_0012413
 	Annotations:
-		dc:description "Something that pertains to an agent.",
+		dc:description "Something that pertains to or describes an agent.",
 		rdfs:label "Agent-property"
 	SubClassOf:
 		hed:HED_0012412
@@ -3848,7 +4292,7 @@ Class: hed:HED_0012434
 
 Class: hed:HED_0012435
 	Annotations:
-		dc:description "Feeling  satisfaction with things as they are.",
+		dc:description "Feeling satisfaction with things as they are.",
 		rdfs:label "Content"
 	SubClassOf:
 		hed:HED_0012430
@@ -3932,7 +4376,7 @@ Class: hed:HED_0012446
 
 Class: hed:HED_0012447
 	Annotations:
-		dc:description "No longer feeling pain, distress,  anxiety, or reassured.",
+		dc:description "No longer feeling pain, distress,anxiety, or reassured.",
 		rdfs:label "Relieved"
 	SubClassOf:
 		hed:HED_0012430
@@ -3957,6 +4401,21 @@ Class: hed:HED_0012450
 		rdfs:label "Agent-physiological-state"
 	SubClassOf:
 		hed:HED_0012414
+
+Class: hed:HED_0013226
+	Annotations:
+		dc:description "Related to menstruation.",
+		rdfs:label "Catamenial"
+	SubClassOf:
+		hed:HED_0012450
+
+Class: hed:HED_0013227
+	Annotations:
+		dc:description "Body temperature above the normal range.",
+		rdfs:label "Fever"
+	EquivalentTo:
+		hed:HED_0012450
+		and (hed:HED_0010105 some hed:HED_0012455)
 
 Class: hed:HED_0012451
 	Annotations:
@@ -4291,7 +4750,7 @@ Class: hed:HED_0012495
 
 Class: hed:HED_0012496
 	Annotations:
-		dc:description "An electrical artifact from the far-field potential from pulsation of the heart, timelocked to QRS complex.",
+		dc:description "An electrical artifact from the far-field potential from pulsation of the heart, time locked to QRS complex.",
 		rdfs:label "ECG-artifact"
 	SubClassOf:
 		hed:HED_0012494
@@ -4305,14 +4764,14 @@ Class: hed:HED_0012497
 
 Class: hed:HED_0012498
 	Annotations:
-		dc:description "Occular movements and blinks can result in artifacts in different types of data. In electrophysiology data, these can result transients and offsets the signal.",
+		dc:description "Ocular movements and blinks can result in artifacts in different types of data. In electrophysiology data, these can result transients and offsets the signal.",
 		rdfs:label "Eye-artifact"
 	SubClassOf:
 		hed:HED_0012494
 
 Class: hed:HED_0012499
 	Annotations:
-		dc:description "Artifact from eye blinking. In EEG, Fp1/Fp2 electrodes become electropositive with eye closure because the cornea is positively charged causing a negative deflection in Fp1/Fp2. If the eye blink is unilateral, consider prosthetic eye.",
+		dc:description "Artifact from eye blinking. In EEG, Fp1/Fp2 electrodes become electro-positive with eye closure because the cornea is positively charged causing a negative deflection in Fp1/Fp2. If the eye blink is unilateral, consider prosthetic eye.",
 		rdfs:label "Eye-blink-artifact"
 	SubClassOf:
 		hed:HED_0012498
@@ -4347,7 +4806,7 @@ Class: hed:HED_0012503
 
 Class: hed:HED_0012504
 	Annotations:
-		dc:description "Artifact from moving eyes up and down. In EEG, this causes positive potentials (50-100 micro V) with bi-frontal distribution, maximum at Fp1 and Fp2, when the eyeball rotated upward. The downward rotation of the eyeball was associated with the negative deflection. The time course of the deflections is similar to the time course of the eyeball movement.",
+		dc:description "Artifact from moving eyes up and down. In EEG, this causes positive potentials (50-100 micro V) with bi-frontal distribution, maximum at Fp1 and Fp2, when the eyeball rotates upward. The downward rotation of the eyeball is associated with the negative deflection. The time course of the deflections is similar to the time course of the eyeball movement.",
 		rdfs:label "Vertical-eye-movement-artifact"
 	SubClassOf:
 		hed:HED_0012500
@@ -4361,7 +4820,7 @@ Class: hed:HED_0012505
 
 Class: hed:HED_0012506
 	Annotations:
-		dc:description "A mechanical artifact from a pulsating blood vessel near a measurement site, cardiobalistic artfact.",
+		dc:description "A mechanical artifact from a pulsating blood vessel near a measurement site, cardio-ballistic artifact.",
 		rdfs:label "Pulse-artifact"
 	SubClassOf:
 		hed:HED_0012494
@@ -4410,7 +4869,7 @@ Class: hed:HED_0012512
 
 Class: hed:HED_0012513
 	Annotations:
-		dc:description "Artifact steming from mechanical ventilation. These can occur at the same rate as teh ventilator, but also have other patterns.",
+		dc:description "Artifact stemming from mechanical ventilation. These can occur at the same rate as the ventilator, but also have other patterns.",
 		rdfs:label "Artificial-ventilation-artifact"
 	SubClassOf:
 		hed:HED_0012512
@@ -4522,7 +4981,7 @@ Class: hed:HED_0012526
 
 Class: hed:HED_0012527
 	Annotations:
-		dc:description "Indicates the temporary interruption of  the operation a process and subsequently wait for a signal to continue.",
+		dc:description "Indicates the temporary interruption of the operation of a process and subsequently a wait for a signal to continue.",
 		rdfs:label "Pause"
 	SubClassOf:
 		hed:HED_0012523
@@ -4536,7 +4995,7 @@ Class: hed:HED_0012528
 
 Class: hed:HED_0012529
 	Annotations:
-		dc:description "A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.",
+		dc:description "A synchronization signal whose purpose is to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.",
 		rdfs:label "Time-sync"
 	SubClassOf:
 		hed:HED_0012523
@@ -4610,7 +5069,7 @@ Class: hed:HED_0012538
 
 Class: hed:HED_0012539
 	Annotations:
-		dc:description "Measures the ability of a sensor to  resolve features in the electromagnetic spectrum.",
+		dc:description "Measures the ability of a sensor to resolve features in the electromagnetic spectrum.",
 		rdfs:label "Spectral-resolution"
 	SubClassOf:
 		hed:HED_0012530
@@ -4625,7 +5084,7 @@ Class: hed:HED_0012540
 
 Class: hed:HED_0012541
 	Annotations:
-		dc:description "Measures the ability of a sensor to  resolve features in time.",
+		dc:description "Measures the ability of a sensor to resolve features in time.",
 		rdfs:label "Temporal-resolution"
 	SubClassOf:
 		hed:HED_0012530
@@ -4907,7 +5366,7 @@ Class: hed:HED_0012576
 
 Class: hed:HED_0012577
 	Annotations:
-		dc:description "Information exists but is not provided or is partially obscured due to security,  privacy, or other concerns.",
+		dc:description "Information exists but is not provided or is partially obscured due to security,privacy, or other concerns.",
 		rdfs:label "Masked"
 	EquivalentTo:
 		hed:HED_0012564
@@ -5523,7 +5982,7 @@ Class: hed:HED_0012654
 
 Class: hed:HED_0012655
 	Annotations:
-		dc:description "A scalar measure of the rate of movement of the object expressed either as the distance travelled divided by the time taken (average speed) or the rate of change of position with respect to time at a particular point (instantaneous speed). The direction of change should be given separately.",
+		dc:description "A scalar measure of the rate of movement of the object expressed either as the distance traveled divided by the time taken (average speed) or the rate of change of position with respect to time at a particular point (instantaneous speed). The direction of change should be given separately.",
 		rdfs:label "Speed"
 	SubClassOf:
 		hed:HED_0012644
@@ -5598,6 +6057,38 @@ Class: hed:HED_0012664
 		rdfs:label "Position"
 	SubClassOf:
 		hed:HED_0012659
+
+Class: hed:HED_0012326
+	Annotations:
+		dc:description "A location identifier based on clock-face numbering or anatomic subregion. Replaced by Clock-face-position.",
+		rdfs:label "Clock-face"
+	EquivalentTo:
+		hed:HED_0012664
+		and (hed:HED_0010306 value "8.2.0")
+
+Class: hed:HED_0013228
+	Annotations:
+		rdfs:label "Clock-face-#",
+		hed:HED_0010503 true
+	EquivalentTo:
+		hed:HED_0012326
+		and (hed:HED_0010306 value "8.2.0")
+		and (hed:HED_0010108 some hed:HED_0011303)
+
+Class: hed:HED_0013229
+	Annotations:
+		dc:description "A location identifier based on clock-face numbering or anatomic subregion. As an object, just use the tag Clock.",
+		rdfs:label "Clock-face-position"
+	SubClassOf:
+		hed:HED_0012664
+
+Class: hed:HED_0013230
+	Annotations:
+		rdfs:label "Clock-face-position-#",
+		hed:HED_0010503 true
+	EquivalentTo:
+		hed:HED_0013229
+		and (hed:HED_0010108 some hed:HED_0011303)
 
 Class: hed:HED_0012665
 	Annotations:
@@ -5792,7 +6283,8 @@ Class: hed:HED_0012688
 Class: hed:HED_0012689
 	Annotations:
 		dc:description "The time at which an event start time is delayed from the current onset time. This tag defines the start time of an event of temporal extent and may be used with the Duration tag.",
-		rdfs:label "Delay"
+		rdfs:label "Delay",
+		hed:HED_0010501 true
 	EquivalentTo:
 		hed:HED_0012688
 		and (hed:HED_0010315 value true)
@@ -5811,7 +6303,8 @@ Class: hed:HED_0012690
 Class: hed:HED_0012691
 	Annotations:
 		dc:description "The period of time during which an event occurs. This tag defines the end time of an event of temporal extent and may be used with the Delay tag.",
-		rdfs:label "Duration"
+		rdfs:label "Duration",
+		hed:HED_0010501 true
 	EquivalentTo:
 		hed:HED_0012688
 		and (hed:HED_0010315 value true)
@@ -6135,7 +6628,7 @@ Class: hed:HED_0012732
 
 Class: hed:HED_0012733
 	Annotations:
-		dc:description "Uses  a random probability distribution or pattern that may be analysed statistically but may not be predicted precisely to determine future states.",
+		dc:description "Uses a random probability distribution or pattern that may be analyzed statistically but may not be predicted precisely to determine future states.",
 		rdfs:label "Stochastic"
 	EquivalentTo:
 		hed:HED_0012718
@@ -6249,7 +6742,7 @@ Class: hed:HED_0012748
 
 Class: hed:HED_0012749
 	Annotations:
-		dc:description "Tracts of land covered  with concrete, asphalt, stones, or bricks.",
+		dc:description "Tracts of land covered with concrete, asphalt, stones, or bricks.",
 		rdfs:label "Paved-terrain"
 	SubClassOf:
 		hed:HED_0012742
@@ -6263,7 +6756,7 @@ Class: hed:HED_0012750
 
 Class: hed:HED_0012751
 	Annotations:
-		dc:description "Tracts of land arranged in a sloping  or inclined position.",
+		dc:description "Tracts of land arranged in a sloping or inclined position.",
 		rdfs:label "Sloped-terrain"
 	SubClassOf:
 		hed:HED_0012742
@@ -7120,7 +7613,7 @@ Class: hed:HED_0012862
 
 Class: hed:HED_0012863
 	Annotations:
-		dc:description "One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp.",
+		dc:description "One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,check:https://www.w3schools.com/colors/colors_groups.asp.",
 		rdfs:label "CSS-color"
 	SubClassOf:
 		hed:HED_0012862
@@ -8602,7 +9095,7 @@ Class: hed:HED_0013070
 
 Class: hed:HED_0013071
 	Annotations:
-		dc:description "An action that cannot be distinguished between two or more possibibities in the current context. This tag might be applied when an outside evaluator or a classification algorithm cannot determine a definitive result.",
+		dc:description "An action that cannot be distinguished between two or more possibilities in the current context. This tag might be applied when an outside evaluator or a classification algorithm cannot determine a definitive result.",
 		rdfs:label "Indeterminate-action"
 	EquivalentTo:
 		hed:HED_0013063
@@ -8853,7 +9346,7 @@ Class: hed:HED_0013104
 
 Class: hed:HED_0013105
 	Annotations:
-		dc:description "A person or thing that distracts or a plausible but incorrect option in a multiple-choice question. In pyschological studies this is sometimes referred to as a foil.",
+		dc:description "A person or thing that distracts or a plausible but incorrect option in a multiple-choice question. In psychological studies this is sometimes referred to as a foil.",
 		rdfs:label "Distractor"
 	SubClassOf:
 		hed:HED_0013103
@@ -9194,7 +9687,7 @@ Class: hed:HED_0013151
 
 Class: hed:HED_0013152
 	Annotations:
-		dc:description "(A, (Unrelated-to, B)) indicates that A is not related to B.  For example, A is not related to Task.",
+		dc:description "(A, (Unrelated-to, B)) indicates that A is not related to B.For example, A is not related to Task.",
 		rdfs:label "Unrelated-to"
 	SubClassOf:
 		hed:HED_0013137
@@ -9580,121 +10073,6 @@ Class: hed:HED_0013199
 
 
 
-Class: hed:HED_0011500
-	Annotations:
-		rdfs:label "accelerationUnits"
-	EquivalentTo:
-		hed:HED_0010006
-		and (hed:HED_0010104 some hed:HED_0011600)
-
-Class: hed:HED_0011501
-	Annotations:
-		rdfs:label "angleUnits"
-	EquivalentTo:
-		hed:HED_0010006
-		and (hed:HED_0010104 some hed:HED_0011601)
-
-Class: hed:HED_0011502
-	Annotations:
-		rdfs:label "areaUnits"
-	EquivalentTo:
-		hed:HED_0010006
-		and (hed:HED_0010104 some hed:HED_0011604)
-
-Class: hed:HED_0011503
-	Annotations:
-		dc:description "Units indicating the worth of something.",
-		rdfs:label "currencyUnits"
-	EquivalentTo:
-		hed:HED_0010006
-		and (hed:HED_0010104 some hed:HED_0011606)
-
-Class: hed:HED_0011504
-	Annotations:
-		rdfs:label "electricPotentialUnits"
-	EquivalentTo:
-		hed:HED_0010006
-		and (hed:HED_0010104 some hed:0011644)
-
-Class: hed:HED_0011505
-	Annotations:
-		rdfs:label "frequencyUnits"
-	EquivalentTo:
-		hed:HED_0010006
-		and (hed:HED_0010104 some hed:HED_0011612)
-
-Class: hed:HED_0011506
-	Annotations:
-		rdfs:label "intensityUnits"
-	EquivalentTo:
-		hed:HED_0010006
-		and (hed:HED_0010104 some hed:HED_0011613)
-
-Class: hed:HED_0011507
-	Annotations:
-		rdfs:label "jerkUnits"
-	EquivalentTo:
-		hed:HED_0010006
-		and (hed:HED_0010104 some hed:HED_0011616)
-
-Class: hed:HED_0011508
-	Annotations:
-		rdfs:label "magneticFieldUnits"
-	EquivalentTo:
-		hed:HED_0010006
-		and (hed:HED_0010104 some hed:HED_0011618)
-
-Class: hed:HED_0011509
-	Annotations:
-		rdfs:label "memorySizeUnits"
-	EquivalentTo:
-		hed:HED_0010006
-		and (hed:HED_0010104 some hed:HED_0011620)
-
-Class: hed:HED_0011510
-	Annotations:
-		rdfs:label "physicalLengthUnits"
-	EquivalentTo:
-		hed:HED_0010006
-		and (hed:HED_0010104 some hed:HED_0011625)
-
-Class: hed:HED_0011511
-	Annotations:
-		rdfs:label "speedUnits"
-	EquivalentTo:
-		hed:HED_0010006
-		and (hed:HED_0010104 some hed:HED_0011627)
-
-Class: hed:HED_0011512
-	Annotations:
-		rdfs:label "temperatureUnits"
-	EquivalentTo:
-		hed:HED_0010006
-		and (hed:HED_0010104 some hed:HED_0011630)
-
-Class: hed:HED_0011513
-	Annotations:
-		rdfs:label "timeUnits"
-	EquivalentTo:
-		hed:HED_0010006
-		and (hed:HED_0010104 some hed:HED_0011634)
-
-Class: hed:HED_0011514
-	Annotations:
-		rdfs:label "volumeUnits"
-	EquivalentTo:
-		hed:HED_0010006
-		and (hed:HED_0010104 some hed:HED_0011639)
-
-Class: hed:HED_0011515
-	Annotations:
-		rdfs:label "weightUnits"
-	EquivalentTo:
-		hed:HED_0010006
-		and (hed:HED_0010104 some hed:HED_0011640)
-
-
-
 Class: hed:HED_0011600
 	Annotations:
 		rdfs:label "m-per-s^2"
@@ -9781,7 +10159,7 @@ Class: hed:HED_0011608
 
 Class: hed:HED_0011609
 	Annotations:
-		rdfs:label "v"
+		rdfs:label "V"
 	EquivalentTo:
 		hed:HED_0010007
 		and (hed:HED_0010311 value true)
@@ -9789,10 +10167,10 @@ Class: hed:HED_0011609
 		and (hed:HED_0010305 value 0.000001)
 		and (hed:HED_0000103 some hed:HED_0011504)
 
-Class: hed:0011644
+Class: hed:HED_0011644
 	Annotations:
 		dc:description "Added as a direct unit because it is the default unit.",
-		rdfs:label "uv"
+		rdfs:label "uV"
 	EquivalentTo:
 		hed:HED_0010007
 		and (hed:HED_0010305 value 1.0)
@@ -9800,7 +10178,7 @@ Class: hed:0011644
 
 Class: hed:HED_0011610
 	Annotations:
-		rdfs:label "Volt"
+		rdfs:label "volt"
 	EquivalentTo:
 		hed:HED_0010007
 		and (hed:HED_0010311 value true)
@@ -10040,7 +10418,7 @@ Class: hed:HED_0011635
 		and (hed:HED_0010305 value 86400)
 		and (hed:HED_0000103 some hed:HED_0011513)
 
-Class: hed:HED_00645
+Class: hed:HED_0011645
 	Annotations:
 		rdfs:label "month"
 	EquivalentTo:
@@ -10117,6 +10495,121 @@ Class: hed:HED_0011643
 		hed:HED_0010007
 		and (hed:HED_0010305 value 453.592)
 		and (hed:HED_0000103 some hed:HED_0011515)
+
+
+
+Class: hed:HED_0011500
+	Annotations:
+		rdfs:label "accelerationUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011600)
+
+Class: hed:HED_0011501
+	Annotations:
+		rdfs:label "angleUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011601)
+
+Class: hed:HED_0011502
+	Annotations:
+		rdfs:label "areaUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011604)
+
+Class: hed:HED_0011503
+	Annotations:
+		dc:description "Units indicating the worth of something.",
+		rdfs:label "currencyUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011606)
+
+Class: hed:HED_0011504
+	Annotations:
+		rdfs:label "electricPotentialUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011644)
+
+Class: hed:HED_0011505
+	Annotations:
+		rdfs:label "frequencyUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011612)
+
+Class: hed:HED_0011506
+	Annotations:
+		rdfs:label "intensityUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011613)
+
+Class: hed:HED_0011507
+	Annotations:
+		rdfs:label "jerkUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011616)
+
+Class: hed:HED_0011508
+	Annotations:
+		rdfs:label "magneticFieldUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011618)
+
+Class: hed:HED_0011509
+	Annotations:
+		rdfs:label "memorySizeUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011620)
+
+Class: hed:HED_0011510
+	Annotations:
+		rdfs:label "physicalLengthUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011625)
+
+Class: hed:HED_0011511
+	Annotations:
+		rdfs:label "speedUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011627)
+
+Class: hed:HED_0011512
+	Annotations:
+		rdfs:label "temperatureUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011630)
+
+Class: hed:HED_0011513
+	Annotations:
+		rdfs:label "timeUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011634)
+
+Class: hed:HED_0011514
+	Annotations:
+		rdfs:label "volumeUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011639)
+
+Class: hed:HED_0011515
+	Annotations:
+		rdfs:label "weightUnits"
+	EquivalentTo:
+		hed:HED_0010006
+		and (hed:HED_0010104 some hed:HED_0011640)
 
 
 
@@ -10530,7 +11023,7 @@ Class: hed:HED_0011304
 
 Class: hed:HED_0011305
 	Annotations:
-		dc:description "Values that have the characteristics of text such as in descriptions. The text characters include printable characters (32 <= ASCII  < 127) excluding comma, square bracket and curly braces as well as nonascii (ASCII codes > 127).",
+		dc:description "Values that have the characteristics of text such as in descriptions. The text characters include printable characters (32 <= ASCII< 127) excluding comma, square bracket and curly braces as well as non ASCII (ASCII codes > 127).",
 		rdfs:label "textClass"
 	EquivalentTo:
 		hed:HED_0010009

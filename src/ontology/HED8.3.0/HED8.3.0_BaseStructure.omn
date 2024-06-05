@@ -1,0 +1,36 @@
+Class: hed:HED_0010004
+    Annotations: 
+        rdfs:label "StandardSchema"  
+    EquivalentTo: 
+        hed:HED_0000004
+         and (hed:HED_0000101 some hed:HED_0010010)
+         and (hed:HED_0000101 some hed:HED_0010011)
+         and (hed:HED_0000101 some hed:HED_0010012)
+
+Class: hed:HED_0010006
+    Annotations:
+        rdfs:label "StandardUnitClass"
+    EquivalentTo:
+        hed:HED_0000006
+         and (hed:HED_0000102 some hed:HED_0010004)
+
+Class: hed:HED_0010007
+    Annotations:
+        rdfs:label "StandardUnit"
+    EquivalentTo:
+        hed:HED_0000007
+         and (hed:HED_0000102 some hed:HED_0010004)
+
+Class: hed:HED_0010008
+    Annotations:
+        rdfs:label "StandardUnitModifier"
+    EquivalentTo:
+        hed:HED_0000008
+         and (hed:HED_0000102 some hed:HED_0010004)
+
+Class: hed:HED_0010009
+    Annotations:
+        rdfs:label "StandardValueClass"
+    EquivalentTo:
+        hed:HED_0000009
+         and (hed:HED_0000102 some hed:HED_0010004)

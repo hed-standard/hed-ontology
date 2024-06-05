@@ -18,11 +18,17 @@ def merge_list(onto_files, out_path):
 
 
 if __name__ == '__main__':
-    onto_list = ['Base_schema.omn', 'Standard_AnnotationProperty.omn', 'Standard_AttributeProperty.omn',
-                 'Standard_DataProperty.omn', 'Standard_ObjectProperty.omn', 'Standard_Structure.omn',
-                 'Standard_Tag.omn', 'Standard_UnitClass.omn', 'Standard_Unit.omn', 'Standard_UnitModifier.omn',
-                 'Standard_ValueClass.omn']
-    generated_path = '../ontology/generated'
-    output_path = os.path.realpath(os.path.join('../ontology', 'hed-merged.omn'))
-    onto_paths = [os.path.realpath(os.path.join(generated_path, filename)) for filename in onto_list]
+    schema_version = 'HED8.3.0'
+    base_path = os.path.realpath('../ontology/base/hed_schema.omn')
+    onto_list = ['_AnnotationProperty.omn', '_AttributeProperty.omn',
+                 '_DataProperty.omn', '_ObjectProperty.omn', '_Structure.omn',
+                 '_Tag.omn', '_Unit.omn', '_UnitClass.omn', '_UnitModifier.omn',
+                 '_ValueClass.omn']
+    version_path = '../ontology/' + schema_version
+    input_path = '../ontology'
+    output_path = os.path.realpath(os.path.join('../ontology', schema_version + '-merged.omn'))
+    onto_paths = [os.path.realpath(os.path.join(version_path, schema_version+filename)) for filename in onto_list]
+    onto_paths = [base_path] + onto_paths
     merge_list(onto_paths, output_path)
+    print(output_path)
+    print(str(onto_paths))
