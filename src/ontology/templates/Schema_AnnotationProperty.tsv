@@ -1,2 +1,0 @@
-hedId	rdfs:label	Type	omn:Domain	omn:Range	omn:Characteristics	Properties	dc:description	rdfs:comment
-HED_0000500	hedId	AnnotationProperty	HedElement	xsd:string		elementDomain, stringRange	The unique identifier of this element in the HED namespace.	Maps HedElement into string.
