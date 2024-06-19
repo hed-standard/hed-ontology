@@ -1,56 +1,63 @@
+# Hierarchical Event Descriptor Ontology
 
-![Build Status](https://github.com/hed-standard/hed-ontology-test/actions/workflows/qc.yml/badge.svg)
-# Hierarchical Event Descriptors
+HED (Hierarchical Event Descriptors) is a standardized vocabulary and supporting infrastructure for 
+annotating experimental metadata and mapping it into the experimental timeline.
+See [**HED resources**](https://www.hed-resources.org/en/latest/index.html) for more information about the
+HED project.
 
-Description: None
+## HED schemas and the HED ontology
 
-More information can be found at http://obofoundry.org/ontology/hed
+HED itself consists of a standard vocabulary the (HED standard schema) and specialized
+subfield vocabularies (HED library schemas).
+These vocabularies are developed and maintained in the 
+[**hed-schemas**](https://github.com/hed-standard/hed-schamas) GitHub repository.
 
-## Versions
+The HED ontology is a representation of the HED schemas as a formal ontology of the HED information space.
+Releases of new HED schemas trigger a generation of a new HED ontology 
+in this repository ([**hed-ontology**](https://github.com/hed-standard/hed-ontology)), 
+and maintainers of this repository do a new release.
+The correspondence between the HED schemas and HED ontology is explained more fully in
+[**The HED ontology**](https://hed-specification.readthedocs.io/en/latest/08_HED_ontology.html)
+chapter of the [**hed-specification](https://githum.com/hed-standard/hed-specification).
 
-### Stable release versions
+## HED namespaces and IRIs
 
-The latest version of the ontology can always be found at:
+Each HED entity in the HED information space has a globally unique identifier
+of the form `HED_xxxxxxx` where `xxxxxxxx` is a 7-digit number.
 
-http://purl.obolibrary.org/obo/hed.owl
+The identifier namespace is assigned as follows:
 
-(note this will not show up until the request has been approved by obofoundry.org)
-
-### Editors' version
-
-Editors of this ontology should use the edit version, [src/ontology/hed-edit.owl](src/ontology/scratch/hed-edit.owl)
-
-## Contact
-
-Please use this GitHub repository's [Issue tracker](https://github.com/hed-standard/hed-ontology-test/issues) to request new terms/classes or report errors or specific concerns related to the ontology.
-
-## Acknowledgements
-
-This ontology repository was created using the [Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit).
+| Schema                  | ID Range           | Description                          |  
+|-------------------------|--------------------|--------------------------------------| 
+| Structure               | 0000001 - 0009999  | Structure elements for HED ontology. | 
+| Standard                | 0010001 -  0039999 | Standard annotation of experiments.  |
+| Score                   | 0042000-  0059999  | Annotation by clinical neurologists. | 
+| Lang | 0062000 -  0079999 | Annotation of language stimuli.      |
 
 
-Requesting a new term or suggesting an edit of existing terms
+## Ontology versions
 
-We welcome your contribution to the ontology. If you notice a term is missing or would like to suggest any update (definition, name, synonym, position) of an existing term, please open a new issue following the steps below to submit your request.
+| Version | Contains | Files                                                          | Description                       |
+| ------- | --------|----------------------------------------------------------------|-----------------------------------|
+| 2024-10-06 | 8.3.0  | `hed.owl`<br/>`hed-standard.owl` | Contains only the standard schema |
 
-1. Go to the **Issues** tab
-2. Open a **New issue**
-3. Fill the issue with the following information:
 
-|               | Mandatory information | Optional information |
-| ------------- | ------------- | ------------- |
-| Requesting a new term | <ul><li>Title: Start by **NTR** followed by your term (i.e. NTR:Tillage)</li><li>Definition of the new term</li><li>Link to the definition source</li></ul> |<ul><li>Position of the term in the ontology</li><li>Link to other terms</li><li>Possible synonyms for the new term</li><li>Your ORCID, so we can cite you as the creator of the term</li>|
-|Updating the definition of an existing term | <ul><li>Title: Start by **Edit def** followed by the term to edit (i.e. Edit def:Irrigation)</li><li>URI of the existing term</li><li> New definition</li><li>Link to the new definition source</li></ul> |<ul><li>Your ORCID, so we can cite you as contributor to the term</li>|
-|Adding a synonym | <ul><li>Title: Start by **Synonym** followed by the existing term to add the synonym to (i.e. Synonym:Baler)</li><li>URI of the existing term</li><li> Synonym to add</li></ul> |<ul><li>Link to sources supporting your edit</li><li>Your ORCID, so we can cite you as contributor to the term</li>|
-|Other edits of an existing term | <ul><li>Title: Start by **Edit** followed by the term to edit (i.e. Edit:Irrigation)</li><li>URI of the existing term</li><li>Precise the edit you would like to make</li></ul> |<ul><li>Link to sources supporting your edit</li><li>Your ORCID, so we can cite you as the creator of the term</li>|
+### PURLS
+These are the PURL values relative to the 
 
-5. Click on **Submit new issue** to validate your entry. We will get back to you soon!
+| PURL | Relative path                          |  
+| ---- |----------------------------------------|  
+| [https://purl.org/hed/hed.owl](https://purl.org/hed/hed.owl) | `./hed.owl`                              |  
+| [https://purl.org/hed/hed-standard.owl](https://purl.org/hed/hed-standard.owl) | `./hed-standard.owl`                     |  
+| [https://purl.org/hed/releases/2024-10-06/hed.owl](https://purl.org/hed/releases/2024-10-06/hed.owl) | `./releases/2024-10-06/hed.owl`          |  
+| [https://purl.org/hed/releases/2024-10-06/hed.owl](https://purl.org/hed/releases/2024-10-06/hed-standard.owl) | `./releases/2024-10-06/hed-standard.owl` |  
+
 
 # Contact
 
-In general, posts to our GitHub issue tracker are recommended, however, if needed, you can contact the ontology curator by sending an e-mail [here](mailto:c.aubert@cgiar.org).
+In general, posts to our GitHub issue tracker are recommended, however, 
+if needed, you can contact the ontology curator by sending an e-mail 
+[mailto:hed-maintainers@gmail.com](mailto:hed-maintainers@gmail.com).
 
 # License
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Agronomy Ontology</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">https://github.com/AgriculturalSemantics/agro</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
-
-# Cite as
