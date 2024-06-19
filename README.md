@@ -45,11 +45,11 @@ The identifier namespace is assigned as follows:
 ### PURLS
 These are the PURL values relative to the 
 
-| PURL | Relative path                          |  
-| ---- |----------------------------------------|  
-| [https://purl.org/hed/hed.owl](https://purl.org/hed/hed.owl) | `./hed.owl`                              |  
-| [https://purl.org/hed/hed-standard.owl](https://purl.org/hed/hed-standard.owl) | `./hed-standard.owl`                     |  
-| [https://purl.org/hed/releases/2024-10-06/hed.owl](https://purl.org/hed/releases/2024-10-06/hed.owl) | `./releases/2024-10-06/hed.owl`          |  
+| PURL | Relative path    |  
+| ---- |------------------|  
+| [https://purl.org/hed/hed.owl](https://purl.org/hed/hed.owl) | `./hed.owl`      |  
+| [https://purl.org/hed/hed-standard.owl](https://purl.org/hed/hed-standard.owl) | `./hed-standard.owl` |  
+| [https://purl.org/hed/releases/2024-10-06/hed.owl](https://purl.org/hed/releases/2024-10-06/hed.owl) | `./releases/2024-10-06/hed.owl` |  
 | [https://purl.org/hed/releases/2024-10-06/hed.owl](https://purl.org/hed/releases/2024-10-06/hed-standard.owl) | `./releases/2024-10-06/hed-standard.owl` |  
 
 
@@ -60,4 +60,4 @@ if needed, you can contact the ontology curator by sending an e-mail
 [mailto:hed-maintainers@gmail.com](mailto:hed-maintainers@gmail.com).
 
 # License
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Agronomy Ontology</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">https://github.com/AgriculturalSemantics/agro</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
