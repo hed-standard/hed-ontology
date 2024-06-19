@@ -45,12 +45,12 @@ The identifier namespace is assigned as follows:
 ### PURLS
 These are the PURL values relative to the 
 
-| PURL                                                                                                          | Relative path                            |  
-|---------------------------------------------------------------------------------------------------------------|------------------------------------------|  
-| [https://purl.org/hed/hed.owl](https://purl.org/hed/hed.owl)                                                  | `./hed.owl`                              |  
-| [https://purl.org/hed/hed-standard.owl](https://purl.org/hed/hed-standard.owl)                                | `./hed-standard.owl`                     |  
-| [https://purl.org/hed/releases/2024-06-10/hed.owl](https://purl.org/hed/releases/2024-06-10/hed.owl)          | `./releases/2024-06-10/hed.owl`          |  
-| [https://purl.org/hed/releases/2024-06-10/hed.owl](https://purl.org/hed/releases/2024-06-10/hed-standard.owl) | `./releases/2024-06-10/hed-standard.owl` |  
+| PURL                                                                                                                   | Relative path                            |  
+|------------------------------------------------------------------------------------------------------------------------|------------------------------------------|  
+| [https://purl.org/hed/hed.owl](https://purl.org/hed/hed.owl)                                                           | `./hed.owl`                              |  
+| [https://purl.org/hed/hed-standard.owl](https://purl.org/hed/hed-standard.owl)                                         | `./hed-standard.owl`                     |  
+| [https://purl.org/hed/releases/2024-06-10/hed.owl](https://purl.org/hed/releases/2024-06-10/hed.owl)                   | `./releases/2024-06-10/hed.owl`          |  
+| [https://purl.org/hed/releases/2024-06-10/hed-standard.owl](https://purl.org/hed/releases/2024-06-10/hed-standard.owl) | `./releases/2024-06-10/hed-standard.owl` |  
 
 
 # Contact
