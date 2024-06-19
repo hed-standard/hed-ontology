@@ -37,20 +37,20 @@ The identifier namespace is assigned as follows:
 
 ## Ontology versions
 
-| Version | Contains | Files                                                          | Description                       |
-| ------- | --------|----------------------------------------------------------------|-----------------------------------|
-| 2024-10-06 | 8.3.0  | `hed.owl`<br/>`hed-standard.owl` | Contains only the standard schema |
+| Version    | Contains | Files                                                          | Description                       |
+|------------| --------|----------------------------------------------------------------|-----------------------------------|
+| 2024-06-10 | 8.3.0  | `hed.owl`<br/>`hed-standard.owl` | Contains only the standard schema |
 
 
 ### PURLS
 These are the PURL values relative to the 
 
-| PURL | Relative path    |  
-| ---- |------------------|  
-| [https://purl.org/hed/hed.owl](https://purl.org/hed/hed.owl) | `./hed.owl`      |  
-| [https://purl.org/hed/hed-standard.owl](https://purl.org/hed/hed-standard.owl) | `./hed-standard.owl` |  
-| [https://purl.org/hed/releases/2024-10-06/hed.owl](https://purl.org/hed/releases/2024-10-06/hed.owl) | `./releases/2024-10-06/hed.owl` |  
-| [https://purl.org/hed/releases/2024-10-06/hed.owl](https://purl.org/hed/releases/2024-10-06/hed-standard.owl) | `./releases/2024-10-06/hed-standard.owl` |  
+| PURL                                                                                                          | Relative path                            |  
+|---------------------------------------------------------------------------------------------------------------|------------------------------------------|  
+| [https://purl.org/hed/hed.owl](https://purl.org/hed/hed.owl)                                                  | `./hed.owl`                              |  
+| [https://purl.org/hed/hed-standard.owl](https://purl.org/hed/hed-standard.owl)                                | `./hed-standard.owl`                     |  
+| [https://purl.org/hed/releases/2024-06-10/hed.owl](https://purl.org/hed/releases/2024-06-10/hed.owl)          | `./releases/2024-06-10/hed.owl`          |  
+| [https://purl.org/hed/releases/2024-06-10/hed.owl](https://purl.org/hed/releases/2024-06-10/hed-standard.owl) | `./releases/2024-06-10/hed-standard.owl` |  
 
 
 # Contact

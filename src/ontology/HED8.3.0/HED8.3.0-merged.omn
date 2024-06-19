@@ -1,7 +1,7 @@
 
 Prefix: dc: <http://purl.org/dc/elements/1.1/>
 Prefix: foaf: <http://xmlns.com/foaf/0.1/>
-Prefix: hed: <http://purl.org/hed/releases/working/hed-schema#>
+Prefix: hed: <http://purl.org/hed/releases/2024-06-10/hed#>
 Prefix: owl: <http://www.w3.org/2002/07/owl#>
 Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -11,8 +11,8 @@ Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
 
 
 
-Ontology: <http://purl.org/hed/hed-schema#>
-<http://purl.org/hed/releases/working/hed-schema.owl>
+Ontology: <http://purl.org/hed/hed#>
+<http://purl.org/hed/releases/2024-06-10/hed.owl>
 
 Annotations:
     dc:contributor "Ian Callanan",
@@ -24,7 +24,7 @@ Annotations:
     terms:license <http://creativecommons.org/licenses/by/4.0/>,
     rdfs:label "HED Schema Ontology",
     rdfs:seeAlso <https://github.com/hed-standard/hed-ontology>,
-    owl:versionInfo "releases/working",
+    owl:versionInfo "releases/2024-06-10",
     foaf:homepage <https://www.hedtags.org>
 
 
@@ -621,6 +621,44 @@ Class: owl:Thing
     
 
 
+Class: hed:HED_0010004
+    Annotations: 
+        rdfs:label "StandardSchema"  
+    EquivalentTo: 
+        hed:HED_0000004
+         and (hed:HED_0000101 some hed:HED_0010010)
+         and (hed:HED_0000101 some hed:HED_0010011)
+         and (hed:HED_0000101 some hed:HED_0010012)
+
+Class: hed:HED_0010006
+    Annotations:
+        rdfs:label "StandardUnitClass"
+    EquivalentTo:
+        hed:HED_0000006
+         and (hed:HED_0000102 some hed:HED_0010004)
+
+Class: hed:HED_0010007
+    Annotations:
+        rdfs:label "StandardUnit"
+    EquivalentTo:
+        hed:HED_0000007
+         and (hed:HED_0000102 some hed:HED_0010004)
+
+Class: hed:HED_0010008
+    Annotations:
+        rdfs:label "StandardUnitModifier"
+    EquivalentTo:
+        hed:HED_0000008
+         and (hed:HED_0000102 some hed:HED_0010004)
+
+Class: hed:HED_0010009
+    Annotations:
+        rdfs:label "StandardValueClass"
+    EquivalentTo:
+        hed:HED_0000009
+         and (hed:HED_0000102 some hed:HED_0010004)
+
+
 AnnotationProperty: hed:HED_0010500
 	Annotations:
 		dc:description "The unique identifier of this element in the HED namespace.",
@@ -969,43 +1007,6 @@ ObjectProperty: hed:HED_0010108
 
 
 
-
-Class: hed:HED_0010004
-    Annotations: 
-        rdfs:label "StandardSchema"  
-    EquivalentTo: 
-        hed:HED_0000004
-         and (hed:HED_0000101 some hed:HED_0010010)
-         and (hed:HED_0000101 some hed:HED_0010011)
-         and (hed:HED_0000101 some hed:HED_0010012)
-
-Class: hed:HED_0010006
-    Annotations:
-        rdfs:label "StandardUnitClass"
-    EquivalentTo:
-        hed:HED_0000006
-         and (hed:HED_0000102 some hed:HED_0010004)
-
-Class: hed:HED_0010007
-    Annotations:
-        rdfs:label "StandardUnit"
-    EquivalentTo:
-        hed:HED_0000007
-         and (hed:HED_0000102 some hed:HED_0010004)
-
-Class: hed:HED_0010008
-    Annotations:
-        rdfs:label "StandardUnitModifier"
-    EquivalentTo:
-        hed:HED_0000008
-         and (hed:HED_0000102 some hed:HED_0010004)
-
-Class: hed:HED_0010009
-    Annotations:
-        rdfs:label "StandardValueClass"
-    EquivalentTo:
-        hed:HED_0000009
-         and (hed:HED_0000102 some hed:HED_0010004)
 
 Class: hed:HED_0010010
     Annotations:
