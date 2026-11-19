@@ -172,5 +172,8 @@ CLAUDE.local.md
 .claude/settings.local.json
 # Real tokens and machine values
 .env
+.envrc
+# Local virtual environment
+.venv
 # Working notes, plans, and decision records (local only, never committed)
 .status/

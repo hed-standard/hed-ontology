@@ -10,9 +10,9 @@ def merge_list(onto_files, out_path):
 
     """
 
-    with open(out_path, 'w') as outfile:
+    with open(out_path, 'w', encoding='utf-8', newline='\n') as outfile:
         for f_name in onto_files:
-            with open(f_name, 'r') as infile:
+            with open(f_name, 'r', encoding='utf-8') as infile:
                 outfile.write(infile.read())
                 outfile.write('\n\n')
 
