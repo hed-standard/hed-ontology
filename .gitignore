@@ -162,3 +162,15 @@ Desktop.ini
 # Project specific
 schema_cache_test/
 hed_cache/
+
+#################
+## Assistant and local working files
+#################
+# Personal per-repo Claude Code notes
+CLAUDE.local.md
+# Personal per-repo settings
+.claude/settings.local.json
+# Real tokens and machine values
+.env
+# Working notes, plans, and decision records (local only, never committed)
+.status/

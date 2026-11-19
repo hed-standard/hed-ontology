@@ -10,7 +10,7 @@ HED project.
 HED itself consists of a standard vocabulary the (HED standard schema) and specialized
 subfield vocabularies (HED library schemas).
 These vocabularies are developed and maintained in the 
-[**hed-schemas**](https://github.com/hed-standard/hed-schamas) GitHub repository.
+[**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
 The HED ontology is a representation of the HED schemas as a formal ontology of the HED information space.
 Releases of new HED schemas trigger a generation of a new HED ontology 
@@ -18,7 +18,7 @@ in this repository ([**hed-ontology**](https://github.com/hed-standard/hed-ontol
 and maintainers of this repository do a new release.
 The correspondence between the HED schemas and HED ontology is explained more fully in
 [**The HED ontology**](https://hed-specification.readthedocs.io/en/latest/08_HED_ontology.html)
-chapter of the [**hed-specification](https://githum.com/hed-standard/hed-specification).
+chapter of the [**hed-specification**](https://github.com/hed-standard/hed-specification).
 
 ## HED namespaces and IRIs
 
