@@ -39,6 +39,7 @@ Test framework: none. This is a data repository; there is no test suite.
 - **ASCII only** in prose, code, comments, and filenames: `-` not em or en dashes, `->` not arrows, `...` not an ellipsis character, straight quotes. Exception: genuine data (author names, schema text, recorded API responses) keeps whatever characters it actually contains.
 - **Generated files keep their generated names.** Names like `HED8.3.0_Tag.omn` come from the schema version and from `hed_create_ontology`; do not rename them to lowercase.
 - **Line endings are LF, written as LF.** Code that writes a text file opens it with `newline='\n'` (and `encoding='utf-8'`), so the file is LF on every OS before git sees it. `.gitattributes` (`* text=auto eol=lf`) and the CI check are the backstop, not the mechanism.
+- A code comment or docstring that explains a rule cites its public source (a specification section, an issue). No comment or docstring cites a working ruling, a person, or a `.status/` decision or plan.
 
 ## Rules that are easy to get wrong
 
@@ -69,7 +70,7 @@ Referred to by name; none is vendored here, and a session that needs one must be
 ## Working agreements
 
 - IMPORTANT: every file written to `.status/` opens with a `For humans:` summary - three or four sentences, at the very top: what the file is and what a person needs to take from it. The same applies to a long answer in a session: lead with the conclusion.
-- IMPORTANT: temporary scripts, experiments, and one-off test files go in `.status/scratch/` - **never the repository root**. Delete them when the experiment ends. `scratch/` is cleaned when Kay asks; when she does, delete the files yourself.
+- IMPORTANT: temporary scripts, experiments, and one-off test files go in `.status/scratch/` - **never the repository root**. `scratch/` is cleaned only when the developer asks for a cleanup: list the files that will be deleted and ask whether it is okay to delete them, then delete exactly those files yourself.
 - IMPORTANT: ask before deleting, moving, or renaming anything under `.status/`. `README.md`, `plans/`, and `prompts/` are living documents: edit them freely, including whole-file rewrites, without asking (copy `README.md` to `scratch/` before rewriting it wholesale). Notes are write-once; `decisions.md` and `development_history.md` are append-only.
 - For a change spanning more than three files, write a plan to `.status/plans/` and stop for review before editing.
 - When you are guessing about an external API or data format, say so explicitly rather than assuming.
