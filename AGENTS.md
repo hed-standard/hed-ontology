@@ -39,7 +39,7 @@ Test framework: none. This is a data repository; there is no test suite.
 - **ASCII only** in prose, code, comments, and filenames: `-` not em or en dashes, `->` not arrows, `...` not an ellipsis character, straight quotes. Exception: genuine data (author names, schema text, recorded API responses) keeps whatever characters it actually contains.
 - **Generated files keep their generated names.** Names like `HED8.3.0_Tag.omn` come from the schema version and from `hed_create_ontology`; do not rename them to lowercase.
 - **Line endings are LF, written as LF.** Code that writes a text file opens it with `newline='\n'` (and `encoding='utf-8'`), so the file is LF on every OS before git sees it. `.gitattributes` (`* text=auto eol=lf`) and the CI check are the backstop, not the mechanism.
-- Code comments and docstrings state the rule and cite its public source (a specification section, an issue); never a working ruling, a person, or a `.status/` decision or plan.
+- A code comment or docstring that explains a rule cites its public source (a specification section, an issue). No comment or docstring cites a working ruling, a person, or a `.status/` decision or plan.
 
 ## Rules that are easy to get wrong
 
